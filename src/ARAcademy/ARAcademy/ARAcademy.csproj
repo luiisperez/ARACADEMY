@@ -168,6 +168,7 @@
     <Content Include="site\admin\images\bg-01.jpg" />
     <Content Include="site\admin\images\icons\favicon.ico" />
     <Content Include="site\admin\images\registro-bg.jpg" />
+    <Content Include="site\admin\images\registro.jpg" />
     <Content Include="site\admin\js\main.js" />
     <Content Include="site\admin\login.aspx" />
     <Content Include="site\admin\vendor\animate\animate.css" />
@@ -288,6 +289,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="controller\Command.cs" />
     <Compile Include="model\DAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="site\admin\login.aspx.cs">
@@ -495,9 +497,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="controller\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
