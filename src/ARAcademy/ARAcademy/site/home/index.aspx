@@ -82,7 +82,7 @@
     </header>
 
 
-    <div class="site-blocks-cover overlay bg-light" style="background-image: url('images/hero_bg_1.jpg'); " id="home-section">
+    <div class="site-blocks-cover overlay bg-light" style="background-image: url('images/header1.jpg'); " id="home-section">
 
       <div class="container">
         <div class="row justify-content-center">

@@ -235,6 +235,8 @@
     <Content Include="site\home\images\flaticon\svg\004-travel-3.svg" />
     <Content Include="site\home\images\flaticon\svg\005-travel-4.svg" />
     <Content Include="site\home\images\flaticon\svg\006-food.svg" />
+    <Content Include="site\home\images\header1.jpg" />
+    <Content Include="site\home\images\header2.jpg" />
     <Content Include="site\home\images\hero_bg_1.jpg" />
     <Content Include="site\home\images\hero_bg_2.jpg" />
     <Content Include="site\home\images\img_1.jpg" />
