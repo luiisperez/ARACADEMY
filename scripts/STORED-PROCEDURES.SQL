@@ -1,40 +1,107 @@
 /*********************LOGIN ADMINISTRATIVO*********************/
 
-CREATE OR REPLACE FUNCTION USER_LOGIN(varchar(20), varchar(30)) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION USER_LOGIN(USER varchar(20), PASSWORD varchar(30)) RETURNS integer AS $$
 DECLARE
- result integer;
+ RESULT integer;
 
 BEGIN
-	IF ((SELECT COUNT(*) FROM administrator WHERE user = $1 AND password = $2) = 0) THEN
+	IF ((SELECT COUNT(*) FROM administrator WHERE user = USER AND password = PASSWORD) = 0) THEN
 
-		result := 500;
+		RESULT := 500;
   	
   	ELSE
 	
-		result := 200;
+		RESULT := 200;
 	
 	END IF;
- 	RETURN result;
+ 	RETURN RESULT;
 END;
 $$ LANGUAGE plpgsql;
-
+/**********************INICIO CRUD DE DOCENTES*********************/
 /***************************AGREGAR DOCENTE************************/
 
-CREATE OR REPLACE FUNCTION ADD_TEACHER(varchar(100), varchar(30), varchar(30), varchar(40), date, varchar(20), varchar(30)) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION CREATE_TEACHER(EMAIL varchar(100), PASSWORD varchar(30), NAME varchar(30), LASTNAME varchar(40), BIRTHDATE date, PHONE varchar(20), COUNTRY varchar(30)) RETURNS integer AS $$
 DECLARE
- result integer;
+ RESULT integer;
 
 BEGIN
-	IF ((SELECT COUNT(*) FROM teacher WHERE email = $1) = 1) THEN
+	IF ((SELECT COUNT(*) FROM TEACHER WHERE EMAIL = $1) = 1) THEN
 
-		result := 500;
+		RESULT := 500;
 
 	ELSE
 
-		INSERT INTO teacher(EMAIL, PASSWORD, NAME, LASTNAME, BIRTHDATE, PHONE, COUNTRY) VALUES ($1, $2, $3, $4, $5, $6, $7);
-		result := 200;
+		INSERT INTO TEACHER(EMAIL, PASSWORD, NAME, LASTNAME, BIRTHDATE, PHONE, COUNTRY) VALUES ($1, $2, $3, $4, $5, $6, $7);
+		RESULT := 200;
 
 	END IF;
- 	RETURN result;
+ 	RETURN RESULT;
 END;
 $$ LANGUAGE plpgsql;
+
+/*********************LEER TODOS DOCENTES*************************/
+
+CREATE OR REPLACE FUNCTION READ_ALL_TEACHER() RETURNS TABLE(EMAIL varchar(100), PASSWORD varchar(30), NAME varchar(30), LASTNAME varchar(40), BIRTHDATE date, PHONE varchar(20), COUNTRY varchar(30)) AS $$
+DECLARE
+
+BEGIN
+	RETURN QUERY
+	SELECT TEA.EMAIL, TEA.PASSWORD, TEA.NAME, TEA.LASTNAME, TEA.BIRTHDATE, TEA.PHONE, TEA.COUNTRY
+	FROM TEACHER TEA;
+END;
+$$ LANGUAGE plpgsql;
+
+/********************LEER DOCENTES POR EMAIL*********************/
+CREATE OR REPLACE FUNCTION READ_TEACHER(MAIL varchar(100)) RETURNS TABLE(EMAIL varchar(100), PASSWORD varchar(30), NAME varchar(30), LASTNAME varchar(40), BIRTHDATE date, PHONE varchar(20), COUNTRY varchar(30)) AS $$
+DECLARE
+
+BEGIN
+	RETURN QUERY
+	SELECT TEA.EMAIL, TEA.PASSWORD, TEA.NAME, TEA.LASTNAME, TEA.BIRTHDATE, TEA.PHONE, TEA.COUNTRY
+	FROM TEACHER TEA
+	WHERE TEA.EMAIL = MAIL;
+END;
+$$ LANGUAGE plpgsql;
+
+/**********************MODIFICAR DOCENTES************************/
+CREATE OR REPLACE FUNCTION UPDATE_TEACHER(MAIL varchar(30), CLAVE varchar(30), NOMBRE varchar(30), APELLIDO varchar(40), FEC date, TELF varchar(20), COUNTRY varchar(30)) RETURNS integer AS $$
+DECLARE
+ RESULT integer;
+
+BEGIN
+	IF ((SELECT COUNT(*) FROM TEACHER WHERE EMAIL = MAIL) = 1) THEN
+
+		UPDATE TEACHER SET PASSWORD = CLAVE, NAME = NOMBRE, LASTNAME = APELLIDO, BIRTHDATE = FEC, PHONE = TELF, COUNTRY = PAIS WHERE EMAIL = MAIL;
+		
+		RESULT := 201;
+  	
+  	ELSE
+	
+		RESULT := 204;
+	
+	END IF;
+ 	RETURN RESULT;
+END;
+$$ LANGUAGE plpgsql;
+
+/**********************ELIMINAR DOCENTES***********************/
+CREATE OR REPLACE FUNCTION DELETE_TEACHER(MAIL varchar(30)) RETURNS integer AS $$
+DECLARE
+ RESULT integer;
+
+BEGIN
+	IF ((SELECT COUNT(*) FROM TEACHER WHERE EMAIL = MAIL) = 1) THEN 
+
+		DELETE FROM TEACHER WHERE EMAIL = MAIL;
+		
+		RESULT := 200;
+
+	ELSE
+
+		RESULT := 204;
+
+	END IF;
+	RETURN RESULT;
+END;
+$$ LANGUAGE plpgsql;
+/************************FIN CRUD DE DOCENTES*********************/

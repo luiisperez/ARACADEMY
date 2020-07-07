@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/site/admin/usermanagement.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="ARAcademy.site.admin.login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/site/admin/adminmanagement.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="ARAcademy.site.admin.login" %>
 
 <asp:Content ID="ContentIndex" ContentPlaceHolderID="head" runat="server">
 	<title>Inicio de sesión</title>
