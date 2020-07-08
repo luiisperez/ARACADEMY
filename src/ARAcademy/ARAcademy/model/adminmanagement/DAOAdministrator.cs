@@ -1,4 +1,5 @@
-﻿using Npgsql;
+﻿using ARAcademy.common;
+using Npgsql;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -7,7 +8,7 @@ using System.Web;
 
 namespace ARAcademy.model.adminmanagement
 {
-    public class DAOAdmin : DAO
+    public class DAOAdministrator : DAO
     {
 
         private NpgsqlConnection conn;
@@ -15,14 +16,14 @@ namespace ARAcademy.model.adminmanagement
         public int LoginAdmin(Administrator administrator)
         {
 
-            NpgsqlCommand command = new NpgsqlCommand(DAOAdmin.AdministratorLoginSP, conn);
+            NpgsqlCommand command = new NpgsqlCommand(DAOAdministrator.AdministratorLoginSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
             NpgsqlParameter user = new NpgsqlParameter();
             NpgsqlParameter password = new NpgsqlParameter();
 
-            user.ParameterName = DAOAdmin.User;
-            password.ParameterName = DAOAdmin.Password;
+            user.ParameterName = DAOAdministrator.User;
+            password.ParameterName = DAOAdministrator.Password;
 
             user.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             password.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;

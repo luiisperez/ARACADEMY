@@ -1,4 +1,5 @@
-﻿using ARAcademy.model.adminmanagement;
+﻿using ARAcademy.common;
+using ARAcademy.model.adminmanagement;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -10,19 +11,19 @@ namespace ARAcademy.controller.adminmanagement
     public class AdminLoginCommand : Command
     {
         private Administrator administrator;
-        private int response;
+        private Administrator response;
 
         public AdminLoginCommand(Administrator administrator)
         {
             this.administrator = administrator;
         }
 
-        public int Response { get => response; set => response = value; }
+        public Administrator Administrator { get => administrator; set => administrator = value; }
 
         public override void Execute()
         {
-            DAOAdmin daoAdmin = new DAOAdmin();
-            response = daoAdmin.LoginAdmin(administrator);
+            DAOAdministrator daoAdmin = new DAOAdministrator();
+            administrator.Code = daoAdmin.LoginAdmin(administrator);
         }
     }
 }
