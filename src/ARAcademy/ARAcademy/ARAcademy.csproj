@@ -296,6 +296,7 @@
     <Compile Include="common\entities\Teacher.cs" />
     <Compile Include="controller\adminmanagement\AdminLoginCommand.cs" />
     <Compile Include="controller\Command.cs" />
+    <Compile Include="controller\teacher\CreateTeacherCommand.cs" />
     <Compile Include="model\adminmanagement\DAOAdministrator.cs" />
     <Compile Include="model\adminmanagement\DAOAdministrator.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -536,9 +537,7 @@
       <LastGenOutput>DAOTeacher.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="controller\teacher\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

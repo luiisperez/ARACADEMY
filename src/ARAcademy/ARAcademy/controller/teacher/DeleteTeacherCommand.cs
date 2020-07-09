@@ -7,11 +7,12 @@ using System.Web;
 
 namespace ARAcademy.controller.teacher
 {
-    public class CreateTeacherCommand : Command
+    public class DeleteTeacherCommand : Command
     {
         private Teacher teacher;
+        private Teacher response;
 
-        public CreateTeacherCommand(Teacher Teacher)
+        public DeleteTeacherCommand(Teacher Teacher)
         {
             this.Teacher = Teacher;
         }
@@ -21,7 +22,7 @@ namespace ARAcademy.controller.teacher
         public override void Execute()
         {
             DAOTeacher daoTeacher = new DAOTeacher();
-            Teacher.Code = daoTeacher.CreateTeacher(Teacher);
+            Teacher.Code = daoTeacher.DeleteTeacher(Teacher);
         }
     }
 }
