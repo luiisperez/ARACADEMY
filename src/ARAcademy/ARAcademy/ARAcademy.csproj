@@ -292,11 +292,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="common\entities\Administrator.cs" />
+    <Compile Include="common\entities\Grade.cs" />
+    <Compile Include="common\entities\Student.cs" />
     <Compile Include="common\Entity.cs" />
     <Compile Include="common\entities\Teacher.cs" />
     <Compile Include="controller\adminmanagement\AdminLoginCommand.cs" />
     <Compile Include="controller\Command.cs" />
     <Compile Include="controller\teacher\CreateTeacherCommand.cs" />
+    <Compile Include="controller\teacher\DeleteTeacherCommand.cs" />
+    <Compile Include="controller\teacher\ReadAllTeacherCommand.cs" />
+    <Compile Include="controller\teacher\ReadTeacherCommand.cs" />
+    <Compile Include="controller\teacher\UpdateTeacherCommand.cs" />
     <Compile Include="model\adminmanagement\DAOAdministrator.cs" />
     <Compile Include="model\adminmanagement\DAOAdministrator.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -537,7 +543,9 @@
       <LastGenOutput>DAOTeacher.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="controller\student\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
