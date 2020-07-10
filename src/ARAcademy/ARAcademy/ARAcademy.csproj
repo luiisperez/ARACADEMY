@@ -298,6 +298,13 @@
     <Compile Include="common\entities\Teacher.cs" />
     <Compile Include="controller\adminmanagement\AdminLoginCommand.cs" />
     <Compile Include="controller\Command.cs" />
+    <Compile Include="controller\student\CreateStudentCommand.cs" />
+    <Compile Include="controller\student\DeleteStudentCommand.cs" />
+    <Compile Include="controller\student\ReadAllStudentsCommand.cs" />
+    <Compile Include="controller\student\ReadStudentCommand.cs" />
+    <Compile Include="controller\student\StudentLoginCommand.cs" />
+    <Compile Include="controller\student\UpdateStudentCommand.cs" />
+    <Compile Include="controller\teacher\TeacherLoginCommand.cs" />
     <Compile Include="controller\teacher\CreateTeacherCommand.cs" />
     <Compile Include="controller\teacher\DeleteTeacherCommand.cs" />
     <Compile Include="controller\teacher\ReadAllTeacherCommand.cs" />
@@ -314,6 +321,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Registry.resx</DependentUpon>
+    </Compile>
+    <Compile Include="model\student\DAOStudent.cs" />
+    <Compile Include="model\student\DAOStudent.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAOStudent.resx</DependentUpon>
     </Compile>
     <Compile Include="model\teacher\DAOTeacher.cs" />
     <Compile Include="model\teacher\DAOTeacher.Designer.cs">
@@ -537,15 +550,18 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Registry.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="model\student\DAOStudent.resx">
+      <DependentUpon>DAOStudent.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOStudent.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="model\teacher\DAOTeacher.resx">
       <DependentUpon>DAOTeacher.cs</DependentUpon>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DAOTeacher.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="controller\student\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
