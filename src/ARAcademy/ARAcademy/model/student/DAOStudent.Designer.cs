@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARAcademy.model.teacher {
+namespace ARAcademy.model.student {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace ARAcademy.model.teacher {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class DAOTeacher {
+    internal class DAOStudent {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal DAOTeacher() {
+        internal DAOStudent() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ARAcademy.model.teacher {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ARAcademy.model.teacher.DAOTeacher", typeof(DAOTeacher).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ARAcademy.model.student.DAOStudent", typeof(DAOStudent).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -79,7 +79,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a CREATE_TEACHER(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS).
+        ///   Busca una cadena traducida similar a CREATE_STUDENT(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS, @FK_GRADO).
         /// </summary>
         internal static string CreateTeacherSP {
             get {
@@ -88,7 +88,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a DELETE_TEACHER(@MAIL).
+        ///   Busca una cadena traducida similar a DELETE_STUDENT(@MAIL).
         /// </summary>
         internal static string DeleteTeacherSP {
             get {
@@ -102,6 +102,15 @@ namespace ARAcademy.model.teacher {
         internal static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a @FK_GRADO.
+        /// </summary>
+        internal static string GradeID {
+            get {
+                return ResourceManager.GetString("GradeID", resourceCulture);
             }
         }
         
@@ -142,7 +151,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a READ_ALL_TEACHER().
+        ///   Busca una cadena traducida similar a READ_ALL_STUDENT().
         /// </summary>
         internal static string ReadAllTeachersSP {
             get {
@@ -151,7 +160,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a READ_TEACHER(@MAIL).
+        ///   Busca una cadena traducida similar a READ_STUDENT(@MAIL).
         /// </summary>
         internal static string ReadTeacherSP {
             get {
@@ -160,7 +169,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a TEACHER_LOGIN(@MAIL, @CLAVE).
+        ///   Busca una cadena traducida similar a STUDENT_LOGIN(@MAIL, @CLAVE).
         /// </summary>
         internal static string TeacherLoginSP {
             get {
@@ -169,7 +178,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a UPDATE_TEACHER(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS).
+        ///   Busca una cadena traducida similar a UPDATE_STUDENT(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS, @FK_GRADO).
         /// </summary>
         internal static string UpdateTeacherSP {
             get {

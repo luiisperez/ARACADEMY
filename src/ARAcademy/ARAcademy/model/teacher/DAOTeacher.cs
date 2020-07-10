@@ -94,6 +94,57 @@ namespace ARAcademy.model.teacher
             return response;
         }
 
+        internal int LoginTeacher(Teacher teacher)
+        {
+            NpgsqlCommand command = new NpgsqlCommand(DAOTeacher.TeacherLoginSP, conn);
+            NpgsqlTransaction transaction = conn.BeginTransaction();
+
+            NpgsqlParameter user = new NpgsqlParameter();
+            NpgsqlParameter password = new NpgsqlParameter();
+
+            user.ParameterName = DAOTeacher.Email;
+            password.ParameterName = DAOTeacher.Password;
+
+            user.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
+            password.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
+
+            user.Direction = ParameterDirection.Input;
+            password.Direction = ParameterDirection.Input;
+
+            user.Value = teacher.Email;
+            password.Value = teacher.Password;
+
+            command.Parameters.Add(user);
+            command.Parameters.Add(password);
+
+            command.CommandType = CommandType.StoredProcedure;
+
+            int response = 500;
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            try
+            {
+                while (dr.Read())
+                {
+                    response = dr.GetInt32(0);
+                }
+
+                dr.Close();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return response;
+
+        }
+
         public int UpdateTeacher(Teacher teacher)
         {
 
