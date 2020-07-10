@@ -1,11 +1,12 @@
-﻿using System;
+﻿using ARAcademy.common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ARAcademy
+namespace ARAcademy.common
 {
-    public class Administrator
+    public class Administrator : Entity
     {
         private String user;
         private String password;
