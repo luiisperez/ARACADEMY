@@ -1,8 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
 
-body {padding: 0; margin: 0; background-color: #333;}
-
-.container {position: fixed; top: 25%; left: 25%;}
+body {padding: 0; margin: 0; background-color: #fff;}
 
 /* make keyframes that tell the start state and the end state of our object */
 @-webkit-keyframes fadeIn { from { opacity:0; } to { opacity:1; } }

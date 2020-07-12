@@ -1,10 +1,14 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/site/admin/adminmanagement.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="ARAcademy.site.admin.login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/site/admin/adminmanagement.Master" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="ARAcademy.site.admin.login" %>
 
 <asp:Content ID="ContentIndex" ContentPlaceHolderID="head" runat="server">
 	<title>Inicio de sesión</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/fade.css">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'/>
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/util.css">
+
+
     <script>
         function errorSweetAlert(msg) {
             swal({
@@ -26,47 +30,153 @@
 </asp:Content>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
-    <span class="login100-form-logo">
-	  <div id="logoguest" style="text-align:center">
-        <img src="../common/img/mt2005.png" class="img-responsive img-centered" width="70" alt="" id="mt2005">
-	  </div>
-        
-    </span>
-
-    <span class="login100-form-title p-b-34 p-t-27">
-        Inicio de sesión
-    </span>
-
-    <div class="wrap-input100 validate-input" data-validate="Ingrese su correo">
-        <input class="input100" id="email" type="text" name="email" placeholder="Correo electrónico" maxlength="50">
-        <span class="focus-input100" data-placeholder="&#xf207;"></span>
-    </div>
-
-    <div class="wrap-input100 validate-input" data-validate="Ingrese su contraseña">
-        <input class="input100" id="password" type="password" name="password" placeholder="Contraseña"  maxlength="15">
-        <span class="focus-input100" data-placeholder="&#xf191;"></span>
-    </div>
     
-    <div class="row">
-        <div class="col-lg-12">
-            <asp:ScriptManager runat="server" ID="sm">
-            </asp:ScriptManager>
-            <asp:updatepanel runat="server">
-                <ContentTemplate>
-                    <asp:Button ID="acceptBtn" runat="server" class="accept-form-btn" Text="Iniciar sesión" style="width:100%" />
-                </ContentTemplate>
-            </asp:updatepanel>
+    <div class="site-wrap">
+    <header class="site-navbar py-4 js-sticky-header site-navbar-target" style="position:relative; padding-bottom: 0px !important" role="banner">
+
+      <div class="container" style="margin-bottom: 10px">
+        <div class="row align-items-center justify-content-center">
+
+          <div class="col-4">
+            <h1 class=""><a href="../home/index.html"><img src="images/Logo_Design_NB_Short.png" width="100" height="100" alt="ARAcademy"></a></h1>
+          </div>
+
+          <div class="col-8">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li><a href="#home-section" class="nav-link" style="color:black !important">Inicio</a></li>
+                <li><a href="../admin/login.aspx" class="nav-link" style="color:black !important">Iniciar Sesión</a></li>
+                <li><a href="#blog-section" class="nav-link" style="color:black !important">Registrarse</a></li>
+              </ul>
+            </nav>
+
+
+            <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a>
+
+          </div>
+
+        
         </div>
+      </div>
+      
+    </header>
+
+
+	<div class="limiter">
+		<div class="container-login100">
+            <div class="row_log">
+                <div class="col-6" style="border-radius: 5px 0px 0px 5px; background:#00194f; vertical-align: middle !important;">
+                    <img class="img_mid" src="images/Marca_Archivos_NB_Short.png" alt="IMG">
+                </div>
+                <div class="col-6" style="border-radius: 0px 5px 5px 0px;">
+                    <span class="login100-form-title">
+						Iniciar Sesión
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+						<input class="input100" type="text" name="email" placeholder="Email">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+						</span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate = "Password is required">
+						<input class="input100" type="password" name="pass" placeholder="Password">
+						<span class="focus-input100"></span>
+						<span class="symbol-input100">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+						</span>
+					</div>
+					
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Iniciar
+						</button>
+					</div>
+
+					<div class="text-center p-t-12">
+						<span class="txt1">
+							Olvido su 
+						</span>
+						<a class="txt2" href="#">
+							contraseña?
+						</a>
+					</div>
+
+					<div class="text-center p-t-136">
+						<a class="txt2" href="#">
+							Registrese aqui
+						</a>
+                </div>
+            </div>
+		</div>
+	</div>
+	
+
+
+    <footer class="site-section bg-light footer">
+      <div class="container">
+        <div class="row mb-5">
+          <div class="col-md-3">
+            <h3 class="footer-title">Services</h3>
+            <p><span class="d-inline-block d-md-block">203 Fake St. Mountain View,</span> San Francisco, California, USA</p>
+          </div>
+          <div class="col-md-5 mx-auto">
+            <div class="row">
+              <div class="col-lg-4">
+                <h3 class="footer-title">Services</h3>
+                <ul class="list-unstyled">
+                  <li><a href="#">Content Marketing</a></li>
+                  <li><a href="#">Brand & Logo</a></li>
+                  <li><a href="#">Social Advertising</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-4">
+                <h3 class="footer-title">Resources</h3>
+                <ul class="list-unstyled">
+                  <li><a href="#">Social Marketing</a></li>
+                  <li><a href="#">Web Design</a></li>
+                  <li><a href="#">Web Development</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-4">
+                <h3 class="footer-title">Templates</h3>
+                <ul class="list-unstyled">
+                  <li><a href="#">Illustration</a></li>
+                  <li><a href="#">Video Editing</a></li>
+                  <li><a href="#">Copywriting</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <h3 class="footer-title">Follow Me</h3>
+            <a href="#" class="social-circle m-2"><span class="icon-twitter"></span></a>
+            <a href="#" class="social-circle m-2"><span class="icon-facebook"></span></a>
+            <a href="#" class="social-circle m-2"><span class="icon-instagram"></span></a>
+            <a href="#" class="social-circle m-2"><span class="icon-dribbble"></span></a>
+            <a href="#" class="social-circle m-2"><span class="icon-linkedin"></span></a>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12 text-center">
+            <p>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                Copyright &copy;
+                <script>
+                    document.write(new Date().getFullYear());
+                </script> All rights reserved | This template is made with <i class="icon-heart"
+                  aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              </p>  
+          </div>
+        </div>
+      </div>
+    </footer>
+
     </div>
 
-    <div class="text-center p-t-90">
-        <a class="txt1" href="/site/usermanagement/register.aspx">
-            Pulse aquí para registrarse
-        </a>
-        <br />
-        <br />
-        <a class="txt1" href="/site/usermanagement/recoverpassword.aspx">
-            ¿Olvidó su contraseña?
-        </a>
-    </div>
+
 </asp:Content>

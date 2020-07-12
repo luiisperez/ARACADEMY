@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="adminmanagement.Master.cs" Inherits="ARAcademy.site.usermanagement" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="adminmanagement.Master.cs" Inherits="ARAcademy.site.usermanagement" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -15,29 +15,16 @@
 	<link rel="stylesheet" type="text/css" href="vendor/animsition/css/animsition.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 	<link rel="stylesheet" type="text/css" href="vendor/daterangepicker/daterangepicker.css">
-	<link rel="stylesheet" type="text/css" href="css/util.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="../home/css/style.css" rel="stylesheet" />
     <asp:ContentPlaceHolder ID="head" runat="server">
 
     </asp:ContentPlaceHolder>
 </head>
 <body>
 
-    <div class="limiter">
-        <div class="container-login100" style="background-image: url('images/registro.jpg');">
-            <div class="wrap-login100">
-                <form class="login100-form validate-form" id="userform" runat="server">
-                    <asp:ContentPlaceHolder ID="content" runat="server">
-
-                    </asp:ContentPlaceHolder>
-                </form>
-            </div>
-        </div>
-    </div>
-
-
-
-    
+    <asp:ContentPlaceHolder ID="content" runat="server">
+    </asp:ContentPlaceHolder>
+  
     <script src="vendor/jquery/jquery-3.2.1.min.js"></script>
     <script src="vendor/animsition/js/animsition.min.js"></script>
     <script src="vendor/bootstrap/js/popper.js"></script>
