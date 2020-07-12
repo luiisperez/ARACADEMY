@@ -311,10 +311,10 @@
     <Compile Include="controller\teacher\ReadTeacherCommand.cs" />
     <Compile Include="controller\teacher\UpdateTeacherCommand.cs" />
     <Compile Include="model\adminmanagement\DAOAdministrator.cs" />
-    <Compile Include="model\adminmanagement\DAOAdministrator.Designer.cs">
+    <Compile Include="model\adminmanagement\DAOAdministratorResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DAOAdministrator.resx</DependentUpon>
+      <DependentUpon>DAOAdministratorResource.resx</DependentUpon>
     </Compile>
     <Compile Include="model\DAO.cs" />
     <Compile Include="model\Registry.Designer.cs">
@@ -323,16 +323,16 @@
       <DependentUpon>Registry.resx</DependentUpon>
     </Compile>
     <Compile Include="model\student\DAOStudent.cs" />
-    <Compile Include="model\student\DAOStudent.Designer.cs">
+    <Compile Include="model\student\DAOStudentResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DAOStudent.resx</DependentUpon>
+      <DependentUpon>DAOStudentResource.resx</DependentUpon>
     </Compile>
     <Compile Include="model\teacher\DAOTeacher.cs" />
-    <Compile Include="model\teacher\DAOTeacher.Designer.cs">
+    <Compile Include="model\teacher\DAOTeacherResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>DAOTeacher.resx</DependentUpon>
+      <DependentUpon>DAOTeacherResource.resx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="site\admin\login.aspx.cs">
@@ -541,24 +541,21 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="model\adminmanagement\DAOAdministrator.resx">
-      <DependentUpon>DAOAdministrator.cs</DependentUpon>
+    <EmbeddedResource Include="model\adminmanagement\DAOAdministratorResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DAOAdministrator.Designer.cs</LastGenOutput>
+      <LastGenOutput>DAOAdministratorResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="model\Registry.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Registry.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="model\student\DAOStudent.resx">
-      <DependentUpon>DAOStudent.cs</DependentUpon>
+    <EmbeddedResource Include="model\student\DAOStudentResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DAOStudent.Designer.cs</LastGenOutput>
+      <LastGenOutput>DAOStudentResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="model\teacher\DAOTeacher.resx">
-      <DependentUpon>DAOTeacher.cs</DependentUpon>
+    <EmbeddedResource Include="model\teacher\DAOTeacherResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>DAOTeacher.Designer.cs</LastGenOutput>
+      <LastGenOutput>DAOTeacherResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />

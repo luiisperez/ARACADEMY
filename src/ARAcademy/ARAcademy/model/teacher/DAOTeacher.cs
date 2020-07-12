@@ -16,7 +16,7 @@ namespace ARAcademy.model.teacher
         public int CreateTeacher(Teacher teacher)
         {
 
-            NpgsqlCommand command = new NpgsqlCommand(DAOTeacher.CreateTeacherSP, conn);
+            NpgsqlCommand command = new NpgsqlCommand(DAOTeacherResource.CreateTeacherSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
             NpgsqlParameter email = new NpgsqlParameter();
@@ -27,13 +27,13 @@ namespace ARAcademy.model.teacher
             NpgsqlParameter phone = new NpgsqlParameter();
             NpgsqlParameter country = new NpgsqlParameter();
 
-            email.ParameterName = DAOTeacher.Email;
-            password.ParameterName = DAOTeacher.Password;
-            name.ParameterName = DAOTeacher.Name;
-            lastName.ParameterName = DAOTeacher.Lastname;
-            birthDate.ParameterName = DAOTeacher.Birthdate;
-            phone.ParameterName = DAOTeacher.Phone;
-            country.ParameterName = DAOTeacher.Country;
+            email.ParameterName = DAOTeacherResource.Email;
+            password.ParameterName = DAOTeacherResource.Password;
+            name.ParameterName = DAOTeacherResource.Name;
+            lastName.ParameterName = DAOTeacherResource.Lastname;
+            birthDate.ParameterName = DAOTeacherResource.Birthdate;
+            phone.ParameterName = DAOTeacherResource.Phone;
+            country.ParameterName = DAOTeacherResource.Country;
 
             email.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             password.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
@@ -96,14 +96,14 @@ namespace ARAcademy.model.teacher
 
         internal int LoginTeacher(Teacher teacher)
         {
-            NpgsqlCommand command = new NpgsqlCommand(DAOTeacher.TeacherLoginSP, conn);
+            NpgsqlCommand command = new NpgsqlCommand(DAOTeacherResource.TeacherLoginSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
             NpgsqlParameter user = new NpgsqlParameter();
             NpgsqlParameter password = new NpgsqlParameter();
 
-            user.ParameterName = DAOTeacher.Email;
-            password.ParameterName = DAOTeacher.Password;
+            user.ParameterName = DAOTeacherResource.Email;
+            password.ParameterName = DAOTeacherResource.Password;
 
             user.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             password.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
@@ -148,7 +148,7 @@ namespace ARAcademy.model.teacher
         public int UpdateTeacher(Teacher teacher)
         {
 
-            NpgsqlCommand command = new NpgsqlCommand(DAOTeacher.UpdateTeacherSP, conn);
+            NpgsqlCommand command = new NpgsqlCommand(DAOTeacherResource.UpdateTeacherSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
             NpgsqlParameter email = new NpgsqlParameter();
@@ -159,13 +159,13 @@ namespace ARAcademy.model.teacher
             NpgsqlParameter phone = new NpgsqlParameter();
             NpgsqlParameter country = new NpgsqlParameter();
 
-            email.ParameterName = DAOTeacher.Email;
-            password.ParameterName = DAOTeacher.Password;
-            name.ParameterName = DAOTeacher.Name;
-            lastName.ParameterName = DAOTeacher.Lastname;
-            birthDate.ParameterName = DAOTeacher.Birthdate;
-            phone.ParameterName = DAOTeacher.Phone;
-            country.ParameterName = DAOTeacher.Country;
+            email.ParameterName = DAOTeacherResource.Email;
+            password.ParameterName = DAOTeacherResource.Password;
+            name.ParameterName = DAOTeacherResource.Name;
+            lastName.ParameterName = DAOTeacherResource.Lastname;
+            birthDate.ParameterName = DAOTeacherResource.Birthdate;
+            phone.ParameterName = DAOTeacherResource.Phone;
+            country.ParameterName = DAOTeacherResource.Country;
 
             email.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             password.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
@@ -242,9 +242,9 @@ namespace ARAcademy.model.teacher
             {
                 conn = DAO.getConnection();
                 NpgsqlTransaction tran = conn.BeginTransaction();
-                NpgsqlCommand command = new NpgsqlCommand(DAOTeacher.ReadTeacherSP, conn);
+                NpgsqlCommand command = new NpgsqlCommand(DAOTeacherResource.ReadTeacherSP, conn);
                 NpgsqlParameter parameter = new NpgsqlParameter();
-                parameter.ParameterName = DAOTeacher.Email;
+                parameter.ParameterName = DAOTeacherResource.Email;
                 parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
                 parameter.Direction = ParameterDirection.Input;
                 parameter.Value = teacher.Email;
@@ -305,7 +305,7 @@ namespace ARAcademy.model.teacher
             {
                 conn = DAO.getConnection();
                 NpgsqlTransaction tran = conn.BeginTransaction();
-                NpgsqlCommand command = new NpgsqlCommand(DAOTeacher.ReadAllTeachersSP, conn);
+                NpgsqlCommand command = new NpgsqlCommand(DAOTeacherResource.ReadAllTeachersSP, conn);
                 command.CommandType = CommandType.StoredProcedure;
 
                 NpgsqlDataReader dr = command.ExecuteReader();
@@ -349,12 +349,12 @@ namespace ARAcademy.model.teacher
         public int DeleteTeacher(Teacher teacher)
         {
 
-            NpgsqlCommand command = new NpgsqlCommand(DAOTeacher.DeleteTeacherSP, conn);
+            NpgsqlCommand command = new NpgsqlCommand(DAOTeacherResource.DeleteTeacherSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
             NpgsqlParameter email = new NpgsqlParameter();
 
-            email.ParameterName = DAOTeacher.Email;
+            email.ParameterName = DAOTeacherResource.Email;
 
             email.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
 

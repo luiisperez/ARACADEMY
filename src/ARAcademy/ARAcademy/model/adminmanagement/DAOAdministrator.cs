@@ -16,14 +16,14 @@ namespace ARAcademy.model.adminmanagement
         public int LoginAdmin(Administrator administrator)
         {
 
-            NpgsqlCommand command = new NpgsqlCommand(DAOAdministrator.AdministratorLoginSP, conn);
+            NpgsqlCommand command = new NpgsqlCommand(DAOAdministratorResource.AdministratorLoginSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
             NpgsqlParameter user = new NpgsqlParameter();
             NpgsqlParameter password = new NpgsqlParameter();
 
-            user.ParameterName = DAOAdministrator.User;
-            password.ParameterName = DAOAdministrator.Password;
+            user.ParameterName = DAOAdministratorResource.User;
+            password.ParameterName = DAOAdministratorResource.Password;
 
             user.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             password.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
