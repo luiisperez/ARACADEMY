@@ -125,11 +125,11 @@
     <value>@PAIS</value>
     <comment>País</comment>
   </data>
-  <data name="CreateTeacherSP" xml:space="preserve">
+  <data name="CreateStudentSP" xml:space="preserve">
     <value>CREATE_STUDENT(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS, @FK_GRADO)</value>
     <comment>Procedimiento almacenado para crear un profesor</comment>
   </data>
-  <data name="DeleteTeacherSP" xml:space="preserve">
+  <data name="DeleteStudentSP" xml:space="preserve">
     <value>DELETE_STUDENT(@MAIL)</value>
     <comment>Procedimiento almacenado para borrar un profesor</comment>
   </data>
@@ -157,19 +157,19 @@
     <value>@TELF</value>
     <comment>Teléfono</comment>
   </data>
-  <data name="ReadAllTeachersSP" xml:space="preserve">
+  <data name="ReadAllStudentsSP" xml:space="preserve">
     <value>READ_ALL_STUDENT()</value>
     <comment>Procedimiento almacenado para consultar todos los profesores</comment>
   </data>
-  <data name="ReadTeacherSP" xml:space="preserve">
+  <data name="ReadStudentSP" xml:space="preserve">
     <value>READ_STUDENT(@MAIL)</value>
     <comment>Procedimiento almacenado para consultar un profesor</comment>
   </data>
-  <data name="TeacherLoginSP" xml:space="preserve">
-    <value>STUDENT_LOGIN(@MAIL, @CLAVE)</value>
-    <comment>Procedimiento almacenado para inicio de sesión de profesores</comment>
+  <data name="StudentLoginSP" xml:space="preserve">
+    <value>LOGIN_STUDENT(@MAIL, @CLAVE)</value>
+    <comment>Procedimiento almacenado para iniciar sesión como estudiante</comment>
   </data>
-  <data name="UpdateTeacherSP" xml:space="preserve">
+  <data name="UpdateStudentSP" xml:space="preserve">
     <value>UPDATE_STUDENT(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS, @FK_GRADO)</value>
     <comment>Procedimiento almacenado para actualizar un profesor</comment>
   </data>

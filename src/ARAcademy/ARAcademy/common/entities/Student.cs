@@ -14,6 +14,7 @@ namespace ARAcademy.common.entities
         private DateTime birthDate;
         private String phone;
         private String country;
+        private Grade grade;
 
         public Student()
         {
@@ -25,7 +26,7 @@ namespace ARAcademy.common.entities
             this.password = password;
         }
 
-        public Student(string email, string password, string name, string lastName, DateTime birthDate, string phone, string country)
+        public Student(string email, string password, string name, string lastName, DateTime birthDate, string phone, string country, Grade grade)
         {
             this.email = email;
             this.password = password;
@@ -34,6 +35,7 @@ namespace ARAcademy.common.entities
             this.birthDate = birthDate;
             this.phone = phone;
             this.country = country;
+            this.grade = grade;
         }
 
         public string Email { get => email; set => email = value; }
@@ -43,5 +45,6 @@ namespace ARAcademy.common.entities
         public DateTime BirthDate { get => birthDate; set => birthDate = value; }
         public string Phone { get => phone; set => phone = value; }
         public string Country { get => country; set => country = value; }
+        public Grade Grade { get => grade; set => grade = value; }
     }
 }

@@ -81,18 +81,18 @@ namespace ARAcademy.model.student {
         /// <summary>
         ///   Busca una cadena traducida similar a CREATE_STUDENT(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS, @FK_GRADO).
         /// </summary>
-        internal static string CreateTeacherSP {
+        internal static string CreateStudentSP {
             get {
-                return ResourceManager.GetString("CreateTeacherSP", resourceCulture);
+                return ResourceManager.GetString("CreateStudentSP", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Busca una cadena traducida similar a DELETE_STUDENT(@MAIL).
         /// </summary>
-        internal static string DeleteTeacherSP {
+        internal static string DeleteStudentSP {
             get {
-                return ResourceManager.GetString("DeleteTeacherSP", resourceCulture);
+                return ResourceManager.GetString("DeleteStudentSP", resourceCulture);
             }
         }
         
@@ -153,36 +153,36 @@ namespace ARAcademy.model.student {
         /// <summary>
         ///   Busca una cadena traducida similar a READ_ALL_STUDENT().
         /// </summary>
-        internal static string ReadAllTeachersSP {
+        internal static string ReadAllStudentsSP {
             get {
-                return ResourceManager.GetString("ReadAllTeachersSP", resourceCulture);
+                return ResourceManager.GetString("ReadAllStudentsSP", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Busca una cadena traducida similar a READ_STUDENT(@MAIL).
         /// </summary>
-        internal static string ReadTeacherSP {
+        internal static string ReadStudentSP {
             get {
-                return ResourceManager.GetString("ReadTeacherSP", resourceCulture);
+                return ResourceManager.GetString("ReadStudentSP", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a STUDENT_LOGIN(@MAIL, @CLAVE).
+        ///   Busca una cadena traducida similar a LOGIN_STUDENT(@MAIL, @CLAVE).
         /// </summary>
-        internal static string TeacherLoginSP {
+        internal static string StudentLoginSP {
             get {
-                return ResourceManager.GetString("TeacherLoginSP", resourceCulture);
+                return ResourceManager.GetString("StudentLoginSP", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Busca una cadena traducida similar a UPDATE_STUDENT(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS, @FK_GRADO).
         /// </summary>
-        internal static string UpdateTeacherSP {
+        internal static string UpdateStudentSP {
             get {
-                return ResourceManager.GetString("UpdateTeacherSP", resourceCulture);
+                return ResourceManager.GetString("UpdateStudentSP", resourceCulture);
             }
         }
     }

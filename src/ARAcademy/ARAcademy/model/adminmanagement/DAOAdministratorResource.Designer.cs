@@ -61,7 +61,7 @@ namespace ARAcademy.model.adminmanagement {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a USER_LOGIN(@USER, @PASSWORD).
+        ///   Busca una cadena traducida similar a USER_LOGIN(@USUARIO, @CLAVE).
         /// </summary>
         internal static string AdministratorLoginSP {
             get {
@@ -70,7 +70,7 @@ namespace ARAcademy.model.adminmanagement {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @PASSWORD.
+        ///   Busca una cadena traducida similar a @CLAVE.
         /// </summary>
         internal static string Password {
             get {
@@ -79,7 +79,7 @@ namespace ARAcademy.model.adminmanagement {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @USER.
+        ///   Busca una cadena traducida similar a @USUARIO.
         /// </summary>
         internal static string User {
             get {

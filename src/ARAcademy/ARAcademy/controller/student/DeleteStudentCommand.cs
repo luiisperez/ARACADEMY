@@ -21,7 +21,7 @@ namespace ARAcademy.controller.student
         public override void Execute()
         {
             DAOStudent daoStudent = new DAOStudent();
-            Student.Code = daoStudent.UpdateStudent(Student);
+            Student.Code = daoStudent.DeleteStudent(Student);
         }
     }
 }
