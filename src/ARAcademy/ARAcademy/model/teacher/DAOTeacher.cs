@@ -16,6 +16,7 @@ namespace ARAcademy.model.teacher
         public int CreateTeacher(Teacher teacher)
         {
 
+            conn = DAO.getConnection();
             NpgsqlCommand command = new NpgsqlCommand(DAOTeacherResource.CreateTeacherSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
@@ -96,6 +97,7 @@ namespace ARAcademy.model.teacher
 
         internal int LoginTeacher(Teacher teacher)
         {
+            conn = DAO.getConnection();
             NpgsqlCommand command = new NpgsqlCommand(DAOTeacherResource.TeacherLoginSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
@@ -148,6 +150,7 @@ namespace ARAcademy.model.teacher
         public int UpdateTeacher(Teacher teacher)
         {
 
+            conn = DAO.getConnection();
             NpgsqlCommand command = new NpgsqlCommand(DAOTeacherResource.UpdateTeacherSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
@@ -228,6 +231,7 @@ namespace ARAcademy.model.teacher
 
         public Teacher ReadTeacher(Teacher teacher)
         {
+            conn = DAO.getConnection();
             Teacher readTeacher = new Teacher();
 
             String email;
@@ -291,6 +295,7 @@ namespace ARAcademy.model.teacher
 
         public List<Teacher> ReadAllTeachers()
         {
+            conn = DAO.getConnection();
             Teacher teacher = new Teacher();
             List<Teacher> teachers = new List<Teacher>();
             String email;
@@ -348,6 +353,7 @@ namespace ARAcademy.model.teacher
 
         public int DeleteTeacher(Teacher teacher)
         {
+            conn = DAO.getConnection();
 
             NpgsqlCommand command = new NpgsqlCommand(DAOTeacherResource.DeleteTeacherSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();

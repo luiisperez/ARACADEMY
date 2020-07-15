@@ -18,21 +18,6 @@ namespace ARAcademy.model
         private static NpgsqlConnection conn = null;
         private static NpgsqlConnection conInstance;
 
-        public static NpgsqlConnection getConInstance()
-        {
-            try
-            {
-                conInstance = getConnection();
-            }
-            catch (Exception e)
-            {
-
-                throw e;
-            }
-
-            return conInstance;
-        }
-
         public static NpgsqlConnection getConnection()
         {
             string connstring = String.Format("Server={0};Port={1};" +

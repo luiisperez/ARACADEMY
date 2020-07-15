@@ -16,6 +16,7 @@ namespace ARAcademy.model.adminmanagement
         public int LoginAdmin(Administrator administrator)
         {
 
+            conn = DAO.getConnection();
             NpgsqlCommand command = new NpgsqlCommand(DAOAdministratorResource.AdministratorLoginSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
