@@ -61,7 +61,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @FEC.
+        ///   Busca una cadena traducida similar a @fec.
         /// </summary>
         internal static string Birthdate {
             get {
@@ -70,7 +70,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @PAIS.
+        ///   Busca una cadena traducida similar a @pais.
         /// </summary>
         internal static string Country {
             get {
@@ -79,7 +79,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a CREATE_STUDENT(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS, @FK_GRADO).
+        ///   Busca una cadena traducida similar a CREATE_STUDENT.
         /// </summary>
         internal static string CreateStudentSP {
             get {
@@ -88,7 +88,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a DELETE_STUDENT(@MAIL).
+        ///   Busca una cadena traducida similar a DELETE_STUDENT.
         /// </summary>
         internal static string DeleteStudentSP {
             get {
@@ -97,7 +97,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @MAIL.
+        ///   Busca una cadena traducida similar a @mail.
         /// </summary>
         internal static string Email {
             get {
@@ -106,7 +106,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @FK_GRADO.
+        ///   Busca una cadena traducida similar a @fk_grado.
         /// </summary>
         internal static string GradeID {
             get {
@@ -115,7 +115,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @APELLIDO.
+        ///   Busca una cadena traducida similar a @apellido.
         /// </summary>
         internal static string Lastname {
             get {
@@ -124,7 +124,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @NOMBRE.
+        ///   Busca una cadena traducida similar a @nombre.
         /// </summary>
         internal static string Name {
             get {
@@ -133,7 +133,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @CLAVE.
+        ///   Busca una cadena traducida similar a @clave.
         /// </summary>
         internal static string Password {
             get {
@@ -142,7 +142,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @TELF.
+        ///   Busca una cadena traducida similar a @telf.
         /// </summary>
         internal static string Phone {
             get {
@@ -151,7 +151,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a READ_ALL_STUDENT().
+        ///   Busca una cadena traducida similar a READ_ALL_STUDENT.
         /// </summary>
         internal static string ReadAllStudentsSP {
             get {
@@ -160,7 +160,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a READ_STUDENT(@MAIL).
+        ///   Busca una cadena traducida similar a READ_STUDENT.
         /// </summary>
         internal static string ReadStudentSP {
             get {
@@ -169,7 +169,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a LOGIN_STUDENT(@MAIL, @CLAVE).
+        ///   Busca una cadena traducida similar a LOGIN_STUDENT.
         /// </summary>
         internal static string StudentLoginSP {
             get {
@@ -178,7 +178,7 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a UPDATE_STUDENT(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS, @FK_GRADO).
+        ///   Busca una cadena traducida similar a UPDATE_STUDENT.
         /// </summary>
         internal static string UpdateStudentSP {
             get {

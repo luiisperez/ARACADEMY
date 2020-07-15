@@ -118,15 +118,15 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AdministratorLoginSP" xml:space="preserve">
-    <value>USER_LOGIN(@USUARIO, @CLAVE)</value>
+    <value>USER_LOGIN</value>
     <comment>Procedimiento almacenado para validar el inicio de sesión</comment>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>@CLAVE</value>
+    <value>@clave</value>
     <comment>Parámetro contraseña</comment>
   </data>
   <data name="User" xml:space="preserve">
-    <value>@USUARIO</value>
+    <value>@usuario</value>
     <comment>Parámetro usuario</comment>
   </data>
 </root>

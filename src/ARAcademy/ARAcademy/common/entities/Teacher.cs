@@ -19,6 +19,11 @@ namespace ARAcademy.common
         {
         }
 
+        public Teacher(string email)
+        {
+            this.email = email;
+        }
+
         public Teacher(string email, string password)
         {
             this.email = email;

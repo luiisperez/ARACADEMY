@@ -21,9 +21,9 @@ namespace ARAcademy.model
         public static NpgsqlConnection getConnection()
         {
             string connstring = String.Format("Server={0};Port={1};" +
-                    "User Id={2};Password={3};Database={4};Encoding={5};",
-                    "localhost", "5432", "tesisbraindo",
-                    "barron", "braindo", "Unicode");
+                    "User Id={2};Password={3};Database={4};",
+                    "localhost", "5432", "aracademy",
+                    "ArA.062020", "ARAcademyDB");
 
             try
             {

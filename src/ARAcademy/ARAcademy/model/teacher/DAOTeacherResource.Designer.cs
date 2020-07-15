@@ -61,7 +61,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @FEC.
+        ///   Busca una cadena traducida similar a @fec.
         /// </summary>
         internal static string Birthdate {
             get {
@@ -70,7 +70,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @PAIS.
+        ///   Busca una cadena traducida similar a @pais.
         /// </summary>
         internal static string Country {
             get {
@@ -79,7 +79,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a CREATE_TEACHER(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS).
+        ///   Busca una cadena traducida similar a CREATE_TEACHER.
         /// </summary>
         internal static string CreateTeacherSP {
             get {
@@ -88,7 +88,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a DELETE_TEACHER(@MAIL).
+        ///   Busca una cadena traducida similar a DELETE_TEACHER.
         /// </summary>
         internal static string DeleteTeacherSP {
             get {
@@ -97,7 +97,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @MAIL.
+        ///   Busca una cadena traducida similar a @mail.
         /// </summary>
         internal static string Email {
             get {
@@ -106,7 +106,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @APELLIDO.
+        ///   Busca una cadena traducida similar a @apellido.
         /// </summary>
         internal static string Lastname {
             get {
@@ -115,7 +115,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @NOMBRE.
+        ///   Busca una cadena traducida similar a @nombre.
         /// </summary>
         internal static string Name {
             get {
@@ -124,7 +124,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @CLAVE.
+        ///   Busca una cadena traducida similar a @clave.
         /// </summary>
         internal static string Password {
             get {
@@ -133,7 +133,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a @TELF.
+        ///   Busca una cadena traducida similar a @telf.
         /// </summary>
         internal static string Phone {
             get {
@@ -142,7 +142,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a READ_ALL_TEACHER().
+        ///   Busca una cadena traducida similar a READ_ALL_TEACHER.
         /// </summary>
         internal static string ReadAllTeachersSP {
             get {
@@ -151,7 +151,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a READ_TEACHER(@MAIL).
+        ///   Busca una cadena traducida similar a READ_TEACHER.
         /// </summary>
         internal static string ReadTeacherSP {
             get {
@@ -160,7 +160,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a TEACHER_LOGIN(@MAIL, @CLAVE).
+        ///   Busca una cadena traducida similar a TEACHER_LOGIN.
         /// </summary>
         internal static string TeacherLoginSP {
             get {
@@ -169,7 +169,7 @@ namespace ARAcademy.model.teacher {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a UPDATE_TEACHER(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS).
+        ///   Busca una cadena traducida similar a UPDATE_TEACHER.
         /// </summary>
         internal static string UpdateTeacherSP {
             get {

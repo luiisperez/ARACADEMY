@@ -118,55 +118,55 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Birthdate" xml:space="preserve">
-    <value>@FEC</value>
+    <value>@fec</value>
     <comment>Fecha de nacimiento</comment>
   </data>
   <data name="Country" xml:space="preserve">
-    <value>@PAIS</value>
+    <value>@pais</value>
     <comment>País</comment>
   </data>
   <data name="CreateTeacherSP" xml:space="preserve">
-    <value>CREATE_TEACHER(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS)</value>
+    <value>CREATE_TEACHER</value>
     <comment>Procedimiento almacenado para crear un profesor</comment>
   </data>
   <data name="DeleteTeacherSP" xml:space="preserve">
-    <value>DELETE_TEACHER(@MAIL)</value>
+    <value>DELETE_TEACHER</value>
     <comment>Procedimiento almacenado para borrar un profesor</comment>
   </data>
   <data name="Email" xml:space="preserve">
-    <value>@MAIL</value>
+    <value>@mail</value>
     <comment>Email</comment>
   </data>
   <data name="Lastname" xml:space="preserve">
-    <value>@APELLIDO</value>
+    <value>@apellido</value>
     <comment>Apellido</comment>
   </data>
   <data name="Name" xml:space="preserve">
-    <value>@NOMBRE</value>
+    <value>@nombre</value>
     <comment>Nonbre</comment>
   </data>
   <data name="Password" xml:space="preserve">
-    <value>@CLAVE</value>
+    <value>@clave</value>
     <comment>Contraseña</comment>
   </data>
   <data name="Phone" xml:space="preserve">
-    <value>@TELF</value>
+    <value>@telf</value>
     <comment>Teléfono</comment>
   </data>
   <data name="ReadAllTeachersSP" xml:space="preserve">
-    <value>READ_ALL_TEACHER()</value>
+    <value>READ_ALL_TEACHER</value>
     <comment>Procedimiento almacenado para consultar todos los profesores</comment>
   </data>
   <data name="ReadTeacherSP" xml:space="preserve">
-    <value>READ_TEACHER(@MAIL)</value>
+    <value>READ_TEACHER</value>
     <comment>Procedimiento almacenado para consultar un profesor</comment>
   </data>
   <data name="TeacherLoginSP" xml:space="preserve">
-    <value>TEACHER_LOGIN(@MAIL, @CLAVE)</value>
+    <value>TEACHER_LOGIN</value>
     <comment>Procedimiento almacenado para inicio de sesión de profesores</comment>
   </data>
   <data name="UpdateTeacherSP" xml:space="preserve">
-    <value>UPDATE_TEACHER(@MAIL, @CLAVE, @NOMBRE, @APELLIDO, @FEC, @TELF, @PAIS)</value>
+    <value>UPDATE_TEACHER</value>
     <comment>Procedimiento almacenado para actualizar un profesor</comment>
   </data>
 </root>
