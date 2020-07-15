@@ -25,6 +25,12 @@ namespace ARAcademy.site.admin
             administrator.Password = adm_pwd.Value.ToString();
             AdminLoginCommand cmd = new AdminLoginCommand(administrator);
             cmd.Execute();
+            if ( administrator.Code == 200) 
+            {
+                Response.Redirect("admin_home.aspx");
+            } else {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+            }
         }
 
 

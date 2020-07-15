@@ -7,6 +7,12 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'/>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
+
     <script>
         function errorSweetAlert(msg) {
             swal({
@@ -24,6 +30,15 @@
                 type: 'info'
             });
         }
+        function alertme()
+        {
+            Swal.fire({
+                title: 'Usuario o Contraseña invalido',
+                width: 500,
+                padding: '3em',
+                background: '#fff ',
+            })
+        }    
     </script>
 </asp:Content>
 
@@ -36,7 +51,7 @@
         <div class="row align-items-center justify-content-center">
 
           <div class="col-4">
-            <h1 class=""><a href="../home/index.html"><img src="images/Logo_Design_NB_Short.png" width="100" height="100" alt="ARAcademy"></a></h1>
+            <h1 class=""><a href="../home/index.html"><img src="../home/images/Logo_Design_NB_Short.png" width="100" height="100" alt="ARAcademy"></a></h1>
           </div>
 
           <div class="col-8">
@@ -62,7 +77,7 @@
            <form id="btn_sendForm" method="post" runat="server">               
             <div class="row_log">
                 <div class="col-6" style="border-radius: 5px 0px 0px 5px; background:#00194f; vertical-align: middle !important;">
-                    <img class="img_mid" src="images/Marca_Archivos_NB_Short.png" alt="IMG">
+                    <img class="img_mid" src="../home/images/Marca_Archivos_NB_Short.png" alt="IMG">
                 </div>
                 <div class="col-6" style="border-radius: 0px 5px 5px 0px;">
                     <span class="login100-form-title">
