@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/site/admin/adminmanagement.Master" AutoEventWireup="true" CodeFile="login.aspx.cs" Inherits="ARAcademy.site.admin.login" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/site/admin/adminmanagement.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="ARAcademy.site.admin.login" %>
 
 <asp:Content ID="ContentIndex" ContentPlaceHolderID="head" runat="server">
 	<title>Inicio de sesión</title>
@@ -7,8 +7,6 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'/>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
-
-
     <script>
         function errorSweetAlert(msg) {
             swal({
@@ -50,20 +48,18 @@
               </ul>
             </nav>
 
-
             <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a>
 
           </div>
-
-        
+       
         </div>
       </div>
       
     </header>
 
-
-	<div class="limiter">
+	<div class="limiter" runat="server">
 		<div class="container-login100">
+           <form id="btn_sendForm" method="post" runat="server">               
             <div class="row_log">
                 <div class="col-6" style="border-radius: 5px 0px 0px 5px; background:#00194f; vertical-align: middle !important;">
                     <img class="img_mid" src="images/Marca_Archivos_NB_Short.png" alt="IMG">
@@ -74,7 +70,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="email" placeholder="Email">
+                        <input runat="server" class="input100" id="adm_email" type="email" name="adm_email" placeholder="Email" >
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -82,17 +78,15 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input runat="server" class="input100" id="adm_pwd" type="password" name="adm_pwd" placeholder="Password" >
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
 					
-					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
-							Iniciar
-						</button>
+					<div class="container-login100-form-btn" >
+                        <asp:button type="submit" Text="Iniciar" runat="server" class="login100-form-btn" onclick="valid_login"/>                              
 					</div>
 
 					<div class="text-center p-t-12">
@@ -105,16 +99,15 @@
 					</div>
 
 					<div class="text-center p-t-136">
-						<a class="txt2" href="#">
-							Registrese aqui
-						</a>
+					    <a class="txt2" href="#">
+						    Registrese aqui
+					    </a>
+                    </div>
                 </div>
-            </div>
-		</div>
+		    </div>
+       </form>
 	</div>
 	
-
-
     <footer class="site-section bg-light footer">
       <div class="container">
         <div class="row mb-5">
@@ -177,6 +170,6 @@
     </footer>
 
     </div>
-
+    </div>
 
 </asp:Content>

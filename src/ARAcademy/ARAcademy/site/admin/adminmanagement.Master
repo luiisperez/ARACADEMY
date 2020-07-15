@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="adminmanagement.Master.cs" Inherits="ARAcademy.site.usermanagement" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="adminmanagement.Master.cs" Inherits="ARAcademy.site.usermanagement" %>
 
 <!DOCTYPE html>
 <html lang="en">

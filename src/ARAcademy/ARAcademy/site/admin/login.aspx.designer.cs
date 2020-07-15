@@ -15,21 +15,30 @@ namespace ARAcademy.site.admin
     {
 
         /// <summary>
-        /// sm control.
+        /// btn_sendForm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.ScriptManager sm;
+        protected global::System.Web.UI.HtmlControls.HtmlForm btn_sendForm;
 
         /// <summary>
-        /// acceptBtn control.
+        /// adm_email control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button acceptBtn;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl adm_email;
+
+        /// <summary>
+        /// adm_pwd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword adm_pwd;
     }
 }
