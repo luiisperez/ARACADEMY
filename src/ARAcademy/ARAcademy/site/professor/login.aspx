@@ -1,7 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/site/admin/adminmanagement.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="ARAcademy.site.admin.login" %>
-
-<asp:Content ID="ContentIndex" ContentPlaceHolderID="head" runat="server">
-	<title>Inicio de sesión</title>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/adminmanagement.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="ARAcademy.site.professor.login" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>Inicio de sesión profesor</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/fade.css">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'/>
@@ -42,9 +41,8 @@
     </script>
 </asp:Content>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
-    
-    <div class="site-wrap">
+<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
+     <div class="site-wrap">
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" style="position:relative; padding-bottom: 0px !important" role="banner">
 
       <div class="container" style="margin-bottom: 10px">
@@ -77,7 +75,7 @@
            <form id="btn_sendForm" method="post" runat="server">               
             <div class="row_log">
                 <div class="col-6" style="border-radius: 5px 0px 0px 5px; background-image:url('../home/images/Background_Log_Adm.png'); vertical-align: middle !important;">
-                    <%--<img class="img_mid" src="../home/images/ARA_LogoLine.png" alt="IMG">--%>
+                    <%--<img class="img_mid" src="../home/images/Marca_Archivos_NB_Short.png" alt="IMG">--%>
                 </div>
                 <div class="col-6" style="border-radius: 0px 5px 5px 0px;">
                     <span class="login100-form-title">
@@ -85,7 +83,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                        <input runat="server" class="input100" id="adm_email" type="email" name="adm_email" placeholder="Email" >
+                        <input runat="server" class="input100" id="adm_email" type="email" name="adm_email" placeholder="Email del Profesor" >
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -186,5 +184,4 @@
 
     </div>
     </div>
-
 </asp:Content>

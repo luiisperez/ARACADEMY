@@ -1,7 +1,6 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/site/admin/adminmanagement.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="ARAcademy.site.admin.login" %>
-
-<asp:Content ID="ContentIndex" ContentPlaceHolderID="head" runat="server">
-	<title>Inicio de sesión</title>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/adminmanagement.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="ARAcademy.site.student.login" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+	<title>Inicio de sesión profesor</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/fade.css">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'/>
@@ -38,12 +37,12 @@
                 padding: '3em',
                 background: '#fff ',
             })
-        }    
+		} 
     </script>
 </asp:Content>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="content" runat="server">
-    
+<asp:Content ID="Content2" ContentPlaceHolderID="content" runat="server">
+
     <div class="site-wrap">
     <header class="site-navbar py-4 js-sticky-header site-navbar-target" style="position:relative; padding-bottom: 0px !important" role="banner">
 
@@ -72,57 +71,59 @@
       
     </header>
 
+
 	<div class="limiter" runat="server">
-		<div class="container-login100">
-           <form id="btn_sendForm" method="post" runat="server">               
-            <div class="row_log">
-                <div class="col-6" style="border-radius: 5px 0px 0px 5px; background-image:url('../home/images/Background_Log_Adm.png'); vertical-align: middle !important;">
-                    <%--<img class="img_mid" src="../home/images/ARA_LogoLine.png" alt="IMG">--%>
+		
+        <div class="container-login100">
+                <div class="container_LogEst" id="container">
+	                <div class="form-container_LogEst sign-up-container_LogEst">
+		                <form action="#">
+			                <h1>Create Account</h1>
+			                <div class="social-container_LogEst">
+				                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			                </div>
+			                <span>or use your email for registration</span>
+			                <input type="text" placeholder="Name" />
+			                <input type="email" placeholder="Email" />
+			                <input type="password" placeholder="Password" />
+			                <button>Sign Up</button>
+		                </form>
+	                </div>
+	                <div class="form-container_LogEst sign-in-container_LogEst">
+		                <form action="#">
+			                <h1>Sign in</h1>
+			                <div class="social-container_LogEst">
+				                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
+				                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
+				                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
+			                </div>
+			                <span>or use your account</span>
+			                <input type="email" placeholder="Email" />
+			                <input type="password" placeholder="Password" />
+			                <a href="#">Forgot your password?</a>
+			                <button>Sign In</button>
+		                </form>
+	                </div>
+	                <div class="overlay-container_LogEst">
+		                <div class="overlay_LogEst">
+			                <div class="overlay-panel_LogEst overlay-left_LogEst">
+				                <h1>Welcome Back!</h1>
+				                <p>To keep connected with us please login with your personal info</p>
+				                <button class="ghost_LogEst" id="signIn">Sign In</button>
+			                </div>
+			                <div class="overlay-panel_LogEst overlay-right_LogEst">
+				                <h1>Hello, Friend!</h1>
+				                <p>Enter your personal details and start journey with us</p>
+				                <button class="ghost_LogEst" id="signUp">Sign Up</button>
+			                </div>
+		                </div>
+	                </div>
                 </div>
-                <div class="col-6" style="border-radius: 0px 5px 5px 0px;">
-                    <span class="login100-form-title">
-						Iniciar Sesión
-					</span>
+            </div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                        <input runat="server" class="input100" id="adm_email" type="email" name="adm_email" placeholder="Email" >
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-envelope" aria-hidden="true"></i>
-						</span>
-					</div>
 
-					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input runat="server" class="input100" id="adm_pwd" type="password" name="adm_pwd" placeholder="Password" >
-						<span class="focus-input100"></span>
-						<span class="symbol-input100">
-							<i class="fa fa-lock" aria-hidden="true"></i>
-						</span>
-					</div>
-					
-					<div class="container-login100-form-btn" >
-                        <asp:button type="submit" Text="Iniciar" runat="server" class="login100-form-btn" onclick="valid_login"/>                              
-					</div>
-
-					<div class="text-center p-t-12">
-						<span class="txt1">
-							Olvido su 
-						</span>
-						<a class="txt2" href="#">
-							contraseña?
-						</a>
-					</div>
-
-					<div class="text-center p-t-136">
-					    <a class="txt2" href="#">
-						    Registrese aqui
-					    </a>
-                    </div>
-                </div>
-		    </div>
-       </form>
-	</div>
-	
     <footer class="site-section bg-light footer">
       <div class="container">
         <div class="row mb-5">
@@ -187,4 +188,17 @@
     </div>
     </div>
 
+    <script>
+        const signUpButton = document.getElementById('signUp');
+        const signInButton = document.getElementById('signIn');
+        const container = document.getElementById('container');
+
+        signUpButton.addEventListener('click', () => {
+            container.classList.add("right-panel-active");
+        });
+
+        signInButton.addEventListener('click', () => {
+            container.classList.remove("right-panel-active");
+        });		
+    </script>
 </asp:Content>
