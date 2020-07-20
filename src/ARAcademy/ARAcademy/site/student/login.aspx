@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/adminmanagement.Master" AutoEventWireup="true" CodeBehind="login.aspx.cs" Inherits="ARAcademy.site.student.login" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-	<title>Inicio de sesión profesor</title>
+	<title>Inicio de sesión estudiante</title>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/fade.css">
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'/>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" href="fonts/icomoon/style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
@@ -56,7 +57,7 @@
           <div class="col-8">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="#home-section" class="nav-link" style="color:black !important">Inicio</a></li>
+                <li><a href="../home/index.html" class="nav-link" style="color:black !important">Inicio</a></li>
                 <li><a href="../admin/login.aspx" class="nav-link" style="color:black !important">Iniciar Sesión</a></li>
                 <li><a href="#blog-section" class="nav-link" style="color:black !important">Registrarse</a></li>
               </ul>
@@ -78,45 +79,59 @@
                 <div class="container_LogEst" id="container">
 	                <div class="form-container_LogEst sign-up-container_LogEst">
 		                <form action="#">
-			                <h1>Create Account</h1>
-			                <div class="social-container_LogEst">
+			                <h3 style="font-weight:bold">Crea tu cuenta</h3>
+<%--			                <div class="social-container_LogEst">
 				                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
 				                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			                </div>
-			                <span>or use your email for registration</span>
-			                <input type="text" placeholder="Name" />
+			                <span>or use your email for registration</span>--%>
+                            <div class="row">
+                            <input type="text" placeholder="Nombre" />
+                            <input type="text" placeholder="Apellido" />
 			                <input type="email" placeholder="Email" />
-			                <input type="password" placeholder="Password" />
-			                <button>Sign Up</button>
+                            <input type="password" placeholder="Contraseña" />
+                            <input type="password" placeholder="Confirmar Contraseña" />
+                            </div>
+                            <div class="row">
+                                <div class="col -6" style="padding: 0px; margin-right: 5px">
+                                    <input type="text" placeholder="Fecha de nacimiento" />
+                                </div>
+                                <div class="col -6" style="padding: 0px; margin-left: 5px">
+                                    <input type="text" placeholder="Grado" />
+                                </div>
+<%--                            <input type="text" placeholder="Telefono" />
+                            <input type="text" placeholder="Pais" />--%>
+                            </div>
+			                <button style="margin-top:10px;">Registrarse</button>
 		                </form>
 	                </div>
 	                <div class="form-container_LogEst sign-in-container_LogEst">
 		                <form action="#">
-			                <h1>Sign in</h1>
-			                <div class="social-container_LogEst">
+			                <h3 style="font-weight:bold">Inicia sesión</h3>
+			                <%--<div class="social-container_LogEst">
 				                <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
 				                <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
 				                <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
 			                </div>
-			                <span>or use your account</span>
+			                <span>Utiliza tu cuenta</span>--%>
 			                <input type="email" placeholder="Email" />
-			                <input type="password" placeholder="Password" />
-			                <a href="#">Forgot your password?</a>
-			                <button>Sign In</button>
+			                <input type="password" placeholder="Contraseña" />
+			                <a href="#">¿Olvidaste tu contraseña?<br />Pincha aquí para recuperar</a>
+			                <button>Iniciar</button>
 		                </form>
 	                </div>
 	                <div class="overlay-container_LogEst">
 		                <div class="overlay_LogEst">
 			                <div class="overlay-panel_LogEst overlay-left_LogEst">
-				                <h1>Welcome Back!</h1>
-				                <p>To keep connected with us please login with your personal info</p>
-				                <button class="ghost_LogEst" id="signIn">Sign In</button>
+				                <h3 style="color:#ffffff;font-weight:bold">Bienvenido de nuevo</h3>
+				                <p style="color:#ffffff">Si ya tienes cuenta, para mantenerte conectado en tu aula virtual inicia sesión</p>
+				                <button class="ghost_LogEst" id="signIn">Iniciar Sesión</button>
 			                </div>
 			                <div class="overlay-panel_LogEst overlay-right_LogEst">
-				                <h1>Hello, Friend!</h1>
-				                <p>Enter your personal details and start journey with us</p>
-				                <button class="ghost_LogEst" id="signUp">Sign Up</button>
+                                <h3 style="color:#ffffff;font-weight:bold">¡Hola amigo! Bienvenido</h3>
+				                <p style="color:#ffffff">Si aún no tiene cuenta coloca tus datos para comenzar la aventura ARAcademy</p>
+				                <button class="ghost_LogEst" id="signUp">Registrar Usuario</button>
 			                </div>
 		                </div>
 	                </div>
@@ -124,48 +139,51 @@
             </div>
 
 
-    <footer class="site-section bg-light footer">
+<footer class="site-section bg-light footer">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-3">
-            <h3 class="footer-title">Services</h3>
-            <p><span class="d-inline-block d-md-block">203 Fake St. Mountain View,</span> San Francisco, California, USA</p>
+            <h3 class="footer-title">ARAcademy - Asesores Académicos</h3>
+            <p><span class="d-inline-block d-md-block"> </span> Madrid, España</p>
           </div>
           <div class="col-md-5 mx-auto">
-            <div class="row">
-              <div class="col-lg-4">
-                <h3 class="footer-title">Services</h3>
-                <ul class="list-unstyled">
-                  <li><a href="#">Content Marketing</a></li>
-                  <li><a href="#">Brand & Logo</a></li>
-                  <li><a href="#">Social Advertising</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4">
-                <h3 class="footer-title">Resources</h3>
-                <ul class="list-unstyled">
-                  <li><a href="#">Social Marketing</a></li>
-                  <li><a href="#">Web Design</a></li>
-                  <li><a href="#">Web Development</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4">
-                <h3 class="footer-title">Templates</h3>
-                <ul class="list-unstyled">
-                  <li><a href="#">Illustration</a></li>
-                  <li><a href="#">Video Editing</a></li>
-                  <li><a href="#">Copywriting</a></li>
-                </ul>
-              </div>
-            </div>
+              <h3 class="footer-title">Síguenos en:</h3>
+              <a href="#" class="social-circle m-2"><span class="icon-twitter"></span></a>
+              <a href="#" class="social-circle m-2"><span class="icon-facebook"></span></a>
+              <a href="#" class="social-circle m-2"><span class="icon-instagram"></span></a>
+              <a href="#" class="social-circle m-2"><span class="icon-dribbble"></span></a>
+              <a href="#" class="social-circle m-2"><span class="icon-linkedin"></span></a>
+              <!--<div class="row">
+      <div class="col-lg-4">
+        <h3 class="footer-title">Services</h3>
+        <ul class="list-unstyled">
+          <li><a href="#">Clases Grupales</a></li>
+          <li><a href="#">Asesoramiento en línea</a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h3 class="footer-title">Resources</h3>
+        <ul class="list-unstyled">
+          <li><a href="#">Social Marketing</a></li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Web Development</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h3 class="footer-title">Templates</h3>
+        <ul class="list-unstyled">
+          <li><a href="#">Illustration</a></li>
+          <li><a href="#">Video Editing</a></li>
+          <li><a href="#">Copywriting</a></li>
+        </ul>
+      </div>
+    </div>-->
           </div>
           <div class="col-md-3">
-            <h3 class="footer-title">Follow Me</h3>
-            <a href="#" class="social-circle m-2"><span class="icon-twitter"></span></a>
-            <a href="#" class="social-circle m-2"><span class="icon-facebook"></span></a>
-            <a href="#" class="social-circle m-2"><span class="icon-instagram"></span></a>
-            <a href="#" class="social-circle m-2"><span class="icon-dribbble"></span></a>
-            <a href="#" class="social-circle m-2"><span class="icon-linkedin"></span></a>
+            
+
+
           </div>
         </div>
 
@@ -176,8 +194,8 @@
                 Copyright &copy;
                 <script>
                     document.write(new Date().getFullYear());
-                </script> All rights reserved | This template is made with <i class="icon-heart"
-                  aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                </script> Todos los derechos reservados | ARAcademy <i class="icon-heart"
+                  aria-hidden="true"></i> <a href="https://colorlib.com" target="_blank"></a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </p>  
           </div>

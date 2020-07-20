@@ -57,7 +57,7 @@
           <div class="col-8">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="#home-section" class="nav-link" style="color:black !important">Inicio</a></li>
+                <li><a href="../home/index.html" class="nav-link" style="color:black !important">Inicio</a></li>
                 <li><a href="../admin/login.aspx" class="nav-link" style="color:black !important">Iniciar Sesión</a></li>
                 <li><a href="#blog-section" class="nav-link" style="color:black !important">Registrarse</a></li>
               </ul>
@@ -77,8 +77,10 @@
            <form id="btn_sendForm" method="post" runat="server">               
             <div class="row_log">
                 <div class="col-6" style="border-radius: 5px 0px 0px 5px; background-image:url('../home/images/Background_Log_Adm.png'); vertical-align: middle !important;">
-                    <%--<img class="img_mid" src="../home/images/ARA_LogoLine.png" alt="IMG">--%>
-                </div>
+                        <span class="row_msg">
+                        <p style="color:#ffffff;font-weight:bold;font-size:20px">¡Bienvenido Administrador!<br/></p>
+                        Inicia sesión con tus credenciales
+					</span>                </div>
                 <div class="col-6" style="border-radius: 0px 5px 5px 0px;">
                     <span class="login100-form-title">
 						Iniciar Sesión
@@ -123,48 +125,51 @@
        </form>
 	</div>
 	
-    <footer class="site-section bg-light footer">
+<footer class="site-section bg-light footer">
       <div class="container">
         <div class="row mb-5">
           <div class="col-md-3">
-            <h3 class="footer-title">Services</h3>
-            <p><span class="d-inline-block d-md-block">203 Fake St. Mountain View,</span> San Francisco, California, USA</p>
+            <h3 class="footer-title">ARAcademy - Asesores Académicos</h3>
+            <p><span class="d-inline-block d-md-block"> </span> Madrid, España</p>
           </div>
           <div class="col-md-5 mx-auto">
-            <div class="row">
-              <div class="col-lg-4">
-                <h3 class="footer-title">Services</h3>
-                <ul class="list-unstyled">
-                  <li><a href="#">Content Marketing</a></li>
-                  <li><a href="#">Brand & Logo</a></li>
-                  <li><a href="#">Social Advertising</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4">
-                <h3 class="footer-title">Resources</h3>
-                <ul class="list-unstyled">
-                  <li><a href="#">Social Marketing</a></li>
-                  <li><a href="#">Web Design</a></li>
-                  <li><a href="#">Web Development</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4">
-                <h3 class="footer-title">Templates</h3>
-                <ul class="list-unstyled">
-                  <li><a href="#">Illustration</a></li>
-                  <li><a href="#">Video Editing</a></li>
-                  <li><a href="#">Copywriting</a></li>
-                </ul>
-              </div>
-            </div>
+              <h3 class="footer-title">Síguenos en:</h3>
+              <a href="#" class="social-circle m-2"><span class="icon-twitter"></span></a>
+              <a href="#" class="social-circle m-2"><span class="icon-facebook"></span></a>
+              <a href="#" class="social-circle m-2"><span class="icon-instagram"></span></a>
+              <a href="#" class="social-circle m-2"><span class="icon-dribbble"></span></a>
+              <a href="#" class="social-circle m-2"><span class="icon-linkedin"></span></a>
+              <!--<div class="row">
+      <div class="col-lg-4">
+        <h3 class="footer-title">Services</h3>
+        <ul class="list-unstyled">
+          <li><a href="#">Clases Grupales</a></li>
+          <li><a href="#">Asesoramiento en línea</a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h3 class="footer-title">Resources</h3>
+        <ul class="list-unstyled">
+          <li><a href="#">Social Marketing</a></li>
+          <li><a href="#">Web Design</a></li>
+          <li><a href="#">Web Development</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h3 class="footer-title">Templates</h3>
+        <ul class="list-unstyled">
+          <li><a href="#">Illustration</a></li>
+          <li><a href="#">Video Editing</a></li>
+          <li><a href="#">Copywriting</a></li>
+        </ul>
+      </div>
+    </div>-->
           </div>
           <div class="col-md-3">
-            <h3 class="footer-title">Follow Me</h3>
-            <a href="#" class="social-circle m-2"><span class="icon-twitter"></span></a>
-            <a href="#" class="social-circle m-2"><span class="icon-facebook"></span></a>
-            <a href="#" class="social-circle m-2"><span class="icon-instagram"></span></a>
-            <a href="#" class="social-circle m-2"><span class="icon-dribbble"></span></a>
-            <a href="#" class="social-circle m-2"><span class="icon-linkedin"></span></a>
+            
+
+
           </div>
         </div>
 
@@ -175,8 +180,8 @@
                 Copyright &copy;
                 <script>
                     document.write(new Date().getFullYear());
-                </script> All rights reserved | This template is made with <i class="icon-heart"
-                  aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                </script> Todos los derechos reservados | ARAcademy <i class="icon-heart"
+                  aria-hidden="true"></i> <a href="https://colorlib.com" target="_blank"></a>
                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               </p>  
           </div>

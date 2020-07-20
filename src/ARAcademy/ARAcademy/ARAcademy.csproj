@@ -226,6 +226,8 @@
     <Content Include="site\home\fonts\icomoon\Read Me.txt" />
     <Content Include="site\home\fonts\icomoon\style.css" />
     <Content Include="site\home\images\about.jpg" />
+    <Content Include="site\home\images\Banner1.png" />
+    <Content Include="site\home\images\Banner2.png" />
     <Content Include="site\home\images\blog_1.jpg" />
     <Content Include="site\home\images\blog_2.jpg" />
     <Content Include="site\home\images\blog_3.jpg" />
