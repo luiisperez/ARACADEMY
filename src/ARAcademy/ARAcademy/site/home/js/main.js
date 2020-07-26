@@ -277,6 +277,10 @@ jQuery(document).ready(function($) {
 	  $.fancybox.open( visibleLinks, {}, visibleLinks.index( this ) );
 
 	  return false;
-	});
+  });
+
+
+
+
 
 });

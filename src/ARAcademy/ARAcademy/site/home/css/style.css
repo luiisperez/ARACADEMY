@@ -25,8 +25,9 @@ a {
 
 h1, h2, h3, h4, h5,
 .h1, .h2, .h3, .h4, .h5 {
-  font-family: "Jost", sans-serif;
-  color: #000; }
+    font-family: "Jost", sans-serif;
+    color: #00194f;
+}
 
 .border-2 {
   border-width: 2px; }
@@ -568,15 +569,18 @@ body:after {
   .sticky-wrapper .site-navbar {
     -webkit-transition: .3s all ease;
     -o-transition: .3s all ease;
-    transition: .3s all ease; }
+    transition: .3s all ease; 
+  }
   .sticky-wrapper .site-navbar .site-menu-toggle {
     color: #fff; }
   .sticky-wrapper .site-navbar .site-logo a {
     color: #fff; }
-  .sticky-wrapper .site-navbar .site-menu > li > a {
-    color: #fff; }
+    .sticky-wrapper .site-navbar .site-menu > li > a {
+        color: #000;
+    }
     .sticky-wrapper .site-navbar .site-menu > li > a:hover, .sticky-wrapper .site-navbar .site-menu > li > a.active {
-      color: #fff !important; }
+        color: #00194f !important;
+    }
   .sticky-wrapper.is-sticky .site-navbar {
     background: #fff;
     border-bottom: 1px solid transparent;
@@ -592,8 +596,9 @@ body:after {
       color: #000; }
     .sticky-wrapper.is-sticky .site-navbar .site-menu > li > a {
       color: #000 !important; }
-      .sticky-wrapper.is-sticky .site-navbar .site-menu > li > a:hover, .sticky-wrapper.is-sticky .site-navbar .site-menu > li > a.active {
-        color: #e3c100 !important; }
+        .sticky-wrapper.is-sticky .site-navbar .site-menu > li > a:hover, .sticky-wrapper.is-sticky .site-navbar .site-menu > li > a.active {
+            color: #00194f !important;
+        }
   .sticky-wrapper .shrink {
     padding-top: 10px !important;
     padding-bottom: 10px !important; }
@@ -1018,3 +1023,47 @@ body:after {
     color: #888888; }
     .footer a:hover {
       color: #000; }
+
+.btn_log {
+    flex: 1 1 auto;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 80px;
+    border: 0px;
+}
+
+    /* Demo Stuff End -> */
+
+    /* <- Magic Stuff Start */
+
+    .btn_log:hover {
+        background-position: right center; /* change the direction of the change here */
+    }
+
+.btn-1 {
+    background-image: linear-gradient(to right, #f6d365 0%, #fda085 51%, #f6d365 100%);
+}
+
+.btn-2 {
+    background-image: linear-gradient(to right, #fbc2eb 0%, #a6c1ee 51%, #fbc2eb 100%);
+}
+
+.btn-3 {
+    background-image: linear-gradient(to right, #84fab0 0%, #8fd3f4 51%, #84fab0 100%);
+}
+
+.btn-4 {
+    background-image: linear-gradient(to right, #a1c4fd 0%, #c2e9fb 51%, #a1c4fd 100%);
+}
+
+.btn-5 {
+    background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 51%, #ffecd2 100%);
+}
+
+/* Magic Stuff End -> */
+

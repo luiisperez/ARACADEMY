@@ -50,16 +50,17 @@
       <div class="container" style="margin-bottom: 10px">
         <div class="row align-items-center justify-content-center">
 
-          <div class="col-4">
+          <div class="col-2">
             <h1 class=""><a href="../home/index.html"><img src="../home/images/Logo_Design_NB_Short.png" width="100" height="100" alt="ARAcademy"></a></h1>
           </div>
 
-          <div class="col-8">
+          <div class="col-10">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="../home/index.html" class="nav-link" style="color:black !important">Inicio</a></li>
-                <li><a href="../admin/login.aspx" class="nav-link" style="color:black !important">Iniciar Sesión</a></li>
-                <li><a href="#blog-section" class="nav-link" style="color:black !important">Registrarse</a></li>
+                <li><a href="" class="nav-link" style="color:black !important">Precios</a></li>
+                <li><a href="" class="nav-link" style="color:black !important">Contacto</a></li>
+               
               </ul>
             </nav>
 
