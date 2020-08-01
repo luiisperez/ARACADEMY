@@ -156,9 +156,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="site\admin\admin_home.aspx" />
+    <Content Include="site\admin\css\bootstrap.min.css" />
+    <Content Include="site\admin\css\bootstrap\mixins\_border-radius.css" />
+    <Content Include="site\admin\css\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="site\admin\css\bootstrap\mixins\_visibility.css" />
+    <Content Include="site\admin\css\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="site\admin\css\bootstrap\_media.css" />
     <Content Include="site\admin\css\fade.css" />
     <Content Include="site\admin\css\main.css" />
+    <Content Include="site\admin\css\style.css" />
     <Content Include="site\admin\css\util.css" />
+    <Content Include="site\admin\estu_menu.aspx" />
     <Content Include="site\admin\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="site\admin\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="site\admin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -170,8 +178,14 @@
     <Content Include="site\admin\images\icons\favicon.ico" />
     <Content Include="site\admin\images\registro-bg.jpg" />
     <Content Include="site\admin\images\registro.jpg" />
+    <Content Include="site\admin\js\bootstrap.min.js" />
+    <Content Include="site\admin\js\jquery.min.js" />
     <Content Include="site\admin\js\main.js" />
+    <Content Include="site\admin\js\popper.js" />
     <Content Include="site\admin\login.aspx" />
+    <Content Include="site\admin\mod_menu.aspx" />
+    <Content Include="site\admin\prof_menu.aspx" />
+    <Content Include="site\admin\reg_prof.aspx" />
     <Content Include="site\admin\vendor\animate\animate.css" />
     <Content Include="site\admin\vendor\animsition\css\animsition.css" />
     <Content Include="site\admin\vendor\animsition\css\animsition.min.css" />
@@ -438,12 +452,47 @@
     <Compile Include="site\admin\admin_home.aspx.designer.cs">
       <DependentUpon>admin_home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="site\admin\Admin_home.Master.cs">
+      <DependentUpon>Admin_home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\Admin_home.Master.designer.cs">
+      <DependentUpon>Admin_home.Master</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\estu_menu.aspx.cs">
+      <DependentUpon>estu_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\estu_menu.aspx.designer.cs">
+      <DependentUpon>estu_menu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="site\admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="site\admin\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\mod_menu.aspx.cs">
+      <DependentUpon>mod_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\mod_menu.aspx.designer.cs">
+      <DependentUpon>mod_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\prof_menu.aspx.cs">
+      <DependentUpon>prof_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\prof_menu.aspx.designer.cs">
+      <DependentUpon>prof_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\reg_prof.aspx.cs">
+      <DependentUpon>reg_prof.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\reg_prof.aspx.designer.cs">
+      <DependentUpon>reg_prof.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\home\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -772,6 +821,101 @@
     <Content Include="site\student\vendor\bootstrap\css\bootstrap-reboot.min.css.map" />
     <Content Include="site\student\vendor\bootstrap\css\bootstrap.css.map" />
     <Content Include="site\student\vendor\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="site\admin\Admin_home.Master" />
+    <Content Include="site\admin\css\bootstrap\.DS_Store" />
+    <Content Include="site\admin\css\bootstrap\mixins\.DS_Store" />
+    <Content Include="site\admin\scss\.DS_Store" />
+    <Content Include="site\admin\scss\bootstrap\.DS_Store" />
+    <Content Include="site\admin\scss\bootstrap\bootstrap-grid.scss" />
+    <Content Include="site\admin\scss\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="site\admin\scss\bootstrap\bootstrap.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_alert.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_badge.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_buttons.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_caret.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_float.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_forms.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_gradients.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_grid.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_hover.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_image.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_list-group.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_lists.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_pagination.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_resize.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_size.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_table-row.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_transition.scss" />
+    <Content Include="site\admin\scss\bootstrap\mixins\_visibility.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_align.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_background.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_borders.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_display.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_embed.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_flex.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_float.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_overflow.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_position.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_shadows.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_sizing.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_spacing.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_stretched-link.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_text.scss" />
+    <Content Include="site\admin\scss\bootstrap\utilities\_visibility.scss" />
+    <Content Include="site\admin\scss\bootstrap\vendor\_rfs.scss" />
+    <Content Include="site\admin\scss\bootstrap\_alert.scss" />
+    <Content Include="site\admin\scss\bootstrap\_badge.scss" />
+    <Content Include="site\admin\scss\bootstrap\_breadcrumb.scss" />
+    <Content Include="site\admin\scss\bootstrap\_button-group.scss" />
+    <Content Include="site\admin\scss\bootstrap\_buttons.scss" />
+    <Content Include="site\admin\scss\bootstrap\_card.scss" />
+    <Content Include="site\admin\scss\bootstrap\_carousel.scss" />
+    <Content Include="site\admin\scss\bootstrap\_close.scss" />
+    <Content Include="site\admin\scss\bootstrap\_code.scss" />
+    <Content Include="site\admin\scss\bootstrap\_custom-forms.scss" />
+    <Content Include="site\admin\scss\bootstrap\_dropdown.scss" />
+    <Content Include="site\admin\scss\bootstrap\_forms.scss" />
+    <Content Include="site\admin\scss\bootstrap\_functions.scss" />
+    <Content Include="site\admin\scss\bootstrap\_grid.scss" />
+    <Content Include="site\admin\scss\bootstrap\_images.scss" />
+    <Content Include="site\admin\scss\bootstrap\_input-group.scss" />
+    <Content Include="site\admin\scss\bootstrap\_jumbotron.scss" />
+    <Content Include="site\admin\scss\bootstrap\_list-group.scss" />
+    <Content Include="site\admin\scss\bootstrap\_media.scss" />
+    <Content Include="site\admin\scss\bootstrap\_mixins.scss" />
+    <Content Include="site\admin\scss\bootstrap\_modal.scss" />
+    <Content Include="site\admin\scss\bootstrap\_nav.scss" />
+    <Content Include="site\admin\scss\bootstrap\_navbar.scss" />
+    <Content Include="site\admin\scss\bootstrap\_pagination.scss" />
+    <Content Include="site\admin\scss\bootstrap\_popover.scss" />
+    <Content Include="site\admin\scss\bootstrap\_print.scss" />
+    <Content Include="site\admin\scss\bootstrap\_progress.scss" />
+    <Content Include="site\admin\scss\bootstrap\_reboot.scss" />
+    <Content Include="site\admin\scss\bootstrap\_root.scss" />
+    <Content Include="site\admin\scss\bootstrap\_spinners.scss" />
+    <Content Include="site\admin\scss\bootstrap\_tables.scss" />
+    <Content Include="site\admin\scss\bootstrap\_toasts.scss" />
+    <Content Include="site\admin\scss\bootstrap\_tooltip.scss" />
+    <Content Include="site\admin\scss\bootstrap\_transitions.scss" />
+    <Content Include="site\admin\scss\bootstrap\_type.scss" />
+    <Content Include="site\admin\scss\bootstrap\_utilities.scss" />
+    <Content Include="site\admin\scss\bootstrap\_variables.scss" />
+    <Content Include="site\admin\scss\style.scss" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

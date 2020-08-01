@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.SessionState;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -27,7 +28,9 @@ namespace ARAcademy.site.admin
             cmd.Execute();
             if ( administrator.Code == 200) 
             {
-                Response.Redirect("admin_home.aspx");
+                Session["Username"] = adm_email.Value;
+                Session["Token"] = "7b0705aab296e5f24dc802d440121077";
+                Response.Redirect("admin_home.aspx");Response.Redirect("admin_home.aspx");
             } else {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
             }
