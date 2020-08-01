@@ -228,6 +228,7 @@
     <Content Include="site\home\images\about.jpg" />
     <Content Include="site\home\images\Banner1.png" />
     <Content Include="site\home\images\Banner2.png" />
+    <Content Include="site\home\images\Banner_WhyUs.png" />
     <Content Include="site\home\images\blog_1.jpg" />
     <Content Include="site\home\images\blog_2.jpg" />
     <Content Include="site\home\images\blog_3.jpg" />
@@ -262,12 +263,15 @@
     <Content Include="site\home\images\logo_4.jpg" />
     <Content Include="site\home\images\logo_5.jpg" />
     <Content Include="site\home\images\logo_6.jpg" />
+    <Content Include="site\home\images\one.png" />
     <Content Include="site\home\images\person_1.jpg" />
     <Content Include="site\home\images\person_2.jpg" />
     <Content Include="site\home\images\person_3.jpg" />
     <Content Include="site\home\images\person_4.jpg" />
     <Content Include="site\home\images\person_5.jpg" />
     <Content Include="site\home\images\person_7.jpg" />
+    <Content Include="site\home\images\three.png" />
+    <Content Include="site\home\images\two.png" />
     <Content Include="site\home\index.aspx" />
     <Content Include="site\home\index.html" />
     <Content Include="site\home\js\aos.js" />
