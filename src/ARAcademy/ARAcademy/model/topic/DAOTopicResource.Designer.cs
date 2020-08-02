@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARAcademy.model.course {
+namespace ARAcademy.model.topic {
     using System;
     
     
@@ -22,14 +22,14 @@ namespace ARAcademy.model.course {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class DAOCourseResource {
+    internal class DAOTopicResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal DAOCourseResource() {
+        internal DAOTopicResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace ARAcademy.model.course {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ARAcademy.model.course.DAOCourseResource", typeof(DAOCourseResource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("ARAcademy.model.topic.DAOTopicResource", typeof(DAOTopicResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,38 +61,20 @@ namespace ARAcademy.model.course {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a CREATE_COURSE.
+        ///   Busca una cadena traducida similar a CREATE_TOPIC.
         /// </summary>
-        internal static string CreateCourseSP {
+        internal static string CreateTopicSP {
             get {
-                return ResourceManager.GetString("CreateCourseSP", resourceCulture);
+                return ResourceManager.GetString("CreateTopicSP", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a DELETE_COURSE.
+        ///   Busca una cadena traducida similar a DELETE_TOPIC.
         /// </summary>
-        internal static string DeleteStudentSP {
+        internal static string DeleteTopicSP {
             get {
-                return ResourceManager.GetString("DeleteStudentSP", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a @descripcion.
-        /// </summary>
-        internal static string Description {
-            get {
-                return ResourceManager.GetString("Description", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a @fk_grado.
-        /// </summary>
-        internal static string GradeID {
-            get {
-                return ResourceManager.GetString("GradeID", resourceCulture);
+                return ResourceManager.GetString("DeleteTopicSP", resourceCulture);
             }
         }
         
@@ -115,29 +97,38 @@ namespace ARAcademy.model.course {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a READ_ALL_COURSE.
+        ///   Busca una cadena traducida similar a READ_ALL_TOPIC.
         /// </summary>
-        internal static string ReadAllCoursesSP {
+        internal static string ReadAllTopicsSP {
             get {
-                return ResourceManager.GetString("ReadAllCoursesSP", resourceCulture);
+                return ResourceManager.GetString("ReadAllTopicsSP", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a READ_COURSE.
+        ///   Busca una cadena traducida similar a READ_TOPIC.
         /// </summary>
-        internal static string ReadCourseSP {
+        internal static string ReadTopicSP {
             get {
-                return ResourceManager.GetString("ReadCourseSP", resourceCulture);
+                return ResourceManager.GetString("ReadTopicSP", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a UPDATE_COURSE.
+        ///   Busca una cadena traducida similar a @fk_seccion.
         /// </summary>
-        internal static string UpdateCourseSP {
+        internal static string SectionID {
             get {
-                return ResourceManager.GetString("UpdateCourseSP", resourceCulture);
+                return ResourceManager.GetString("SectionID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a UPDATE_TOPIC.
+        /// </summary>
+        internal static string UpdateTopicSP {
+            get {
+                return ResourceManager.GetString("UpdateTopicSP", resourceCulture);
             }
         }
     }

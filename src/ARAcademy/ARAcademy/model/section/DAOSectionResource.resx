@@ -117,40 +117,44 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="CreateCourseSP" xml:space="preserve">
-    <value>CREATE_COURSE</value>
-    <comment>Procedimiento almacenado para crear un curso</comment>
+  <data name="Amount" xml:space="preserve">
+    <value>@monto</value>
+    <comment>Precio de la sección</comment>
   </data>
-  <data name="DeleteStudentSP" xml:space="preserve">
-    <value>DELETE_COURSE</value>
-    <comment>Procedimiento almacenado para borrar un curso</comment>
+  <data name="CourseID" xml:space="preserve">
+    <value>@fk_curso</value>
+    <comment>ID del curso</comment>
+  </data>
+  <data name="CreateSectionSP" xml:space="preserve">
+    <value>CREATE_SECTION</value>
+    <comment>Procedimiento almacenado para crear un sección</comment>
+  </data>
+  <data name="DeleteSectionSP" xml:space="preserve">
+    <value>DELETE_SECTION</value>
+    <comment>Procedimiento almacenado para borrar un sección</comment>
   </data>
   <data name="Description" xml:space="preserve">
     <value>@descripcion</value>
-    <comment>Descripción del curso</comment>
-  </data>
-  <data name="GradeID" xml:space="preserve">
-    <value>@fk_grado</value>
-    <comment>ID del grado</comment>
+    <comment>Descripción del sección</comment>
   </data>
   <data name="Id" xml:space="preserve">
     <value>@ide</value>
-    <comment>Identificador de cursos</comment>
+    <comment>Identificador de secciones</comment>
   </data>
   <data name="Name" xml:space="preserve">
     <value>@nombre</value>
-    <comment>Nombre del curso</comment>
+    <comment>Nombre del sección</comment>
   </data>
-  <data name="ReadAllCoursesSP" xml:space="preserve">
-    <value>READ_ALL_COURSE</value>
-    <comment>Procedimiento almacenado para consultar todos los cursos</comment>
+  <data name="ReadAllSectionsSP" xml:space="preserve">
+    <value>READ_ALL_SECTION</value>
+    <comment>Procedimiento almacenado para consultar todos los secciones</comment>
   </data>
-  <data name="ReadCourseSP" xml:space="preserve">
-    <value>READ_COURSE</value>
-    <comment>Procedimiento almacenado para consultar un curso</comment>
+  <data name="ReadSectionSP" xml:space="preserve">
+    <value>READ_SECTION</value>
+    <comment>Procedimiento almacenado para consultar un sección</comment>
   </data>
-  <data name="UpdateCourseSP" xml:space="preserve">
-    <value>UPDATE_COURSE</value>
-    <comment>Procedimiento almacenado para actualizar un curso</comment>
+  <data name="UpdateSectionSP" xml:space="preserve">
+    <value>UPDATE_SECTION</value>
+    <comment>Procedimiento almacenado para actualizar un sección</comment>
   </data>
 </root>

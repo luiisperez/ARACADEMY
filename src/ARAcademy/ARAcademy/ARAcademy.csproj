@@ -408,6 +408,7 @@
     <Compile Include="common\entities\Administrator.cs" />
     <Compile Include="common\entities\Course.cs" />
     <Compile Include="common\entities\Grade.cs" />
+    <Compile Include="common\entities\Section.cs" />
     <Compile Include="common\entities\Student.cs" />
     <Compile Include="common\Entity.cs" />
     <Compile Include="common\entities\Teacher.cs" />
@@ -418,6 +419,11 @@
     <Compile Include="controller\course\ReadAllCourseCommand.cs" />
     <Compile Include="controller\course\ReadCourseCommand.cs" />
     <Compile Include="controller\course\UpdateCourseCommand.cs" />
+    <Compile Include="controller\section\CreateSectionCommand.cs" />
+    <Compile Include="controller\section\DeleteSectionCommand.cs" />
+    <Compile Include="controller\section\ReadAllSectionCommand.cs" />
+    <Compile Include="controller\section\ReadSectionCommand.cs" />
+    <Compile Include="controller\section\UpdateSectionCommand.cs" />
     <Compile Include="controller\student\CreateStudentCommand.cs" />
     <Compile Include="controller\student\DeleteStudentCommand.cs" />
     <Compile Include="controller\student\ReadAllStudentsCommand.cs" />
@@ -448,6 +454,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Registry.resx</DependentUpon>
+    </Compile>
+    <Compile Include="model\section\DAOSection.cs" />
+    <Compile Include="model\section\DAOSectionResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAOSectionResource.resx</DependentUpon>
     </Compile>
     <Compile Include="model\student\DAOStudent.cs" />
     <Compile Include="model\student\DAOStudentResource.Designer.cs">
@@ -954,6 +966,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Registry.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="model\section\DAOSectionResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOSectionResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="model\student\DAOStudentResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
