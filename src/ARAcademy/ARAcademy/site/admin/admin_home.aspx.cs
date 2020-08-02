@@ -11,7 +11,14 @@ namespace ARAcademy.site.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            var username = Session["Username"];
+            var token = Session["Token"];
+            if (username != null && token != null)
+            {
 
+            } else {
+               Response.Redirect("login.aspx");
+            }
         }
     }
 }

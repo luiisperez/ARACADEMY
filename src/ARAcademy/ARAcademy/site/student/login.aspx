@@ -19,7 +19,7 @@
                 title: msg,
                 timer: 2000,
                 showConfirmButton: false,
-                type: 'error'
+                type: 'error'  
             });
         }
         function infoSweetAlert(msg) {
