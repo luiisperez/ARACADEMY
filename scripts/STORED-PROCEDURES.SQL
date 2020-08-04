@@ -239,7 +239,7 @@ BEGIN
 
 		UPDATE STUDENT SET FK_GRADE = FK_GRADO WHERE EMAIL = MAIL;
 
-	RESULT := 201;
+		RESULT := 201;
 
 	ELSE
 
@@ -360,7 +360,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 /********************LEER TODOS LOS MODULOS*******************/
-CREATE OR REPLACE FUNCTION READ_ALL_SECTION() RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT integer, DESCRIPTION varchar(500), FK_COURSE integer) AS $$
+CREATE OR REPLACE FUNCTION READ_ALL_SECTION() RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT integer, DESCRIPTION varchar(500), FK_COURSE integer, COURSE_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN
@@ -372,7 +372,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /*********************LEER MODULOS POR ID*********************/
-CREATE OR REPLACE FUNCTION READ_SECTION(IDE integer) RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT integer, DESCRIPTION varchar(500), FK_COURSE integer) AS $$
+CREATE OR REPLACE FUNCTION READ_SECTION(IDE integer) RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT integer, DESCRIPTION varchar(500), FK_COURSE integer, COURSE_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN
@@ -447,7 +447,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 /********************LEER TODOS LOS TOPICOS*******************/
-CREATE OR REPLACE FUNCTION READ_ALL_TOPIC() RETURNS TABLE(ID integer, NAME varchar(30), FK_SECCION integer) AS $$
+CREATE OR REPLACE FUNCTION READ_ALL_TOPIC() RETURNS TABLE(ID integer, NAME varchar(30), FK_SECCION integer, SECCION_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN
@@ -459,7 +459,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /*********************LEER TOPICO POR ID*********************/
-CREATE OR REPLACE FUNCTION READ_TOPIC(IDE integer) RETURNS TABLE(ID integer, NAME varchar(30), FK_SECTION integer) AS $$
+CREATE OR REPLACE FUNCTION READ_TOPIC(IDE integer) RETURNS TABLE(ID integer, NAME varchar(30), FK_SECTION integer, SECCION_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN

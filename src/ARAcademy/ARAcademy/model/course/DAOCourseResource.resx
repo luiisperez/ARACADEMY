@@ -117,64 +117,40 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Birthdate" xml:space="preserve">
-    <value>@fec</value>
-    <comment>Fecha de nacimiento</comment>
-  </data>
-  <data name="Country" xml:space="preserve">
-    <value>@pais</value>
-    <comment>País</comment>
-  </data>
-  <data name="CreateStudentSP" xml:space="preserve">
-    <value>CREATE_STUDENT</value>
-    <comment>Procedimiento almacenado para crear un profesor</comment>
+  <data name="CreateCourseSP" xml:space="preserve">
+    <value>CREATE_COURSE</value>
+    <comment>Procedimiento almacenado para crear un curso</comment>
   </data>
   <data name="DeleteStudentSP" xml:space="preserve">
-    <value>DELETE_STUDENT</value>
-    <comment>Procedimiento almacenado para borrar un profesor</comment>
+    <value>DELETE_COURSE</value>
+    <comment>Procedimiento almacenado para borrar un curso</comment>
   </data>
-  <data name="Email" xml:space="preserve">
-    <value>@mail</value>
-    <comment>Email</comment>
+  <data name="Description" xml:space="preserve">
+    <value>@descripcion</value>
+    <comment>Descripción del curso</comment>
   </data>
   <data name="GradeID" xml:space="preserve">
     <value>@fk_grado</value>
     <comment>ID del grado</comment>
   </data>
-  <data name="Lastname" xml:space="preserve">
-    <value>@apellido</value>
-    <comment>Apellido</comment>
+  <data name="Id" xml:space="preserve">
+    <value>@ide</value>
+    <comment>Identificador de cursos</comment>
   </data>
   <data name="Name" xml:space="preserve">
     <value>@nombre</value>
-    <comment>Nonbre</comment>
+    <comment>Nombre del curso</comment>
   </data>
-  <data name="Password" xml:space="preserve">
-    <value>@clave</value>
-    <comment>Contraseña</comment>
+  <data name="ReadAllCoursesSP" xml:space="preserve">
+    <value>READ_ALL_COURSE</value>
+    <comment>Procedimiento almacenado para consultar todos los cursos</comment>
   </data>
-  <data name="Phone" xml:space="preserve">
-    <value>@telf</value>
-    <comment>Teléfono</comment>
+  <data name="ReadCourseSP" xml:space="preserve">
+    <value>READ_COURSE</value>
+    <comment>Procedimiento almacenado para consultar un curso</comment>
   </data>
-  <data name="ReadAllStudentsSP" xml:space="preserve">
-    <value>READ_ALL_STUDENT</value>
-    <comment>Procedimiento almacenado para consultar todos los profesores</comment>
-  </data>
-  <data name="ReadStudentSP" xml:space="preserve">
-    <value>READ_STUDENT</value>
-    <comment>Procedimiento almacenado para consultar un profesor</comment>
-  </data>
-  <data name="StudentLoginSP" xml:space="preserve">
-    <value>LOGIN_STUDENT</value>
-    <comment>Procedimiento almacenado para iniciar sesión como estudiante</comment>
-  </data>
-  <data name="UpdateGradeStudentSP" xml:space="preserve">
-    <value>UPDATE_GRADE_STUDENT</value>
-    <comment>Procdimiento almacenado para cambiar el grado del estudiante</comment>
-  </data>
-  <data name="UpdateStudentSP" xml:space="preserve">
-    <value>UPDATE_STUDENT</value>
-    <comment>Procedimiento almacenado para actualizar un profesor</comment>
+  <data name="UpdateCourseSP" xml:space="preserve">
+    <value>UPDATE_COURSE</value>
+    <comment>Procedimiento almacenado para actualizar un curso</comment>
   </data>
 </root>
