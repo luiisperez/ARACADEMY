@@ -17,5 +17,11 @@ namespace ARAcademy.site.admin
             token = Session["Token"].ToString();
             token = Session["Token"].ToString();
         }
+
+        protected void Cerrar_Sesion(object sender, EventArgs e)
+        {
+            Session.Clear();
+            Response.Redirect("login.aspx");
+        }
     }
 }

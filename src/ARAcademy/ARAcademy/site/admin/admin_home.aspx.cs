@@ -11,13 +11,23 @@ namespace ARAcademy.site.admin
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            var username = Session["Username"];
-            var token = Session["Token"];
-            if (username != null && token != null)
+            if (!Page.IsPostBack)
             {
+                try
+                {
+                    if (Session["Username"] != null && Session["Token"] != null)
+                    {
 
-            } else {
-               Response.Redirect("login.aspx");
+                    }
+                    else
+                    {
+                        Response.Redirect("login.aspx");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    
+                }
             }
         }
     }

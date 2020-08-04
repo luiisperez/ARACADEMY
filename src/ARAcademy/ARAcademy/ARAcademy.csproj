@@ -162,6 +162,7 @@
     <Content Include="site\admin\css\bootstrap\mixins\_visibility.css" />
     <Content Include="site\admin\css\bootstrap\utilities\_stretched-link.css" />
     <Content Include="site\admin\css\bootstrap\_media.css" />
+    <Content Include="site\admin\css\Datatable.css" />
     <Content Include="site\admin\css\fade.css" />
     <Content Include="site\admin\css\main.css" />
     <Content Include="site\admin\css\style.css" />
@@ -179,9 +180,14 @@
     <Content Include="site\admin\images\registro-bg.jpg" />
     <Content Include="site\admin\images\registro.jpg" />
     <Content Include="site\admin\js\bootstrap.min.js" />
+    <Content Include="site\admin\js\dataTables.bootstrap4.min.js" />
+    <Content Include="site\admin\js\jquery-3.5.1.js" />
+    <Content Include="site\admin\js\jquery.dataTables.min.js" />
     <Content Include="site\admin\js\jquery.min.js" />
     <Content Include="site\admin\js\main.js" />
     <Content Include="site\admin\js\popper.js" />
+    <Content Include="site\admin\list_est.aspx" />
+    <Content Include="site\admin\list_prof.aspx" />
     <Content Include="site\admin\login.aspx" />
     <Content Include="site\admin\mod_menu.aspx" />
     <Content Include="site\admin\prof_menu.aspx" />
@@ -469,6 +475,20 @@
     </Compile>
     <Compile Include="site\admin\estu_menu.aspx.designer.cs">
       <DependentUpon>estu_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\list_est.aspx.cs">
+      <DependentUpon>list_est.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\list_est.aspx.designer.cs">
+      <DependentUpon>list_est.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\list_prof.aspx.cs">
+      <DependentUpon>list_prof.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\list_prof.aspx.designer.cs">
+      <DependentUpon>list_prof.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
