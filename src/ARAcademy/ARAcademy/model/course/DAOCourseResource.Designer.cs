@@ -124,6 +124,15 @@ namespace ARAcademy.model.course {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a READ_COURSE_BY_GRADE.
+        /// </summary>
+        internal static string ReadCoursesByGradeSP {
+            get {
+                return ResourceManager.GetString("ReadCoursesByGradeSP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a READ_COURSE.
         /// </summary>
         internal static string ReadCourseSP {

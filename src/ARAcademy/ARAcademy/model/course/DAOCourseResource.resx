@@ -145,6 +145,10 @@
     <value>READ_ALL_COURSE</value>
     <comment>Procedimiento almacenado para consultar todos los cursos</comment>
   </data>
+  <data name="ReadCoursesByGradeSP" xml:space="preserve">
+    <value>READ_COURSE_BY_GRADE</value>
+    <comment>Procedimiento almacenado para actualizar </comment>
+  </data>
   <data name="ReadCourseSP" xml:space="preserve">
     <value>READ_COURSE</value>
     <comment>Procedimiento almacenado para consultar un curso</comment>

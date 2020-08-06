@@ -7,7 +7,7 @@ namespace ARAcademy.common.entities
 {
     public class Course : Entity
     {
-        private int id;
+        private String id;
         private String name;
         private String description;
         private Grade grade;
@@ -16,12 +16,12 @@ namespace ARAcademy.common.entities
         {
         }
 
-        public Course(int id)
+        public Course(String id)
         {
             this.id = id;
         }
 
-        public Course(int id, string name, string description, Grade grade)
+        public Course(String id, string name, string description, Grade grade)
         {
             this.id = id;
             this.name = name;
@@ -29,7 +29,7 @@ namespace ARAcademy.common.entities
             this.grade = grade;
         }
 
-        public int Id { get => id; set => id = value; }
+        public String Id { get => id; set => id = value; }
         public string Name { get => name; set => name = value; }
         public string Description { get => description; set => description = value; }
         public Grade Grade { get => grade; set => grade = value; }

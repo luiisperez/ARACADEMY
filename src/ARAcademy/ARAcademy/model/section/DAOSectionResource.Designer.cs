@@ -133,6 +133,15 @@ namespace ARAcademy.model.section {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a READ_SECTION_BY_COURSE.
+        /// </summary>
+        internal static string ReadSectionByCourseSP {
+            get {
+                return ResourceManager.GetString("ReadSectionByCourseSP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a READ_SECTION.
         /// </summary>
         internal static string ReadSectionSP {

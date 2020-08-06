@@ -28,7 +28,7 @@ namespace ARAcademy.model.course
             description.ParameterName = DAOCourseResource.Description;
             fkgrade.ParameterName = DAOCourseResource.GradeID;
 
-            id.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
+            id.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             name.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             description.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             fkgrade.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
@@ -86,7 +86,7 @@ namespace ARAcademy.model.course
 
             id.ParameterName = DAOCourseResource.Id;
 
-            id.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
+            id.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
 
             id.Direction = ParameterDirection.Input;
 
@@ -127,7 +127,7 @@ namespace ARAcademy.model.course
             conn = DAO.getConnection();
             Course readCourse = new Course();
             List<Course> courses = new List<Course>();
-            int id;
+            String id;
             String name;
             String descripcion;
             int gradeId;
@@ -147,7 +147,7 @@ namespace ARAcademy.model.course
                     {
 
 
-                        id = dr.GetInt32(0);
+                        id = dr.GetString(0);
                         name = dr.GetString(1);
                         descripcion = dr.GetString(2);
                         gradeId = dr.GetInt32(3);
@@ -181,7 +181,67 @@ namespace ARAcademy.model.course
         {
             conn = DAO.getConnection();
             Course readCourse = new Course();
-            int id;
+            String id;
+            String name;
+            String descripcion;
+            int gradeId;
+            String gradeName;
+
+            try
+            {
+                conn = DAO.getConnection();
+                NpgsqlTransaction tran = conn.BeginTransaction();
+                NpgsqlCommand command = new NpgsqlCommand(DAOCourseResource.ReadCourseSP, conn);
+                NpgsqlParameter parameter = new NpgsqlParameter();
+                parameter.ParameterName = DAOCourseResource.Id;
+                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
+                parameter.Direction = ParameterDirection.Input;
+                parameter.Value = course.Id;
+                command.Parameters.Add(parameter);
+                command.CommandType = CommandType.StoredProcedure;
+
+                NpgsqlDataReader dr = command.ExecuteReader();
+                try
+                {
+                    while (dr.Read())
+                    {
+
+
+                        id = dr.GetString(0);
+                        name = dr.GetString(1);
+                        descripcion = dr.GetString(2);
+                        gradeId = dr.GetInt32(3);
+                        gradeName = dr.GetString(4);
+                        Grade grade = new Grade(gradeId, gradeName);
+                        readCourse = new Course(id, name, descripcion, grade);
+                    }
+                    dr.Close();
+                    tran.Commit();
+                    return readCourse;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+            catch (NpgsqlException ex2)
+            {
+                throw ex2;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public List<Course> ReadAllCoursesByGrade(Grade gradeConsulted)
+        {
+            conn = DAO.getConnection();
+            Course readCourse = new Course();
+            List<Course> courses = new List<Course>();
+            String id;
             String name;
             String descripcion;
             int gradeId;
@@ -196,7 +256,7 @@ namespace ARAcademy.model.course
                 parameter.ParameterName = DAOCourseResource.Id;
                 parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
                 parameter.Direction = ParameterDirection.Input;
-                parameter.Value = course.Id;
+                parameter.Value = gradeConsulted.Id;
                 command.Parameters.Add(parameter);
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -207,17 +267,19 @@ namespace ARAcademy.model.course
                     {
 
 
-                        id = dr.GetInt32(0);
+                        id = dr.GetString(0);
                         name = dr.GetString(1);
                         descripcion = dr.GetString(2);
                         gradeId = dr.GetInt32(3);
                         gradeName = dr.GetString(4);
                         Grade grade = new Grade(gradeId, gradeName);
                         readCourse = new Course(id, name, descripcion, grade);
+
+                        courses.Add(readCourse);
                     }
                     dr.Close();
                     tran.Commit();
-                    return readCourse;
+                    return courses;
                 }
                 catch (Exception ex)
                 {
@@ -252,7 +314,7 @@ namespace ARAcademy.model.course
             description.ParameterName = DAOCourseResource.Description;
             fkgrade.ParameterName = DAOCourseResource.GradeID;
 
-            id.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
+            id.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             name.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             description.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             fkgrade.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;

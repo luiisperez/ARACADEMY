@@ -127,6 +127,65 @@ namespace ARAcademy.model.topic
             }
         }
 
+        public List<Topic> ReadAllTopicsBySection(Section sectionRead)
+        {
+            conn = DAO.getConnection();
+            Topic readTopic = new Topic();
+            List<Topic> topics = new List<Topic>();
+            int id;
+            String name;
+            int sectionId;
+            String sectionName;
+
+            try
+            {
+                conn = DAO.getConnection();
+                NpgsqlTransaction tran = conn.BeginTransaction();
+                NpgsqlCommand command = new NpgsqlCommand(DAOTopicResource.ReadTopicSP, conn);
+                NpgsqlParameter parameter = new NpgsqlParameter();
+                parameter.ParameterName = DAOTopicResource.Id;
+                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
+                parameter.Direction = ParameterDirection.Input;
+                parameter.Value = sectionRead.Id;
+                command.Parameters.Add(parameter);
+                command.CommandType = CommandType.StoredProcedure;
+
+                NpgsqlDataReader dr = command.ExecuteReader();
+                try
+                {
+                    while (dr.Read())
+                    {
+                        id = dr.GetInt32(0);
+                        name = dr.GetString(1);
+                        sectionId = dr.GetInt32(2);
+                        sectionName = dr.GetString(3);
+                        Section section = new Section();
+                        section.Id = sectionId;
+                        section.Name = sectionName;
+                        readTopic = new Topic(id, name, section);
+                        topics.Add(readTopic);
+                    }
+                    dr.Close();
+                    tran.Commit();
+                    return topics;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+            catch (NpgsqlException ex2)
+            {
+                throw ex2;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
         public List<Topic> ReadAllTopics()
         {
             conn = DAO.getConnection();

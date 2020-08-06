@@ -34,7 +34,7 @@ namespace ARAcademy.model.section
             name.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             amount.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Double;
             description.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
-            fkcourse.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
+            fkcourse.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
 
             id.Direction = ParameterDirection.Input;
             name.Direction = ParameterDirection.Input;
@@ -91,7 +91,7 @@ namespace ARAcademy.model.section
             String name;
             Double amount;
             String descripcion;
-            int courseId;
+            String courseId;
             String courseName;
 
             try
@@ -116,7 +116,7 @@ namespace ARAcademy.model.section
                         name = dr.GetString(1);
                         amount = dr.GetDouble(2);
                         descripcion = dr.GetString(3);
-                        courseId = dr.GetInt32(4);
+                        courseId = dr.GetString(4);
                         courseName = dr.GetString(5);
                         Course course = new Course();
                         course.Id = courseId;
@@ -166,7 +166,7 @@ namespace ARAcademy.model.section
             name.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             amount.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Double;
             description.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
-            fkcourse.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
+            fkcourse.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
 
             id.Direction = ParameterDirection.Input;
             name.Direction = ParameterDirection.Input;
@@ -223,7 +223,7 @@ namespace ARAcademy.model.section
             String name;
             Double amount;
             String descripcion;
-            int courseId;
+            String courseId;
             String courseName;
 
             try
@@ -242,7 +242,70 @@ namespace ARAcademy.model.section
                         name = dr.GetString(1);
                         amount = dr.GetDouble(2);
                         descripcion = dr.GetString(3);
-                        courseId = dr.GetInt32(4);
+                        courseId = dr.GetString(4);
+                        courseName = dr.GetString(5);
+                        Course course = new Course();
+                        course.Id = courseId;
+                        course.Name = courseName;
+                        readSection = new Section(id, name, amount, descripcion, course);
+                        sections.Add(readSection);
+                    }
+                    dr.Close();
+                    tran.Commit();
+                    return sections;
+                }
+                catch (Exception ex)
+                {
+
+                    throw ex;
+                }
+
+            }
+            catch (NpgsqlException ex2)
+            {
+                throw ex2;
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        public List<Section> ReadAllSectionsByCourse(Course courseRead)
+        {
+            conn = DAO.getConnection();
+            Section readSection = new Section();
+            List<Section> sections = new List<Section>();
+            int id;
+            String name;
+            Double amount;
+            String descripcion;
+            String courseId;
+            String courseName;
+
+            try
+            {
+                conn = DAO.getConnection();
+                NpgsqlTransaction tran = conn.BeginTransaction();
+                NpgsqlCommand command = new NpgsqlCommand(DAOSectionResource.ReadSectionSP, conn);
+                NpgsqlParameter parameter = new NpgsqlParameter();
+                parameter.ParameterName = DAOSectionResource.Id;
+                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
+                parameter.Direction = ParameterDirection.Input;
+                parameter.Value = courseRead.Id;
+                command.Parameters.Add(parameter);
+                command.CommandType = CommandType.StoredProcedure;
+
+                NpgsqlDataReader dr = command.ExecuteReader();
+                try
+                {
+                    while (dr.Read())
+                    {
+                        id = dr.GetInt32(0);
+                        name = dr.GetString(1);
+                        amount = dr.GetDouble(2);
+                        descripcion = dr.GetString(3);
+                        courseId = dr.GetString(4);
                         courseName = dr.GetString(5);
                         Course course = new Course();
                         course.Id = courseId;
