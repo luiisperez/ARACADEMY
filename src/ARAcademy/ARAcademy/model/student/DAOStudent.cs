@@ -263,6 +263,7 @@ namespace ARAcademy.model.student
             String country;
             int gradeId;
             String gradeName;
+            Char status;
 
             try
             {
@@ -287,8 +288,10 @@ namespace ARAcademy.model.student
                         country = dr.GetString(6);
                         gradeId = dr.GetInt32(7);
                         gradeName = dr.GetString(8);
+                        status = dr.GetChar(9);
                         Grade grade = new Grade(gradeId, gradeName);
                         readStudent = new Student(email, password, name, lastName, birthDate, phone, country, grade);
+                        readStudent.Status = status;
                         students.Add(readStudent);
                     }
                     dr.Close();
@@ -326,6 +329,7 @@ namespace ARAcademy.model.student
             String country;
             int gradeId;
             String gradeName;
+            Char status;
 
             try
             {
@@ -356,8 +360,10 @@ namespace ARAcademy.model.student
                         country = dr.GetString(6);
                         gradeId = dr.GetInt32(7);
                         gradeName = dr.GetString(8);
+                        status = dr.GetChar(9);
                         Grade grade = new Grade(gradeId, gradeName);
                         readStudent = new Student(email, password, name, lastName, birthDate, phone, country, grade);
+                        readStudent.Status = status;
 
                     }
                     dr.Close();

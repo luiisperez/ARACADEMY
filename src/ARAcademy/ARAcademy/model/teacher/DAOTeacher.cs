@@ -241,6 +241,7 @@ namespace ARAcademy.model.teacher
             DateTime birthDate;
             String phone;
             String country;
+            Char status;
 
             try
             {
@@ -269,7 +270,9 @@ namespace ARAcademy.model.teacher
                         birthDate = dr.GetDateTime(4);
                         phone = dr.GetString(5);
                         country = dr.GetString(6);
+                        status = dr.GetChar(7);
                         readTeacher = new Teacher(email, password, name, lastName, birthDate, phone, country);
+                        readTeacher.Status = status;
 
                     }
                     dr.Close();
@@ -305,6 +308,7 @@ namespace ARAcademy.model.teacher
             DateTime birthDate;
             String phone;
             String country;
+            Char status;
 
             try
             {
@@ -327,7 +331,9 @@ namespace ARAcademy.model.teacher
                         birthDate = dr.GetDateTime(4);
                         phone = dr.GetString(5);
                         country = dr.GetString(6);
+                        status = dr.GetChar(7);
                         teacher = new Teacher(email, password, name, lastName, birthDate, phone, country);
+                        teacher.Status = status;
                         teachers.Add(teacher);
                     }
                     dr.Close();
