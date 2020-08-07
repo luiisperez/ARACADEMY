@@ -155,6 +155,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="site\admin\add_mat.aspx" />
+    <Content Include="site\admin\add_mod.aspx" />
+    <Content Include="site\admin\add_top.aspx" />
     <Content Include="site\admin\admin_home.aspx" />
     <Content Include="site\admin\css\bootstrap.min.css" />
     <Content Include="site\admin\css\bootstrap\mixins\_border-radius.css" />
@@ -423,12 +426,14 @@
     <Compile Include="controller\Command.cs" />
     <Compile Include="controller\course\CreateCourseCommand.cs" />
     <Compile Include="controller\course\DeleteCourseCommand.cs" />
+    <Compile Include="controller\course\ReadAllCourseByGradeCommand.cs" />
     <Compile Include="controller\course\ReadAllCourseCommand.cs" />
     <Compile Include="controller\course\ReadCourseCommand.cs" />
     <Compile Include="controller\course\UpdateCourseCommand.cs" />
     <Compile Include="controller\grade\ReadAllGradeCommand.cs" />
     <Compile Include="controller\section\CreateSectionCommand.cs" />
     <Compile Include="controller\section\DeleteSectionCommand.cs" />
+    <Compile Include="controller\section\ReadAllSectionByCourseCommand.cs" />
     <Compile Include="controller\section\ReadAllSectionCommand.cs" />
     <Compile Include="controller\section\ReadSectionCommand.cs" />
     <Compile Include="controller\section\UpdateSectionCommand.cs" />
@@ -447,6 +452,7 @@
     <Compile Include="controller\teacher\UpdateTeacherCommand.cs" />
     <Compile Include="controller\topic\CreateTopicCommand.cs" />
     <Compile Include="controller\topic\DeleteTopicCommand.cs" />
+    <Compile Include="controller\topic\ReadAllTopicBySectionCommand.cs" />
     <Compile Include="controller\topic\ReadAllTopicCommand.cs" />
     <Compile Include="controller\topic\ReadTopicCommand.cs" />
     <Compile Include="controller\topic\UpdateTopicCommand.cs" />
@@ -495,6 +501,27 @@
     <Compile Include="model\topic\DAOTopic.cs" />
     <Compile Include="model\topic\DAOTopicResource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="site\admin\add_mat.aspx.cs">
+      <DependentUpon>add_mat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\add_mat.aspx.designer.cs">
+      <DependentUpon>add_mat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\add_mod.aspx.cs">
+      <DependentUpon>add_mod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\add_mod.aspx.designer.cs">
+      <DependentUpon>add_mod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\add_top.aspx.cs">
+      <DependentUpon>add_top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\add_top.aspx.designer.cs">
+      <DependentUpon>add_top.aspx</DependentUpon>
+    </Compile>
     <Compile Include="site\admin\admin_home.aspx.cs">
       <DependentUpon>admin_home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
