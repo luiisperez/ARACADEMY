@@ -5,6 +5,17 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet"/>
+    <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
+    <link href="css/util.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+    <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .input-group-append {
+            display: none;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -44,24 +55,26 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="input-group">
-                                        <input runat="server" type="password" class="form-control" name="password" id="password" placeholder="Contraseña" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
+                                        <input runat="server" type="password" class="form-control" name="password" onchange="form.password_conf.pattern = RegExp.escape(this.value);" id="password" placeholder="Contraseña" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group">
-                                        <input runat="server" type="password" class="form-control" name="password" id="conf_pwd" placeholder="Confirmar contraseña" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required"/>
+                                        <input runat="server" type="password" class="form-control" name="password_conf" id="conf_pwd" placeholder="Confirmar contraseña" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required"/>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="row">
                                 <div class="col-4">
-                                    <div class="input-group">
-                                        <input runat="server" type="text" class="form-control" name="name" id="fec_nac" placeholder="Fecha de nacimiento" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required"/>
-                                    </div>
+                                    <%--<div class="input-group">
+                                    <input runat="server" type="text" class="form-control" name="name" id="fec_nac" placeholder="Fecha de nacimiento" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required"/>
+                                    <input data-provide="datepicker">
+                                        <input type='text' class="form-control" id='datetimepicker4' />
+                                    </div>--%>
                                     <%--<div class="form-group">
                                         <div class='input-group date' id='datetimepicker1'>
-                                            <input type='text' class="form-control" />
+                                            <input runat="server" id="fec_nac" type='text' class="form-control" required="required"/>
                                             <span class="input-group-addon">
                                                 <span class="glyphicon glyphicon-calendar"></span>
                                             </span>
@@ -72,27 +85,19 @@
                                             $('#datetimepicker1').datetimepicker();
                                         });
                                     </script>--%>
-                                    <%--<div class="form-group">
-                                    <div class='input-group date' id='datetimepicker1'>
-                                        <input type='text' id="fecha_ini" runat="server" class="form-control"/>
-                                        <span class="input-group-addon">
-                                        <span class="glyphicon glyphicon-calendar"></span>
-                                        </span>
-                                    </div>--%>
-<%--                                <input id="datepicker" width="276" value="02/04/2018" />                                   
-                                    <script>
-                                        $('#datepicker').datepicker({
-                                            uiLibrary: 'bootstrap4',
-                                            locale: 'es-es',
-                                        });                                   
 
-                                    </script>--%>
+                                    <input id="fec_nac" class="datepicker" placeholder="Fecha de Nacimiento" runat="server" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
+                                    <script>
+                                        $('.datepicker').datepicker({
+                                            uiLibrary: 'bootstrap4'
+                                        });
+                                    </script>
 
                                 </div>
 
                                 <div class="col-4">
                                     <div class="input-group">
-                                        <input runat="server" pattern="[0-9]{20}" title="Numero telefonico invalido." type="text" class="form-control" name="telf" id="telf" placeholder="Telefono" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
+                                        <input runat="server" pattern="[0-9]{10,20}" title="Numero telefonico invalido." type="text" class="form-control" name="telf" id="telf" placeholder="Telefono" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
                                     </div>
                                 </div>
                                 <div class="col-4">

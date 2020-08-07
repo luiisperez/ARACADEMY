@@ -2,6 +2,7 @@
 using ARAcademy.controller.teacher;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -35,6 +36,8 @@ namespace ARAcademy.site.admin
 
         }
 
+
+
         protected void Register_Prof(object sender, EventArgs e)
         {
             teacher = new Teacher();
@@ -44,17 +47,18 @@ namespace ARAcademy.site.admin
             teacher.Password = password.Value;
             teacher.Phone = telf.Value;
             teacher.Country = country.Value;
-            string fec_nac = "01/01/0001";
-            teacher.BirthDate = DateTime.Parse(fec_nac);
+            fec_nac.Value = fec_nac.Value + " 12:00:00";
+            DateTime fec_nac_ = DateTime.Parse(fec_nac.Value, CultureInfo.GetCultureInfo("en-US"));
+            teacher.BirthDate = Convert.ToDateTime(fec_nac_);
             CreateTeacherCommand cmd = new CreateTeacherCommand(teacher);
             cmd.Execute();
             if (teacher.Code == 200)
             {
-                // Response.Redirect("admin_home.aspx"); Response.Redirect("admin_home.aspx");
+                Response.Redirect("admin_home.aspx"); Response.Redirect("admin_home.aspx");
             }
             else
             {
-                // ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
             }
         }
     }

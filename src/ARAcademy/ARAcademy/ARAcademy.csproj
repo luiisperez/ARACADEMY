@@ -155,6 +155,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="site\admin\add_mat.aspx" />
+    <Content Include="site\admin\add_mod.aspx" />
+    <Content Include="site\admin\add_top.aspx" />
     <Content Include="site\admin\admin_home.aspx" />
     <Content Include="site\admin\css\bootstrap.min.css" />
     <Content Include="site\admin\css\bootstrap\mixins\_border-radius.css" />
@@ -499,6 +502,27 @@
     <Compile Include="model\topic\DAOTopic.cs" />
     <Compile Include="model\topic\DAOTopicResource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="site\admin\add_mat.aspx.cs">
+      <DependentUpon>add_mat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\add_mat.aspx.designer.cs">
+      <DependentUpon>add_mat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\add_mod.aspx.cs">
+      <DependentUpon>add_mod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\add_mod.aspx.designer.cs">
+      <DependentUpon>add_mod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\add_top.aspx.cs">
+      <DependentUpon>add_top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\add_top.aspx.designer.cs">
+      <DependentUpon>add_top.aspx</DependentUpon>
+    </Compile>
     <Compile Include="site\admin\admin_home.aspx.cs">
       <DependentUpon>admin_home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

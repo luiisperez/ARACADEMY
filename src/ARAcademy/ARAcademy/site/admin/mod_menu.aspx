@@ -13,7 +13,7 @@
         <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px">
 
           <!-- Content -->
-          <a href="#!">
+          <a href="add_mat.aspx">
             <div class="text-white d-flex h-100 mask blue-gradient-rgba" >
               <div class="first-content align-self-center p-3">
               </div>
@@ -50,7 +50,7 @@
         <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px">
 
           <!-- Content -->
-          <a href="#!">
+          <a href="add_mod.aspx">
             <div class="text-white d-flex h-100 mask purple-gradient-rgba" style="border-radius:5px">
               <div class="first-content align-self-center p-3">
               </div>
@@ -87,7 +87,7 @@
         <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px">
 
           <!-- Content -->
-          <a href="#!">
+          <a href="add_top.aspx">
             <div class="text-white d-flex h-100 mask purple-gradient-rgba" style="border-radius:5px">
               <div class="first-content align-self-center p-3">
               </div>
