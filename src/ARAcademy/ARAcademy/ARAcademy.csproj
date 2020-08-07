@@ -332,6 +332,7 @@
     <Content Include="site\professor\images\registro.jpg" />
     <Content Include="site\professor\js\main.js" />
     <Content Include="site\professor\login.aspx" />
+    <Content Include="site\professor\postulation.aspx" />
     <Content Include="site\professor\vendor\animate\animate.css" />
     <Content Include="site\professor\vendor\animsition\css\animsition.css" />
     <Content Include="site\professor\vendor\animsition\css\animsition.min.css" />
@@ -581,6 +582,12 @@
     </Compile>
     <Compile Include="site\professor\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\professor\postulation.aspx.cs">
+      <DependentUpon>postulation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\professor\postulation.aspx.designer.cs">
+      <DependentUpon>postulation.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\student\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
