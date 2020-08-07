@@ -284,6 +284,7 @@
     <Content Include="site\home\images\person_4.jpg" />
     <Content Include="site\home\images\person_5.jpg" />
     <Content Include="site\home\images\person_7.jpg" />
+    <Content Include="site\home\images\Question_Mark.png" />
     <Content Include="site\home\images\three.png" />
     <Content Include="site\home\images\two.png" />
     <Content Include="site\home\index.aspx" />
@@ -321,6 +322,7 @@
     <Content Include="site\professor\fonts\iconic\css\material-design-iconic-font.min.css" />
     <Content Include="site\professor\fonts\iconic\fonts\Material-Design-Iconic-Font.svg" />
     <Content Include="site\professor\images\bg-01.jpg" />
+    <Content Include="site\home\images\how_to_be_prof.png" />
     <Content Include="site\professor\images\icons\favicon.ico" />
     <Content Include="site\professor\images\registro-bg.jpg" />
     <Content Include="site\professor\images\registro.jpg" />
@@ -356,6 +358,7 @@
     <Content Include="site\professor\vendor\select2\select2.js" />
     <Content Include="site\professor\vendor\select2\select2.min.css" />
     <Content Include="site\professor\vendor\select2\select2.min.js" />
+    <Content Include="site\professor\postulation.aspx" />
     <Content Include="site\student\css\fade.css" />
     <Content Include="site\student\css\main.css" />
     <Content Include="site\student\css\util.css" />
@@ -518,6 +521,13 @@
     </Compile>
     <Compile Include="site\professor\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\professor\postulation.aspx.cs">
+      <DependentUpon>postulation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\professor\postulation.aspx.designer.cs">
+      <DependentUpon>postulation.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\student\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
