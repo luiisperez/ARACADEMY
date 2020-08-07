@@ -7,6 +7,7 @@
     <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'/>
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/util.css">
+    <link rel="stylesheet" href="../home/fonts/icomoon/style.css">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
@@ -58,8 +59,8 @@
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="../home/index.html" class="nav-link" style="color:black !important">Inicio</a></li>
-                <li><a href="../admin/login.aspx" class="nav-link" style="color:black !important">Iniciar Sesión</a></li>
-                <li><a href="#blog-section" class="nav-link" style="color:black !important">Registrarse</a></li>
+                <%--<li><a href="../admin/login.aspx" class="nav-link" style="color:black !important">Iniciar Sesión</a></li>
+                <li><a href="#blog-section" class="nav-link" style="color:black !important">Registrarse</a></li>--%>
               </ul>
             </nav>
 
@@ -87,7 +88,7 @@
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-                        <input runat="server" class="input100" id="adm_email" type="email" name="adm_email" placeholder="Email" >
+                        <input runat="server" class="input100" id="adm_email" type="email" name="adm_email" placeholder="Email" required="required" >
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -95,7 +96,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input runat="server" class="input100" id="adm_pwd" type="password" name="adm_pwd" placeholder="Password" >
+						<input runat="server" class="input100" id="adm_pwd" type="password" name="adm_pwd" placeholder="Password" required="required" >
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -139,32 +140,7 @@
               <a href="#" class="social-circle m-2"><span class="icon-instagram"></span></a>
               <a href="#" class="social-circle m-2"><span class="icon-dribbble"></span></a>
               <a href="#" class="social-circle m-2"><span class="icon-linkedin"></span></a>
-              <!--<div class="row">
-      <div class="col-lg-4">
-        <h3 class="footer-title">Services</h3>
-        <ul class="list-unstyled">
-          <li><a href="#">Clases Grupales</a></li>
-          <li><a href="#">Asesoramiento en línea</a></li>
-          <li><a href="#"></a></li>
-        </ul>
-      </div>
-      <div class="col-lg-4">
-        <h3 class="footer-title">Resources</h3>
-        <ul class="list-unstyled">
-          <li><a href="#">Social Marketing</a></li>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Web Development</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-4">
-        <h3 class="footer-title">Templates</h3>
-        <ul class="list-unstyled">
-          <li><a href="#">Illustration</a></li>
-          <li><a href="#">Video Editing</a></li>
-          <li><a href="#">Copywriting</a></li>
-        </ul>
-      </div>
-    </div>-->
+
           </div>
           <div class="col-md-3">
             

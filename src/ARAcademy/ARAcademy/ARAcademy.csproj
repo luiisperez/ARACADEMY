@@ -162,6 +162,7 @@
     <Content Include="site\admin\css\bootstrap\mixins\_visibility.css" />
     <Content Include="site\admin\css\bootstrap\utilities\_stretched-link.css" />
     <Content Include="site\admin\css\bootstrap\_media.css" />
+    <Content Include="site\admin\css\Datatable.css" />
     <Content Include="site\admin\css\fade.css" />
     <Content Include="site\admin\css\main.css" />
     <Content Include="site\admin\css\style.css" />
@@ -179,9 +180,14 @@
     <Content Include="site\admin\images\registro-bg.jpg" />
     <Content Include="site\admin\images\registro.jpg" />
     <Content Include="site\admin\js\bootstrap.min.js" />
+    <Content Include="site\admin\js\dataTables.bootstrap4.min.js" />
+    <Content Include="site\admin\js\jquery-3.5.1.js" />
+    <Content Include="site\admin\js\jquery.dataTables.min.js" />
     <Content Include="site\admin\js\jquery.min.js" />
     <Content Include="site\admin\js\main.js" />
     <Content Include="site\admin\js\popper.js" />
+    <Content Include="site\admin\list_est.aspx" />
+    <Content Include="site\admin\list_prof.aspx" />
     <Content Include="site\admin\login.aspx" />
     <Content Include="site\admin\mod_menu.aspx" />
     <Content Include="site\admin\prof_menu.aspx" />
@@ -409,17 +415,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="common\entities\Administrator.cs" />
+    <Compile Include="common\entities\Course.cs" />
     <Compile Include="common\entities\Grade.cs" />
+    <Compile Include="common\entities\Section.cs" />
     <Compile Include="common\entities\Student.cs" />
+    <Compile Include="common\entities\Topic.cs" />
     <Compile Include="common\Entity.cs" />
     <Compile Include="common\entities\Teacher.cs" />
     <Compile Include="controller\adminmanagement\AdminLoginCommand.cs" />
     <Compile Include="controller\Command.cs" />
+    <Compile Include="controller\course\CreateCourseCommand.cs" />
+    <Compile Include="controller\course\DeleteCourseCommand.cs" />
+    <Compile Include="controller\course\ReadAllCourseCommand.cs" />
+    <Compile Include="controller\course\ReadCourseCommand.cs" />
+    <Compile Include="controller\course\UpdateCourseCommand.cs" />
+    <Compile Include="controller\grade\ReadAllGradeCommand.cs" />
+    <Compile Include="controller\section\CreateSectionCommand.cs" />
+    <Compile Include="controller\section\DeleteSectionCommand.cs" />
+    <Compile Include="controller\section\ReadAllSectionCommand.cs" />
+    <Compile Include="controller\section\ReadSectionCommand.cs" />
+    <Compile Include="controller\section\UpdateSectionCommand.cs" />
     <Compile Include="controller\student\CreateStudentCommand.cs" />
     <Compile Include="controller\student\DeleteStudentCommand.cs" />
     <Compile Include="controller\student\ReadAllStudentsCommand.cs" />
     <Compile Include="controller\student\ReadStudentCommand.cs" />
     <Compile Include="controller\student\StudentLoginCommand.cs" />
+    <Compile Include="controller\student\UpdateGradeStudentCommand.cs" />
     <Compile Include="controller\student\UpdateStudentCommand.cs" />
     <Compile Include="controller\teacher\TeacherLoginCommand.cs" />
     <Compile Include="controller\teacher\CreateTeacherCommand.cs" />
@@ -427,17 +448,40 @@
     <Compile Include="controller\teacher\ReadAllTeacherCommand.cs" />
     <Compile Include="controller\teacher\ReadTeacherCommand.cs" />
     <Compile Include="controller\teacher\UpdateTeacherCommand.cs" />
+    <Compile Include="controller\topic\CreateTopicCommand.cs" />
+    <Compile Include="controller\topic\DeleteTopicCommand.cs" />
+    <Compile Include="controller\topic\ReadAllTopicCommand.cs" />
+    <Compile Include="controller\topic\ReadTopicCommand.cs" />
+    <Compile Include="controller\topic\UpdateTopicCommand.cs" />
     <Compile Include="model\adminmanagement\DAOAdministrator.cs" />
     <Compile Include="model\adminmanagement\DAOAdministratorResource.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DAOAdministratorResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="model\course\DAOCourse.cs" />
+    <Compile Include="model\course\DAOCourseResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAOCourseResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="model\DAO.cs" />
+    <Compile Include="model\grade\DAOGrade.cs" />
+    <Compile Include="model\grade\DAOGradeResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAOGradeResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="model\Registry.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Registry.resx</DependentUpon>
+    </Compile>
+    <Compile Include="model\section\DAOSection.cs" />
+    <Compile Include="model\section\DAOSectionResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAOSectionResource.resx</DependentUpon>
     </Compile>
     <Compile Include="model\student\DAOStudent.cs" />
     <Compile Include="model\student\DAOStudentResource.Designer.cs">
@@ -451,6 +495,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DAOTeacherResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="model\topic\DAOTopic.cs" />
+    <Compile Include="model\topic\DAOTopicResource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="site\admin\admin_home.aspx.cs">
       <DependentUpon>admin_home.aspx</DependentUpon>
@@ -472,6 +518,20 @@
     </Compile>
     <Compile Include="site\admin\estu_menu.aspx.designer.cs">
       <DependentUpon>estu_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\list_est.aspx.cs">
+      <DependentUpon>list_est.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\list_est.aspx.designer.cs">
+      <DependentUpon>list_est.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\list_prof.aspx.cs">
+      <DependentUpon>list_prof.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\list_prof.aspx.designer.cs">
+      <DependentUpon>list_prof.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -943,10 +1003,22 @@
       <LastGenOutput>DAOAdministratorResource.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="model\course\DAOCourseResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOCourseResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="model\grade\DAOGradeResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOGradeResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="model\Registry.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Registry.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="model\section\DAOSectionResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOSectionResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="model\student\DAOStudentResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -958,6 +1030,7 @@
       <LastGenOutput>DAOTeacherResource.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="model\topic\DAOTopicResource.resx" />
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

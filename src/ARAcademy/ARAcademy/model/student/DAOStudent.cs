@@ -100,6 +100,58 @@ namespace ARAcademy.model.student
             return response;
         }
 
+        public int UpdateGradeStudent(Student student)
+        {
+
+            conn = DAO.getConnection();
+            NpgsqlCommand command = new NpgsqlCommand(DAOStudentResource.UpdateGradeStudentSP, conn);
+            NpgsqlTransaction transaction = conn.BeginTransaction();
+
+            NpgsqlParameter email = new NpgsqlParameter();
+            NpgsqlParameter grade = new NpgsqlParameter();
+
+            email.ParameterName = DAOStudentResource.Email;
+            grade.ParameterName = DAOStudentResource.GradeID;
+
+            email.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
+            grade.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
+
+            email.Direction = ParameterDirection.Input;
+            grade.Direction = ParameterDirection.Input;
+
+            email.Value = student.Email;
+            grade.Value = student.Grade.Id;
+
+            command.Parameters.Add(grade);
+            command.Parameters.Add(email);
+
+            command.CommandType = CommandType.StoredProcedure;
+
+            int response = 500;
+
+            NpgsqlDataReader dr = command.ExecuteReader();
+
+            try
+            {
+                while (dr.Read())
+                {
+                    response = dr.GetInt32(0);
+                }
+
+                dr.Close();
+                transaction.Commit();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conn.Close();
+            }
+            return response;
+        }
+
         public int DeleteStudent(Student student)
         {
             conn = DAO.getConnection();

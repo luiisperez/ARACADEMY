@@ -178,6 +178,15 @@ namespace ARAcademy.model.student {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a UPDATE_GRADE_STUDENT.
+        /// </summary>
+        internal static string UpdateGradeStudentSP {
+            get {
+                return ResourceManager.GetString("UpdateGradeStudentSP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a UPDATE_STUDENT.
         /// </summary>
         internal static string UpdateStudentSP {
