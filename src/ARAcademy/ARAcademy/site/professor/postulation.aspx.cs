@@ -14,9 +14,7 @@ namespace ARAcademy.site.professor
         {
 
         }
-
        
-
         protected void btn_SendMessage(object sender, EventArgs e)
         {
             SmtpClient smtpClient = new SmtpClient();
@@ -32,7 +30,9 @@ namespace ARAcademy.site.professor
             mailMessage.Body = "Nombre: "+ txtName.Text + " " + txtLastName.Text 
                 + "\n" + "Correo Electrónico: " + txtEmail.Text 
                 + "\n" + "País: " + txtCountry.Text
-                + "\n" + "Teléfono: " + txtTelf.Text; 
+                + "\n" + "Teléfono: " + txtTelf.Text;
+            string fname = ResumenAdjunto.PostedFile.FileName;
+            mailMessage.Attachments.Add(new Attachment(ResumenAdjunto.PostedFile.InputStream, fname));
 
             try
             {

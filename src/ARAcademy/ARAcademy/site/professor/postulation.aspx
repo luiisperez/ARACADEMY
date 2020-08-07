@@ -83,11 +83,9 @@
                             <div class="row">
                                 <div class="col-6">
                                         <asp:textbox id="txtName" runat="server" CssClass="asp-form" placeholder="Nombre"></asp:textbox>
-<%--                                    <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" />--%>                                    
                                 </div>
                                 <div class="col-6">
                                         <asp:textbox id="txtLastName" runat="server" CssClass="asp-form" placeholder="Apellido"></asp:textbox>
-<%--                                    <input type="text" class="form-control" name="name" id="name" placeholder="Nombre" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" />--%>                                    
                                 </div>
                             </div>
 
@@ -95,7 +93,6 @@
                                 <div class="col-12">
                                     <div class="input-group">
                                         <asp:textbox id="txtEmail" runat="server" CssClass="asp-form" placeholder="Email"></asp:textbox>
-                                        <%--<input type="text" class="form-control" name="email" id="last_name" placeholder="Apellido" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" />--%>
                                     </div>
                                 </div>
                             </div>
@@ -104,13 +101,11 @@
                                 <div class="col-6">
                                     <div class="input-group">
                                         <asp:textbox id="txtCountry" runat="server" CssClass="asp-form" placeholder="Pais"></asp:textbox>
-                                        <%--<input type="text" class="form-control" name="email" id="country" placeholder="Pais" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" />--%>
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group">
                                         <asp:textbox id="txtTelf" runat="server" CssClass="asp-form" placeholder="Teléfono" pattern="[0-9]{12,20}"></asp:textbox>
-                                        <%--<input type="text" class="form-control" name="email" id="telf" placeholder="Telefono" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" />--%>
                                     </div>
                                 </div>
                             </div>
@@ -120,14 +115,14 @@
                                 <div class="col-12">
                                     <div class="input-group" style="padding-top:15px">
                                         <label>Adjunta tu resumen curricular en formato PDF: </label>
-                                        <input type="file" name="ResumenAdjunto" accept=".pdf"/>
+                                        <%--<input type="file" name="ResumenAdjunto" accept=".pdf"/>--%>
+                                        <asp:FileUpload ID="ResumenAdjunto" runat="server" /><br />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group" style="margin-top:7%;text-align:center">
                                     <asp:Button id="btn_Send" runat="server" CssClass="btn btn-danger btn_log btn-3"  text="Enviar Información" OnClick="btn_SendMessage"/>
-<%--                                <button type="button" class="btn btn-danger btn_log btn-3" style="border-radius:20px; width:auto; margin:auto; background-color:#1b89ac; border:0px">Enviar información</button>--%>
                             </div>
                 <asp:label id="Label1" runat="server" text="" />
 
