@@ -18,37 +18,31 @@ namespace ARAcademy.model.section
             NpgsqlCommand command = new NpgsqlCommand(DAOSectionResource.CreateSectionSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
-            NpgsqlParameter id = new NpgsqlParameter();
             NpgsqlParameter name = new NpgsqlParameter();
             NpgsqlParameter amount = new NpgsqlParameter();
             NpgsqlParameter description = new NpgsqlParameter();
             NpgsqlParameter fkcourse = new NpgsqlParameter();
 
-            id.ParameterName = DAOSectionResource.Id;
             name.ParameterName = DAOSectionResource.Name;
             amount.ParameterName = DAOSectionResource.Amount;
             description.ParameterName = DAOSectionResource.Description;
             fkcourse.ParameterName = DAOSectionResource.CourseID;
 
-            id.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
             name.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             amount.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Double;
             description.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             fkcourse.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
 
-            id.Direction = ParameterDirection.Input;
             name.Direction = ParameterDirection.Input;
             amount.Direction = ParameterDirection.Input;
             description.Direction = ParameterDirection.Input;
             fkcourse.Direction = ParameterDirection.Input;
 
-            id.Value = section.Id;
             name.Value = section.Name;
             amount.Value = section.Amount;
             description.Value = section.Description;
             fkcourse.Value = section.Course.Id;
 
-            command.Parameters.Add(id);
             command.Parameters.Add(name);
             command.Parameters.Add(amount);
             command.Parameters.Add(description);

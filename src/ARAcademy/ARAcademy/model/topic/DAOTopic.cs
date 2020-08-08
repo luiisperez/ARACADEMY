@@ -249,23 +249,18 @@ namespace ARAcademy.model.topic
             NpgsqlParameter name = new NpgsqlParameter();
             NpgsqlParameter fktopic = new NpgsqlParameter();
 
-            id.ParameterName = DAOTopicResource.Id;
             name.ParameterName = DAOTopicResource.Name;
             fktopic.ParameterName = DAOTopicResource.SectionID;
 
-            id.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
             name.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             fktopic.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
 
-            id.Direction = ParameterDirection.Input;
             name.Direction = ParameterDirection.Input;
             fktopic.Direction = ParameterDirection.Input;
 
-            id.Value = topic.Id;
             name.Value = topic.Name;
             fktopic.Value = topic.Section.Id;
 
-            command.Parameters.Add(id);
             command.Parameters.Add(name);
             command.Parameters.Add(fktopic);
 
