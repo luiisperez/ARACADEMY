@@ -117,10 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="SectionID" xml:space="preserve">
-    <value>@fk_seccion</value>
-    <comment>ID de la sección</comment>
-  </data>
   <data name="CreateTopicSP" xml:space="preserve">
     <value>CREATE_TOPIC</value>
     <comment>Procedimiento almacenado para crear un tópico</comment>
@@ -141,16 +137,20 @@
     <value>READ_ALL_TOPIC</value>
     <comment>Procedimiento almacenado para consultar todos los secciones</comment>
   </data>
+  <data name="ReadTopicBySectionSP" xml:space="preserve">
+    <value>READ_TOPIC_BY_SECTION</value>
+    <comment>Procedimiento para leer los tópicos de un módulo</comment>
+  </data>
   <data name="ReadTopicSP" xml:space="preserve">
     <value>READ_TOPIC</value>
     <comment>Procedimiento almacenado para consultar un tópico</comment>
   </data>
+  <data name="SectionID" xml:space="preserve">
+    <value>@fk_seccion</value>
+    <comment>ID de la sección</comment>
+  </data>
   <data name="UpdateTopicSP" xml:space="preserve">
     <value>UPDATE_TOPIC</value>
     <comment>Procedimiento almacenado para actualizar un tópico</comment>
-  </data>
-  <data name="ReadTopicBySectionSP" xml:space="preserve">
-    <value>READ_TOPIC_BY_SECTION</value>
-    <comment>Procedimiento para leer los tópicos de un módulo</comment>
   </data>
 </root>

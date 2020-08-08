@@ -106,6 +106,15 @@ namespace ARAcademy.model.topic {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a READ_TOPIC_BY_SECTION.
+        /// </summary>
+        internal static string ReadTopicBySectionSP {
+            get {
+                return ResourceManager.GetString("ReadTopicBySectionSP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a READ_TOPIC.
         /// </summary>
         internal static string ReadTopicSP {

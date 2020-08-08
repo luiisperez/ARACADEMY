@@ -287,7 +287,7 @@ namespace ARAcademy.model.section
             {
                 conn = DAO.getConnection();
                 NpgsqlTransaction tran = conn.BeginTransaction();
-                NpgsqlCommand command = new NpgsqlCommand(DAOSectionResource.ReadSectionSP, conn);
+                NpgsqlCommand command = new NpgsqlCommand(DAOSectionResource.ReadSectionByCourseSP, conn);
                 NpgsqlParameter parameter = new NpgsqlParameter();
                 parameter.ParameterName = DAOSectionResource.Id;
                 parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;

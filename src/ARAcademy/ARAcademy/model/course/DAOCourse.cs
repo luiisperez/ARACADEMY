@@ -251,7 +251,7 @@ namespace ARAcademy.model.course
             {
                 conn = DAO.getConnection();
                 NpgsqlTransaction tran = conn.BeginTransaction();
-                NpgsqlCommand command = new NpgsqlCommand(DAOCourseResource.ReadCourseSP, conn);
+                NpgsqlCommand command = new NpgsqlCommand(DAOCourseResource.ReadCoursesByGradeSP, conn);
                 NpgsqlParameter parameter = new NpgsqlParameter();
                 parameter.ParameterName = DAOCourseResource.Id;
                 parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;

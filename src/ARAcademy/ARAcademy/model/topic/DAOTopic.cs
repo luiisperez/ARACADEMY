@@ -141,7 +141,7 @@ namespace ARAcademy.model.topic
             {
                 conn = DAO.getConnection();
                 NpgsqlTransaction tran = conn.BeginTransaction();
-                NpgsqlCommand command = new NpgsqlCommand(DAOTopicResource.ReadTopicSP, conn);
+                NpgsqlCommand command = new NpgsqlCommand(DAOTopicResource.ReadTopicBySectionSP, conn);
                 NpgsqlParameter parameter = new NpgsqlParameter();
                 parameter.ParameterName = DAOTopicResource.Id;
                 parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
