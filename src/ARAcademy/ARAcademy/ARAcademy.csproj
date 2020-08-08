@@ -499,8 +499,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DAOTeacherResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="model\topic\DAOTopicResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAOTopicResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="model\topic\DAOTopic.cs" />
-    <Compile Include="model\topic\DAOTopicResource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="site\admin\add_mat.aspx.cs">
       <DependentUpon>add_mat.aspx</DependentUpon>
@@ -1054,7 +1058,10 @@
       <LastGenOutput>DAOTeacherResource.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="model\topic\DAOTopicResource.resx" />
+    <EmbeddedResource Include="model\topic\DAOTopicResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOTopicResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
