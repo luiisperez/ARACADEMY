@@ -366,7 +366,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 /********************LEER TODOS LOS MODULOS*******************/
-CREATE OR REPLACE FUNCTION READ_ALL_SECTION() RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT float, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
+CREATE OR REPLACE FUNCTION READ_ALL_SECTION() RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT numeric, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN
@@ -378,7 +378,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /*********************LEER MODULOS POR ID*********************/
-CREATE OR REPLACE FUNCTION READ_SECTION_BY_COURSE(IDE varchar(20)) RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT float, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
+CREATE OR REPLACE FUNCTION READ_SECTION_BY_COURSE(IDE varchar(20)) RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT numeric, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN
@@ -390,7 +390,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /*********************LEER MODULOS POR ID DEL CURSO*********************/
-CREATE OR REPLACE FUNCTION READ_SECTION(IDE varchar(20)) RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT float, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
+CREATE OR REPLACE FUNCTION READ_SECTION(IDE varchar(20)) RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT numeric, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN

@@ -412,6 +412,7 @@
     <Content Include="site\student\vendor\select2\select2.js" />
     <Content Include="site\student\vendor\select2\select2.min.css" />
     <Content Include="site\student\vendor\select2\select2.min.js" />
+    <Content Include="site\test.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -623,6 +624,13 @@
     </Compile>
     <Compile Include="site\student\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
