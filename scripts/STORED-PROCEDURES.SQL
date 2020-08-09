@@ -353,7 +353,7 @@ $$ LANGUAGE plpgsql;
 
 /********************INICIO CRUD DE MODULOS*******************/
 /************************AGREGAR MODULO***********************/
-CREATE OR REPLACE FUNCTION CREATE_SECTION(NOMBRE varchar(30), MONTO integer, DESCRIPCION varchar(500), FK_CURSO varchar(20)) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION CREATE_SECTION(NOMBRE varchar(30), MONTO float, DESCRIPCION varchar(500), FK_CURSO varchar(20)) RETURNS integer AS $$
 DECLARE
  RESULT integer;
 
@@ -366,7 +366,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 /********************LEER TODOS LOS MODULOS*******************/
-CREATE OR REPLACE FUNCTION READ_ALL_SECTION() RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT integer, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
+CREATE OR REPLACE FUNCTION READ_ALL_SECTION() RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT float, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN
@@ -378,7 +378,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /*********************LEER MODULOS POR ID*********************/
-CREATE OR REPLACE FUNCTION READ_SECTION_BY_COURSE(IDE integer) RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT integer, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
+CREATE OR REPLACE FUNCTION READ_SECTION_BY_COURSE(IDE integer) RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT float, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN
@@ -390,7 +390,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /*********************LEER MODULOS POR ID DEL CURSO*********************/
-CREATE OR REPLACE FUNCTION READ_SECTION(IDE varchar(20)) RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT integer, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
+CREATE OR REPLACE FUNCTION READ_SECTION(IDE varchar(20)) RETURNS TABLE(ID integer, NAME varchar(30), AMOUNT float, DESCRIPTION varchar(500), FK_COURSE varchar(20), COURSE_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN
@@ -402,7 +402,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /**********************MODIFICAR MODULO***********************/
-CREATE OR REPLACE FUNCTION UPDATE_SECTION(IDE integer, NOMBRE varchar(30), MONTO integer, DESCRIPCION varchar(500), FK_CURSO varchar(20)) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION UPDATE_SECTION(IDE integer, NOMBRE varchar(30), MONTO float, DESCRIPCION varchar(500), FK_CURSO varchar(20)) RETURNS integer AS $$
 DECLARE
  RESULT integer;
 
