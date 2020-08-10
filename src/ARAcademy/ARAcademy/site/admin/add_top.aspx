@@ -13,7 +13,7 @@
     <script>
         function alertme_succ() {
             Swal.fire({
-                title: 'Modulo creado exitosamente',
+                title: 'Topico creado exitosamente',
                 width: 500,
                 padding: '3em',
                 background: '#fff ',
@@ -42,26 +42,19 @@
 
                             <div class="row">
                                 <div class="col-6">
-	                                <select id="grade_est" runat="server" class="form-control select2" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%" required="required">
-	                                   <option selected disabled>Seleccione la materia</option> 
-                                       <option value="1" >Primer Grado</option> 
-	                                   <option value="2" >Segundo Grado</option> 
-	                                   <option value="3" >Tercer Grado</option> 
-	                                   <option value="4" >Cuarto Grado</option> 
-	                                   <option value="5" >Quinto Grado</option> 
-                                       <option value="6" >Sexto Grado</option> 
-	                                </select>
+	                                <asp:DropDownList ID="list_grades" runat="server" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" OnSelectedIndexChanged="grade__SelectedIndexChanged"  AutoPostBack="True" >
+                                    </asp:DropDownList>
                                 </div>
                                 <div class="col-6">
-	                                <select id="Select1" runat="server" class="form-control select2" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%" required="required">
-	                                   <option selected disabled>Seleccione el modulo</option> 
-                                       <option value="1" >Primer Grado</option> 
-	                                   <option value="2" >Segundo Grado</option> 
-	                                   <option value="3" >Tercer Grado</option> 
-	                                   <option value="4" >Cuarto Grado</option> 
-	                                   <option value="5" >Quinto Grado</option> 
-                                       <option value="6" >Sexto Grado</option> 
-	                                </select>
+	                                <asp:DropDownList ID="list_course" runat="server" Enabled="false" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " OnSelectedIndexChanged="course__SelectedIndexChanged" required="required" AutoPostBack="True"  >
+                                    </asp:DropDownList>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-6">
+	                                <asp:DropDownList ID="list_section" runat="server" Enabled="false" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" AutoPostBack="True"  >
+                                    </asp:DropDownList>
                                 </div>
                             </div>
 
@@ -73,16 +66,8 @@
                                 </div>
                             </div>
 
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="input-group">
-                                        <textarea runat="server" type="text" class="form-control" name="desc" id="desc" placeholder="Descipción del topico" style="background-color: #eee; border: none; padding: 7px 15px 40px 15px;margin: 8px 0; width: 100%; resize:none" required="required" />
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="form-group" style="margin-top:7%">
-                                <asp:button runat="server" type="button" Text="Registrar" class="btn btn-success btn-lg btn-block login-button" style="border-radius:20px; width:30%; margin:auto; border:0px" required="required" /> 
+                                <asp:button runat="server" type="button" Text="Registrar" class="btn btn-success btn-lg btn-block login-button" style="border-radius:20px; width:30%; margin:auto; border:0px" OnClick="Reg_Top" required="required" /> 
                             </div>
 
                     </div>

@@ -46,7 +46,7 @@
                                     </asp:DropDownList>
                                 </div>
                                 <div class="col-6">
-	                                <asp:DropDownList ID="list_course" runat="server" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" AutoPostBack="True"  >
+	                                <asp:DropDownList ID="list_course" runat="server" Enabled="false" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" AutoPostBack="True"  >
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                             </div>
 
                             <div class="form-group" style="margin-top:7%">
-                                <asp:button runat="server" type="button" Text="Registrar" class="btn btn-success btn-lg btn-block login-button" style="border-radius:20px; width:30%; margin:auto; border:0px" required="required" /> 
+                                <asp:button runat="server" type="button" Text="Registrar" class="btn btn-success btn-lg btn-block login-button" OnClick="Reg_Mod" style="border-radius:20px; width:30%; margin:auto; border:0px" required="required" /> 
                             </div>
 
                     </div>
