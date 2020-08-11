@@ -286,9 +286,9 @@ namespace ARAcademy.model.student
                         birthDate = dr.GetDateTime(4);
                         phone = dr.GetString(5);
                         country = dr.GetString(6);
-                        gradeId = dr.GetInt32(7);
-                        gradeName = dr.GetString(8);
-                        status = dr.GetChar(9);
+                        status = dr.GetChar(7);
+                        gradeId = dr.GetInt32(8);
+                        gradeName = dr.GetString(9);
                         Grade grade = new Grade(gradeId, gradeName);
                         readStudent = new Student(email, password, name, lastName, birthDate, phone, country, grade);
                         readStudent.Status = status;

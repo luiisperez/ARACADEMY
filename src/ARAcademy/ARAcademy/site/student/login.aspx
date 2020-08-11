@@ -56,10 +56,10 @@
 
           <div class="col-10">
             <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+              <%--<ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="../home/index.html" class="nav-link" style="color:black !important">Inicio</a></li>
                 <li><a href="" class="nav-link" style="color:black !important">Precios</a></li>
-                <li><a href="" class="nav-link" style="color:black !important">Contacto</a></li>
+                <li><a href="" class="nav-link" style="color:black !important">Contacto</a></li>--%>
                
               </ul>
             </nav>

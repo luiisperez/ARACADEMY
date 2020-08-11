@@ -12,6 +12,7 @@ namespace ARAcademy.site.admin
     public partial class list_prof : System.Web.UI.Page
     {
         private List<Teacher> list_profe = new List<Teacher>();
+        public Teacher teacher = new Teacher();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -40,5 +41,20 @@ namespace ARAcademy.site.admin
                 }
             }
         }
+
+        protected void del_prof(object sender, EventArgs e)
+        {  
+            foreach (RepeaterItem item in prof_data.Items)
+            {
+                teacher = new Teacher();
+                teacher.Email = ((Label)item.FindControl("email")).Text;
+                DeleteTeacherCommand cmd = new DeleteTeacherCommand(teacher);
+                cmd.Execute();
+                if (teacher.Code == 200)
+                {
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                } else { }
+        }
+        }
     }
-}
+}   

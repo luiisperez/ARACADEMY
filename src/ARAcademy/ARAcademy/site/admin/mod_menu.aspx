@@ -10,7 +10,7 @@
     <!-- Card -->
     <div class="card gradient-card">
 
-        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px">
+        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px;background-image: url('../home/images/Subject_add.png'); background-repeat: no-repeat; background-position:center;">
 
           <!-- Content -->
           <a href="add_mat.aspx">
@@ -47,7 +47,7 @@
     <!-- Card -->
     <div class="card gradient-card">
 
-        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px">
+        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px; background-image: url('../home/images/Module_Add.png'); background-repeat: no-repeat; background-position:center;">
 
           <!-- Content -->
           <a href="add_mod.aspx">
@@ -84,7 +84,7 @@
     <!-- Card -->
     <div class="card gradient-card">
 
-        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px">
+        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px;background-image: url('../home/images/Topic_add.png'); background-repeat: no-repeat; background-position:center;">
 
           <!-- Content -->
           <a href="add_top.aspx">
@@ -121,7 +121,7 @@
     <!-- Card -->
     <div class="card gradient-card">
 
-        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px">
+        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px;background-image: url('../home/images/Material_add.png'); background-repeat: no-repeat; background-position:center;">
 
           <!-- Content -->
           <a href="#!">

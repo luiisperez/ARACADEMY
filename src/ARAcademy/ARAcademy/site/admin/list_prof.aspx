@@ -13,10 +13,26 @@
     <script src="js/jquery-3.5.1.js"></script>
     <script src="js/jquery.dataTables.min.js"></script>
     <script src="js/dataTables.bootstrap4.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <script>
         $(document).ready(function () {
             $('#table').DataTable();
         });
+
+        function alertme() {
+            Swal.fire({
+                title: 'Status actualizado exitosamente.',
+                width: 500,
+                padding: '3em',
+                imageUrl: "../home/images/Check_Mark.png",
+                imageAlt: 'Custom image',
+                background: '#fff ',
+            })
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -32,6 +48,8 @@
                             <th>Fecha de nacimiento</th>
                             <th>Telefono</th>
                             <th>Pais</th>
+                            <th>Status</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
 
@@ -40,10 +58,15 @@
                             <ItemTemplate>
                                     <tr id="<%# Eval("Email") %>">
                                         <td><%# Eval("name") %> <%# Eval("lastName") %></td>
-                                        <td><%# Eval("Email") %></td>
-                                        <td><%# Eval("birthDate") %></td>
+                                        <td> <asp:Label ID="email" runat="server" text='<%# Eval("Email") %>'></asp:Label></td>
+                                        <td><%# string.Format("{0:dd/MM/yyyy}", Eval("birthDate")) %></td>
                                         <td><%# Eval("phone") %></td>
                                         <td><%# Eval("country") %></td>
+                                        <td><%# Eval("status") %></td>
+                                        <td>
+                                            <asp:ImageButton ID="modify" runat="server" Text="Editar" ImageUrl="~/site/home/images/assign.svg" Height="25px" Width="25px" ToolTip="Editar" />
+                                            <asp:ImageButton ID="delete" runat="server" Text="Inhabilitar / Habilitar" ImageUrl="~/site/home/images/trash.svg" Height="26px" Width="26px" ToolTip="Inhabilitar / Habilitar" OnClick="del_prof" />
+                                        </td>
                                     </tr>              
                             </ItemTemplate>
                         </asp:Repeater>
@@ -55,6 +78,8 @@
                             <th>Fecha de nacimiento</th>
                             <th>Telefono</th>
                             <th>Pais</th>
+                            <th>Status</th>
+                            <th>Acciones</th>
                         </tr>
                     </tfoot>
                 </table>

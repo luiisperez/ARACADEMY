@@ -14,6 +14,7 @@ namespace ARAcademy.site.admin
     public partial class list_est : System.Web.UI.Page
     {
         private List<Student> list_estu = new List<Student>();
+        Student student = new Student();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -42,6 +43,21 @@ namespace ARAcademy.site.admin
                 }
             }
 
+        }
+        protected void del_est(object sender, EventArgs e)
+        {
+            foreach (RepeaterItem item in estu_data.Items)
+            {
+                student = new Student();
+                student.Email = ((Label)item.FindControl("email")).Text;
+                DeleteStudentCommand cmd = new DeleteStudentCommand(student);
+                cmd.Execute();
+                if (student.Code == 200)
+                {
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                }
+                else { }
+            }
         }
     }
 }

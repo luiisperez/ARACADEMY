@@ -55,11 +55,11 @@
 
           <div class="col-8">
             <nav class="site-navigation position-relative text-right" role="navigation">
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+              <ul c<%--lass="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="../home/index.html" class="nav-link" style="color:black !important">Inicio</a></li>
                 <li><a href="../admin/login.aspx" class="nav-link" style="color:black !important">Iniciar Sesión</a></li>
                 <li><a href="#blog-section" class="nav-link" style="color:black !important">Registrarse</a></li>
-              </ul>
+              </ul>--%>
             </nav>
 
             <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a>

@@ -34,10 +34,13 @@
         function alertme()
         {
             Swal.fire({
-                title: 'Usuario o Contraseña invalido',
-                width: 500,
+                title: 'Usuario o Contraseña inválido',
+                width: 400,
+                height: 100,
+                imageUrl: "../home/images/Alert_mark.png",
+                imageAlt: 'Custom image',
                 padding: '3em',
-                background: '#fff ',
+                background: '#fff',
             })
         }    
     </script>

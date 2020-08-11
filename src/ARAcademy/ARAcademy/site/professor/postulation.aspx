@@ -52,7 +52,6 @@
                         <nav class="site-navigation text-right" style="padding-bottom: 0px !important" role="navigation">
                             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                                 <li><a href="../home/index.html" class="nav-link">Inicio</a></li>
-                                <li><a href="#" class="nav-link">Contacto</a></li>
                                 <li><a href="#" onclick="alertme()" class="nav-link">Acceder</a></li>
                             </ul>
                         </nav>

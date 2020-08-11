@@ -16,6 +16,8 @@
                 title: 'Modulo creado exitosamente',
                 width: 500,
                 padding: '3em',
+                imageUrl: "../home/images/Check_Mark.png",
+                imageAlt: 'Custom image',
                 background: '#fff ',
             })
         }
@@ -23,8 +25,10 @@
         {
             Swal.fire({
                 title: 'Ha ocurrido un error',
-                width: 500,
+                width: 400,
                 padding: '3em',
+                imageUrl: "../home/images/Alert_mark.png",
+                imageAlt: 'Custom image',
                 background: '#fff ',
             })
 		} 
