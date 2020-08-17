@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/Admin_home.Master" AutoEventWireup="true" CodeBehind="add_top.aspx.cs" Inherits="ARAcademy.site.admin.add_top" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/Admin_home.Master" AutoEventWireup="true" CodeBehind="add_mat.aspx.cs" Inherits="ARAcademy.site.admin.add_mat" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">    
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -13,25 +13,33 @@
     <script>
         function alertme_succ() {
             Swal.fire({
-                title: 'Topico creado exitosamente',
+                title: 'Materia creada exitosamente',
                 width: 400,
                 padding: '3em',
-                imageUrl: "../home/images/Check_Mark.png",
+                imageUrl: "/site/home/images/Check_Mark.png",
                 imageAlt: 'Custom image',
                 background: '#fff ',
+            })
+            .then(function (result) {
+                if (result.value) {
+                    window.location = "/site/admin/mod_menu.aspx";
+                }
             })
         }
         function alertme()
         {
             Swal.fire({
-                title: 'Ha ocurrido un error',
+                title: 'Materia creada previamente, verifique información',
                 width: 400,
                 padding: '3em',
-                imageUrl: "../home/images/Alert_mark.png",
+                imageUrl: "/site/home/images/Alert_mark.png",
                 imageAlt: 'Custom image',
                 background: '#fff ',
             })
-		} 
+        } 
+        function leave() {
+            window.location.href = "/site/admin/mod_menu.aspx";   
+        } 
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -42,22 +50,11 @@
                 <div class="card" style="margin:5%">
                     <div class="card-body" >
 
-                            <h3 style="font-weight:bold; text-align:center; margin-bottom:5%">Registro del topico</h3>
+                            <h3 style="font-weight:bold; text-align:center; margin-bottom:5%">Registro de materia</h3>
 
                             <div class="row">
                                 <div class="col-6">
-	                                <asp:DropDownList ID="list_grades" runat="server" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" OnSelectedIndexChanged="grade__SelectedIndexChanged"  AutoPostBack="True" >
-                                    </asp:DropDownList>
-                                </div>
-                                <div class="col-6">
-	                                <asp:DropDownList ID="list_course" runat="server" Enabled="false" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " OnSelectedIndexChanged="course__SelectedIndexChanged" required="required" AutoPostBack="True"  >
-                                    </asp:DropDownList>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-6">
-	                                <asp:DropDownList ID="list_section" runat="server" Enabled="false" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" AutoPostBack="True"  >
+                                    <asp:DropDownList ID="list_grades" runat="server" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" >
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -65,13 +62,21 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="input-group">
-                                        <input runat="server" type="text" class="form-control" name="name" id="name" placeholder="Nombre del topico" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
+                                        <input runat="server" type="text" class="form-control" name="name" id="name" placeholder="Nombre del curso" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="input-group">
+                                        <textarea runat="server" type="text" class="form-control" name="desc" id="desc" placeholder="Descripción del curso" style="background-color: #eee; border: none; padding: 7px 15px 40px 15px;margin: 8px 0; width: 100%; resize:none" required="required" />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group" style="margin-top:7%">
-                                <asp:button runat="server" type="button" Text="Registrar" class="btn btn-success btn-lg btn-block login-button" style="border-radius:20px; width:30%; margin:auto; border:0px" OnClick="Reg_Top" required="required" /> 
+                                <asp:button runat="server" type="button" Text="Registrar" class="btn btn-success btn-lg btn-block login-button" style="border-radius:20px; width:30%; margin:auto; border:0px" OnClick="Reg_Mat" required="required" /> 
                             </div>
 
                     </div>

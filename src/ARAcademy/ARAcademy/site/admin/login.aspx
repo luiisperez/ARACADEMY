@@ -61,7 +61,7 @@
           <div class="col-8">
             <nav class="site-navigation position-relative text-right" role="navigation">
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                <li><a href="../home/index.html" class="nav-link" style="color:black !important">Inicio</a></li>
+<%--                <li><a href="../home/index.html" class="nav-link" style="color:black !important">Inicio</a></li>--%>
                 <%--<li><a href="../admin/login.aspx" class="nav-link" style="color:black !important">Iniciar Sesión</a></li>
                 <li><a href="#blog-section" class="nav-link" style="color:black !important">Registrarse</a></li>--%>
               </ul>
@@ -111,18 +111,11 @@
 					</div>
 
 					<div class="text-center p-t-12">
-						<span class="txt1">
-							Olvido su 
-						</span>
-						<a class="txt2" href="#">
-							contraseña?
-						</a>
+						
 					</div>
 
 					<div class="text-center p-t-136">
-					    <a class="txt2" href="#">
-						    Registrese aqui
-					    </a>
+					   
                     </div>
                 </div>
 		    </div>

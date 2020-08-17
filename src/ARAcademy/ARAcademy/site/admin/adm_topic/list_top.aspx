@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/Admin_home.Master" AutoEventWireup="true" CodeBehind="list_prof.aspx.cs" Inherits="ARAcademy.site.admin.list_prof" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/Admin_home.Master" AutoEventWireup="true" CodeBehind="list_top.aspx.cs" Inherits="ARAcademy.site.admin.list_top" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -22,7 +22,6 @@
         $(document).ready(function () {
             $('#table').DataTable();
         });
-
         function alertme() {
             Swal.fire({
                 title: 'Status actualizado exitosamente.',
@@ -36,36 +35,28 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="row justify-content-center">
-        <h3>Listado de profesores</h3>
+    <div class="row justify-content-center">
+        <h3>Listado de topicos</h3>
         <div class="col-md-10">
-            <div class="table-responsive"> 
+            <div class="table-responsive" > 
                     <table id="table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
+                            <th>ID</th>
                             <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Fecha de nacimiento</th>
-                            <th>Telefono</th>
-                            <th>Pais</th>
-                            <th>Status</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
 
                     <tbody id="tableRows">
-                        <asp:Repeater ID="prof_data" runat="server">
+                        <asp:Repeater ID="top_data" runat="server">
                             <ItemTemplate>
-                                    <tr id="<%# Eval("Email") %>">
-                                        <td><%# Eval("name") %> <%# Eval("lastName") %></td>
-                                        <td> <asp:Label ID="email" runat="server" text='<%# Eval("Email") %>'></asp:Label></td>
-                                        <td><%# string.Format("{0:dd/MM/yyyy}", Eval("birthDate")) %></td>
-                                        <td><%# Eval("phone") %></td>
-                                        <td><%# Eval("country") %></td>
-                                        <td><%# Eval("status") %></td>
+                                    <tr id="<%# Eval("Id") %>">
+                                        <td> <asp:Label ID="email" runat="server" text='<%# Eval("Id") %>'></asp:Label></td>
+                                        <td><%# Eval("name") %></td>
                                         <td>
                                             <asp:ImageButton ID="modify" runat="server" Text="Editar" ImageUrl="~/site/home/images/assign.svg" Height="25px" Width="25px" ToolTip="Editar" />
-                                            <asp:ImageButton ID="delete" runat="server" Text="Inhabilitar / Habilitar" ImageUrl="~/site/home/images/trash.svg" Height="26px" Width="26px" ToolTip="Inhabilitar / Habilitar" OnClick="del_prof" />
+                                            <asp:ImageButton ID="delete" runat="server" Text="Inhabilitar / Habilitar" ImageUrl="~/site/home/images/trash.svg" Height="26px" Width="26px" ToolTip="Inhabilitar / Habilitar" />
                                         </td>
                                     </tr>              
                             </ItemTemplate>
@@ -73,17 +64,13 @@
                     </tbody>
                     <tfoot>
                         <tr>
+                            <th>ID</th>
                             <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Fecha de nacimiento</th>
-                            <th>Telefono</th>
-                            <th>Pais</th>
-                            <th>Status</th>
                             <th>Acciones</th>
                         </tr>
                     </tfoot>
                 </table>
                 </div>  
             </div>
-        </div> 
+        </div>  
 </asp:Content>

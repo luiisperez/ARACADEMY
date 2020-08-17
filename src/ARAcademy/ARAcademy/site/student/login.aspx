@@ -61,7 +61,6 @@
                 <li><a href="" class="nav-link" style="color:black !important">Precios</a></li>
                 <li><a href="" class="nav-link" style="color:black !important">Contacto</a></li>--%>
                
-              </ul>
             </nav>
 
             <a href="#" class="d-inline-block d-lg-none site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3"></span></a>
@@ -125,13 +124,13 @@
 	                <div class="overlay-container_LogEst">
 		                <div class="overlay_LogEst">
 			                <div class="overlay-panel_LogEst overlay-left_LogEst">
-				                <h3 style="color:#ffffff;font-weight:bold">Bienvenido de nuevo</h3>
-				                <p style="color:#ffffff">Si ya tienes cuenta, para mantenerte conectado en tu aula virtual inicia sesión</p>
+				                <h3 style="color:#ffffff;font-weight:bold">¡Bienvenido de nuevo!</h3>
+				                <p style="color:#ffffff">Si ya tienes cuenta, selecciona el botón de Iniciar Sesión y accede a tu aula ARAcademy.</p>
 				                <button class="ghost_LogEst" id="signIn">Iniciar Sesión</button>
 			                </div>
 			                <div class="overlay-panel_LogEst overlay-right_LogEst">
                                 <h3 style="color:#ffffff;font-weight:bold">¡Hola amigo! Bienvenido</h3>
-				                <p style="color:#ffffff">Si aún no tiene cuenta coloca tus datos para comenzar la aventura ARAcademy</p>
+				                <p style="color:#ffffff">Si aún no tiene cuenta, selecciona el botón Registrar Usuario y coloca tus datos para comenzar la aventura ARAcademy.</p>
 				                <button class="ghost_LogEst" id="signUp">Registrar Usuario</button>
 			                </div>
 		                </div>
@@ -154,32 +153,7 @@
               <a href="#" class="social-circle m-2"><span class="icon-instagram"></span></a>
               <a href="#" class="social-circle m-2"><span class="icon-dribbble"></span></a>
               <a href="#" class="social-circle m-2"><span class="icon-linkedin"></span></a>
-              <!--<div class="row">
-      <div class="col-lg-4">
-        <h3 class="footer-title">Services</h3>
-        <ul class="list-unstyled">
-          <li><a href="#">Clases Grupales</a></li>
-          <li><a href="#">Asesoramiento en línea</a></li>
-          <li><a href="#"></a></li>
-        </ul>
-      </div>
-      <div class="col-lg-4">
-        <h3 class="footer-title">Resources</h3>
-        <ul class="list-unstyled">
-          <li><a href="#">Social Marketing</a></li>
-          <li><a href="#">Web Design</a></li>
-          <li><a href="#">Web Development</a></li>
-        </ul>
-      </div>
-      <div class="col-lg-4">
-        <h3 class="footer-title">Templates</h3>
-        <ul class="list-unstyled">
-          <li><a href="#">Illustration</a></li>
-          <li><a href="#">Video Editing</a></li>
-          <li><a href="#">Copywriting</a></li>
-        </ul>
-      </div>
-    </div>-->
+
           </div>
           <div class="col-md-3">
             

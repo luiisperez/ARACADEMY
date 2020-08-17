@@ -155,9 +155,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="site\admin\add_mat.aspx" />
-    <Content Include="site\admin\add_mod.aspx" />
-    <Content Include="site\admin\add_top.aspx" />
+    <Content Include="site\admin\adm_course\add_mat.aspx" />
+    <Content Include="site\admin\adm_module\add_mod.aspx" />
+    <Content Include="site\admin\adm_topic\add_top.aspx" />
     <Content Include="site\admin\admin_home.aspx" />
     <Content Include="site\admin\css\bootstrap.min.css" />
     <Content Include="site\admin\css\bootstrap\mixins\_border-radius.css" />
@@ -169,8 +169,9 @@
     <Content Include="site\admin\css\fade.css" />
     <Content Include="site\admin\css\main.css" />
     <Content Include="site\admin\css\style.css" />
+    <Content Include="site\admin\css\accordion.css" />
     <Content Include="site\admin\css\util.css" />
-    <Content Include="site\admin\estu_menu.aspx" />
+    <Content Include="site\admin\adm_student\estu_menu.aspx" />
     <Content Include="site\admin\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="site\admin\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="site\admin\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -189,12 +190,15 @@
     <Content Include="site\admin\js\jquery.min.js" />
     <Content Include="site\admin\js\main.js" />
     <Content Include="site\admin\js\popper.js" />
-    <Content Include="site\admin\list_est.aspx" />
-    <Content Include="site\admin\list_prof.aspx" />
+    <Content Include="site\admin\adm_student\list_est.aspx" />
+    <Content Include="site\admin\adm_course\list_mat.aspx" />
+    <Content Include="site\admin\adm_module\list_mod.aspx" />
+    <Content Include="site\admin\adm_professor\list_prof.aspx" />
+    <Content Include="site\admin\adm_topic\list_top.aspx" />
     <Content Include="site\admin\login.aspx" />
     <Content Include="site\admin\mod_menu.aspx" />
-    <Content Include="site\admin\prof_menu.aspx" />
-    <Content Include="site\admin\reg_prof.aspx" />
+    <Content Include="site\admin\adm_professor\prof_menu.aspx" />
+    <Content Include="site\admin\adm_professor\reg_prof.aspx" />
     <Content Include="site\admin\vendor\animate\animate.css" />
     <Content Include="site\admin\vendor\animsition\css\animsition.css" />
     <Content Include="site\admin\vendor\animsition\css\animsition.min.css" />
@@ -507,25 +511,25 @@
     </Compile>
     <Compile Include="model\topic\DAOTopic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="site\admin\add_mat.aspx.cs">
+    <Compile Include="site\admin\adm_course\add_mat.aspx.cs">
       <DependentUpon>add_mat.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="site\admin\add_mat.aspx.designer.cs">
+    <Compile Include="site\admin\adm_course\add_mat.aspx.designer.cs">
       <DependentUpon>add_mat.aspx</DependentUpon>
     </Compile>
-    <Compile Include="site\admin\add_mod.aspx.cs">
+    <Compile Include="site\admin\adm_module\add_mod.aspx.cs">
       <DependentUpon>add_mod.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="site\admin\add_mod.aspx.designer.cs">
+    <Compile Include="site\admin\adm_module\add_mod.aspx.designer.cs">
       <DependentUpon>add_mod.aspx</DependentUpon>
     </Compile>
-    <Compile Include="site\admin\add_top.aspx.cs">
+    <Compile Include="site\admin\adm_topic\add_top.aspx.cs">
       <DependentUpon>add_top.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="site\admin\add_top.aspx.designer.cs">
+    <Compile Include="site\admin\adm_topic\add_top.aspx.designer.cs">
       <DependentUpon>add_top.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\admin\admin_home.aspx.cs">
@@ -542,26 +546,47 @@
     <Compile Include="site\admin\Admin_home.Master.designer.cs">
       <DependentUpon>Admin_home.Master</DependentUpon>
     </Compile>
-    <Compile Include="site\admin\estu_menu.aspx.cs">
+    <Compile Include="site\admin\adm_student\estu_menu.aspx.cs">
       <DependentUpon>estu_menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="site\admin\estu_menu.aspx.designer.cs">
+    <Compile Include="site\admin\adm_student\estu_menu.aspx.designer.cs">
       <DependentUpon>estu_menu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="site\admin\list_est.aspx.cs">
+    <Compile Include="site\admin\adm_student\list_est.aspx.cs">
       <DependentUpon>list_est.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="site\admin\list_est.aspx.designer.cs">
+    <Compile Include="site\admin\adm_student\list_est.aspx.designer.cs">
       <DependentUpon>list_est.aspx</DependentUpon>
     </Compile>
-    <Compile Include="site\admin\list_prof.aspx.cs">
+    <Compile Include="site\admin\adm_course\list_mat.aspx.cs">
+      <DependentUpon>list_mat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_course\list_mat.aspx.designer.cs">
+      <DependentUpon>list_mat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_module\list_mod.aspx.cs">
+      <DependentUpon>list_mod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_module\list_mod.aspx.designer.cs">
+      <DependentUpon>list_mod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_professor\list_prof.aspx.cs">
       <DependentUpon>list_prof.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="site\admin\list_prof.aspx.designer.cs">
+    <Compile Include="site\admin\adm_professor\list_prof.aspx.designer.cs">
       <DependentUpon>list_prof.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_topic\list_top.aspx.cs">
+      <DependentUpon>list_top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_topic\list_top.aspx.designer.cs">
+      <DependentUpon>list_top.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\admin\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -577,18 +602,18 @@
     <Compile Include="site\admin\mod_menu.aspx.designer.cs">
       <DependentUpon>mod_menu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="site\admin\prof_menu.aspx.cs">
+    <Compile Include="site\admin\adm_professor\prof_menu.aspx.cs">
       <DependentUpon>prof_menu.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="site\admin\prof_menu.aspx.designer.cs">
+    <Compile Include="site\admin\adm_professor\prof_menu.aspx.designer.cs">
       <DependentUpon>prof_menu.aspx</DependentUpon>
     </Compile>
-    <Compile Include="site\admin\reg_prof.aspx.cs">
+    <Compile Include="site\admin\adm_professor\reg_prof.aspx.cs">
       <DependentUpon>reg_prof.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="site\admin\reg_prof.aspx.designer.cs">
+    <Compile Include="site\admin\adm_professor\reg_prof.aspx.designer.cs">
       <DependentUpon>reg_prof.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\home\index.aspx.cs">

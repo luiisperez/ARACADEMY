@@ -107,18 +107,11 @@
 					</div>
 
 					<div class="text-center p-t-12">
-						<span class="txt1">
-							Olvido su 
-						</span>
-						<a class="txt2" href="#">
-							contraseña?
-						</a>
+					
 					</div>
 
 					<div class="text-center p-t-136">
-					    <a class="txt2" href="#">
-						    Registrese aqui
-					    </a>
+
                     </div>
                 </div>
 		    </div>

@@ -16,7 +16,7 @@
                 title: 'Modulo creado exitosamente',
                 width: 500,
                 padding: '3em',
-                imageUrl: "../home/images/Check_Mark.png",
+                imageUrl: "/site/home/images/Check_Mark.png",
                 imageAlt: 'Custom image',
                 background: '#fff ',
             })
@@ -24,10 +24,10 @@
         function alertme()
         {
             Swal.fire({
-                title: 'Ha ocurrido un error',
+                title: 'Error al registrar el módulo, verifique la información',
                 width: 400,
                 padding: '3em',
-                imageUrl: "../home/images/Alert_mark.png",
+                imageUrl: "/site/home/images/Alert_mark.png",
                 imageAlt: 'Custom image',
                 background: '#fff ',
             })
@@ -58,7 +58,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="input-group">
-                                        <input runat="server" type="text" class="form-control" name="name" id="name" placeholder="Nombre del modulo" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
+                                        <input runat="server" type="text" class="form-control" name="name" id="name" placeholder="Nombre del módulo" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
                                     </div>
                                 </div>
                             </div>
@@ -66,7 +66,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="input-group">
-                                        <textarea runat="server" type="text" class="form-control" name="desc" id="desc" placeholder="Descipción del modulo" style="background-color: #eee; border: none; padding: 7px 15px 40px 15px;margin: 8px 0; width: 100%; resize:none" required="required" />
+                                        <textarea runat="server" type="text" class="form-control" name="desc" id="desc" placeholder="Descripción del módulo" style="background-color: #eee; border: none; padding: 7px 15px 40px 15px;margin: 8px 0; width: 100%; resize:none" required="required" />
                                     </div>
                                 </div>
                             </div>
@@ -74,7 +74,7 @@
                             <div class="row">
                                 <div class="col-4">
                                     <div class="input-group">
-                                        <input runat="server" type="text" class="form-control" name="amount" id="amount" placeholder="Precio del modulo" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
+                                        <input runat="server" type="text" class="form-control" name="amount" id="amount" placeholder="Precio del módulo" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
                                     </div>
                                 </div>
                             </div>
