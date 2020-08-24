@@ -422,6 +422,7 @@
   <ItemGroup>
     <Compile Include="common\entities\Administrator.cs" />
     <Compile Include="common\entities\Course.cs" />
+    <Compile Include="common\entities\Educate.cs" />
     <Compile Include="common\entities\Grade.cs" />
     <Compile Include="common\entities\Section.cs" />
     <Compile Include="common\entities\Student.cs" />
@@ -436,6 +437,10 @@
     <Compile Include="controller\course\ReadAllCourseCommand.cs" />
     <Compile Include="controller\course\ReadCourseCommand.cs" />
     <Compile Include="controller\course\UpdateCourseCommand.cs" />
+    <Compile Include="controller\educate\AssignSectionTeacherCommand.cs" />
+    <Compile Include="controller\educate\GetSectionsByTeacherCommand.cs" />
+    <Compile Include="controller\educate\GetTeachersBySectionCommand.cs" />
+    <Compile Include="controller\educate\RemoveSectionTeacherCommand.cs" />
     <Compile Include="controller\grade\ReadAllGradeCommand.cs" />
     <Compile Include="controller\section\CreateSectionCommand.cs" />
     <Compile Include="controller\section\DeleteSectionCommand.cs" />
@@ -475,6 +480,12 @@
       <DependentUpon>DAOCourseResource.resx</DependentUpon>
     </Compile>
     <Compile Include="model\DAO.cs" />
+    <Compile Include="model\educate\DAOEducate.cs" />
+    <Compile Include="model\educate\DAOEducateResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAOEducateResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="model\grade\DAOGrade.cs" />
     <Compile Include="model\grade\DAOGradeResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1067,6 +1078,10 @@
     <EmbeddedResource Include="model\course\DAOCourseResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DAOCourseResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="model\educate\DAOEducateResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOEducateResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="model\grade\DAOGradeResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
