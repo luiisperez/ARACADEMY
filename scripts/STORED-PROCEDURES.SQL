@@ -285,7 +285,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /***********************LEER CURSOS POR ID***********************/
-CREATE OR REPLACE FUNCTION READ_COURSE(IDE integer) RETURNS TABLE(ID varchar(20), NAME varchar(30), DESCRIPTION varchar(500), FK_GRADE integer, NAMEGRADE varchar(50)) AS $$
+CREATE OR REPLACE FUNCTION READ_COURSE(IDE varchar(20)) RETURNS TABLE(ID varchar(20), NAME varchar(30), DESCRIPTION varchar(500), FK_GRADE integer, NAMEGRADE varchar(50)) AS $$
 DECLARE
 
 BEGIN
