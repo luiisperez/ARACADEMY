@@ -141,6 +141,10 @@
     <value>@nombre</value>
     <comment>Nombre del curso</comment>
   </data>
+  <data name="OldId" xml:space="preserve">
+    <value>@ideviejo</value>
+    <comment>Identificador del curso viejo</comment>
+  </data>
   <data name="ReadAllCoursesSP" xml:space="preserve">
     <value>READ_ALL_COURSE</value>
     <comment>Procedimiento almacenado para consultar todos los cursos</comment>

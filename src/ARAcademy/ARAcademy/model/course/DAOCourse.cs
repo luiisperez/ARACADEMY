@@ -12,7 +12,7 @@ namespace ARAcademy.model.course
     {
 
         private NpgsqlConnection conn;
-        public int UpdateCourse(Course course)
+        public int UpdateCourse(Course course, String oldId)
         {
             conn = DAO.getConnection();
             NpgsqlCommand command = new NpgsqlCommand(DAOCourseResource.UpdateCourseSP, conn);
@@ -22,31 +22,37 @@ namespace ARAcademy.model.course
             NpgsqlParameter name = new NpgsqlParameter();
             NpgsqlParameter description = new NpgsqlParameter();
             NpgsqlParameter fkgrade = new NpgsqlParameter();
+            NpgsqlParameter idOld = new NpgsqlParameter();
 
             id.ParameterName = DAOCourseResource.Id;
             name.ParameterName = DAOCourseResource.Name;
             description.ParameterName = DAOCourseResource.Description;
             fkgrade.ParameterName = DAOCourseResource.GradeID;
+            idOld.ParameterName = DAOCourseResource.OldId;
 
             id.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             name.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             description.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             fkgrade.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
+            idOld.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
 
             id.Direction = ParameterDirection.Input;
             name.Direction = ParameterDirection.Input;
             description.Direction = ParameterDirection.Input;
             fkgrade.Direction = ParameterDirection.Input;
+            idOld.Direction = ParameterDirection.Input;
 
             id.Value = course.Id;
             name.Value = course.Name;
             description.Value = course.Description;
             fkgrade.Value = course.Grade.Id;
+            idOld.Value = oldId;
 
             command.Parameters.Add(id);
             command.Parameters.Add(name);
             command.Parameters.Add(description);
             command.Parameters.Add(fkgrade);
+            command.Parameters.Add(idOld);
 
             command.CommandType = CommandType.StoredProcedure;
 

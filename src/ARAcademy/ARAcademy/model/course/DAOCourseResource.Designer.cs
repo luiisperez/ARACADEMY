@@ -115,6 +115,15 @@ namespace ARAcademy.model.course {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a @ideviejo.
+        /// </summary>
+        internal static string OldId {
+            get {
+                return ResourceManager.GetString("OldId", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a READ_ALL_COURSE.
         /// </summary>
         internal static string ReadAllCoursesSP {
