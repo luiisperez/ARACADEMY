@@ -21,7 +21,7 @@ namespace ARAcademy.site.admin
                     }
                     else
                     {
-                        Response.Redirect("login.aspx");
+                        Response.Redirect("/site/admin/login.aspx");
                     }
                 }
                 catch (Exception ex)

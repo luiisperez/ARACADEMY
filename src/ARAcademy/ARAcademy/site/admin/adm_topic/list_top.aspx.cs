@@ -31,7 +31,7 @@ namespace ARAcademy.site.admin
                     }
                     else
                     {
-                        Response.Redirect("login.aspx");
+                        Response.Redirect("/site/admin/login.aspx");
                     }
                 }
                 catch (Exception ex)
@@ -39,6 +39,48 @@ namespace ARAcademy.site.admin
 
                 }
             }
+        }
+
+        protected void top_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            ImageButton action = (ImageButton)e.CommandSource;
+            string actionString = action.ID;
+            if (action.ID.Equals("delete"))
+            {
+                try
+                {
+                    Topic topic = new Topic();
+                    string id = ((Label)top_data.Items[e.Item.ItemIndex].FindControl("Id")).Text;
+                    topic.Id = Int32.Parse(id);
+                    DeleteTopicCommand cmd = new DeleteTopicCommand(topic);
+                    cmd.Execute();
+                    if (topic.Code == 200)
+                    {
+                        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                    }
+                    else
+                    {
+                        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertmeErr()", true);
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+            else if (action.ID.Equals("modify"))
+            {
+                try
+                {
+                    string id = ((Label)top_data.Items[e.Item.ItemIndex].FindControl("Id")).Text;
+                    Session["Id_top"] = id;
+                    Response.Redirect("/site/admin/adm_topic/edit_top.aspx");
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
         }
     }
 }

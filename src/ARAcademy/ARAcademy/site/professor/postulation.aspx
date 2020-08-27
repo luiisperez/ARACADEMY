@@ -114,8 +114,9 @@
                                 <div class="col-12">
                                     <div class="input-group" style="padding-top:15px">
                                         <label>Adjunta tu resumen curricular en formato PDF: </label>
+                                        <br/>
                                         <%--<input type="file" name="ResumenAdjunto" accept=".pdf"/>--%>
-                                        <asp:FileUpload ID="ResumenAdjunto" runat="server" /><br />
+                                        <asp:FileUpload ID="ResumenAdjunto" runat="server" name="Seleccione archivo"/><br />
                                     </div>
                                 </div>
                             </div>

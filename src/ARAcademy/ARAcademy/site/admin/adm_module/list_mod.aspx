@@ -2,17 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/Datatable.css">
-    <link rel="stylesheet" href="css/fade.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/util.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery-3.5.1.js"></script>
-    <script src="js/jquery.dataTables.min.js"></script>
-    <script src="js/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" href="/site/admin/css/Datatable.css">
+    <link rel="stylesheet" href="/site/admin/css/fade.css">
+    <link rel="stylesheet" href="/site/admin/css/main.css">
+    <link rel="stylesheet" href="/site/admin/css/util.css">
+    <script src="/site/admin/js/jquery.min.js"></script>
+    <script src="/site/admin/js/popper.js"></script>
+    <script src="/site/admin/js/bootstrap.min.js"></script>
+    <script src="/site/admin/js/main.js"></script>
+    <script src="/site/admin/js/jquery-3.5.1.js"></script>
+    <script src="/site/admin/js/jquery.dataTables.min.js"></script>
+    <script src="/site/admin/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
@@ -24,7 +24,21 @@
         });
         function alertme() {
             Swal.fire({
-                title: 'Estatus actualizado exitosamente.',
+                title: 'Módulo Eliminado exitosamente.',
+                width: 500,
+                padding: '3em',
+                imageUrl: "/site/home/images/Check_Mark.png",
+                imageAlt: 'Custom image',
+                background: '#fff ',
+            }).then(function (result) {
+                if (result.value) {
+                    window.location = "/site/admin/adm_module/list_mod.aspx";
+                }
+            })
+        }
+        function alertmeErr() {
+            Swal.fire({
+                title: 'Ha ocurrido un error al eliminar el módulo.',
                 width: 500,
                 padding: '3em',
                 imageUrl: "/site/home/images/Check_Mark.png",
@@ -43,6 +57,7 @@
                     <thead>
                         <tr>
                             <th>ID</th>
+                            <th>Materia</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
                             <th>Acciones</th>
@@ -50,10 +65,11 @@
                     </thead>
 
                     <tbody id="tableRows">
-                        <asp:Repeater ID="mod_data" runat="server">
+                        <asp:Repeater ID="mod_data" runat="server" OnItemCommand="mod_ItemCommand">
                             <ItemTemplate>
                                     <tr id="<%# Eval("Id") %>">
-                                        <td> <asp:Label ID="email" runat="server" text='<%# Eval("Id") %>'></asp:Label></td>
+                                        <td> <asp:Label ID="Id" runat="server" text='<%# Eval("Id") %>'></asp:Label></td>
+                                        <td> <asp:Label ID="email" runat="server" text='<%# Eval("Course.Name") %>'></asp:Label></td>
                                         <td><%# Eval("name") %></td>
                                         <td><%# Eval("Description") %></td>
                                         <td>
@@ -67,6 +83,7 @@
                     <tfoot>
                         <tr>
                             <th>ID</th>
+                            <th>Materia</th>
                             <th>Nombre</th>
                             <th>Descripción</th>
                             <th>Acciones</th>

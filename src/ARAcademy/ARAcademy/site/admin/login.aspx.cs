@@ -30,7 +30,7 @@ namespace ARAcademy.site.admin
             {
                 Session["Username"] = adm_email.Value;
                 Session["Token"] = "7b0705aab296e5f24dc802d440121077";
-                Response.Redirect("admin_home.aspx");Response.Redirect("admin_home.aspx");
+                Response.Redirect("admin_home.aspx");
             } else {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
             }

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARAcademy.site.admin
+namespace ARAcademy.site.admin.adm_professor
 {
 
 
-    public partial class reg_prof
+    public partial class edit_prof
     {
 
         /// <summary>
@@ -48,7 +48,7 @@ namespace ARAcademy.site.admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword password;
+        protected global::System.Web.UI.WebControls.TextBox password;
 
         /// <summary>
         /// conf_pwd control.
@@ -57,7 +57,7 @@ namespace ARAcademy.site.admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword conf_pwd;
+        protected global::System.Web.UI.WebControls.TextBox conf_pwd;
 
         /// <summary>
         /// fec_nac control.

@@ -32,7 +32,7 @@ namespace ARAcademy.site.admin
                     }
                     else
                     {
-                        Response.Redirect("login.aspx");
+                        Response.Redirect("/site/admin/login.aspx");
                     }
                 }
                 catch (Exception ex)
@@ -42,19 +42,41 @@ namespace ARAcademy.site.admin
             }
         }
 
-        protected void del_prof(object sender, EventArgs e)
-        {  
-            foreach (RepeaterItem item in prof_data.Items)
+        protected void prof_ItemCommand (object source, RepeaterCommandEventArgs e)
+        {
+            ImageButton action = (ImageButton)e.CommandSource;
+            string actionString = action.ID;
+            if (action.ID.Equals("delete"))                
             {
-                teacher = new Teacher();
-                teacher.Email = ((Label)item.FindControl("email")).Text;
-                DeleteTeacherCommand cmd = new DeleteTeacherCommand(teacher);
-                cmd.Execute();
+                try
+                {
+                    string email  = ((Label)prof_data.Items[e.Item.ItemIndex].FindControl("Email")).Text;
+                    teacher = new Teacher();
+                    teacher.Email = email;
+                    DeleteTeacherCommand cmd = new DeleteTeacherCommand(teacher);
+                    cmd.Execute();
                 if (teacher.Code == 200)
                 {
                     ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
                 } else { }
-        }
+                }
+                catch (Exception ex)
+                {
+                }
+            } else if (action.ID.Equals("modify"))
+            {
+                try
+                {
+                    string email = ((Label)prof_data.Items[e.Item.ItemIndex].FindControl("Email")).Text;
+                    Session["Email_prof"] = email;
+                    Response.Redirect("/site/admin/adm_professor/edit_prof.aspx"); 
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
         }
     }
 }   

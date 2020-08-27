@@ -2,17 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="css/Datatable.css">
-    <link rel="stylesheet" href="css/fade.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/util.css">
-    <script src="js/jquery.min.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/jquery-3.5.1.js"></script>
-    <script src="js/jquery.dataTables.min.js"></script>
-    <script src="js/dataTables.bootstrap4.min.js"></script>
+	<link rel="stylesheet" href="/site/admin/css/Datatable.css">
+    <link rel="stylesheet" href="/site/admin/css/fade.css">
+    <link rel="stylesheet" href="/site/admin/css/main.css">
+    <link rel="stylesheet" href="/site/admin/css/util.css">
+    <script src="/site/admin/js/jquery.min.js"></script>
+    <script src="/site/admin/js/popper.js"></script>
+    <script src="/site/admin/js/bootstrap.min.js"></script>
+    <script src="/site/admin/js/main.js"></script>
+    <script src="/site/admin/js/jquery-3.5.1.js"></script>
+    <script src="/site/admin/js/jquery.dataTables.min.js"></script>
+    <script src="/site/admin/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="sweetalert2.all.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
@@ -36,6 +36,26 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+        <!-- The Modal -->
+       <%-- <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content"> --%>    
+            <!-- Modal Header -->
+            <%--<div class="modal-header">
+                <h4 class="modal-title">Editar Profesor</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+            </div> --%>     
+
+            <!-- Modal footer -->
+          <%--  <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            </div>
+        
+            </div>
+        </div>
+        </div>--%>
+
+        <!-- Listado de profesores  -->
         <div class="row justify-content-center">
         <h3>Listado de profesores</h3>
         <div class="col-md-10">
@@ -54,7 +74,7 @@
                     </thead>
 
                     <tbody id="tableRows">
-                        <asp:Repeater ID="prof_data" runat="server">
+                        <asp:Repeater ID="prof_data" runat="server" OnItemCommand="prof_ItemCommand" >
                             <ItemTemplate>
                                     <tr id="<%# Eval("Email") %>">
                                         <td><%# Eval("name") %> <%# Eval("lastName") %></td>
@@ -64,8 +84,8 @@
                                         <td><%# Eval("country") %></td>
                                         <td><%# Eval("status") %></td>
                                         <td>
-                                            <asp:ImageButton ID="modify" runat="server" Text="Editar" ImageUrl="~/site/home/images/assign.svg" Height="25px" Width="25px" ToolTip="Editar" />
-                                            <asp:ImageButton ID="delete" runat="server" Text="Inhabilitar / Habilitar" ImageUrl="~/site/home/images/trash.svg" Height="26px" Width="26px" ToolTip="Inhabilitar / Habilitar" OnClick="del_prof" />
+                                            <asp:ImageButton ID="modify"  runat="server" Text="Editar" ImageUrl="~/site/home/images/assign.svg" Height="25px" Width="25px" ToolTip="Editar" /> 
+                                            <asp:ImageButton ID="delete" runat="server" Text="Inhabilitar / Habilitar" ImageUrl="~/site/home/images/trash.svg" Height="26px" Width="26px" ToolTip="Inhabilitar / Habilitar" />                                            
                                         </td>
                                     </tr>              
                             </ItemTemplate>
@@ -86,4 +106,7 @@
                 </div>  
             </div>
         </div> 
+    
+
+
 </asp:Content>

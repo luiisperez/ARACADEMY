@@ -31,8 +31,50 @@ namespace ARAcademy.site.admin
                     }
                     else
                     {
-                        Response.Redirect("login.aspx");
+                        Response.Redirect("/site/admin/login.aspx");
                     }
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
+        }
+
+        protected void mod_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            ImageButton action = (ImageButton)e.CommandSource;
+            string actionString = action.ID;
+            if (action.ID.Equals("delete"))
+            {
+                try
+                {
+                    Section section = new Section();
+                    string id = ((Label)mod_data.Items[e.Item.ItemIndex].FindControl("Id")).Text;
+                    section.Id = Int32.Parse(id);
+                    DeleteSectionCommand cmd = new DeleteSectionCommand(section);
+                    cmd.Execute();
+                    if (section.Code == 200)
+                    {
+                        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                    }
+                    else
+                    {
+                        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertmeErr()", true);
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+            else if (action.ID.Equals("modify"))
+            {
+                try
+                {
+                    string id = ((Label)mod_data.Items[e.Item.ItemIndex].FindControl("Id")).Text;
+                    Session["Id_mod"] = id;
+                    Response.Redirect("/site/admin/adm_module/edit_mod.aspx");
                 }
                 catch (Exception ex)
                 {

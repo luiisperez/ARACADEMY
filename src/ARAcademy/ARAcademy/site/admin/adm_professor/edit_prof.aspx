@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/Admin_home.Master" AutoEventWireup="true" CodeBehind="reg_prof.aspx.cs" Inherits="ARAcademy.site.admin.reg_prof" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/Admin_home.Master" AutoEventWireup="true" CodeBehind="edit_prof.aspx.cs" Inherits="ARAcademy.site.admin.adm_professor.edit_prof" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -11,33 +11,43 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <style>
         .input-group-append {
             display: none;
         }
     </style>
-
     <script>
         function alertme_succ() {
             Swal.fire({
-                title: 'Profesor registrado exitosamente',
-                width: 500,
+                title: 'Profesor actualizado exitosamente',
+                width: 400,
+                padding: '3em',
+                imageUrl: "/site/home/images/Check_Mark.png",
+                imageAlt: 'Custom image',
+                background: '#fff ',
+            })
+                .then(function (result) {
+                    if (result.value) {
+                        window.location = "/site/admin/adm_professor/list_prof.aspx";
+                    }
+                })
+        }
+        function alertme() {
+            Swal.fire({
+                title: 'Ha ocurrido un error',
+                width: 400,
                 padding: '3em',
                 imageUrl: "/site/home/images/Check_Mark.png",
                 imageAlt: 'Custom image',
                 background: '#fff ',
             })
         }
-        function alertme() {
-            Swal.fire({
-                title: 'Error al registrar profesor, verifique la información',
-                width: 400,
-                padding: '3em',
-                imageUrl: "/site/home/images/Alert_mark.png",
-                imageAlt: 'Custom image',
-                background: '#fff ',
-            })
-        }
+        
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -48,7 +58,7 @@
                 <div class="card" style="margin:5%">
                     <div class="card-body" >
 
-                            <h3 style="font-weight:bold; text-align:center; margin-bottom:5%">Registro de profesor</h3>
+                            <h3 style="font-weight:bold; text-align:center; margin-bottom:5%">Actualización del profesor</h3>
 
                             <div class="row">
                                 <div class="col-12">
@@ -70,7 +80,7 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="input-group">
-                                        <input runat="server" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" title="Ejemplo: Example@example.com" type="text" class="form-control" name="email" id="email" placeholder="Email" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
+                                        <input runat="server" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" title="Ejemplo: Example@example.com" type="text" class="form-control" name="email" id="email" placeholder="Email" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" readonly="readonly" />
                                     </div>
                                 </div>
                             </div>
@@ -78,12 +88,12 @@
                             <div class="row">
                                 <div class="col-6">
                                     <div class="input-group">
-                                        <input runat="server" type="password" class="form-control" name="password" onchange="form.password_conf.pattern = RegExp.escape(this.value);" id="password" placeholder="Contraseña" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
+                                        <asp:TextBox runat="server" TextMode="Password" CssClass="form-control" name="password"  id="password" placeholder="Contraseña" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required" />
                                     </div>
                                 </div>
                                 <div class="col-6">
                                     <div class="input-group">
-                                        <input runat="server" type="password" class="form-control" name="password_conf" id="conf_pwd" placeholder="Confirmar contraseña" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required"/>
+                                        <asp:TextBox runat="server" TextMode="Password" CssClass="form-control" name="password_conf" id="conf_pwd" placeholder="Confirmar contraseña" style="background-color: #eee; border: none; padding: 27px 15px;margin: 8px 0; width: 100%;" required="required"/>
                                     </div>
                                 </div>
                             </div>
@@ -115,7 +125,7 @@
                             </div>
 
                             <div class="form-group" style="margin-top:7%">
-                                <asp:button runat="server" type="button" Text="Registrar" class="btn btn-success btn-lg btn-block login-button" style="border-radius:20px; width:30%; margin:auto; border:0px" onclick="Register_Prof" required="required" /> 
+                                <asp:button runat="server" type="button" Text="Actualizar" class="btn btn-success btn-lg btn-block login-button" style="border-radius:20px; width:30%; margin:auto; border:0px" onclick="Register_Prof" required="required" /> 
                             </div>
 
                     </div>
@@ -123,5 +133,5 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 </asp:Content>

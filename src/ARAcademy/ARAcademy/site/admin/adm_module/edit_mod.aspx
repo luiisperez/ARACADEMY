@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/Admin_home.Master" AutoEventWireup="true" CodeBehind="add_mod.aspx.cs" Inherits="ARAcademy.site.admin.add_mod" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/Admin_home.Master" AutoEventWireup="true" CodeBehind="edit_mod.aspx.cs" Inherits="ARAcademy.site.admin.adm_module.edit_mod" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
@@ -10,29 +10,39 @@
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <script src="sweetalert2.min.js"></script>
     <link rel="stylesheet" href="sweetalert2.min.css">
+     <style>
+        .input-group-append {
+            display: none;
+        }
+    </style>
     <script>
         function alertme_succ() {
             Swal.fire({
-                title: 'Módulo creado exitosamente',
-                width: 500,
+                title: 'Módulo actualizado exitosamente',
+                width: 400,
                 padding: '3em',
                 imageUrl: "/site/home/images/Check_Mark.png",
                 imageAlt: 'Custom image',
                 background: '#fff ',
             })
+                .then(function (result) {
+                    if (result.value) {
+                        window.location = "/site/admin/adm_module/list_mod.aspx";
+                    }
+                })
         }
-        function alertme()
-        {
+        function alertme() {
             Swal.fire({
-                title: 'Error al registrar el módulo, verifique la información',
+                title: 'Ha ocurrido un error al actualizar el módulo, verifique la información',
                 width: 400,
                 padding: '3em',
-                imageUrl: "/site/home/images/Alert_mark.png",
+                imageUrl: "/site/home/images/Check_Mark.png",
                 imageAlt: 'Custom image',
                 background: '#fff ',
             })
-		} 
+        }   
     </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
@@ -50,7 +60,7 @@
                                     </asp:DropDownList>
                                 </div>
                                 <div class="col-6">
-	                                <asp:DropDownList ID="list_course" runat="server" Enabled="false" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" AutoPostBack="True"  >
+	                                <asp:DropDownList ID="list_course" runat="server" Enabled="true" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" AutoPostBack="True"  >
                                     </asp:DropDownList>
                                 </div>
                             </div>
@@ -80,13 +90,12 @@
                             </div>
 
                             <div class="form-group" style="margin-top:7%">
-                                <asp:button runat="server" type="button" Text="Registrar" class="btn btn-success btn-lg btn-block login-button" OnClick="Reg_Mod" style="border-radius:20px; width:30%; margin:auto; border:0px" required="required" /> 
+                                <asp:button runat="server" type="button" Text="Actualizar" class="btn btn-success btn-lg btn-block login-button" OnClick="Reg_Mod" style="border-radius:20px; width:30%; margin:auto; border:0px" required="required" /> 
                             </div>
-
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
+
 </asp:Content>

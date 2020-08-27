@@ -25,7 +25,7 @@ namespace ARAcademy.site.admin
                     }
                     else
                     {
-                        Response.Redirect("login.aspx");
+                        Response.Redirect("/site/admin/login.aspx");
                     }
                 }
                 catch (Exception ex)
@@ -54,7 +54,7 @@ namespace ARAcademy.site.admin
             cmd.Execute();
             if (teacher.Code == 200)
             {
-                Response.Redirect("admin_home.aspx"); Response.Redirect("admin_home.aspx");
+                Response.Redirect("admin_home.aspx"); 
             }
             else
             {
