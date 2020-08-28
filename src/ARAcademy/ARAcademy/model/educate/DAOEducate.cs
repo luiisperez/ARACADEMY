@@ -18,27 +18,21 @@ namespace ARAcademy.model.educate
             NpgsqlCommand command = new NpgsqlCommand(DAOEducateResource.CreateEducateSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
-            NpgsqlParameter id = new NpgsqlParameter();
             NpgsqlParameter fksection = new NpgsqlParameter();
             NpgsqlParameter fkteacher = new NpgsqlParameter();
 
-            id.ParameterName = DAOEducateResource.Id;
             fksection.ParameterName = DAOEducateResource.SectionID;
             fkteacher.ParameterName = DAOEducateResource.TeacherID;
 
-            id.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
             fksection.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
             fkteacher.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
 
-            id.Direction = ParameterDirection.Input;
             fksection.Direction = ParameterDirection.Input;
             fkteacher.Direction = ParameterDirection.Input;
 
-            id.Value = educate.Id;
             fksection.Value = educate.Section.Id;
             fkteacher.Value = educate.Teacher.Email;
 
-            command.Parameters.Add(id); 
             command.Parameters.Add(fksection);
             command.Parameters.Add(fkteacher);
 

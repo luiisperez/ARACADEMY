@@ -156,14 +156,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="site\admin\adm_course\add_mat.aspx" />
-    <Content Include="site\admin\adm_course\edit_mat.aspx" />
     <Content Include="site\admin\adm_module\add_mod.aspx" />
-    <Content Include="site\admin\adm_module\edit_mod.aspx" />
-    <Content Include="site\admin\adm_professor\edit_prof.aspx" />
-    <Content Include="site\admin\adm_student\edit_est.aspx" />
     <Content Include="site\admin\adm_topic\add_top.aspx" />
     <Content Include="site\admin\admin_home.aspx" />
-    <Content Include="site\admin\adm_topic\edit_top.aspx" />
     <Content Include="site\admin\css\bootstrap.min.css" />
     <Content Include="site\admin\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="site\admin\css\bootstrap\mixins\_screen-reader.css" />
@@ -434,44 +429,44 @@
     <Compile Include="common\entities\Topic.cs" />
     <Compile Include="common\Entity.cs" />
     <Compile Include="common\entities\Teacher.cs" />
-    <Compile Include="controller\adminmanagement\AdminLoginCommand.cs" />
-    <Compile Include="controller\Command.cs" />
-    <Compile Include="controller\course\CreateCourseCommand.cs" />
-    <Compile Include="controller\course\DeleteCourseCommand.cs" />
-    <Compile Include="controller\course\ReadAllCourseByGradeCommand.cs" />
-    <Compile Include="controller\course\ReadAllCourseCommand.cs" />
-    <Compile Include="controller\course\ReadCourseCommand.cs" />
-    <Compile Include="controller\course\UpdateCourseCommand.cs" />
-    <Compile Include="controller\educate\AssignSectionTeacherCommand.cs" />
-    <Compile Include="controller\educate\GetSectionsByTeacherCommand.cs" />
-    <Compile Include="controller\educate\GetTeachersBySectionCommand.cs" />
-    <Compile Include="controller\educate\RemoveSectionTeacherCommand.cs" />
-    <Compile Include="controller\grade\ReadAllGradeCommand.cs" />
-    <Compile Include="controller\section\CreateSectionCommand.cs" />
-    <Compile Include="controller\section\DeleteSectionCommand.cs" />
-    <Compile Include="controller\section\ReadAllSectionByCourseCommand.cs" />
-    <Compile Include="controller\section\ReadAllSectionCommand.cs" />
-    <Compile Include="controller\section\ReadSectionCommand.cs" />
-    <Compile Include="controller\section\UpdateSectionCommand.cs" />
-    <Compile Include="controller\student\CreateStudentCommand.cs" />
-    <Compile Include="controller\student\DeleteStudentCommand.cs" />
-    <Compile Include="controller\student\ReadAllStudentsCommand.cs" />
-    <Compile Include="controller\student\ReadStudentCommand.cs" />
-    <Compile Include="controller\student\StudentLoginCommand.cs" />
-    <Compile Include="controller\student\UpdateGradeStudentCommand.cs" />
-    <Compile Include="controller\student\UpdateStudentCommand.cs" />
-    <Compile Include="controller\teacher\TeacherLoginCommand.cs" />
-    <Compile Include="controller\teacher\CreateTeacherCommand.cs" />
-    <Compile Include="controller\teacher\DeleteTeacherCommand.cs" />
-    <Compile Include="controller\teacher\ReadAllTeacherCommand.cs" />
-    <Compile Include="controller\teacher\ReadTeacherCommand.cs" />
-    <Compile Include="controller\teacher\UpdateTeacherCommand.cs" />
-    <Compile Include="controller\topic\CreateTopicCommand.cs" />
-    <Compile Include="controller\topic\DeleteTopicCommand.cs" />
-    <Compile Include="controller\topic\ReadAllTopicBySectionCommand.cs" />
-    <Compile Include="controller\topic\ReadAllTopicCommand.cs" />
-    <Compile Include="controller\topic\ReadTopicCommand.cs" />
-    <Compile Include="controller\topic\UpdateTopicCommand.cs" />
+    <Compile Include="common\controller\adminmanagement\AdminLoginCommand.cs" />
+    <Compile Include="common\controller\Command.cs" />
+    <Compile Include="common\controller\course\CreateCourseCommand.cs" />
+    <Compile Include="common\controller\course\DeleteCourseCommand.cs" />
+    <Compile Include="common\controller\course\ReadAllCourseByGradeCommand.cs" />
+    <Compile Include="common\controller\course\ReadAllCourseCommand.cs" />
+    <Compile Include="common\controller\course\ReadCourseCommand.cs" />
+    <Compile Include="common\controller\course\UpdateCourseCommand.cs" />
+    <Compile Include="common\controller\educate\AssignSectionTeacherCommand.cs" />
+    <Compile Include="common\controller\educate\GetSectionsByTeacherCommand.cs" />
+    <Compile Include="common\controller\educate\GetTeachersBySectionCommand.cs" />
+    <Compile Include="common\controller\educate\RemoveSectionTeacherCommand.cs" />
+    <Compile Include="common\controller\grade\ReadAllGradeCommand.cs" />
+    <Compile Include="common\controller\section\CreateSectionCommand.cs" />
+    <Compile Include="common\controller\section\DeleteSectionCommand.cs" />
+    <Compile Include="common\controller\section\ReadAllSectionByCourseCommand.cs" />
+    <Compile Include="common\controller\section\ReadAllSectionCommand.cs" />
+    <Compile Include="common\controller\section\ReadSectionCommand.cs" />
+    <Compile Include="common\controller\section\UpdateSectionCommand.cs" />
+    <Compile Include="common\controller\student\CreateStudentCommand.cs" />
+    <Compile Include="common\controller\student\DeleteStudentCommand.cs" />
+    <Compile Include="common\controller\student\ReadAllStudentsCommand.cs" />
+    <Compile Include="common\controller\student\ReadStudentCommand.cs" />
+    <Compile Include="common\controller\student\StudentLoginCommand.cs" />
+    <Compile Include="common\controller\student\UpdateGradeStudentCommand.cs" />
+    <Compile Include="common\controller\student\UpdateStudentCommand.cs" />
+    <Compile Include="common\controller\teacher\TeacherLoginCommand.cs" />
+    <Compile Include="common\controller\teacher\CreateTeacherCommand.cs" />
+    <Compile Include="common\controller\teacher\DeleteTeacherCommand.cs" />
+    <Compile Include="common\controller\teacher\ReadAllTeacherCommand.cs" />
+    <Compile Include="common\controller\teacher\ReadTeacherCommand.cs" />
+    <Compile Include="common\controller\teacher\UpdateTeacherCommand.cs" />
+    <Compile Include="common\controller\topic\CreateTopicCommand.cs" />
+    <Compile Include="common\controller\topic\DeleteTopicCommand.cs" />
+    <Compile Include="common\controller\topic\ReadAllTopicBySectionCommand.cs" />
+    <Compile Include="common\controller\topic\ReadAllTopicCommand.cs" />
+    <Compile Include="common\controller\topic\ReadTopicCommand.cs" />
+    <Compile Include="common\controller\topic\UpdateTopicCommand.cs" />
     <Compile Include="model\adminmanagement\DAOAdministrator.cs" />
     <Compile Include="model\adminmanagement\DAOAdministratorResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -534,40 +529,12 @@
     <Compile Include="site\admin\adm_course\add_mat.aspx.designer.cs">
       <DependentUpon>add_mat.aspx</DependentUpon>
     </Compile>
-    <Compile Include="site\admin\adm_course\edit_mat.aspx.cs">
-      <DependentUpon>edit_mat.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="site\admin\adm_course\edit_mat.aspx.designer.cs">
-      <DependentUpon>edit_mat.aspx</DependentUpon>
-    </Compile>
     <Compile Include="site\admin\adm_module\add_mod.aspx.cs">
       <DependentUpon>add_mod.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="site\admin\adm_module\add_mod.aspx.designer.cs">
       <DependentUpon>add_mod.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="site\admin\adm_module\edit_mod.aspx.cs">
-      <DependentUpon>edit_mod.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="site\admin\adm_module\edit_mod.aspx.designer.cs">
-      <DependentUpon>edit_mod.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="site\admin\adm_professor\edit_prof.aspx.cs">
-      <DependentUpon>edit_prof.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="site\admin\adm_professor\edit_prof.aspx.designer.cs">
-      <DependentUpon>edit_prof.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="site\admin\adm_student\edit_est.aspx.cs">
-      <DependentUpon>edit_est.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="site\admin\adm_student\edit_est.aspx.designer.cs">
-      <DependentUpon>edit_est.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\admin\adm_topic\add_top.aspx.cs">
       <DependentUpon>add_top.aspx</DependentUpon>
@@ -624,13 +591,6 @@
     </Compile>
     <Compile Include="site\admin\adm_professor\list_prof.aspx.designer.cs">
       <DependentUpon>list_prof.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="site\admin\adm_topic\edit_top.aspx.cs">
-      <DependentUpon>edit_top.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="site\admin\adm_topic\edit_top.aspx.designer.cs">
-      <DependentUpon>edit_top.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\admin\adm_topic\list_top.aspx.cs">
       <DependentUpon>list_top.aspx</DependentUpon>
