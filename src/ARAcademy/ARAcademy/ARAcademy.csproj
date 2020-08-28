@@ -650,6 +650,7 @@
     </Compile>
     <Compile Include="site\professor\postulation.aspx.cs">
       <DependentUpon>postulation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="site\professor\postulation.aspx.designer.cs">
       <DependentUpon>postulation.aspx</DependentUpon>
