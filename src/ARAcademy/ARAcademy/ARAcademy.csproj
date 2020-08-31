@@ -156,9 +156,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="site\admin\adm_course\add_mat.aspx" />
+    <Content Include="site\admin\adm_course\edit_mat.aspx" />
     <Content Include="site\admin\adm_module\add_mod.aspx" />
+    <Content Include="site\admin\adm_module\edit_mod.aspx" />
+    <Content Include="site\admin\adm_professor\edit_prof.aspx" />
+    <Content Include="site\admin\adm_professor\list_mod_prof.aspx" />
+    <Content Include="site\admin\adm_professor\mod_prof.aspx" />
+    <Content Include="site\admin\adm_student\edit_est.aspx" />
     <Content Include="site\admin\adm_topic\add_top.aspx" />
     <Content Include="site\admin\admin_home.aspx" />
+    <Content Include="site\admin\adm_topic\edit_top.aspx" />
     <Content Include="site\admin\css\bootstrap.min.css" />
     <Content Include="site\admin\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="site\admin\css\bootstrap\mixins\_screen-reader.css" />
@@ -529,12 +536,54 @@
     <Compile Include="site\admin\adm_course\add_mat.aspx.designer.cs">
       <DependentUpon>add_mat.aspx</DependentUpon>
     </Compile>
+    <Compile Include="site\admin\adm_course\edit_mat.aspx.cs">
+      <DependentUpon>edit_mat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_course\edit_mat.aspx.designer.cs">
+      <DependentUpon>edit_mat.aspx</DependentUpon>
+    </Compile>
     <Compile Include="site\admin\adm_module\add_mod.aspx.cs">
       <DependentUpon>add_mod.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="site\admin\adm_module\add_mod.aspx.designer.cs">
       <DependentUpon>add_mod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_module\edit_mod.aspx.cs">
+      <DependentUpon>edit_mod.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_module\edit_mod.aspx.designer.cs">
+      <DependentUpon>edit_mod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_professor\edit_prof.aspx.cs">
+      <DependentUpon>edit_prof.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_professor\edit_prof.aspx.designer.cs">
+      <DependentUpon>edit_prof.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_professor\list_mod_prof.aspx.cs">
+      <DependentUpon>list_mod_prof.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_professor\list_mod_prof.aspx.designer.cs">
+      <DependentUpon>list_mod_prof.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_professor\mod_prof.aspx.cs">
+      <DependentUpon>mod_prof.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_professor\mod_prof.aspx.designer.cs">
+      <DependentUpon>mod_prof.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_student\edit_est.aspx.cs">
+      <DependentUpon>edit_est.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_student\edit_est.aspx.designer.cs">
+      <DependentUpon>edit_est.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\admin\adm_topic\add_top.aspx.cs">
       <DependentUpon>add_top.aspx</DependentUpon>
@@ -591,6 +640,13 @@
     </Compile>
     <Compile Include="site\admin\adm_professor\list_prof.aspx.designer.cs">
       <DependentUpon>list_prof.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_topic\edit_top.aspx.cs">
+      <DependentUpon>edit_top.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_topic\edit_top.aspx.designer.cs">
+      <DependentUpon>edit_top.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\admin\adm_topic\list_top.aspx.cs">
       <DependentUpon>list_top.aspx</DependentUpon>

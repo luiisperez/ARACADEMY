@@ -11,7 +11,7 @@
     <!-- Card -->
     <div class="card gradient-card">
 
-        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px; background-image: url('../home/images/Reg_Prof.png'); background-repeat: no-repeat; background-position:center;">
+        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px; background-image: url('/site/home/images/Reg_Prof.png'); background-repeat: no-repeat; background-position:center;">
 
           <!-- Content -->
           <a href="reg_prof.aspx">
@@ -48,7 +48,7 @@
     <!-- Card -->
     <div class="card gradient-card">
 
-        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px; background-image: url('../home/images/List_Prof.png'); background-repeat: no-repeat; background-position:center;">
+        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px; background-image: url('/site/home/images/List_Prof.png'); background-repeat: no-repeat; background-position:center;">
 
           <!-- Content -->
           <a href="list_prof.aspx">
@@ -92,10 +92,10 @@
     <!-- Card -->
     <div class="card gradient-card">
 
-        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px; background-image: url('../home/images/Reg_Prof.png'); background-repeat: no-repeat; background-position:center;">
+        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px; background-image: url('/site/home/images/Reg_Prof.png'); background-repeat: no-repeat; background-position:center;">
 
           <!-- Content -->
-          <a href="#">
+          <a href="mod_prof.aspx">
             <div class="text-white d-flex h-100 mask blue-gradient-rgba" >
               <div class="first-content align-self-center p-3">
               </div>
@@ -129,10 +129,10 @@
     <!-- Card -->
     <div class="card gradient-card">
 
-        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px; background-image: url('../home/images/List_Prof.png'); background-repeat: no-repeat; background-position:center;">
+        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px; background-image: url('/site/home/images/List_Prof.png'); background-repeat: no-repeat; background-position:center;">
 
           <!-- Content -->
-          <a href="#">
+          <a href="list_mod_prof.aspx">
             <div class="text-white d-flex h-100 mask purple-gradient-rgba" style="border-radius:5px">
               <div class="first-content align-self-center p-3">
               </div>

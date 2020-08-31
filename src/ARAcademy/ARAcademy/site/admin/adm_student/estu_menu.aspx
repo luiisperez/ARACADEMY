@@ -12,7 +12,7 @@
     <!-- Card -->
     <div class="card gradient-card">
 
-        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px; background-image: url('../home/images/List_Est.png'); background-repeat: no-repeat; background-position:center;">
+        <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px; background-image: url('/site/home/images/List_Est.png'); background-repeat: no-repeat; background-position:center;">
 
           <!-- Content -->
           <a href="list_est.aspx">
