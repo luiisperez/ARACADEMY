@@ -125,6 +125,10 @@
     <value>DELETE_EDUCATE</value>
     <comment>Procedimiento para eliminar una asignacion de un modulo a un profesor</comment>
   </data>
+  <data name="EmailTeacher" xml:space="preserve">
+    <value>@mail</value>
+    <comment>Email del profesor</comment>
+  </data>
   <data name="Id" xml:space="preserve">
     <value>@ide</value>
     <comment>Identificador de educate</comment>
@@ -140,6 +144,10 @@
   <data name="SectionID" xml:space="preserve">
     <value>@fk_seccion</value>
     <comment>ID del modulo</comment>
+  </data>
+  <data name="SectionIDE" xml:space="preserve">
+    <value>@ide</value>
+    <comment>ID del módulo pero como IDE</comment>
   </data>
   <data name="TeacherID" xml:space="preserve">
     <value>@fk_profesor</value>

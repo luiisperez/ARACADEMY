@@ -84,7 +84,7 @@ namespace ARAcademy.model.educate
 
                 NpgsqlParameter fkteacher = new NpgsqlParameter();
 
-                fkteacher.ParameterName = DAOEducateResource.TeacherID;
+                fkteacher.ParameterName = DAOEducateResource.EmailTeacher;
 
                 fkteacher.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
 
@@ -152,7 +152,7 @@ namespace ARAcademy.model.educate
 
                 NpgsqlParameter fksection = new NpgsqlParameter();
 
-                fksection.ParameterName = DAOEducateResource.SectionID;
+                fksection.ParameterName = DAOEducateResource.SectionIDE;
 
                 fksection.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
 

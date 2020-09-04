@@ -13,9 +13,7 @@ namespace ARAcademy.site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ReadAllSectionByCourseCommand cmd = new ReadAllSectionByCourseCommand(new Course("1"));
-            cmd.Execute();
-            List<Section> sections = cmd.Sections;
+
         }
     }
 }

@@ -10,6 +10,8 @@
 <body>
     <form id="form1" runat="server">
         <div>
+         <asp:FileUpload id="FileUploadControl" runat="server" />
+
         </div>
     </form>
 </body>
