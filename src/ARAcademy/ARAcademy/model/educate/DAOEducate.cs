@@ -80,6 +80,20 @@ namespace ARAcademy.model.educate
                 conn = DAO.getConnection();
                 NpgsqlTransaction tran = conn.BeginTransaction();
                 NpgsqlCommand command = new NpgsqlCommand(DAOEducateResource.ReadEducateByTeacherEmailSp, conn);
+
+
+                NpgsqlParameter fkteacher = new NpgsqlParameter();
+
+                fkteacher.ParameterName = DAOEducateResource.TeacherID;
+
+                fkteacher.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
+
+                fkteacher.Direction = ParameterDirection.Input;
+
+                fkteacher.Value = educate.Teacher.Email;
+
+                command.Parameters.Add(fkteacher);
+
                 command.CommandType = CommandType.StoredProcedure;
 
                 NpgsqlDataReader dr = command.ExecuteReader();
@@ -134,6 +148,20 @@ namespace ARAcademy.model.educate
                 conn = DAO.getConnection();
                 NpgsqlTransaction tran = conn.BeginTransaction();
                 NpgsqlCommand command = new NpgsqlCommand(DAOEducateResource.ReadTeacherBySectionIdSP, conn);
+
+
+                NpgsqlParameter fksection = new NpgsqlParameter();
+
+                fksection.ParameterName = DAOEducateResource.SectionID;
+
+                fksection.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
+
+                fksection.Direction = ParameterDirection.Input;
+
+                fksection.Value = educate.Section.Id;
+
+                command.Parameters.Add(fksection);
+
                 command.CommandType = CommandType.StoredProcedure;
 
                 NpgsqlDataReader dr = command.ExecuteReader();
