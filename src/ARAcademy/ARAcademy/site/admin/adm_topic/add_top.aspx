@@ -20,6 +20,11 @@
                 imageAlt: 'Custom image',
                 background: '#fff ',
             })
+                .then(function (result) {
+                if (result.value) {
+                    window.location = "/site/admin/adm_topic/list_top.aspx";
+                }
+            })
         }
         function alertme()
         {

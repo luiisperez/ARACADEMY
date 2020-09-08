@@ -36,25 +36,6 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <!-- The Modal -->
-       <%-- <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content"> --%>    
-            <!-- Modal Header -->
-            <%--<div class="modal-header">
-                <h4 class="modal-title">Editar Profesor</h4>
-                <button type="button" class="close" data-dismiss="modal">×</button>
-            </div> --%>     
-
-            <!-- Modal footer -->
-          <%--  <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-            </div>
-        
-            </div>
-        </div>
-        </div>--%>
-
         <!-- Listado de profesores  -->
         <div class="row justify-content-center">
         <h3>Listado de profesores</h3>
