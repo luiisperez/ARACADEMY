@@ -42,30 +42,41 @@
                 <div class="card" style="margin:5%">
                     <div class="card-body" >
 
-                            <h3 style="font-weight:bold; text-align:center; margin-bottom:5%">Registro del tópico</h3>
+                            <h3 style="font-weight:bold; text-align:center; margin-bottom:5%">Asignación de módulo a profesor</h3>
 
                             <div class="row">
-                                <div class="col-6">
+
+                                <div class="col-md-12">
+                                <h5 style="font-weight:bold; text-align:left; margin:10px 0px 10px 0px">Definición de módulo</h5>
+                                </div>
+
+                                <div class="col-md-6">
 	                                <asp:DropDownList ID="list_grades" runat="server" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" OnSelectedIndexChanged="grade__SelectedIndexChanged"  AutoPostBack="True" >
                                     </asp:DropDownList>
                                 </div>
-                                <div class="col-6">
+
+                                <div class="col-md-6">
 	                                <asp:DropDownList ID="list_course" runat="server" Enabled="false" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " OnSelectedIndexChanged="course__SelectedIndexChanged" required="required" AutoPostBack="True"  >
                                     </asp:DropDownList>
                                 </div>
-                            </div>
 
-                            <div class="row">
-                                <div class="col-6">
+                                <div class="col-md-6">
 	                                <asp:DropDownList ID="list_section" runat="server" Enabled="false" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" AutoPostBack="True"  >
                                     </asp:DropDownList>
                                 </div>
-  
-                                <div class="col-6">
+                            
+
+                                <div class="col-md-12">
+                                <h5 style="font-weight:bold; text-align:left; margin:10px 0px 10px 0px">Selección de profesor</h5>
+                                </div>
+
+                                <div class="col-md-6">
 	                                <asp:DropDownList ID="list_prof" runat="server" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" AutoPostBack="True"  >
                                     </asp:DropDownList>
                                 </div>
+
                             </div>
+                     </div>
 
                             <div class="form-group" style="margin-top:7%">
                                 <asp:button runat="server" type="button" Text="Registrar" class="btn btn-success btn-lg btn-block login-button" style="border-radius:20px; width:30%; margin:auto; border:0px" OnClick="Reg_prof_mod" required="required" /> 
