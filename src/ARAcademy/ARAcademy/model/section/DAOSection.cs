@@ -331,7 +331,7 @@ namespace ARAcademy.model.section
         public int DeleteSection(Section section)
         {
             conn = DAO.getConnection();
-            NpgsqlCommand command = new NpgsqlCommand(DAOSectionResource.CreateSectionSP, conn);
+            NpgsqlCommand command = new NpgsqlCommand(DAOSectionResource.DeleteSectionSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
             NpgsqlParameter id = new NpgsqlParameter();

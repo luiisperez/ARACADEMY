@@ -81,6 +81,7 @@ namespace ARAcademy.site
             cmd.Connection = con;
 
 
+            con.Open();
             cmd.CommandText =
                 "SELECT * FROM DOCUMENT";
 
