@@ -446,7 +446,7 @@ $$ LANGUAGE plpgsql;
 
 /********************INICIO CRUD DE TOPICOS*******************/
 /************************AGREGAR TOPICO***********************/
-CREATE OR REPLACE FUNCTION CREATE_TOPIC(NOMBRE varchar(30), FK_SECCION integer) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION CREATE_TOPIC(NOMBRE varchar(200), FK_SECCION integer) RETURNS integer AS $$
 DECLARE
  RESULT integer;
 
@@ -459,7 +459,7 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 /********************LEER TODOS LOS TOPICOS*******************/
-CREATE OR REPLACE FUNCTION READ_ALL_TOPIC() RETURNS TABLE(ID integer, NAME varchar(30), FK_SECCION integer, SECCION_NAME varchar(30)) AS $$
+CREATE OR REPLACE FUNCTION READ_ALL_TOPIC() RETURNS TABLE(ID integer, NAME varchar(200), FK_SECCION integer, SECCION_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN
@@ -471,7 +471,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /*********************LEER TOPICO POR ID*********************/
-CREATE OR REPLACE FUNCTION READ_TOPIC(IDE integer) RETURNS TABLE(ID integer, NAME varchar(30), FK_SECTION integer, SECCION_NAME varchar(30)) AS $$
+CREATE OR REPLACE FUNCTION READ_TOPIC(IDE integer) RETURNS TABLE(ID integer, NAME varchar(200), FK_SECTION integer, SECCION_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN
@@ -483,7 +483,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /*********************LEER TOPICO POR ID DE MODULO*********************/
-CREATE OR REPLACE FUNCTION READ_TOPIC_BY_SECTION(IDE integer) RETURNS TABLE(ID integer, NAME varchar(30), FK_SECTION integer, SECCION_NAME varchar(30)) AS $$
+CREATE OR REPLACE FUNCTION READ_TOPIC_BY_SECTION(IDE integer) RETURNS TABLE(ID integer, NAME varchar(200), FK_SECTION integer, SECCION_NAME varchar(30)) AS $$
 DECLARE
 
 BEGIN
@@ -495,7 +495,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /**********************MODIFICAR TOPICO***********************/
-CREATE OR REPLACE FUNCTION UPDATE_TOPIC(IDE integer, NOMBRE varchar(30), FK_SECCION integer) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION UPDATE_TOPIC(IDE integer, NOMBRE varchar(200), FK_SECCION integer) RETURNS integer AS $$
 DECLARE
  RESULT integer;
 
