@@ -106,8 +106,8 @@ namespace ARAcademy.model.educate
                         teacherEmail = dr.GetString(1);
                         teacherName = dr.GetString(2);
                         teacherLastname = dr.GetString(3);
-                        sectionId = dr.GetInt32(3);
-                        sectionName = dr.GetString(4);
+                        sectionId = dr.GetInt32(4);
+                        sectionName = dr.GetString(5);
                         Section section = new Section();
                         section.Id = sectionId;
                         section.Name = sectionName;
