@@ -446,6 +446,12 @@
     <Compile Include="controller\course\ReadAllCourseCommand.cs" />
     <Compile Include="controller\course\ReadCourseCommand.cs" />
     <Compile Include="controller\course\UpdateCourseCommand.cs" />
+    <Compile Include="controller\document\CreateDocumentCommand.cs" />
+    <Compile Include="controller\document\DeleteDocumentCommand.cs" />
+    <Compile Include="controller\document\ReadAllDocumentBySectionCommand.cs" />
+    <Compile Include="controller\document\ReadAllDocumentCommand.cs" />
+    <Compile Include="controller\document\ReadDocumentCommand.cs" />
+    <Compile Include="controller\document\UpdateDocumentCommand.cs" />
     <Compile Include="controller\educate\AssignSectionTeacherCommand.cs" />
     <Compile Include="controller\educate\GetSectionsByTeacherCommand.cs" />
     <Compile Include="controller\educate\GetTeachersBySectionCommand.cs" />
@@ -489,6 +495,12 @@
       <DependentUpon>DAOCourseResource.resx</DependentUpon>
     </Compile>
     <Compile Include="model\DAO.cs" />
+    <Compile Include="model\document\DAODocument.cs" />
+    <Compile Include="model\document\DAODocumentResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAODocumentResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="model\educate\DAOEducate.cs" />
     <Compile Include="model\educate\DAOEducateResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1144,6 +1156,10 @@
     <EmbeddedResource Include="model\course\DAOCourseResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DAOCourseResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="model\document\DAODocumentResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAODocumentResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="model\educate\DAOEducateResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
