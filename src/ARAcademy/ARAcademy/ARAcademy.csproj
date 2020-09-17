@@ -430,6 +430,7 @@
   <ItemGroup>
     <Compile Include="common\entities\Administrator.cs" />
     <Compile Include="common\entities\Course.cs" />
+    <Compile Include="common\entities\Document.cs" />
     <Compile Include="common\entities\Educate.cs" />
     <Compile Include="common\entities\Grade.cs" />
     <Compile Include="common\entities\Section.cs" />
