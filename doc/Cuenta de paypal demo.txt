@@ -1,0 +1,7 @@
+Correo de la cuenta business: aracademy@business.example.com
+Clave de la cuenta business: 01W?Of>k
+
+Correo de la cuenta cliente: usertestara@personal.example.com
+Clave de la cuenta cliente: ;j.4.ZX_
+
+Página sanbdox de paypal: https://www.sandbox.paypal.com/

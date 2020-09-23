@@ -92,11 +92,17 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.4.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.4\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="Npgsql, Version=4.1.3.1, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.4.1.3.1\lib\net461\Npgsql.dll</HintPath>
     </Reference>
     <Reference Include="Npgsql.EntityFrameworkCore.PostgreSQL, Version=3.1.4.0, Culture=neutral, PublicKeyToken=5d8b90d52f46fda7, processorArchitecture=MSIL">
       <HintPath>..\packages\Npgsql.EntityFrameworkCore.PostgreSQL.3.1.4\lib\netstandard2.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll</HintPath>
+    </Reference>
+    <Reference Include="PayPal, Version=1.9.1.0, Culture=neutral, PublicKeyToken=5b4afc1ccaef40fb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PayPal.1.9.1\lib\net451\PayPal.dll</HintPath>
     </Reference>
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -237,6 +243,7 @@
     <Content Include="site\admin\vendor\select2\select2.js" />
     <Content Include="site\admin\vendor\select2\select2.min.css" />
     <Content Include="site\admin\vendor\select2\select2.min.js" />
+    <Content Include="site\failedPaypal.aspx" />
     <Content Include="site\home\css\aos.css" />
     <Content Include="site\home\css\bootstrap-datepicker.css" />
     <Content Include="site\home\css\bootstrap.min.css" />
@@ -331,6 +338,7 @@
     <Content Include="site\home\main.html" />
     <Content Include="site\home\readme.txt" />
     <Content Include="site\home\single.html" />
+    <Content Include="site\processPayment.aspx" />
     <Content Include="site\professor\css\fade.css" />
     <Content Include="site\professor\css\main.css" />
     <Content Include="site\professor\css\util.css" />
@@ -424,8 +432,10 @@
     <Content Include="site\student\vendor\select2\select2.js" />
     <Content Include="site\student\vendor\select2\select2.min.css" />
     <Content Include="site\student\vendor\select2\select2.min.js" />
+    <Content Include="site\successPaypal.aspx" />
     <Content Include="site\test.aspx" />
     <Content Include="site\testDeleteSection.aspx" />
+    <Content Include="site\testpaypal.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -434,6 +444,7 @@
     <Compile Include="common\entities\Document.cs" />
     <Compile Include="common\entities\Educate.cs" />
     <Compile Include="common\entities\Grade.cs" />
+    <Compile Include="common\entities\AraPayment.cs" />
     <Compile Include="common\entities\Section.cs" />
     <Compile Include="common\entities\Student.cs" />
     <Compile Include="common\entities\Topic.cs" />
@@ -458,6 +469,7 @@
     <Compile Include="controller\educate\GetTeachersBySectionCommand.cs" />
     <Compile Include="controller\educate\RemoveSectionTeacherCommand.cs" />
     <Compile Include="controller\grade\ReadAllGradeCommand.cs" />
+    <Compile Include="controller\payment\CreateAraPaymentCommand.cs" />
     <Compile Include="controller\section\CreateSectionCommand.cs" />
     <Compile Include="controller\section\DeleteSectionCommand.cs" />
     <Compile Include="controller\section\ReadAllSectionByCourseCommand.cs" />
@@ -514,6 +526,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DAOGradeResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="model\payment\DAOPayment.cs" />
+    <Compile Include="model\payment\DAOPaymentResource1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAOPaymentResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="model\payment\PaypalConfiguration.cs" />
+    <Compile Include="model\payment\PaypalLogger.cs" />
+    <Compile Include="model\payment\PaypalPayment.cs" />
     <Compile Include="model\Registry.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -705,6 +726,13 @@
     <Compile Include="site\admin\adm_professor\reg_prof.aspx.designer.cs">
       <DependentUpon>reg_prof.aspx</DependentUpon>
     </Compile>
+    <Compile Include="site\failedPaypal.aspx.cs">
+      <DependentUpon>failedPaypal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\failedPaypal.aspx.designer.cs">
+      <DependentUpon>failedPaypal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="site\home\index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -718,6 +746,13 @@
     </Compile>
     <Compile Include="site\admin\adminmanagement.Master.designer.cs">
       <DependentUpon>adminmanagement.Master</DependentUpon>
+    </Compile>
+    <Compile Include="site\processPayment.aspx.cs">
+      <DependentUpon>processPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\processPayment.aspx.designer.cs">
+      <DependentUpon>processPayment.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\professor\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -740,6 +775,13 @@
     <Compile Include="site\student\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="site\successPaypal.aspx.cs">
+      <DependentUpon>successPaypal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\successPaypal.aspx.designer.cs">
+      <DependentUpon>successPaypal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="site\test.aspx.cs">
       <DependentUpon>test.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -753,6 +795,13 @@
     </Compile>
     <Compile Include="site\testDeleteSection.aspx.designer.cs">
       <DependentUpon>testDeleteSection.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\testpaypal.aspx.cs">
+      <DependentUpon>testpaypal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\testpaypal.aspx.designer.cs">
+      <DependentUpon>testpaypal.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -1176,6 +1225,10 @@
     <EmbeddedResource Include="model\grade\DAOGradeResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DAOGradeResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="model\payment\DAOPaymentResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOPaymentResource1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="model\Registry.resx">
       <Generator>ResXFileCodeGenerator</Generator>
