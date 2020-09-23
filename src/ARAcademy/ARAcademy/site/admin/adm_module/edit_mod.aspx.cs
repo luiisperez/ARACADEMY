@@ -66,7 +66,7 @@ namespace ARAcademy.site.admin.adm_module
                             list_course.DataSource = course_list;
                             list_course.DataBind();
                         }
-                        list_course.SelectedValue = course.Grade.Id.ToString();
+                        list_course.SelectedValue = course.Id;
                         name.Value = section.Name;
                         desc.Value = section.Description;
                         amount.Value = section.Amount.ToString();

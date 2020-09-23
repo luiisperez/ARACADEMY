@@ -13,10 +13,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ARAcademy.site
+namespace ARAcademy.site.admin.adm_content
 {
-    public partial class test : System.Web.UI.Page
+    public partial class add_content : System.Web.UI.Page
     {
+
         public Grade grades;
         public Course course;
         public Section section;
@@ -25,15 +26,16 @@ namespace ARAcademy.site
         private List<Course> course_list = new List<Course>();
         private List<Section> section_list = new List<Section>();
         private List<Topic> topic_list = new List<Topic>();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
             {
                 try
                 {
-                    //if (Session["Username"] != null && Session["Token"] != null)
-                    //{
-                    ReadAllGradeCommand cmd = new ReadAllGradeCommand();
+                    if (Session["Username"] != null && Session["Token"] != null)
+                    {
+                        ReadAllGradeCommand cmd = new ReadAllGradeCommand();
                     cmd.Execute();
                     grade_list = cmd.Grades;
                     foreach (Grade grade in grade_list)
@@ -44,11 +46,11 @@ namespace ARAcademy.site
                         list_grades.DataSource = grade_list;
                         list_grades.DataBind();
                     }
-                    //}
-                    //else
-                    //{
-                    //    Response.Redirect("login.aspx");
-                    //}
+                    }
+                    else
+                    {
+                        Response.Redirect("/site/admin/login.aspx");
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -131,8 +133,10 @@ namespace ARAcademy.site
                 {
                     Byte[] bytesBD = (byte[])dr.GetValue(5);
                     String nameFiles = dr.GetString(1);
-                    File.WriteAllBytes("C:\\Users\\Kant\\Desktop\\" + nameFiles, bytesBD);
+                    // RUTA DEL SERVIDOR //
+                    File.WriteAllBytes("C:\\Users\\Karem\\Desktop\\" + nameFiles, bytesBD);
                 }
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
                 con.Close();
             }
             catch (Exception ex) { }
@@ -166,6 +170,7 @@ namespace ARAcademy.site
             }
             list_course = null;
         }
+
 
         protected void course__SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -220,6 +225,7 @@ namespace ARAcademy.site
                 list_topic.Enabled = false;
             }
         }
+
 
     }
 }

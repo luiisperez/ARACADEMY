@@ -74,7 +74,7 @@ namespace ARAcademy.site.admin.adm_topic
                             list_course.DataSource = course_list;
                             list_course.DataBind();
                         }
-                        list_course.SelectedValue = course.Grade.Id.ToString();
+                        list_course.SelectedValue = course.Id;
                         Course _course = new Course();
                         _course.Id = list_course.SelectedValue;
                         _course.Name = list_course.DataTextField;

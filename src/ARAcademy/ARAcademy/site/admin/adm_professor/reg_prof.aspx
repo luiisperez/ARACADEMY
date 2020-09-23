@@ -11,6 +11,11 @@
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
     <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="sweetalert2.all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    <script src="sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="sweetalert2.min.css">
     <style>
         .input-group-append {
             display: none;
@@ -26,6 +31,11 @@
                 imageUrl: "/site/home/images/Check_Mark.png",
                 imageAlt: 'Custom image',
                 background: '#fff ',
+            }).
+                then(function (result) {
+                if (result.value) {
+                    window.location = "/site/admin/mod_menu.aspx";
+                }
             })
         }
         function alertme() {

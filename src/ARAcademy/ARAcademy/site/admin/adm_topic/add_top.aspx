@@ -22,7 +22,7 @@
             })
                 .then(function (result) {
                 if (result.value) {
-                    window.location = "/site/admin/adm_topic/list_top.aspx";
+                    window.location = "/site/admin/mod_menu.aspx";
                 }
             })
         }

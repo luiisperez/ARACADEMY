@@ -54,7 +54,7 @@
 
                             <div class="row">
                                 <div class="col-6">
-                                    <asp:DropDownList ID="list_grades" runat="server" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" >
+                                    <asp:DropDownList ID="list_grades" runat="server" style="background-color: #eee; padding: 13px 15px;margin: 8px 0; width:100%; border:none; height:80%; " required="required" >                                                                
                                     </asp:DropDownList>
                                 </div>
                             </div>

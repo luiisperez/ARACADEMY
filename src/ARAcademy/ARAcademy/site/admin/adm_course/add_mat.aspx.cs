@@ -4,6 +4,7 @@ using ARAcademy.controller.grade;
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace ARAcademy.site.admin
 {
@@ -25,7 +26,6 @@ namespace ARAcademy.site.admin
                         grade_list = cmd.Grades;
                         foreach (Grade grade in grade_list)
                         {
-
                             list_grades.DataTextField = "Name";
                             list_grades.DataValueField = "Id";
                             list_grades.DataSource = grade_list;
@@ -34,7 +34,7 @@ namespace ARAcademy.site.admin
                     }
                     else
                     {
-                        Response.Redirect("login.aspx");
+                        Response.Redirect("/site/admin/login.aspx");
                     }
                 }
                 catch (Exception ex)

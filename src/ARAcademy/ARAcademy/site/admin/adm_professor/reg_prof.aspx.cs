@@ -54,7 +54,7 @@ namespace ARAcademy.site.admin
             cmd.Execute();
             if (teacher.Code == 200)
             {
-                Response.Redirect("/site/admin/admin_home.aspx"); 
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
             }
             else
             {

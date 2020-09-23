@@ -18,6 +18,7 @@ namespace ARAcademy.site.admin.adm_professor
         public Educate educate;
         private List<Section> section_list = new List<Section>();
         private List<Teacher> teacher_list = new List<Teacher>();
+        private List<Educate> educateList = new List<Educate>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -60,7 +61,14 @@ namespace ARAcademy.site.admin.adm_professor
             educate.Teacher = teacher;
             GetSectionsByTeacherCommand cmd = new GetSectionsByTeacherCommand(educate);
             cmd.Execute();
-        }
+            educateList = cmd.EducateList;
+            foreach (Educate educate1 in educateList)
+            {
+                prof_data.DataSource =  educateList;
+                prof_data.DataBind();
+            }
+
+         }
 
         protected void prof_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
@@ -70,16 +78,18 @@ namespace ARAcademy.site.admin.adm_professor
             {
                 try
                 {
-                    //string email = ((Label)prof_data.Items[e.Item.ItemIndex].FindControl("Email")).Text;
-                    //teacher = new Teacher();
-                    //teacher.Email = email;
-                    //DeleteTeacherCommand cmd = new DeleteTeacherCommand(teacher);
-                    //cmd.Execute();
-                    //if (teacher.Code == 200)
-                    //{
-                    //    ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
-                    //}
-                    //else { }
+                    string id = ((Label)prof_data.Items[e.Item.ItemIndex].FindControl("id")).Text;
+                    educate = new Educate();
+                    section = new Section();
+                    teacher = new Teacher();
+                    educate.Id = Int32.Parse(id);
+                    RemoveSectionTeacherCommand cmd = new RemoveSectionTeacherCommand(educate);
+                    cmd.Execute();
+                    if (educate.Code == 200)
+                    {
+                        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                    }
+                    else { }
                 }
                 catch (Exception ex)
                 {

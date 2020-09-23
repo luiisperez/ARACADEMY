@@ -22,9 +22,9 @@
         }
     </style>
     <script>
-        function alertme_succ() {
+        function alertme() {
             Swal.fire({
-                title: 'Modulo actualizado exitosamente',
+                title: 'Modulo-Profesor eliminado exitosamente',
                 width: 400,
                 padding: '3em',
                 imageUrl: "/site/home/images/Check_Mark.png",
@@ -33,7 +33,7 @@
             })
                 .then(function (result) {
                     if (result.value) {
-                        window.location = "/site/admin/adm_professor/list_prof.aspx";
+                        window.location = "/site/admin/adm_professor/prof_menu.aspx";
                     }
                 })
         }
@@ -63,43 +63,31 @@
                                         <table id="table" class="table table-striped table-bordered" style="width:100%">
                                         <thead>
                                             <tr>
+                                                <th>Id</th>
                                                 <th>Nombre</th>
-                                                <th>Email</th>
-                                                <th>Fecha de nacimiento</th>
-                                                <th>Telefono</th>
-                                                <th>Pais</th>
-                                                <th>Status</th>
-                                                <th>Acciones</th>
+                                                <th>Acción</th>
                                             </tr>
                                         </thead>
 
                                         <tbody id="tableRows">
                                             <asp:Repeater ID="prof_data" runat="server" OnItemCommand="prof_ItemCommand" >
                                                 <ItemTemplate>
-                                                        <tr id="<%# Eval("Email") %>">
- <%--                                                           <td><%# Eval("name") %> <%# Eval("lastName") %></td>
-                                                            <td> <asp:Label ID="email" runat="server" text='<%# Eval("Email") %>'></asp:Label></td>
-                                                            <td><%# string.Format("{0:dd/MM/yyyy}", Eval("birthDate")) %></td>
-                                                            <td><%# Eval("phone") %></td>
-                                                            <td><%# Eval("country") %></td>
-                                                            <td><%# Eval("status") %></td>
+                                                        <tr id="<%# Eval("Section.Id") %>">
+                                                            <td> <asp:Label ID="id" runat="server" text='<%# Eval("Id") %>'></asp:Label></td>
+                                                            <td><%# Eval("Section.Name") %></td>
                                                             <td>
                                                                 <asp:ImageButton ID="modify"  runat="server" Text="Editar" ImageUrl="~/site/home/images/assign.svg" Height="25px" Width="25px" ToolTip="Editar" /> 
                                                                 <asp:ImageButton ID="delete" runat="server" Text="Inhabilitar / Habilitar" ImageUrl="~/site/home/images/trash.svg" Height="26px" Width="26px" ToolTip="Inhabilitar / Habilitar" />                                            
-                                                            </td>--%>
+                                                            </td>
                                                         </tr>              
                                                 </ItemTemplate>
                                             </asp:Repeater>
                                         </tbody>
                                         <tfoot>
                                             <tr>
+                                                <th>Id</th>
                                                 <th>Nombre</th>
-                                                <th>Email</th>
-                                                <th>Fecha de nacimiento</th>
-                                                <th>Telefono</th>
-                                                <th>Pais</th>
-                                                <th>Status</th>
-                                                <th>Acciones</th>
+                                                <th>Acción</th>
                                             </tr>
                                         </tfoot>
                                     </table>
