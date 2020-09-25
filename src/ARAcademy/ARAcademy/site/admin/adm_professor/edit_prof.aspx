@@ -47,7 +47,16 @@
                 background: '#fff ',
             })
         }
-        
+        function alertme_pwd() {
+            Swal.fire({
+                title: 'Las contraseñas no coinciden',
+                width: 500,
+                padding: '3em',
+                imageUrl: "/site/home/images/Check_Mark.png",
+                imageAlt: 'Custom image',
+                background: '#fff ',
+            })
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">

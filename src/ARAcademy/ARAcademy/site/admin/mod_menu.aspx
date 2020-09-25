@@ -292,7 +292,7 @@
         <div class="card-image" style="background-color:#00194f; height:300px !important; border-radius:3px;background-image: url('../home/images/Material_add.png'); background-repeat: no-repeat; background-position:center;">
 
           <!-- Content -->
-          <a href="/site/admin/adm_content/add_content.aspx">
+          <a href="/site/admin/adm_content/list_content.aspx">
             <div class="text-white d-flex h-100 mask purple-gradient-rgba" style="border-radius:5px">
               <div class="first-content align-self-center p-3">
               </div>

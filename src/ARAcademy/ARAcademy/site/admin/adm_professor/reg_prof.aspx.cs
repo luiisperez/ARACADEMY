@@ -52,13 +52,20 @@ namespace ARAcademy.site.admin
             teacher.BirthDate = Convert.ToDateTime(fec_nac_);
             CreateTeacherCommand cmd = new CreateTeacherCommand(teacher);
             cmd.Execute();
-            if (teacher.Code == 200)
-            {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
+            if (password.Value.Equals(conf_pwd.Value))
+            { 
+                if (teacher.Code == 200)
+                {
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
+                }
+                else
+                {
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                }
             }
             else
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_pwd()", true);
             }
         }
     }

@@ -35,7 +35,7 @@ namespace ARAcademy.site.admin.adm_content
                 {
                     if (Session["Username"] != null && Session["Token"] != null)
                     {
-                        ReadAllGradeCommand cmd = new ReadAllGradeCommand();
+                    ReadAllGradeCommand cmd = new ReadAllGradeCommand();
                     cmd.Execute();
                     grade_list = cmd.Grades;
                     foreach (Grade grade in grade_list)
@@ -134,7 +134,7 @@ namespace ARAcademy.site.admin.adm_content
                     Byte[] bytesBD = (byte[])dr.GetValue(5);
                     String nameFiles = dr.GetString(1);
                     // RUTA DEL SERVIDOR //
-                    File.WriteAllBytes("C:\\Users\\Karem\\Desktop\\" + nameFiles, bytesBD);
+                    File.WriteAllBytes("C:\\Users\\Kant\\Desktop\\" + nameFiles, bytesBD);
                 }
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
                 con.Close();

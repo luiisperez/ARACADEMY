@@ -162,6 +162,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="site\admin\adm_content\add_content.aspx" />
+    <Content Include="site\admin\adm_content\edit_doc.aspx" />
+    <Content Include="site\admin\adm_content\list_content.aspx" />
     <Content Include="site\admin\adm_course\add_mat.aspx" />
     <Content Include="site\admin\adm_course\edit_mat.aspx" />
     <Content Include="site\admin\adm_module\add_mod.aspx" />
@@ -571,6 +573,20 @@
     </Compile>
     <Compile Include="site\admin\adm_content\add_content.aspx.designer.cs">
       <DependentUpon>add_content.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_content\edit_doc.aspx.cs">
+      <DependentUpon>edit_doc.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_content\edit_doc.aspx.designer.cs">
+      <DependentUpon>edit_doc.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_content\list_content.aspx.cs">
+      <DependentUpon>list_content.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_content\list_content.aspx.designer.cs">
+      <DependentUpon>list_content.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\admin\adm_course\add_mat.aspx.cs">
       <DependentUpon>add_mat.aspx</DependentUpon>

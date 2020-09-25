@@ -25,7 +25,7 @@
             })
                 .then(function (result) {
                     if (result.value) {
-                        window.location = "/site/admin/adm_content/add_content.aspx";
+                        window.location = "/site/admin/adm_content/mod_menu.aspx";
                     }
                 })
         }

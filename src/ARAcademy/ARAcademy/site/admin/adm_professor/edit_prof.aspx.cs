@@ -64,14 +64,21 @@ namespace ARAcademy.site.admin.adm_professor
             teacher.BirthDate = Convert.ToDateTime(fec_nac_);
             UpdateTeacherCommand cmd = new UpdateTeacherCommand(teacher);
             cmd.Execute();
-            if (teacher.Code == 201)
+            if (password.Text.Equals(conf_pwd.Text))
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", " alertme_succ()", true);
+                if (teacher.Code == 201)
+                {
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "random", " alertme_succ()", true);
 
+                }
+                else
+                {
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                }
             }
             else
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_pwd()", true);
             }
         }
     }

@@ -11,7 +11,7 @@ namespace ARAcademy.site.admin.adm_content
 {
 
 
-    public partial class add_content
+    public partial class list_content
     {
 
         /// <summary>
@@ -42,30 +42,12 @@ namespace ARAcademy.site.admin.adm_content
         protected global::System.Web.UI.WebControls.DropDownList list_section;
 
         /// <summary>
-        /// Control list_topic.
+        /// Control document_list.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList list_topic;
-
-        /// <summary>
-        /// Control FileManager.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.FileUpload FileManager;
-
-        /// <summary>
-        /// Control AceptarBtn.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AceptarBtn;
+        protected global::System.Web.UI.WebControls.Repeater document_list;
     }
 }
