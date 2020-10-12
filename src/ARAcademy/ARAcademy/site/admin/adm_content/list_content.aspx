@@ -51,10 +51,10 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
        <div class="row justify-content-center">
                     <div class="col-md-12">
-                        <div class="card" style="margin: 5%">
+                        <div class="card" style="margin:1% 5% 5% 5%">
                             <div class="card-body">
 
-                                <h3 style="font-weight: bold; text-align: center; margin-bottom: 5%">Carga de material académico</h3>
+                                <h3 style="font-weight: bold; text-align: center; margin-bottom: 5%">Listado de material académico</h3>
 
                                 <div class="row">
                                     <div class="col-6">
@@ -72,22 +72,20 @@
                                         <asp:DropDownList ID="list_section" runat="server" Enabled="false" Style="background-color: #eee; padding: 13px 15px; margin: 8px 0; width: 100%; border: none; height: 80%;" OnSelectedIndexChanged="document__SelectedIndexChanged" required="required" AutoPostBack="True">
                                         </asp:DropDownList>
                                     </div>
-
                                 </div>
-
 
                             </div>
 
                         </div>
                     </div>
-        <div class="col-md-10">
+        <div class="col-md-10" style="padding-bottom:20px">
             <div class="table-responsive" > 
                     <table id="table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
                             <th>Id</th>
                             <th>Nombre</th>
-                            <th>File</th>
+                            <th>Topo de Archivo</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>

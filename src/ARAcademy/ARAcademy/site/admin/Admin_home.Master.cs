@@ -21,7 +21,7 @@ namespace ARAcademy.site.admin
         protected void Cerrar_Sesion(object sender, EventArgs e)
         {
             Session.Clear();
-            Response.Redirect("login.aspx");
+            Response.Redirect("/site/admin/login.aspx");
         }
     }
 }

@@ -25,7 +25,7 @@
             })
                 .then(function (result) {
                     if (result.value) {
-                        window.location = "/site/admin/adm_content/mod_menu.aspx";
+                        window.location = "/site/admin/mod_menu.aspx";
                     }
                 })
         }
@@ -57,6 +57,10 @@
 
                                 <h3 style="font-weight: bold; text-align: center; margin-bottom: 5%">Carga de material académico</h3>
 
+                                <div class="col-md-12">
+                                <h5 style="font-weight:bold; text-align:left; margin:10px 0px 10px 0px">Definición de tópico a asociar con el documento</h5>
+                                </div>
+
                                 <div class="row">
                                     <div class="col-6">
                                         <asp:DropDownList ID="list_grades" runat="server" Style="background-color: #eee; padding: 13px 15px; margin: 8px 0; width: 100%; border: none; height: 80%;" required="required" OnSelectedIndexChanged="grade__SelectedIndexChanged" AutoPostBack="True">
@@ -81,9 +85,11 @@
                                 </div>
 
                                 <div>
-                                    <asp:FileUpload ID="FileManager" runat="server" />
+                                    <asp:FileUpload ID="FileManager" runat="server" Style="padding-top:20px"/>
                                 </div>
-                                <asp:Button ID="AceptarBtn" runat="server" Text="Button" OnClick="AceptarBtn_Click" />
+                                <asp:Button ID="AceptarBtn" type="button" runat="server" class="btn btn-success btn-lg btn-block login-button" style="border-radius:20px; width:30%; margin:auto; border:0px;margin-top:30px" Text="Cargar" OnClick="AceptarBtn_Click" />
+
+
                             </div>
 
                         </div>

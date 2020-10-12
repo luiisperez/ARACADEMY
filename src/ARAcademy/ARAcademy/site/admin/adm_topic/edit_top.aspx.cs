@@ -88,7 +88,7 @@ namespace ARAcademy.site.admin.adm_topic
                             list_section.DataSource = section_list;
                             list_section.DataBind();
                         }
-                        list_section.SelectedValue = section.Course.Id;
+                        list_section.SelectedValue = section.Id.ToString();
                         name.Value = topic.Name;
                     }
                     else

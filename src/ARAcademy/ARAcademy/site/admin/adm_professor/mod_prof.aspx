@@ -19,6 +19,10 @@
                 imageUrl: "/site/home/images/Check_Mark.png",
                 imageAlt: 'Custom image',
                 background: '#fff ',
+            }).then(function (result) {
+                if (result.value) {
+                    window.location = "/site/admin/adm_professor/prof_menu.aspx";
+                }
             })
         }
         function alertme()
