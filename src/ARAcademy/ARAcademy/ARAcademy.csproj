@@ -343,6 +343,7 @@
     <Content Include="site\processPayment.aspx" />
     <Content Include="site\professor\css\fade.css" />
     <Content Include="site\professor\css\main.css" />
+    <Content Include="site\professor\css\style.css" />
     <Content Include="site\professor\css\util.css" />
     <Content Include="site\professor\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="site\professor\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -358,6 +359,12 @@
     <Content Include="site\professor\js\main.js" />
     <Content Include="site\professor\login.aspx" />
     <Content Include="site\professor\postulation.aspx" />
+    <Content Include="site\professor\prof_class\prof_class.aspx" />
+    <Content Include="site\professor\prof_comments\prof_comments.aspx" />
+    <Content Include="site\professor\prof_edit\prof_edit.aspx" />
+    <Content Include="site\professor\prof_mat\prof_mat.aspx" />
+    <Content Include="site\professor\prof_menu.aspx" />
+    <Content Include="site\professor\prof_payment\prof_payment.aspx" />
     <Content Include="site\professor\vendor\animate\animate.css" />
     <Content Include="site\professor\vendor\animsition\css\animsition.css" />
     <Content Include="site\professor\vendor\animsition\css\animsition.min.css" />
@@ -777,12 +784,61 @@
     <Compile Include="site\professor\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="site\professor\prof_class\prof_class.aspx.cs">
+      <DependentUpon>prof_class.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\professor\prof_class\prof_class.aspx.designer.cs">
+      <DependentUpon>prof_class.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\professor\prof_comments\prof_comments.aspx.cs">
+      <DependentUpon>prof_comments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\professor\prof_comments\prof_comments.aspx.designer.cs">
+      <DependentUpon>prof_comments.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\professor\prof_edit\prof_edit.aspx.cs">
+      <DependentUpon>prof_edit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\professor\prof_edit\prof_edit.aspx.designer.cs">
+      <DependentUpon>prof_edit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\professor\Prof_home.Master.cs">
+      <DependentUpon>Prof_home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\professor\Prof_home.Master.designer.cs">
+      <DependentUpon>Prof_home.Master</DependentUpon>
+    </Compile>
     <Compile Include="site\professor\postulation.aspx.cs">
       <DependentUpon>postulation.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="site\professor\postulation.aspx.designer.cs">
       <DependentUpon>postulation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\professor\prof_mat\prof_mat.aspx.cs">
+      <DependentUpon>prof_mat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\professor\prof_mat\prof_mat.aspx.designer.cs">
+      <DependentUpon>prof_mat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\professor\prof_menu.aspx.cs">
+      <DependentUpon>prof_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\professor\prof_menu.aspx.designer.cs">
+      <DependentUpon>prof_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\professor\prof_payment\prof_payment.aspx.cs">
+      <DependentUpon>prof_payment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\professor\prof_payment\prof_payment.aspx.designer.cs">
+      <DependentUpon>prof_payment.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\student\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -1213,6 +1269,7 @@
     <Content Include="site\admin\scss\bootstrap\_utilities.scss" />
     <Content Include="site\admin\scss\bootstrap\_variables.scss" />
     <Content Include="site\admin\scss\style.scss" />
+    <Content Include="site\professor\Prof_home.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

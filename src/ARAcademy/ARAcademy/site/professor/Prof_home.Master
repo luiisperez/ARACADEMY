@@ -1,0 +1,82 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Prof_home.Master.cs" Inherits="ARAcademy.site.professor.Master_Prof" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    <script src="/site/admin/js/jquery.min.js"></script>
+    <script src="/site/admin/js/popper.js"></script>
+    <script src="/site/admin/js/bootstrap.min.js"></script>
+    <script src="/site/admin/js/main.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+      		<div class="wrapper d-flex align-items-stretch">
+			    <nav id="sidebar" class="active">
+                    <h1 style="padding-bottom: 15%"><a href="/site/admin/admin_home.aspx"><img src="/site/home/images/ARA_LogoLine.png" width="100" height="100" alt="ARAcademy"></a></h1>
+                    <ul class="list-unstyled components mb-5">
+                      <li>
+                          <a href="/site/professor/prof_class/prof_class.aspx"><span class="fa fa-users"></span> Mis Clases </a>
+                      </li>
+                      <li>
+                          <a href="/site/professor/prof_edit/prof_edit.aspx"><span class="fa fa-user"></span> Mi Perfil </a>
+                      </li>
+                      <li>
+                        <a href="/site/professor/prof_mat/prof_mat.aspx"><span class="fa fa-th"></span> Programación Academica </a>
+                      </li>
+                        <li>
+                        <a href="/site/professor/prof_comments/prof_comments.aspx"><span class="fa fa-th"></span> Mis Comentarios </a>
+                      </li>
+                      <li>
+                        <a href="/site/professor/prof_payment/prof_payment.aspx"><span class="fa fa-th"></span> Mis Pagos </a>
+                      </li>
+                    </ul>
+
+                    <div class="footer">
+        	            <p>
+					        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+					    </p>
+                    </div>
+    	        </nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5" style="padding:0px !important; ">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+
+                <%--<button type="button" id="sidebarCollapse" class="btn btn-primary">
+                  <i class="fa fa-bars"></i>
+                  <span class="sr-only">Toggle Menu</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>--%>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="nav navbar-nav ml-auto" style="margin-left: 0px; width: 100%;" >
+                    <li class="nav-item active">
+                        <a class="nav-link" >Bienvenido: <%= username%> </a>
+                    </li>
+                    <li class="nav-item active" style="margin-left:auto;">
+                        <a href="/site/admin/login.aspx" class="nav-link" runat="server" onServerClick="Cerrar_Sesion" >Cerrar Sesión </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+		
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+       </div>
+      </div>     
+    </form>
+</body>
+</html>
+

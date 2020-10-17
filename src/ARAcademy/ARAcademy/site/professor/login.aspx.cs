@@ -27,7 +27,9 @@ namespace ARAcademy.site.professor
             cmd.Execute();
             if (teacher.Code == 200)
             {
-                Response.Redirect("admin_home.aspx");
+                Session["Username"] = adm_email.Value;
+                Session["Token"] = "7b0705aab296e5f24dc802d440121078";
+                Response.Redirect("prof_menu.aspx");
             }
             else
             {

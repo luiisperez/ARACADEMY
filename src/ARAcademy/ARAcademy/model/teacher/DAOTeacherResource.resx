@@ -162,7 +162,7 @@
     <comment>Procedimiento almacenado para consultar un profesor</comment>
   </data>
   <data name="TeacherLoginSP" xml:space="preserve">
-    <value>TEACHER_LOGIN</value>
+    <value>LOGIN_TEACHER</value>
     <comment>Procedimiento almacenado para inicio de sesión de profesores</comment>
   </data>
   <data name="UpdateTeacherSP" xml:space="preserve">

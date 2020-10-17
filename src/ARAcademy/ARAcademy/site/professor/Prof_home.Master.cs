@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ARAcademy.site.admin
+namespace ARAcademy.site.professor
 {
-    public partial class Admin_home : System.Web.UI.MasterPage
+    public partial class Master_Prof : System.Web.UI.MasterPage
     {
         public string username;
         public string token;
@@ -16,11 +16,10 @@ namespace ARAcademy.site.admin
             username = Session["Username"].ToString();
             token = Session["Token"].ToString();
         }
-
         protected void Cerrar_Sesion(object sender, EventArgs e)
         {
             Session.Clear();
-            Response.Redirect("/site/admin/login.aspx");
+            Response.Redirect("/site/professor/login.aspx");
         }
     }
 }

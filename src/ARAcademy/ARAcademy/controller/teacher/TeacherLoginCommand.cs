@@ -13,17 +13,17 @@ namespace ARAcademy.controller.teacher
     {
         private Teacher teacher;
 
-        public TeacherLoginCommand(Teacher Teacher)
+        public TeacherLoginCommand(Teacher teacher)
         {
-            this.Teacher = Teacher;
+            this.teacher = teacher;
         }
 
-        public Teacher Teacher { get => Teacher; set => Teacher = value; }
+        public Teacher Teacher { get => teacher; set => teacher = value; }
 
         public override void Execute()
         {
             DAOTeacher daoTeacher = new DAOTeacher();
-            Teacher.Code = daoTeacher.LoginTeacher(Teacher);
+            teacher.Code = daoTeacher.LoginTeacher(teacher);
         }
     }
 }
