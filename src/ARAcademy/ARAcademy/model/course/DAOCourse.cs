@@ -85,7 +85,7 @@ namespace ARAcademy.model.course
         public int DeleteCourse(Course course)
         {
             conn = DAO.getConnection();
-            NpgsqlCommand command = new NpgsqlCommand(DAOCourseResource.DeleteStudentSP, conn);
+            NpgsqlCommand command = new NpgsqlCommand(DAOCourseResource.DeleteCourseSP, conn);
             NpgsqlTransaction transaction = conn.BeginTransaction();
 
             NpgsqlParameter id = new NpgsqlParameter();

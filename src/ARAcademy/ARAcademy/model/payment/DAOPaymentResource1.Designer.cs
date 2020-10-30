@@ -59,5 +59,122 @@ namespace ARAcademy.model.payment {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a @monto.
+        /// </summary>
+        internal static string Amount {
+            get {
+                return ResourceManager.GetString("Amount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a CREATE_PAYMENT.
+        /// </summary>
+        internal static string CreatePaymentSP {
+            get {
+                return ResourceManager.GetString("CreatePaymentSP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a DELETE_PAYMENT.
+        /// </summary>
+        internal static string DeletePaymentSP {
+            get {
+                return ResourceManager.GetString("DeletePaymentSP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a @fechaexpiracion.
+        /// </summary>
+        internal static string ExpirationDate {
+            get {
+                return ResourceManager.GetString("ExpirationDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a @ide.
+        /// </summary>
+        internal static string Id {
+            get {
+                return ResourceManager.GetString("Id", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a @diapago.
+        /// </summary>
+        internal static string PaymentDate {
+            get {
+                return ResourceManager.GetString("PaymentDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a @paypal_id.
+        /// </summary>
+        internal static string PaypalTransactionID {
+            get {
+                return ResourceManager.GetString("PaypalTransactionID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a READ_ALL_PAYMENT.
+        /// </summary>
+        internal static string ReadAllPaymentsSP {
+            get {
+                return ResourceManager.GetString("ReadAllPaymentsSP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a READ_PAYMENT_BY_SECION.
+        /// </summary>
+        internal static string ReadPaymentsBySectionSP {
+            get {
+                return ResourceManager.GetString("ReadPaymentsBySectionSP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a READ_PAYMENT.
+        /// </summary>
+        internal static string ReadPaymentSP {
+            get {
+                return ResourceManager.GetString("ReadPaymentSP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a @fk_seccion.
+        /// </summary>
+        internal static string SectionID {
+            get {
+                return ResourceManager.GetString("SectionID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a @fk_estudiante.
+        /// </summary>
+        internal static string StudentID {
+            get {
+                return ResourceManager.GetString("StudentID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a UPDATE_PAYMENT.
+        /// </summary>
+        internal static string UpdatePaymentSP {
+            get {
+                return ResourceManager.GetString("UpdatePaymentSP", resourceCulture);
+            }
+        }
     }
 }

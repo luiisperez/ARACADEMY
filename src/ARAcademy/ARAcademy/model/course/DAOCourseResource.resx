@@ -121,7 +121,7 @@
     <value>CREATE_COURSE</value>
     <comment>Procedimiento almacenado para crear un curso</comment>
   </data>
-  <data name="DeleteStudentSP" xml:space="preserve">
+  <data name="DeleteCourseSP" xml:space="preserve">
     <value>DELETE_COURSE</value>
     <comment>Procedimiento almacenado para borrar un curso</comment>
   </data>

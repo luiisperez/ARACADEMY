@@ -8,7 +8,7 @@ namespace ARAcademy.common.entities
     public class AraPayment : Entity
     {
         private int id;
-        private DateTime payDate;
+        private DateTime paymentDate;
         private DateTime expirationDate;
         private String paypalTransactionId;
         private Double amount;
@@ -19,10 +19,10 @@ namespace ARAcademy.common.entities
         {
         }
 
-        public AraPayment(int id, DateTime payDate, DateTime expirationDate, string paypalTransactionId, double amount, Section section, Student student)
+        public AraPayment(int id, DateTime paymentDate, DateTime expirationDate, string paypalTransactionId, double amount, Section section, Student student)
         {
             this.id = id;
-            this.payDate = payDate;
+            this.paymentDate = paymentDate;
             this.expirationDate = expirationDate;
             this.paypalTransactionId = paypalTransactionId;
             this.amount = amount;
@@ -30,9 +30,9 @@ namespace ARAcademy.common.entities
             this.student = student;
         }
 
-        public AraPayment(DateTime payDate, DateTime expirationDate, string paypalTransactionId, double amount, Section section, Student student)
+        public AraPayment(DateTime paymentDate, DateTime expirationDate, string paypalTransactionId, double amount, Section section, Student student)
         {
-            this.payDate = payDate;
+            this.paymentDate = paymentDate;
             this.expirationDate = expirationDate;
             this.paypalTransactionId = paypalTransactionId;
             this.amount = amount;
@@ -41,7 +41,7 @@ namespace ARAcademy.common.entities
         }
 
         public int Id { get => id; set => id = value; }
-        public DateTime PayDate { get => payDate; set => payDate = value; }
+        public DateTime PaymentDate { get => paymentDate; set => paymentDate = value; }
         public DateTime ExpirationDate { get => expirationDate; set => expirationDate = value; }
         public string PaypalTransactionId { get => paypalTransactionId; set => paypalTransactionId = value; }
         public double Amount { get => amount; set => amount = value; }

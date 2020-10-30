@@ -72,9 +72,9 @@ namespace ARAcademy.model.course {
         /// <summary>
         ///   Busca una cadena traducida similar a DELETE_COURSE.
         /// </summary>
-        internal static string DeleteStudentSP {
+        internal static string DeleteCourseSP {
             get {
-                return ResourceManager.GetString("DeleteStudentSP", resourceCulture);
+                return ResourceManager.GetString("DeleteCourseSP", resourceCulture);
             }
         }
         
