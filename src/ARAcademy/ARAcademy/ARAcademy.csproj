@@ -479,6 +479,11 @@
     <Compile Include="controller\educate\RemoveSectionTeacherCommand.cs" />
     <Compile Include="controller\grade\ReadAllGradeCommand.cs" />
     <Compile Include="controller\payment\CreateAraPaymentCommand.cs" />
+    <Compile Include="controller\payment\DeletePaymentCommand.cs" />
+    <Compile Include="controller\payment\ReadAllPaymentBySectionCommand.cs" />
+    <Compile Include="controller\payment\ReadAllPaymentCommand.cs" />
+    <Compile Include="controller\payment\ReadPaymentCommand.cs" />
+    <Compile Include="controller\payment\UpdatePaymentCommand.cs" />
     <Compile Include="controller\section\CreateSectionCommand.cs" />
     <Compile Include="controller\section\DeleteSectionCommand.cs" />
     <Compile Include="controller\section\ReadAllSectionByCourseCommand.cs" />
