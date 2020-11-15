@@ -53,5 +53,11 @@ namespace ARAcademy.common.json.meetings
             public string registrants_email_notification { get; set; }
         }
 
+
+        public MeetingOutJson()
+        {
+            this.recurrence = new Recurrence();
+            this.settings = new Settings();
+        }
     }
 }

@@ -60,5 +60,9 @@ namespace ARAcademy.common.json.meetings
             public string enable { get; set; }
         }
 
+        public MeetingInJson()
+        {
+            this.settings = new Settings();
+        }
     }
 }
