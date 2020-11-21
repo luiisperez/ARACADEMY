@@ -728,7 +728,8 @@ $$ LANGUAGE plpgsql;
 
 /********************INICIO CRUD DE CLASE*******************/
 /***********************AGREGAR CLASE***********************/
-CREATE OR REPLACE FUNCTION CREATE_CLASS(IDE varchar(50), FECHACLASE date, ENLACE varchar(60), COMENTARIO varchar(500), FK_SECCION integer, FK_PROFESOR varchar(100)) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION CREATE_CLASS(IDE varchar(50), IDEUU varchar(50), IDE_HOST varchar(50), EMAIL_HOST varchar(60), TOPICO varchar(30), TIPO integer, ESTADO varchar(20), HORA_INICIO timestamp, DURACION integer, ZONAHORARIA varchar(50), AGENDAZOOM varchar(20), 
+	FEC_CREACION timestamp, LINK_INICIO varchar(800), LINK_REUNION varchar(100), CLAVE varchar(20), CLAVE_H323 varchar(20), CLAVE_PSTN varchar(20), CLAVE_ENCRIPTADA varchar(60), COMENTARIO varchar(500), FK_SECCION integer, FK_PROFESOR varchar(100)) RETURNS integer AS $$
 DECLARE
  RESULT integer;
 
@@ -739,7 +740,48 @@ BEGIN
 
 	ELSE
 
-		INSERT INTO CLASS(ID, CLASSDATE, LINK, COMMENT, FK_SECTION, FK_TEACHER) VALUES (IDE, FECHACLASE, ENLACE, COMENTARIO, FK_SECCION, FK_PROFESOR);
+		INSERT INTO CLASS(ID                ,
+			              UUID              , 
+			              HOST_ID           , 
+			              HOST_EMAIL        , 
+			              TOPIC             , 
+			              TYPE              , 
+			              STATUS            , 
+			              START_TIME        , 
+			              DURATION          , 
+			              TIMEZONE          , 
+			              AGENDA            , 
+			              CREATED_AT        , 
+			              START_URL         , 
+			              JOIN_URL          ,
+			              PASSWORD          , 
+			              H323_PASSWORD     , 
+			              PSTN_PASSWORD     , 
+			              ENCRYPTED_PASSWORD,
+			              COMMENT           , 
+			              FK_SECTION        , 
+			              FK_TEACHER        )
+		     VALUES      (IDE               , 
+		     	          IDEUU             , 
+		     	          IDE_HOST          , 
+		     	          EMAIL_HOST        , 
+		     	          TOPICO            , 
+		     	          TIPO              , 
+		     	          ESTADO            , 
+		     	          HORA_INICIO       , 
+		     	          DURACION          , 
+		     	          ZONAHORARIA       , 
+		     	          AGENDAZOOM        , 
+		     	          FEC_CREACION      , 
+		     	          LINK_INICIO       ,
+		     	          LINK_REUNION      ,
+		     	          CLAVE             ,
+		     	          CLAVE_H323        ,
+		     	          CLAVE_PSTN        ,
+		     	          CLAVE_ENCRIPTADA  ,
+		     	          COMENTARIO        ,
+		     	          FK_SECCION        , 
+		     	          FK_PROFESOR       );
 		RESULT := 200;
 
 	END IF;
@@ -747,37 +789,176 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 /*******************LEER TODAS LAS CLASES ********************/
-CREATE OR REPLACE FUNCTION READ_ALL_CLASS() RETURNS TABLE(ID varchar(50), CLASSDATE date, LINK varchar(60), COMMENT varchar(500), FK_SECTION integer, SEC_NAME varchar(30), FK_TEACHER varchar(100), TEA_NAME varchar(30), TEA_LASTNAME varchar(40)) AS $$
+CREATE OR REPLACE FUNCTION READ_ALL_CLASS() 
+                            RETURNS TABLE(ID                 varchar(50) , 
+                            	          UUID               varchar(50) ,
+                            	          HOST_ID            varchar(50) ,
+                            	          HOST_EMAIL         varchar(60) ,
+                            	          TOPIC              varchar(30) ,
+                            	          TYPE               integer     ,
+                            	          STATUS             varchar(20) ,
+                            	          START_TIME         timestamp   ,
+                            	          DURATION           integer     ,
+                            	          TIMEZONE           varchar(50) ,
+                            	          AGENDA             varchar(20) , 
+	                                      CREATED_AT         timestamp   ,
+	                                      START_URL          varchar(800),
+	                                      JOIN_URL           varchar(100),
+	                                      PASSWORD           varchar(20) ,
+	                                      H323_PASSWORD      varchar(20) , 
+	                                      PSTN_PASSWORD      varchar(20) ,
+	                                      ENCRYPTED_PASSWORD varchar(60) , 
+	                                      COMMENT            varchar(500), 
+	                                      FK_SECTION         integer     ,
+	                                      SEC_NAME           varchar(30) , 
+	                                      FK_TEACHER         varchar(100), 
+	                                      TEA_NAME           varchar(30) , 
+	                                      TEA_LASTNAME       varchar(40)) AS $$
 DECLARE
 
 BEGIN
 	RETURN QUERY
-	SELECT CLA.ID, CLA.CLASSDATE, CLA.LINK, CLA.COMMENT, SEC.ID, SEC.NAME, TEA.EMAIL, TEA.NAME, TEA.LASTNAME
+	SELECT CLA.ID                ,
+	       CLA.UUID              , 
+	       CLA.HOST_ID           , 
+	       CLA.HOST_EMAIL        , 
+	       CLA.TOPIC             , 
+	       CLA.TYPE              , 
+	       CLA.STATUS            , 
+	       CLA.START_TIME        , 
+	       CLA.DURATION          , 
+	       CLA.TIMEZONE          , 
+	       CLA.AGENDA            , 
+	       CLA.CREATED_AT        , 
+	       CLA.START_URL         , 
+	       CLA.JOIN_URL          , 
+	       CLA.PASSWORD          , 
+	       CLA.H323_PASSWORD     ,
+	       CLA.PSTN_PASSWORD     , 
+	       CLA.ENCRYPTED_PASSWORD, 
+	       CLA.COMMENT           , 
+	       SEC.ID                , 
+	       SEC.NAME              , 
+	       TEA.EMAIL             , 
+	       TEA.NAME              , 
+	       TEA.LASTNAME
 	FROM CLASS CLA, SECTION SEC, TEACHER TEA
-	WHERE CLA.FK_SECTION = SEC.ID AND CLA.FK_TEACHER = TEA.EMAIL;
+	WHERE CLA.FK_SECTION = SEC.ID 
+	  AND CLA.FK_TEACHER = TEA.EMAIL;
 END;
 $$ LANGUAGE plpgsql;
 
 /********************LEER CLASE POR ID**********************/
-CREATE OR REPLACE FUNCTION READ_CLASS(IDE integer) RETURNS TABLE(ID varchar(50), CLASSDATE date, LINK varchar(60), COMMENT varchar(500), FK_SECTION integer, SEC_NAME varchar(30), FK_TEACHER varchar(100), TEA_NAME varchar(30), TEA_LASTNAME varchar(40)) AS $$
+CREATE OR REPLACE FUNCTION READ_CLASS(IDE integer) 
+                        RETURNS TABLE(ID                 varchar(50) , 
+                            	      UUID               varchar(50) ,
+                                      HOST_ID            varchar(50) ,
+                          	          HOST_EMAIL         varchar(60) ,
+                           	          TOPIC              varchar(30) ,
+                           	          TYPE               integer     ,
+                           	          STATUS             varchar(20) ,
+                           	          START_TIME         timestamp   ,
+                           	          DURATION           integer     ,
+                           	          TIMEZONE           varchar(50) ,
+                           	          AGENDA             varchar(20) , 
+	                                  CREATED_AT         timestamp   ,
+	                                  START_URL          varchar(800),
+	                                  JOIN_URL           varchar(100),
+	                                  PASSWORD           varchar(20) ,
+	                                  H323_PASSWORD      varchar(20) , 
+	                                  PSTN_PASSWORD      varchar(20) ,
+	                                  ENCRYPTED_PASSWORD varchar(60) , 
+	                                  COMMENT            varchar(500), 
+                        	          FK_SECTION         integer     ,
+                        	          SEC_NAME           varchar(30) ,
+                        	          FK_TEACHER         varchar(100),
+                        	          TEA_NAME           varchar(30) ,
+                        	          TEA_LASTNAME       varchar(40)) AS $$
 DECLARE
 
 BEGIN
 	RETURN QUERY
-	SELECT CLA.ID, CLA.CLASSDATE, CLA.LINK, CLA.COMMENT, SEC.ID, SEC.NAME, TEA.EMAIL, TEA.NAME, TEA.LASTNAME
+	SELECT CLA.ID                ,
+	       CLA.UUID              , 
+	       CLA.HOST_ID           , 
+	       CLA.HOST_EMAIL        , 
+	       CLA.TOPIC             , 
+	       CLA.TYPE              , 
+	       CLA.STATUS            , 
+	       CLA.START_TIME        , 
+	       CLA.DURATION          , 
+	       CLA.TIMEZONE          , 
+	       CLA.AGENDA            , 
+	       CLA.CREATED_AT        , 
+	       CLA.START_URL         , 
+	       CLA.JOIN_URL          , 
+	       CLA.PASSWORD          , 
+	       CLA.H323_PASSWORD     ,
+	       CLA.PSTN_PASSWORD     , 
+	       CLA.ENCRYPTED_PASSWORD, 
+	       CLA.COMMENT           , 
+	       SEC.ID                , 
+	       SEC.NAME              , 
+	       TEA.EMAIL             , 
+	       TEA.NAME              , 
+	       TEA.LASTNAME
 	FROM CLASS CLA, SECTION SEC, TEACHER TEA
-	WHERE CLA.ID = IDE AND CLA.FK_SECTION = SEC.ID AND CLA.FK_TEACHER = TEA.EMAIL;
+	WHERE CLA.ID         = IDE 
+	  AND CLA.FK_SECTION = SEC.ID 
+	  AND CLA.FK_TEACHER = TEA.EMAIL;
 END;
 $$ LANGUAGE plpgsql;
+
 /**********************MODIFICAR CLASE**********************/
-CREATE OR REPLACE FUNCTION UPDATE_CLASS(IDE varchar(50), FECHACLASE date, ENLACE varchar(60), COMENTARIO varchar(500), FK_SECCION integer, FK_PROFESOR varchar(100)) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION UPDATE_CLASS(IDE              varchar(50) , 
+	                                    IDEUU            varchar(50) ,
+	                                    IDE_HOST         varchar(50) ,
+	                                    EMAIL_HOST       varchar(60) ,
+	                                    TOPICO           varchar(30) ,
+	                                    TIPO             integer     ,
+	                                    ESTADO           varchar(20) ,
+	                                    HORA_INICIO      timestamp   ,
+	                                    DURACION         integer     ,
+	                                    ZONAHORARIA      varchar(50) ,
+	                                    AGENDAZOOM       varchar(20) , 
+	                                    FEC_CREACION     timestamp   ,
+	                                    LINK_INICIO      varchar(800),
+	                                    LINK_REUNION     varchar(100),
+	                                    CLAVE            varchar(20) ,
+	                                    CLAVE_H323       varchar(20) ,
+	                                    CLAVE_PSTN       varchar(20) ,
+	                                    CLAVE_ENCRIPTADA varchar(60) ,
+	                                    COMENTARIO       varchar(500),
+	                                    FK_SECCION       integer     ,
+	                                    FK_PROFESOR      varchar(100)) 
+RETURNS integer AS $$
 DECLARE
  RESULT integer;
 
 BEGIN
 	IF ((SELECT COUNT(*) FROM CLASS WHERE ID = IDE) = 1) THEN
-
-		UPDATE CLASS SET CLASSDATE = FECHACLASE, LINK = ENLACE, COMMENT = COMENTARIO, FK_SECTION = FK_SECCION, FK_TEACHER = FK_PROFESOR WHERE ID = IDE;
+		
+		UPDATE CLASS SET UUID               = IDEUU           ,
+		                 HOST_ID            = IDE_HOST        , 
+		                 HOST_EMAIL         = EMAIL_HOST      ,
+		                 TOPIC              = TOPICO          ,
+		                 TYPE               = TIPO            ,
+		                 STATUS             = ESTADO          ,
+		                 START_TIME         = HORA_INICIO     ,
+		                 DURATION           = DURACION        ,
+		                 TIMEZONE           = ZONAHORARIA     ,
+		                 AGENDA             = AGENDAZOOM      ,
+		                 CREATED_AT         = FEC_CREACION    ,
+		                 START_URL          = LINK_INICIO     ,
+		                 JOIN_URL           = LINK_REUNION    ,
+		                 PASSWORD           = CLAVE           ,
+		                 H323_PASSWORD      = CLAVE_H323      ,
+		                 PSTN_PASSWORD      = CLAVE_PSTN      ,
+		                 ENCRYPTED_PASSWORD = CLAVE_ENCRIPTADA,
+		                 COMMENT            = COMENTARIO      ,
+		                 FK_SECTION         = FK_SECCION      ,
+		                 FK_TEACHER         = FK_PROFESOR
+		          WHERE ID = IDE;
 		
 		RESULT := 201;
   	
@@ -789,6 +970,7 @@ BEGIN
  	RETURN RESULT;
 END;
 $$ LANGUAGE plpgsql;
+
 /*********************ELIMINAR CLASS************************/
 CREATE OR REPLACE FUNCTION DELETE_CLASS(IDE varchar(50)) RETURNS integer AS $$
 DECLARE
