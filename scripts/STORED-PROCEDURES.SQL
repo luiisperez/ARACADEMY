@@ -631,7 +631,7 @@ $$ LANGUAGE plpgsql;
 
 /*******************INICIO CRUD DE PAGO*********************/
 /***********************AGREGAR PAGO************************/
-CREATE OR REPLACE FUNCTION CREATE_PAYMENT(IDE integer, DIAPAGO date, FECHAEXPIRACION date, PAYPAL_ID varchar(100), MONTO integer, FK_SECCION integer, FK_ESTUDIANTE varchar(100)) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION CREATE_PAYMENT(IDE integer, DIAPAGO date, FECHAEXPIRACION date, PAYPAL_ID varchar(100), MONTO numeric, FK_SECCION integer, FK_ESTUDIANTE varchar(100)) RETURNS integer AS $$
 DECLARE
  RESULT integer;
 
