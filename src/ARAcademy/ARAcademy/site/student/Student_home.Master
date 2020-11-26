@@ -1,0 +1,94 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Student_home.master.cs" Inherits="ARAcademy.site.student.Student_home" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" >
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    <script src="/site/admin/js/jquery.min.js"></script>
+    <script src="/site/admin/js/popper.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">	
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/style.css">
+    <script src="/site/admin/js/jquery.min.js"></script>
+    <script src="/site/admin/js/popper.js"></script>
+    <script src="/site/admin/js/bootstrap.min.js"></script>
+    <script src="/site/admin/js/main.js"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+     <form id="form1" runat="server">
+      		<div class="wrapper d-flex align-items-stretch">
+			    <nav id="sidebar" class="active">
+                    <h1 style="padding-bottom: 15%"><a href="/site/admin/admin_home.aspx"><img src="/site/home/images/ARA_LogoLine.png" width="100" height="100" alt="ARAcademy"></a></h1>
+                    <ul class="list-unstyled components mb-5">
+                      <li>
+                        <a href="pago_plan.aspx"><span class="fa fa-usd"></span> Oferta Académica </a>
+                      </li>
+                      <li>
+                        <a href="stud_menu.aspx"><span class="fa fa-calendar"></span> Inicio </a>
+                      </li>
+                      <li>
+                          <a href="#"><span class="fa fa-book"></span> Mis Clases </a>
+                      </li>
+                      <li>
+                          <a href="#"><span class="fa fa-user"></span> Mi Perfil </a>
+                      </li>
+                      <li>
+                        <a href="#"><span class="fa fa-check-circle-o"></span> Programa Académico </a>
+                      </li>
+                      <li>
+                        <a href="#"><span class="fa fa-money"></span> Mis Pagos </a>
+                      </li>
+                    </ul>
+
+                    <div class="footer">
+        	            <p>
+					        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib.com</a>
+					    </p>
+                    </div>
+    	        </nav>
+
+        <!-- Page Content  -->
+      <div id="content" class="p-4 p-md-5" style="padding:0px !important; ">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+              <div class="container-fluid">
+
+                <%--<button type="button" id="sidebarCollapse" class="btn btn-primary">
+                  <i class="fa fa-bars"></i>
+                  <span class="sr-only">Toggle Menu</span>
+                </button>
+                <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>--%>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="nav navbar-nav ml-auto" style="margin-left: 0px; width: 100%;" >
+                    <li class="nav-item active" style="margin-top:1%">
+                        <a class="nav-link" >Bienvenido: <%= username%> </a>
+                    </li>
+                    <li class="nav-item active" style="margin-left:auto;">
+                        <div class="col-1" style="float:right">
+                            <label style="position:absolute; margin-left:25%; font-weight:bold"> <%= items%> </label>
+                            <a href="/site/student/pago_mat.aspx" onServerClick="Cart_List"> <img src="/site/home/images/shopping-cartnotop.png" style="width:200%; margin-top:50%" > </a>
+                        </div>
+                    </li>
+                    <li class="nav-item active" style="margin-top:1%">
+                        <a href="/site/student/login.aspx" class="nav-link" runat="server" onServerClick="Cerrar_Sesion" >Cerrar Sesión </a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </nav>
+        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
+       </div>
+    </form>
+</body>
+</html>

@@ -11,34 +11,34 @@ namespace ARAcademy.site.student
 {
 
 
-    public partial class login
+    public partial class pago_mat
     {
 
         /// <summary>
-        /// stu_email control.
+        /// mod_data control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl stu_email;
+        protected global::System.Web.UI.WebControls.Repeater mod_data;
 
         /// <summary>
-        /// stu_pwd control.
+        /// Button1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword stu_pwd;
+        protected global::System.Web.UI.WebControls.Button Button1;
 
         /// <summary>
-        /// btn_log control.
+        /// btn_pay1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_log;
+        protected global::System.Web.UI.WebControls.Button btn_pay1;
     }
 }

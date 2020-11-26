@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ARAcademy.site.professor.prof_class
+namespace ARAcademy.site.student
 {
-    public partial class prof_class : System.Web.UI.Page
+    public partial class stud_menu : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -28,9 +28,7 @@ namespace ARAcademy.site.professor.prof_class
                 {
 
                 }
-
             }
         }
     }
-}
 }

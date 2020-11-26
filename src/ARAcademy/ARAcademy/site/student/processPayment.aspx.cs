@@ -9,7 +9,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ARAcademy.site
+namespace ARAcademy.site.student
 {
     public partial class processPayment : System.Web.UI.Page
     {
@@ -24,11 +24,12 @@ namespace ARAcademy.site
                 var executedPayment = PaypalPayment.ExecutePayment(apiContext, payerId, Session[guid] as String);
                 if (!executedPayment.state.ToLower().Equals("approved"))
                 {
-                    Response.Redirect("~/site/failedPaypal.aspx");
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertmeErr()", true);
+                    //Response.Redirect("~/site/failedPaypal.aspx");
                 }
                 transactionId = executedPayment.transactions[0].related_resources[0].sale.id;
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 String g = ex.Message;
                 Response.Redirect("~/site/failedPaypal.aspx");
@@ -41,13 +42,15 @@ namespace ARAcademy.site
                 DateTime today = DateTime.Now;
                 DateTime expirationDate = today.AddYears(1); //MOMENTANEAMENTE SE COLOCO QUE VENCE EN UN AÑO
                 Double amount = item.Amount + (item.Amount * 0.21);
-                Student student = new Student( username , ""); //OBTENER EL OBJETO DEL ESTUDIANTE QUE INICIO SESION
+                Student student = new Student(username, ""); //OBTENER EL OBJETO DEL ESTUDIANTE QUE INICIO SESION
                 AraPayment payment = new AraPayment(today, expirationDate, transactionId, amount, item, student);
                 CreateAraPaymentCommand cmd = new CreateAraPaymentCommand(payment);
                 cmd.Execute();
+                Session["ScItms"] = null;
                 /*DESCOMENTAR CUANDO FUNCIONE TODO EL BACK Y SE PASE CORRECTAMENTE EL ESTUDIANTE Y LOS MODULOS*/
             }
-            Response.Redirect("~/site/successPaypal.aspx");
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+            //Response.Redirect("/site/student/successPaypal.aspx");
         }
     }
 }

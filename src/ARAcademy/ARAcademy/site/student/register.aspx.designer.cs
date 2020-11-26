@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARAcademy.site.professor.prof_edit
+namespace ARAcademy.site.student
 {
 
 
-    public partial class prof_edit
+    public partial class register
     {
 
         /// <summary>
@@ -39,7 +39,16 @@ namespace ARAcademy.site.professor.prof_edit
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText email;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl email;
+
+        /// <summary>
+        /// phone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText phone;
 
         /// <summary>
         /// password control.
@@ -48,7 +57,7 @@ namespace ARAcademy.site.professor.prof_edit
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox password;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword password;
 
         /// <summary>
         /// conf_pwd control.
@@ -57,7 +66,7 @@ namespace ARAcademy.site.professor.prof_edit
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox conf_pwd;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword conf_pwd;
 
         /// <summary>
         /// fec_nac control.
@@ -69,21 +78,21 @@ namespace ARAcademy.site.professor.prof_edit
         protected global::System.Web.UI.HtmlControls.HtmlInputText fec_nac;
 
         /// <summary>
-        /// telf control.
+        /// grade_id control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText telf;
+        protected global::System.Web.UI.HtmlControls.HtmlSelect grade_id;
 
         /// <summary>
-        /// country control.
+        /// signUp control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect country;
+        protected global::System.Web.UI.WebControls.Button signUp;
     }
 }

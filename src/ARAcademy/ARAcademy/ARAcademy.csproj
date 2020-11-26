@@ -400,6 +400,7 @@
     <Content Include="site\professor\vendor\select2\select2.min.js" />
     <Content Include="site\student\css\fade.css" />
     <Content Include="site\student\css\main.css" />
+    <Content Include="site\student\css\style.css" />
     <Content Include="site\student\css\util.css" />
     <Content Include="site\student\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="site\student\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
@@ -414,6 +415,12 @@
     <Content Include="site\student\images\registro.jpg" />
     <Content Include="site\student\js\main.js" />
     <Content Include="site\student\login.aspx" />
+    <Content Include="site\student\pago_mat.aspx" />
+    <Content Include="site\student\pago_plan.aspx" />
+    <Content Include="site\student\processPayment.aspx" />
+    <Content Include="site\student\register.aspx" />
+    <Content Include="site\student\stud_menu.aspx" />
+    <Content Include="site\student\successPaypal.aspx" />
     <Content Include="site\student\vendor\animate\animate.css" />
     <Content Include="site\student\vendor\animsition\css\animsition.css" />
     <Content Include="site\student\vendor\animsition\css\animsition.min.css" />
@@ -865,6 +872,55 @@
     <Compile Include="site\student\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="site\student\pago_mat.aspx.cs">
+      <DependentUpon>pago_mat.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\pago_mat.aspx.designer.cs">
+      <DependentUpon>pago_mat.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\pago_plan.aspx.cs">
+      <DependentUpon>pago_plan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\pago_plan.aspx.designer.cs">
+      <DependentUpon>pago_plan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\processPayment.aspx.cs">
+      <DependentUpon>processPayment.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\processPayment.aspx.designer.cs">
+      <DependentUpon>processPayment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\register.aspx.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\register.aspx.designer.cs">
+      <DependentUpon>register.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\Student_home.Master.cs">
+      <DependentUpon>Student_home.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\Student_home.Master.designer.cs">
+      <DependentUpon>Student_home.Master</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\stud_menu.aspx.cs">
+      <DependentUpon>stud_menu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\stud_menu.aspx.designer.cs">
+      <DependentUpon>stud_menu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\successPaypal.aspx.cs">
+      <DependentUpon>successPaypal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\successPaypal.aspx.designer.cs">
+      <DependentUpon>successPaypal.aspx</DependentUpon>
+    </Compile>
     <Compile Include="site\successPaypal.aspx.cs">
       <DependentUpon>successPaypal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1295,6 +1351,7 @@
     <Content Include="site\admin\scss\bootstrap\_variables.scss" />
     <Content Include="site\admin\scss\style.scss" />
     <Content Include="site\professor\Prof_home.Master" />
+    <Content Include="site\student\Student_home.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1327,6 +1384,7 @@
     <EmbeddedResource Include="model\payment\DAOPaymentResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DAOPaymentResource1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="model\Registry.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -7,20 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARAcademy.site.professor.prof_mat
+namespace ARAcademy.site.student
 {
 
 
-    public partial class prof_mat
+    public partial class pago_stu
     {
 
         /// <summary>
-        /// list_section control.
+        /// div_mod control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList list_section;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_mod;
+
+        /// <summary>
+        /// rb_mod control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater rb_mod;
     }
 }
