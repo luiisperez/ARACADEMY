@@ -31,6 +31,9 @@ namespace ARAcademy.site.admin
                             list_grades.DataSource = grade_list;
                             list_grades.DataBind();
                         }
+                            list_grades.Items.Insert(0, new ListItem("Seleccione", ""));
+                            list_grades.Items[0].Selected = true;
+                            list_grades.Items[0].Attributes["disabled"] = "disabled";
                     }
                     else
                     {

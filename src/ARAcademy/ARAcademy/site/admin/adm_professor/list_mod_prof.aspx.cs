@@ -39,6 +39,10 @@ namespace ARAcademy.site.admin.adm_professor
                             list_prof.DataBind();
                         }
 
+                            list_prof.Items.Insert(0, new ListItem("Seleccione", ""));
+                            list_prof.Items[0].Selected = true;
+                            list_prof.Items[0].Attributes["disabled"] = "disabled";
+
                     }
                     else
                     {

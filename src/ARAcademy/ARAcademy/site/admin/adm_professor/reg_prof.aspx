@@ -34,7 +34,7 @@
             }).
                 then(function (result) {
                 if (result.value) {
-                    window.location = "/site/admin/mod_menu.aspx";
+                    window.location = "/site/admin/admin_home.aspx";
                 }
             })
         }

@@ -5,6 +5,7 @@ using ARAcademy.controller.section;
 using System;
 using System.Collections.Generic;
 using System.Web.UI;
+using System.Web.UI.WebControls;
 
 namespace ARAcademy.site.admin
 {
@@ -34,10 +35,13 @@ namespace ARAcademy.site.admin
                             list_grades.DataSource = grade_list;
                             list_grades.DataBind();
                         }
+                            list_grades.Items.Insert(0, new ListItem("Seleccione", ""));
+                            list_grades.Items[0].Selected = true;
+                            list_grades.Items[0].Attributes["disabled"] = "disabled";
                     }
                     else
                     {
-                        Response.Redirect("login.aspx");
+                        Response.Redirect("/site/admin/login.aspx");
                     }
                 }
                 catch (Exception ex)
@@ -63,8 +67,11 @@ namespace ARAcademy.site.admin
                 list_course.DataSource = course_list;
                 list_course.DataBind();
             }
+                list_course.Items.Insert(0, new ListItem("Seleccione", ""));
+                list_course.Items[0].Selected = true;
+                list_course.Items[0].Attributes["disabled"] = "disabled";
 
-            
+
             if (list_course.Items.Count > 0)
             {
                 list_course.Enabled = true;
