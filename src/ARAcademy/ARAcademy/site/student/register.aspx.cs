@@ -46,11 +46,13 @@ namespace ARAcademy.site.student
                 else
                 {
                     ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                    fec_nac.Value = fec_nac_.Date.ToString("MM/dd/yyyy");
                 }
             }
             else
             {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_pwd()", true);
+                fec_nac.Value = fec_nac_.Date.ToString("MM/dd/yyyy");
             }
         }
     }

@@ -34,7 +34,7 @@ namespace ARAcademy.site.professor.prof_edit
                         conf_pwd.Attributes.Add("value", teacher.Password);
                         telf.Value = teacher.Phone;
                         country.Value = teacher.Country;
-                        fec_nac.Value = teacher.BirthDate.ToString();
+                        fec_nac.Value = teacher.BirthDate.Date.ToString("MM/dd/yyyy");
 
                     }
                     else
@@ -73,11 +73,13 @@ namespace ARAcademy.site.professor.prof_edit
                 else
                 {
                     ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                    fec_nac.Value = fec_nac_.Date.ToString("MM/dd/yyyy");
                 }
             }
             else
             {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_pwd()", true);
+                fec_nac.Value = fec_nac_.Date.ToString("MM/dd/yyyy");
             }
         }
     }
