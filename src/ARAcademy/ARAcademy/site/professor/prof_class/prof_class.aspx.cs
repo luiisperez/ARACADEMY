@@ -33,4 +33,4 @@ namespace ARAcademy.site.professor.prof_class
         }
     }
 }
-}
+

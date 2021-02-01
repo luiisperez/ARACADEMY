@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace ARAcademy.site.professor.prof_payment
+namespace ARAcademy.site.student
 {
-    public partial class prof_payment : System.Web.UI.Page
+    public partial class leng_info : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +21,7 @@ namespace ARAcademy.site.professor.prof_payment
                     }
                     else
                     {
-                        Response.Redirect("login.aspx");
+                        Response.Redirect("/site/student/login.aspx");
                     }
                 }
                 catch (Exception ex)

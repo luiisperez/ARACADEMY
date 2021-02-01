@@ -46,6 +46,10 @@ namespace ARAcademy.site.admin.adm_professor
                             list_grades.DataBind();
                         }
 
+                            list_grades.Items.Insert(0, new ListItem("Seleccione", ""));
+                            list_grades.Items[0].Selected = true;
+                            list_grades.Items[0].Attributes["disabled"] = "disabled";
+
                         ReadAllTeacherCommand cmd_ = new ReadAllTeacherCommand();
                         cmd_.Execute();
                         teacher_list = cmd_.Teachers;
@@ -57,6 +61,10 @@ namespace ARAcademy.site.admin.adm_professor
                             list_prof.DataSource = teacher_list;
                             list_prof.DataBind();
                         }
+
+                            list_prof.Items.Insert(0, new ListItem("Seleccione", ""));
+                            list_prof.Items[0].Selected = true;
+                            list_prof.Items[0].Attributes["disabled"] = "disabled";
 
                     }
                     else
@@ -88,6 +96,9 @@ namespace ARAcademy.site.admin.adm_professor
                 list_course.DataBind();
             }
 
+                list_course.Items.Insert(0, new ListItem("Seleccione", ""));
+                list_course.Items[0].Selected = true;
+                list_course.Items[0].Attributes["disabled"] = "disabled";
 
             if (list_course.Items.Count > 0)
             {
@@ -115,6 +126,10 @@ namespace ARAcademy.site.admin.adm_professor
                 list_section.DataSource = section_list;
                 list_section.DataBind();
             }
+
+                list_section.Items.Insert(0, new ListItem("Seleccione", ""));
+                list_section.Items[0].Selected = true;
+                list_section.Items[0].Attributes["disabled"] = "disabled";
 
             if (list_section.Items.Count > 0)
             {

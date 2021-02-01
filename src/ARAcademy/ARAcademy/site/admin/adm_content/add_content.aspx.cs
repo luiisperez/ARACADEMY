@@ -38,6 +38,7 @@ namespace ARAcademy.site.admin.adm_content
                     ReadAllGradeCommand cmd = new ReadAllGradeCommand();
                     cmd.Execute();
                     grade_list = cmd.Grades;
+                    
                     foreach (Grade grade in grade_list)
                     {
 
@@ -46,6 +47,11 @@ namespace ARAcademy.site.admin.adm_content
                         list_grades.DataSource = grade_list;
                         list_grades.DataBind();
                     }
+
+                        list_grades.Items.Insert(0, new ListItem("Seleccione", ""));
+                        list_grades.Items[0].Selected = true;
+                        list_grades.Items[0].Attributes["disabled"] = "disabled";
+
                     }
                     else
                     {
@@ -133,8 +139,8 @@ namespace ARAcademy.site.admin.adm_content
                 {
                     Byte[] bytesBD = (byte[])dr.GetValue(5);
                     String nameFiles = dr.GetString(1);
-                    // RUTA DEL SERVIDOR //
-                    File.WriteAllBytes("C:\\Users\\Karem\\Desktop\\" + nameFiles, bytesBD);
+                    // RUTA DEL SERVIDOR //                    
+                    File.WriteAllBytes("C:\\Users\\Kant\\Desktop\\" + nameFiles, bytesBD);
                 }
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
                 con.Close();
@@ -159,6 +165,9 @@ namespace ARAcademy.site.admin.adm_content
                 list_course.DataBind();
             }
 
+                list_course.Items.Insert(0, new ListItem("Seleccione", ""));
+                list_course.Items[0].Selected = true;
+                list_course.Items[0].Attributes["disabled"] = "disabled";
 
             if (list_course.Items.Count > 0)
             {
@@ -188,6 +197,10 @@ namespace ARAcademy.site.admin.adm_content
                 list_section.DataBind();
             }
 
+                list_section.Items.Insert(0, new ListItem("Seleccione", ""));
+                list_section.Items[0].Selected = true;
+                list_section.Items[0].Attributes["disabled"] = "disabled";
+
             if (list_section.Items.Count > 0)
             {
                 list_section.Enabled = true;
@@ -215,6 +228,10 @@ namespace ARAcademy.site.admin.adm_content
                 list_topic.DataSource = topic_list;
                 list_topic.DataBind();
             }
+
+                list_topic.Items.Insert(0, new ListItem("Seleccione", ""));
+                list_topic.Items[0].Selected = true;
+                list_topic.Items[0].Attributes["disabled"] = "disabled";
 
             if (list_topic.Items.Count > 0)
             {

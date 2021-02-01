@@ -65,11 +65,11 @@
 						</div>  
 						
 						<div class="title">
-							<h4>Matematica</h4>
+							<h4>Matemática</h4>
 						</div>
                         
 						<div class="text" style="margin-bottom:10%">
-							<span style="color:black"> Prácticas</span>
+							<a href="mat_info.aspx" style="color:blue"> Más Información</a>
 							<br>
 							<asp:Button runat="server" Style="background-color:#00194f;color:white;width:35%;border-radius: 20px;" OnClick="course_selected_mate" Text="Seleccione"/>
 						</div>
@@ -86,11 +86,11 @@
                         </div>
 						
 						<div class="title">
-							<h4>Castellano</h4>
+							<h4>Lengua y Castellano</h4>
 						</div>
                         
 						<div class="text" style="margin-bottom:10%">
-							<span style="color:black">Sesiones Prácticas</span>							
+							<a href="leng_info.aspx" style="color:blue"> Más Información</a>							
 							<br>
 							<asp:Button runat="server" Style="background-color:#00194f;color:white;width:35%;border-radius: 20px;" OnClick="course_selected_leng" Text="Seleccione"/>
 						</div>
@@ -106,11 +106,11 @@
                         </div>
 
 						<div class="title">
-							<h4>Ingles</h4>
+							<h4>Inglés</h4>
 						</div>
                         
 						<div class="text" style="margin-bottom:10%">
-							<span style="color:black">Sesiones Prácticas</span>								
+							<a href="ing_info.aspx" style="color:blue"> Más Información</a>						
 							<br>
 							<asp:Button runat="server" Style="background-color:#00194f;color:white;width:35%;border-radius: 20px;" OnClick="course_selected_ingl" Text="Seleccione"/>
 						</div>
@@ -121,27 +121,38 @@
 		
 		<div id="div_mod" runat="server" visible="false">
 
-			<h4 style="font-weight:bold; margin-top:1%">Modulos de la materia</h4>
+			<h4 style="font-weight:bold; margin-top:5%">Módulos de la materia</h4>
 
 			<asp:Repeater ID="rb_mod" runat="server" OnItemCommand="add_cart">
 					<ItemTemplate>
 							<tr id="<%# Eval("Id") %>">
 								<td> <asp:Label ID="Id" runat="server" text='<%# Eval("Id") %>' Visible="false"></asp:Label></td>
 								<div class="row" margin-bottom: 1.5%;"> 
-									<div style="margin-left:2%">
-									<td> <asp:Label ID="name" runat="server" text='<%# Eval("Name") %>'></asp:Label></td>
+									<div class="col-11">
+										<td> <asp:Label ID="name" runat="server" text='<%# Eval("Name") %>'></asp:Label></td>
 									</div>
-									<div style="margin-right:40%; margin-left:auto">
-									<td> <asp:Label ID="email" runat="server"  text='<%# Eval("Amount") %>'></asp:Label></td>
-									</div>
-									<div style="margin-right:5%">
-									<td>
-									<asp:ImageButton ID="add" runat="server"  Text="Inhabilitar / Habilitar" ImageUrl="~/site/home/images/shopping-cart.png" Height="26px" Width="26px" ToolTip="Añadir al carrito" />
-									</td>
-									<br />
+									<div class="col-1">
+										<div class="row">
+											<div class="row" style="margin-right:1%">
+												<div class="col-6" style="padding-right:0px">
+													<td> <asp:Label ID="email" runat="server"  text='<%# Eval("Amount") %>'></asp:Label></td>
+												</div>
+												<div class="col-6" style="padding-left:2px">
+													<p>$</p>
+												</div>	
+											</div>
+											<td>
+											<asp:ImageButton ID="add" runat="server"  Text="Inhabilitar / Habilitar" ImageUrl="~/site/home/images/shopping-cart.png" Height="26px" Width="26px" ToolTip="Añadir al carrito" />
+											</td>
+											<br />
+										</div>
 									</div>
 								</div>
-							</tr>              
+							</tr> 
+						<div class="row" style="padding-left:15px; padding-right:15px">
+							<div class="col-12" style="margin:auto;border-bottom: solid;border-bottom-width: thin;border-color: #c4c4c4;margin-bottom:1%;">
+							</div>
+						</div>
 					</ItemTemplate>
             </asp:Repeater>
 

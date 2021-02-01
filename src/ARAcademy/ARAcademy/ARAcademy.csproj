@@ -413,8 +413,11 @@
     <Content Include="site\student\images\icons\favicon.ico" />
     <Content Include="site\student\images\registro-bg.jpg" />
     <Content Include="site\student\images\registro.jpg" />
+    <Content Include="site\student\ing_info.aspx" />
     <Content Include="site\student\js\main.js" />
+    <Content Include="site\student\leng_info.aspx" />
     <Content Include="site\student\login.aspx" />
+    <Content Include="site\student\mat_info.aspx" />
     <Content Include="site\student\pago_mat.aspx" />
     <Content Include="site\student\pago_plan.aspx" />
     <Content Include="site\student\processPayment.aspx" />
@@ -878,12 +881,33 @@
     <Compile Include="site\professor\prof_payment\prof_payment.aspx.designer.cs">
       <DependentUpon>prof_payment.aspx</DependentUpon>
     </Compile>
+    <Compile Include="site\student\ing_info.aspx.cs">
+      <DependentUpon>ing_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\ing_info.aspx.designer.cs">
+      <DependentUpon>ing_info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\leng_info.aspx.cs">
+      <DependentUpon>leng_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\leng_info.aspx.designer.cs">
+      <DependentUpon>leng_info.aspx</DependentUpon>
+    </Compile>
     <Compile Include="site\student\login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="site\student\login.aspx.designer.cs">
       <DependentUpon>login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\mat_info.aspx.cs">
+      <DependentUpon>mat_info.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\mat_info.aspx.designer.cs">
+      <DependentUpon>mat_info.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\student\pago_mat.aspx.cs">
       <DependentUpon>pago_mat.aspx</DependentUpon>

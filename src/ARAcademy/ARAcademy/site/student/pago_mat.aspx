@@ -77,7 +77,7 @@
                         <br />
                         <span id="total" style="float:right"> Monto Final: <%=total%>$</span>--%>
                         <asp:button id="Button1" runat="server" Text="Oferta Academica" Style="background-color:#00194f;color:white;width:15%;border-radius: 20px; position: fixed; bottom: 10px;" OnClick="back_offert"/>
-            		    <asp:button id="btn_pay1" runat="server" Text="Procesar Pago" Style="background-color:#00194f;color:white;width:15%;border-radius: 20px; position: fixed; bottom: 10px; left: 90%; margin-left: -10%" OnClick="checkout_Click"/>
+            		    <asp:button id="btn_pay1" runat="server" Text="Procesar Pago" Style="background-color:#00194f;color:white;width:15%;border-radius: 20px; position: fixed; bottom: 10px; left: 90%; margin-left: -13%" OnClick="checkout_Click"/>
             </div>
         </div> 
 </asp:Content>
