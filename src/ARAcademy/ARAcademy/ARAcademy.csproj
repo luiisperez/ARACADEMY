@@ -460,6 +460,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="common\entities\Administrator.cs" />
+    <Compile Include="common\entities\ClassMeeting.cs" />
     <Compile Include="common\entities\Course.cs" />
     <Compile Include="common\entities\Document.cs" />
     <Compile Include="common\entities\Educate.cs" />
@@ -474,6 +475,12 @@
     <Compile Include="common\json\meetings\MeetingOutJson.cs" />
     <Compile Include="common\json\meetings\PastMeetingDetails.cs" />
     <Compile Include="controller\adminmanagement\AdminLoginCommand.cs" />
+    <Compile Include="controller\classmeeting\CreateClassMeetingCommand.cs" />
+    <Compile Include="controller\classmeeting\DeleteClassMeetingCommand.cs" />
+    <Compile Include="controller\classmeeting\ReadAllClassMeetingCommand.cs" />
+    <Compile Include="controller\classmeeting\ReadClassMeetingCommand.cs" />
+    <Compile Include="controller\classmeeting\UpdateClassCommentCommand .cs" />
+    <Compile Include="controller\classmeeting\UpdateClassMeetingCommand.cs" />
     <Compile Include="controller\Command.cs" />
     <Compile Include="controller\course\CreateCourseCommand.cs" />
     <Compile Include="controller\course\DeleteCourseCommand.cs" />
@@ -528,6 +535,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DAOAdministratorResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="model\classmeeting\DAOClassMeeting.cs" />
+    <Compile Include="model\classmeeting\DAOClassMeetingResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAOClassMeetingResource.resx</DependentUpon>
     </Compile>
     <Compile Include="model\course\DAOCourse.cs" />
     <Compile Include="model\course\DAOCourseResource.Designer.cs">
@@ -1364,6 +1377,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DAOAdministratorResource.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="model\classmeeting\DAOClassMeetingResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOClassMeetingResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="model\course\DAOCourseResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
