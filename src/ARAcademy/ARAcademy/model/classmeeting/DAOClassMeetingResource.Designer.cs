@@ -223,6 +223,15 @@ namespace ARAcademy.model.classmeeting {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a @hora_inicio.
+        /// </summary>
+        internal static string StartTime {
+            get {
+                return ResourceManager.GetString("StartTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a @estado.
         /// </summary>
         internal static string Status {

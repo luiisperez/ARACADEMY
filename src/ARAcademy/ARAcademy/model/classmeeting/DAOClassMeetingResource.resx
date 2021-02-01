@@ -189,6 +189,10 @@
     <value>@link_inicio</value>
     <comment>Link de inicio</comment>
   </data>
+  <data name="StartTime" xml:space="preserve">
+    <value>@hora_inicio</value>
+    <comment>Hora de inicio</comment>
+  </data>
   <data name="Status" xml:space="preserve">
     <value>@estado</value>
     <comment>Estado</comment>
