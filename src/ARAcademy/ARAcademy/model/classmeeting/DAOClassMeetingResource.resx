@@ -215,11 +215,15 @@
   </data>
   <data name="UpdateClassCommentSP" xml:space="preserve">
     <value>UPDATE_CLASS_COMMENT</value>
-    <comment>Procedimiento almacenado para actualizar un clase</comment>
+    <comment>Procedimiento almacenado para actualizar el comentario de una clase</comment>
   </data>
   <data name="UpdateClassSP" xml:space="preserve">
     <value>UPDATE_CLASS</value>
     <comment>Procedimiento almacenado para actualizar un clase</comment>
+  </data>
+  <data name="UpdateClassTeacherSP" xml:space="preserve">
+    <value>UPDATE_CLASS_TEACHER</value>
+    <comment>Procedimiento almacenado para actualizar profesor de una clase</comment>
   </data>
   <data name="uuId" xml:space="preserve">
     <value>@ideuu</value>

@@ -463,6 +463,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="common\entities\Administrator.cs" />
+    <Compile Include="common\entities\Classlist.cs" />
     <Compile Include="common\entities\ClassMeeting.cs" />
     <Compile Include="common\entities\Course.cs" />
     <Compile Include="common\entities\Document.cs" />
@@ -478,11 +479,16 @@
     <Compile Include="common\json\meetings\MeetingOutJson.cs" />
     <Compile Include="common\json\meetings\PastMeetingDetails.cs" />
     <Compile Include="controller\adminmanagement\AdminLoginCommand.cs" />
+    <Compile Include="controller\classlist\CreateClasslistCommand.cs" />
+    <Compile Include="controller\classlist\DeleteClasslistCommand.cs" />
+    <Compile Include="controller\classlist\ReadClasslistByClassCommand.cs" />
+    <Compile Include="controller\classlist\UpdateClasslistCommand.cs" />
     <Compile Include="controller\classmeeting\CreateClassMeetingCommand.cs" />
     <Compile Include="controller\classmeeting\DeleteClassMeetingCommand.cs" />
     <Compile Include="controller\classmeeting\ReadAllClassMeetingCommand.cs" />
     <Compile Include="controller\classmeeting\ReadClassMeetingCommand.cs" />
-    <Compile Include="controller\classmeeting\UpdateClassCommentCommand .cs" />
+    <Compile Include="controller\classmeeting\UpdateClassTeacherCommand.cs" />
+    <Compile Include="controller\classmeeting\UpdateClassCommentCommand.cs" />
     <Compile Include="controller\classmeeting\UpdateClassMeetingCommand.cs" />
     <Compile Include="controller\Command.cs" />
     <Compile Include="controller\course\CreateCourseCommand.cs" />
@@ -539,6 +545,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DAOAdministratorResource.resx</DependentUpon>
     </Compile>
+    <Compile Include="model\classlist\DAOClasslist.cs" />
     <Compile Include="model\classmeeting\DAOClassMeeting.cs" />
     <Compile Include="model\classmeeting\DAOClassMeetingResource.Designer.cs">
       <AutoGen>True</AutoGen>

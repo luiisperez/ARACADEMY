@@ -8,11 +8,11 @@ using System.Web;
 
 namespace ARAcademy.controller.classmeeting
 {
-    public class UpdateClassCommentCommand : Command
+    public class UpdateClassTeacherCommand : Command
     {
         private ClassMeeting classMeeting;
 
-        public UpdateClassCommentCommand(ClassMeeting classMeeting)
+        public UpdateClassTeacherCommand(ClassMeeting classMeeting)
         {
             this.classMeeting = classMeeting;
         }
@@ -22,7 +22,7 @@ namespace ARAcademy.controller.classmeeting
         public override void Execute()
         {
             DAOClassMeeting daoClassMeeting = new DAOClassMeeting();
-            classMeeting.Code = daoClassMeeting.UpdateClassComment(classMeeting);
+            classMeeting.Code = daoClassMeeting.UpdateClassMeetingTeacher(classMeeting);
         }
     }
 }

@@ -295,6 +295,15 @@ namespace ARAcademy.model.classmeeting {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a UPDATE_CLASS_TEACHER.
+        /// </summary>
+        internal static string UpdateClassTeacherSP {
+            get {
+                return ResourceManager.GetString("UpdateClassTeacherSP", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a @ideuu.
         /// </summary>
         internal static string uuId {
