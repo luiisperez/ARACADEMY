@@ -16,11 +16,11 @@ namespace ARAcademy.site
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            MeetingInJson meetingInJson = ZoomAPI.CreateMeeting("Test Modular Zoom", "2020-11-15T20:15:00"); //LLAMADA DE EJEMPLO
+            MeetingInJson meetingInJson = ZoomAPI.CreateMeeting("Test Modular Zoom", "2021-11-15T20:15:00"); //LLAMADA DE EJEMPLO
             DateTime startTime = new DateTime();
             DateTime createdAt = new DateTime();
             ClassMeeting cm = new ClassMeeting(meetingInJson.id, meetingInJson.uuid, meetingInJson.host_id,
-                                               meetingInJson.host_email, meetingInJson.topic, Int32.Parse(meetingInJson.topic),
+                                               meetingInJson.host_email, meetingInJson.topic, Int32.Parse(meetingInJson.type),
                                                meetingInJson.status, startTime, Int32.Parse(meetingInJson.duration), 
                                                meetingInJson.timezone, meetingInJson.agenda, createdAt, meetingInJson.start_url, 
                                                meetingInJson.join_url, meetingInJson.password, meetingInJson.h323_password, meetingInJson.pstn_password, 
