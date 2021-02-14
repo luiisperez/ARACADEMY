@@ -973,6 +973,53 @@ $$ LANGUAGE plpgsql;
 
 /** CREATE OR REPLACE FUNCTION UPDATE_CLASS_COMMENT
 CREATE OR REPLACE FUNCTION UPDATE_CLASS_TEACHER **/
+/************MODIFICAR COMENTARIO DE LA CLASE***************/
+CREATE OR REPLACE FUNCTION UPDATE_CLASS_COMMENT(IDE        varchar(50),
+	                                            COMENTARIO varchar(500))
+RETURNS integer AS $$
+DECLARE
+ RESULT integer;
+
+BEGIN
+	IF ((SELECT COUNT(*) FROM CLASS WHERE ID = IDE) = 1) THEN
+		
+		UPDATE CLASS SET   COMMENT = COMENTARIO      
+		             WHERE      ID = IDE;
+
+		RESULT := 201;
+  	
+  	ELSE
+	
+		RESULT := 204;
+	
+	END IF;
+ 	RETURN RESULT;
+END;
+$$ LANGUAGE plpgsql;
+
+/**************MODIFICAR PROFESOR DE LA CLASE***************/
+CREATE OR REPLACE FUNCTION UPDATE_CLASS_TEACHER(IDE         varchar(50),
+	                                            FK_PROFESOR varchar(100))
+RETURNS integer AS $$
+DECLARE
+ RESULT integer;
+
+BEGIN
+	IF ((SELECT COUNT(*) FROM CLASS WHERE ID = IDE) = 1) THEN
+		
+		UPDATE CLASS SET   FK_TEACHER = FK_PROFESOR      
+		             WHERE         ID = IDE;
+
+		RESULT := 201;
+  	
+  	ELSE
+	
+		RESULT := 204;
+	
+	END IF;
+ 	RETURN RESULT;
+END;
+$$ LANGUAGE plpgsql;
 
 /*********************ELIMINAR CLASS************************/
 CREATE OR REPLACE FUNCTION DELETE_CLASS(IDE varchar(50)) RETURNS integer AS $$
