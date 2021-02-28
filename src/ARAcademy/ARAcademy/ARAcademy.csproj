@@ -546,6 +546,11 @@
       <DependentUpon>DAOAdministratorResource.resx</DependentUpon>
     </Compile>
     <Compile Include="model\classlist\DAOClasslist.cs" />
+    <Compile Include="model\classlist\DAOClasslistResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAOClasslistResource.resx</DependentUpon>
+    </Compile>
     <Compile Include="model\classmeeting\DAOClassMeeting.cs" />
     <Compile Include="model\classmeeting\DAOClassMeetingResource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -1408,6 +1413,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DAOAdministratorResource.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="model\classlist\DAOClasslistResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOClasslistResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="model\classmeeting\DAOClassMeetingResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>

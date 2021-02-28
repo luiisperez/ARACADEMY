@@ -117,72 +117,32 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Amount" xml:space="preserve">
-    <value>@monto</value>
-    <comment>Total pagado</comment>
+  <data name="ClassId" xml:space="preserve">
+    <value>@fk_clase</value>
+    <comment>Id de la clase</comment>
   </data>
-  <data name="AvailableClasses" xml:space="preserve">
-    <value>20</value>
-    <comment>Clases con la que inicia</comment>
+  <data name="CreateClasslistSP" xml:space="preserve">
+    <value>CREATE_CLASSLIST</value>
+    <comment>Procedimiento almacenado para insertar un alumno a la lista de la clase</comment>
   </data>
-  <data name="CreatePaymentSP" xml:space="preserve">
-    <value>CREATE_PAYMENT</value>
-    <comment>Procedimiento almacenado para crear un pago</comment>
-  </data>
-  <data name="DeletePaymentSP" xml:space="preserve">
-    <value>DELETE_PAYMENT</value>
-    <comment>Procedimiento almacenado para borrar un pago</comment>
-  </data>
-  <data name="ExpirationDate" xml:space="preserve">
-    <value>@fechaexpiracion</value>
-    <comment>Fecha de expiración</comment>
+  <data name="DeleteClasslistSP" xml:space="preserve">
+    <value>DELETE_CLASSLIST</value>
+    <comment>Procedimiento almacenado para eliminar un miembro de la lista</comment>
   </data>
   <data name="Id" xml:space="preserve">
     <value>@ide</value>
-    <comment>Identificador de pagos</comment>
+    <comment>Id de la lista</comment>
   </data>
-  <data name="PaymentDate" xml:space="preserve">
-    <value>@diapago</value>
-    <comment>Fecha de pago</comment>
+  <data name="ReadClasslistByClassSP" xml:space="preserve">
+    <value>READ_CLASSLIST_BY_CLASS_ID</value>
+    <comment>Procedimiento almacenado para leer la lista de una clase</comment>
   </data>
-  <data name="PaypalTransactionID" xml:space="preserve">
-    <value>@paypal_id</value>
-    <comment>Identificador del pago en Paypal</comment>
-  </data>
-  <data name="ReadAllPaymentsSP" xml:space="preserve">
-    <value>READ_ALL_PAYMENT</value>
-    <comment>Procedimiento almacenado para consultar todos los pagos</comment>
-  </data>
-  <data name="ReadPaymentByStudentSP" xml:space="preserve">
-    <value>READ_PAYMENT_BY_STUDENT</value>
-    <comment>Procedimiento almacenado para leer los pagos de un alumno</comment>
-  </data>
-  <data name="ReadPaymentsBySectionSP" xml:space="preserve">
-    <value>READ_PAYMENT_BY_SECION</value>
-    <comment>Procedimiento almacenado para leer los pagos de una sección</comment>
-  </data>
-  <data name="ReadPaymentSP" xml:space="preserve">
-    <value>READ_PAYMENT</value>
-    <comment>Procedimiento almacenado para consultar un pago</comment>
-  </data>
-  <data name="RemainingClasses" xml:space="preserve">
-    <value>@clasesrestantes</value>
-    <comment>Clases Disponibles</comment>
-  </data>
-  <data name="SectionID" xml:space="preserve">
-    <value>@fk_seccion</value>
-    <comment>ID de la sección</comment>
-  </data>
-  <data name="StudentID" xml:space="preserve">
+  <data name="StudentId" xml:space="preserve">
     <value>@fk_estudiante</value>
-    <comment>Identificador del estudiante</comment>
+    <comment>Id del estudiante</comment>
   </data>
-  <data name="UpdateClassesSP" xml:space="preserve">
-    <value>UPDATE_REMAINING_CLASSES</value>
-    <comment>Procedimiento almacenado para actualizar las clases</comment>
-  </data>
-  <data name="UpdatePaymentSP" xml:space="preserve">
-    <value>UPDATE_PAYMENT</value>
-    <comment>Procedimiento almacenado para actualizar un pago</comment>
+  <data name="UpdateClasslistSP" xml:space="preserve">
+    <value>UPDATE_CLASSLIST</value>
+    <comment>Procedimiento almacenado actualizar un miembro de la lista</comment>
   </data>
 </root>

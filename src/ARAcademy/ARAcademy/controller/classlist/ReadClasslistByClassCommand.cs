@@ -11,11 +11,12 @@ namespace ARAcademy.controller.classmeeting
 {
     public class ReadClasslistCommand : Command
     {
+        private ClassMeeting classMeeting;
         private List<Classlist> classlist;
 
-        public ReadClasslistCommand(List<Classlist> classlist)
+        public ReadClasslistCommand(ClassMeeting classMeeting)
         {
-            this.classlist = classlist;
+            this.classMeeting = classMeeting;
         }
 
         public List<Classlist> Classlist { get => classlist; set => classlist = value; }
@@ -23,7 +24,7 @@ namespace ARAcademy.controller.classmeeting
         public override void Execute()
         {
             DAOClasslist daoClasslist = new DAOClasslist();
-            classlist = daoClasslist.ReadClasslist(classlist);
+            classlist = daoClasslist.ReadClasslist(classMeeting);
         }
     }
 }
