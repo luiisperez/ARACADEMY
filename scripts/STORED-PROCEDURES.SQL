@@ -631,7 +631,7 @@ $$ LANGUAGE plpgsql;
 
 /*******************INICIO CRUD DE PAGO*********************/
 /***********************AGREGAR PAGO************************/
-CREATE OR REPLACE FUNCTION CREATE_PAYMENT(DIAPAGO date, FECHAEXPIRACION date, PAYPAL_ID varchar(100), MONTO numeric, FK_SECCION integer, FK_ESTUDIANTE varchar(100)) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION CREATE_PAYMENT(DIAPAGO date, FECHAEXPIRACION date, PAYPAL_ID varchar(100), MONTO numeric, CLASES_RESTANTES integer, FK_SECCION integer, FK_ESTUDIANTE varchar(100)) RETURNS integer AS $$
 DECLARE
  RESULT integer;
 
@@ -642,57 +642,71 @@ BEGIN
 
 	ELSE
 
-		INSERT INTO PAYMENT(ID, PAYDATE, EXPIRATIONDATE, PPTRANSACTIONID, AMOUNT, FK_SECTION, FK_STUDENT) VALUES (IDE, DIAPAGO, FECHAEXPIRACION, PAYPAL_ID, MONTO, FK_SECCION, FK_ESTUDIANTE);
+		INSERT INTO PAYMENT(ID, PAYDATE, EXPIRATIONDATE, PPTRANSACTIONID, AMOUNT, REMAINING_CLASSES, FK_SECTION, FK_STUDENT) VALUES (IDE, DIAPAGO, FECHAEXPIRACION, PAYPAL_ID, MONTO, CLASES_RESTANTES, FK_SECCION, FK_ESTUDIANTE);
 		RESULT := 200;
 
 	END IF;
  	RETURN RESULT;
 END;
 $$ LANGUAGE plpgsql;
+
 /*******************LEER TODOS LOS PAGOS*****************/
-CREATE OR REPLACE FUNCTION READ_ALL_PAYMENT() RETURNS TABLE(ID integer, PAYDATE date, EXPIRATIONDATE date, PPTRANSACTIONID varchar(100), AMOUNT integer, FK_SECTION integer, SEC_NAME varchar(30), FK_STUDENT varchar(100), STU_NAME varchar(30), STU_LASTNAME varchar(40)) AS $$
+CREATE OR REPLACE FUNCTION READ_ALL_PAYMENT() RETURNS TABLE(ID integer, PAYDATE date, EXPIRATIONDATE date, PPTRANSACTIONID varchar(100), AMOUNT integer, REMAINING_CLASSES integer, FK_SECTION integer, SEC_NAME varchar(30), FK_STUDENT varchar(100), STU_NAME varchar(30), STU_LASTNAME varchar(40)) AS $$
 DECLARE
 
 BEGIN
 	RETURN QUERY
-	SELECT PAY.ID, PAY.PAYDATE, PAY.EXPIRATIONDATE, PAY.PPTRANSACTIONID, PAY.AMOUNT, SEC.ID, SEC.NAME, STU.EMAIL, STU.NAME, STU.LASTNAME
+	SELECT PAY.ID, PAY.PAYDATE, PAY.EXPIRATIONDATE, PAY.PPTRANSACTIONID, PAY.AMOUNT, PAY.REMAINING_CLASSES, SEC.ID, SEC.NAME, STU.EMAIL, STU.NAME, STU.LASTNAME
 	FROM PAYMENT PAY, SECTION SEC, STUDENT STU
 	WHERE PAY.FK_SECTION = SEC.ID AND PAY.FK_STUDENT = STU.EMAIL;
 END;
 $$ LANGUAGE plpgsql;
 
 /*********************LEER PAGO POR ID*******************/
-CREATE OR REPLACE FUNCTION READ_PAYMENT(IDE integer) RETURNS TABLE(ID integer, PAYDATE date, EXPIRATIONDATE date, PPTRANSACTIONID varchar(100), AMOUNT integer, FK_SECTION integer, FK_STUDENT varchar(100)) AS $$
+CREATE OR REPLACE FUNCTION READ_PAYMENT(IDE integer) RETURNS TABLE(ID integer, PAYDATE date, EXPIRATIONDATE date, PPTRANSACTIONID varchar(100), AMOUNT integer, REMAINING_CLASSES integer, FK_SECTION integer, FK_STUDENT varchar(100)) AS $$
 DECLARE
 
 BEGIN
 	RETURN QUERY
-	SELECT PAY.ID, PAY.PAYDATE, PAY.EXPIRATIONDATE, PAY.PPTRANSACTIONID, PAY.AMOUNT, SEC.ID, STU.EMAIL
+	SELECT PAY.ID, PAY.PAYDATE, PAY.EXPIRATIONDATE, PAY.PPTRANSACTIONID, PAY.AMOUNT, PAY.REMAINING_CLASSES, SEC.ID, STU.EMAIL
 	FROM PAYMENT PAY, SECTION SEC, STUDENT STU
 	WHERE PAY.ID = IDE AND PAY.FK_SECTION = SEC.ID;
 END;
 $$ LANGUAGE plpgsql;
 
 /***********LISTAR PAGOS POR ID DE MODULO************/
-CREATE OR REPLACE FUNCTION READ_PAYMENT_BY_SECTION(IDE integer) RETURNS TABLE(ID integer, PAYDATE date, EXPIRATIONDATE date, PPTRANSACTIONID varchar(100), AMOUNT integer, FK_SECTION integer, FK_STUDENT varchar(100)) AS $$
+CREATE OR REPLACE FUNCTION READ_PAYMENT_BY_SECTION(IDE integer) RETURNS TABLE(ID integer, PAYDATE date, EXPIRATIONDATE date, PPTRANSACTIONID varchar(100), AMOUNT integer, REMAINING_CLASSES integer, FK_SECTION integer, FK_STUDENT varchar(100)) AS $$
 DECLARE
 
 BEGIN
 	RETURN QUERY
-	SELECT PAY.ID, PAY.PAYDATE, PAY.EXPIRATIONDATE, PAY.PPTRANSACTIONID, PAY.AMOUNT, SEC.ID, STU.EMAIL
+	SELECT PAY.ID, PAY.PAYDATE, PAY.EXPIRATIONDATE, PAY.PPTRANSACTIONID, PAY.AMOUNT, PAY.REMAINING_CLASSES, SEC.ID, STU.EMAIL
 	FROM PAYMENT PAY, SECTION SEC, STUDENT STU
 	WHERE PAY.FK_SECTION = SEC.ID;
 END;
 $$ LANGUAGE plpgsql;
+
+/***********LISTAR PAGOS POR ESTUDIANTE************/
+CREATE OR REPLACE FUNCTION READ_PAYMENT_BY_STUDENT(FK_ESTUDIANTE integer) RETURNS TABLE(ID integer, PAYDATE date, EXPIRATIONDATE date, PPTRANSACTIONID varchar(100), AMOUNT integer, REMAINING_CLASSES integer, FK_SECTION integer, FK_STUDENT varchar(100)) AS $$
+DECLARE
+
+BEGIN
+	RETURN QUERY
+	SELECT PAY.ID, PAY.PAYDATE, PAY.EXPIRATIONDATE, PAY.PPTRANSACTIONID, PAY.AMOUNT, PAY.REMAINING_CLASSES, SEC.ID, STU.EMAIL
+	FROM PAYMENT PAY, SECTION SEC, STUDENT STU
+	WHERE PAY.FK_STUDENT = STU.EMAIL AND PAY.FK_SECTION = SEC.ID;
+END;
+$$ LANGUAGE plpgsql;
+
 /*********************MODIFICAR PAGO*********************/
-CREATE OR REPLACE FUNCTION UPDATE_PAYMENT(IDE integer, DIAPAGO date, FECHAEXPIRACION date, PAYPAL_ID varchar(100), MONTO integer, FK_SECCION integer, FK_ESTUDIANTE varchar(100)) RETURNS integer AS $$
+CREATE OR REPLACE FUNCTION UPDATE_PAYMENT(IDE integer, DIAPAGO date, FECHAEXPIRACION date, PAYPAL_ID varchar(100), MONTO integer, REMAINING_CLASSES integer, FK_SECCION integer, FK_ESTUDIANTE varchar(100)) RETURNS integer AS $$
 DECLARE
  RESULT integer;
 
 BEGIN
 	IF ((SELECT COUNT(*) FROM PAYMENT WHERE ID = IDE) = 1) THEN
 
-		UPDATE PAYMENT SET PAYDATE = DIAPAGO, EXPIRATIONDATE = FECHAEXPIRACION, PPTRANSACTIONID = PAYPAL_ID, AMOUNT = MONTO, FK_SECTION = FK_SECCION, FK_STUDENT = FK_ESTUDIANTE WHERE ID = IDE;
+		UPDATE PAYMENT SET PAYDATE = DIAPAGO, EXPIRATIONDATE = FECHAEXPIRACION, PPTRANSACTIONID = PAYPAL_ID, AMOUNT = MONTO, REMAINING_CLASSES = CLASES_RESTANTES, FK_SECTION = FK_SECCION, FK_STUDENT = FK_ESTUDIANTE WHERE ID = IDE;
 		
 		RESULT := 201;
   	
@@ -704,6 +718,31 @@ BEGIN
  	RETURN RESULT;
 END;
 $$ LANGUAGE plpgsql;
+
+/************MODIFICAR CLASES RESTANTES DEL ALUMNO***************/
+CREATE OR REPLACE FUNCTION UPDATE_REMAINING_CLASSES(IDE               varchar(50),
+	                                                CLASES_RESTANTES integer   )
+RETURNS integer AS $$
+DECLARE
+ RESULT integer;
+
+BEGIN
+	IF ((SELECT COUNT(*) FROM CLASS WHERE ID = IDE) = 1) THEN
+		
+		UPDATE CLASS SET REMAINING_CLASSES = CLASES_RESTANTES - 1  
+		             WHERE              ID = IDE;
+
+		RESULT := 201;
+  	
+  	ELSE
+	
+		RESULT := 204;
+	
+	END IF;
+ 	RETURN RESULT;
+END;
+$$ LANGUAGE plpgsql;
+
 /*********************ELIMINAR PAGO************************/
 CREATE OR REPLACE FUNCTION DELETE_PAYMENT(IDE integer) RETURNS integer AS $$
 DECLARE
@@ -729,7 +768,7 @@ $$ LANGUAGE plpgsql;
 /********************INICIO CRUD DE CLASE*******************/
 /***********************AGREGAR CLASE***********************/
 CREATE OR REPLACE FUNCTION CREATE_CLASS(IDE varchar(50), IDEUU varchar(50), IDE_HOST varchar(50), EMAIL_HOST varchar(60), TOPICO varchar(30), TIPO integer, ESTADO varchar(20), HORA_INICIO timestamp, DURACION integer, ZONAHORARIA varchar(50), AGENDAZOOM varchar(20), 
-	FEC_CREACION timestamp, LINK_INICIO varchar(800), LINK_REUNION varchar(100), CLAVE varchar(20), CLAVE_H323 varchar(20), CLAVE_PSTN varchar(20), CLAVE_ENCRIPTADA varchar(60), COMENTARIO varchar(500), CLASES_RESTANTES INTEGER, FK_SECCION integer, FK_PROFESOR varchar(100)) RETURNS integer AS $$
+	FEC_CREACION timestamp, LINK_INICIO varchar(800), LINK_REUNION varchar(100), CLAVE varchar(20), CLAVE_H323 varchar(20), CLAVE_PSTN varchar(20), CLAVE_ENCRIPTADA varchar(60), COMENTARIO varchar(500), FK_SECCION integer, FK_PROFESOR varchar(100)) RETURNS integer AS $$
 DECLARE
  RESULT integer;
 
@@ -759,7 +798,6 @@ BEGIN
 			              PSTN_PASSWORD     , 
 			              ENCRYPTED_PASSWORD,
 			              COMMENT           ,
-			              REMAINING_CLASSES ,
 			              FK_SECTION        , 
 			              FK_TEACHER        )
 		     VALUES      (IDE               , 
@@ -781,7 +819,6 @@ BEGIN
 		     	          CLAVE_PSTN        ,
 		     	          CLAVE_ENCRIPTADA  ,
 		     	          COMENTARIO        ,
-		     	          CLASES_RESTANTES  ,
 		     	          FK_SECCION        , 
 		     	          FK_PROFESOR       );
 		RESULT := 200;
@@ -811,7 +848,6 @@ CREATE OR REPLACE FUNCTION READ_ALL_CLASS()
 	                                      PSTN_PASSWORD      varchar(20) ,
 	                                      ENCRYPTED_PASSWORD varchar(60) , 
 	                                      COMMENT            varchar(500),
-	                                      REMAINING_CLASSES  integer     ,
 	                                      FK_SECTION         integer     ,
 	                                      SEC_NAME           varchar(30) , 
 	                                      FK_TEACHER         varchar(100), 
@@ -839,8 +875,7 @@ BEGIN
 	       CLA.H323_PASSWORD     ,
 	       CLA.PSTN_PASSWORD     , 
 	       CLA.ENCRYPTED_PASSWORD, 
-	       CLA.COMMENT           , 
-	       CLA.REMAINING_CLASSES ,
+	       CLA.COMMENT           ,
 	       SEC.ID                , 
 	       SEC.NAME              , 
 	       TEA.EMAIL             , 
@@ -872,8 +907,7 @@ CREATE OR REPLACE FUNCTION READ_CLASS(IDE integer)
 	                                  H323_PASSWORD      varchar(20) , 
 	                                  PSTN_PASSWORD      varchar(20) ,
 	                                  ENCRYPTED_PASSWORD varchar(60) , 
-	                                  COMMENT            varchar(500), 
-	                                  REMAINING_CLASSES  integer     ,
+	                                  COMMENT            varchar(500),
                         	          FK_SECTION         integer     ,
                         	          SEC_NAME           varchar(30) ,
                         	          FK_TEACHER         varchar(100),
@@ -902,7 +936,6 @@ BEGIN
 	       CLA.PSTN_PASSWORD     , 
 	       CLA.ENCRYPTED_PASSWORD, 
 	       CLA.COMMENT           ,
-	       CLA.REMAINING_CLASSES ,
 	       SEC.ID                , 
 	       SEC.NAME              , 
 	       TEA.EMAIL             , 
@@ -935,7 +968,6 @@ CREATE OR REPLACE FUNCTION UPDATE_CLASS(IDE               varchar(50) ,
 	                                    CLAVE_PSTN        varchar(20) ,
 	                                    CLAVE_ENCRIPTADA  varchar(60) ,
 	                                    COMENTARIO        varchar(500),
-	                                    CLASES_RESTANTES  integer     ,
 	                                    FK_SECCION        integer     ,
 	                                    FK_PROFESOR       varchar(100)) 
 RETURNS integer AS $$
@@ -963,7 +995,6 @@ BEGIN
 		                 PSTN_PASSWORD      = CLAVE_PSTN      ,
 		                 ENCRYPTED_PASSWORD = CLAVE_ENCRIPTADA,
 		                 COMMENT            = COMENTARIO      ,
-		                 REMAINING_CLASSES  = CLASES_RESTANTES,
 		                 FK_SECTION         = FK_SECCION      ,
 		                 FK_TEACHER         = FK_PROFESOR
 		          WHERE ID = IDE;
@@ -1027,30 +1058,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-/************MODIFICAR CLASES RESTANTES DEL ALUMNO***************/
-CREATE OR REPLACE FUNCTION UPDATE_REMAINING_CLASSES(IDE               varchar(50),
-	                                                CLASES_RESTANTES integer   )
-RETURNS integer AS $$
-DECLARE
- RESULT integer;
-
-BEGIN
-	IF ((SELECT COUNT(*) FROM CLASS WHERE ID = IDE) = 1) THEN
-		
-		UPDATE CLASS SET REMAINING_CLASSES = CLASES_RESTANTES - 1  
-		             WHERE              ID = IDE;
-
-		RESULT := 201;
-  	
-  	ELSE
-	
-		RESULT := 204;
-	
-	END IF;
- 	RETURN RESULT;
-END;
-$$ LANGUAGE plpgsql;
-
 /*********************ELIMINAR CLASS************************/
 CREATE OR REPLACE FUNCTION DELETE_CLASS(IDE varchar(50)) RETURNS integer AS $$
 DECLARE
@@ -1088,12 +1095,12 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 /***********LEER LISTA DE CLASE POR ID DE CLASE************/
-CREATE OR REPLACE FUNCTION READ_CLASSLIST_BY_CLASS_ID(IDE varchar(50)) RETURNS TABLE(ID integer, FK_CLASS varchar(50), CLASS_CLASSDATE date, CLASS_LINK varchar(60), CLASS_COMMENT varchar(500), FK_STUDENT varchar(100), STU_NAME varchar(30), STU_LASTNAME varchar(40)) AS $$
+CREATE OR REPLACE FUNCTION READ_CLASSLIST_BY_CLASS_ID(IDE varchar(50)) RETURNS TABLE(ID integer, FK_CLASS varchar(50), START_TIME timestamp, JOIN_URL varchar(60), CLASS_COMMENT varchar(500), FK_STUDENT varchar(100), STU_NAME varchar(30), STU_LASTNAME varchar(40)) AS $$
 DECLARE
 
 BEGIN
 	RETURN QUERY
-	SELECT LIS.ID, CLA.ID, CLA.CLASSDATE, CLA.LINK, CLA.COMMENT, STU.EMAIL, STU.NAME, STU.LASTNAME
+	SELECT LIS.ID, CLA.ID, CLA.START_TIME, CLA.JOIN_URL, CLA.COMMENT, STU.EMAIL, STU.NAME, STU.LASTNAME
 	FROM CLASS CLA, STUDENT STU, CLASSLIST LIS
 	WHERE CLA.ID = IDE AND LIS.FK_CLASS = CLA.ID AND LIS.FK_STUDENT = STU.EMAIL;
 END;
