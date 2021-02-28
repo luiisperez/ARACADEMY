@@ -729,7 +729,7 @@ $$ LANGUAGE plpgsql;
 /********************INICIO CRUD DE CLASE*******************/
 /***********************AGREGAR CLASE***********************/
 CREATE OR REPLACE FUNCTION CREATE_CLASS(IDE varchar(50), IDEUU varchar(50), IDE_HOST varchar(50), EMAIL_HOST varchar(60), TOPICO varchar(30), TIPO integer, ESTADO varchar(20), HORA_INICIO timestamp, DURACION integer, ZONAHORARIA varchar(50), AGENDAZOOM varchar(20), 
-	FEC_CREACION timestamp, LINK_INICIO varchar(800), LINK_REUNION varchar(100), CLAVE varchar(20), CLAVE_H323 varchar(20), CLAVE_PSTN varchar(20), CLAVE_ENCRIPTADA varchar(60), COMENTARIO varchar(500), FK_SECCION integer, FK_PROFESOR varchar(100)) RETURNS integer AS $$
+	FEC_CREACION timestamp, LINK_INICIO varchar(800), LINK_REUNION varchar(100), CLAVE varchar(20), CLAVE_H323 varchar(20), CLAVE_PSTN varchar(20), CLAVE_ENCRIPTADA varchar(60), COMENTARIO varchar(500), CLASES_RESTANTES INTEGER, FK_SECCION integer, FK_PROFESOR varchar(100)) RETURNS integer AS $$
 DECLARE
  RESULT integer;
 
@@ -758,7 +758,8 @@ BEGIN
 			              H323_PASSWORD     , 
 			              PSTN_PASSWORD     , 
 			              ENCRYPTED_PASSWORD,
-			              COMMENT           , 
+			              COMMENT           ,
+			              REMAINING_CLASSES ,
 			              FK_SECTION        , 
 			              FK_TEACHER        )
 		     VALUES      (IDE               , 
@@ -780,6 +781,7 @@ BEGIN
 		     	          CLAVE_PSTN        ,
 		     	          CLAVE_ENCRIPTADA  ,
 		     	          COMENTARIO        ,
+		     	          CLASES_RESTANTES  ,
 		     	          FK_SECCION        , 
 		     	          FK_PROFESOR       );
 		RESULT := 200;
@@ -808,7 +810,8 @@ CREATE OR REPLACE FUNCTION READ_ALL_CLASS()
 	                                      H323_PASSWORD      varchar(20) , 
 	                                      PSTN_PASSWORD      varchar(20) ,
 	                                      ENCRYPTED_PASSWORD varchar(60) , 
-	                                      COMMENT            varchar(500), 
+	                                      COMMENT            varchar(500),
+	                                      REMAINING_CLASSES  integer     ,
 	                                      FK_SECTION         integer     ,
 	                                      SEC_NAME           varchar(30) , 
 	                                      FK_TEACHER         varchar(100), 
@@ -837,6 +840,7 @@ BEGIN
 	       CLA.PSTN_PASSWORD     , 
 	       CLA.ENCRYPTED_PASSWORD, 
 	       CLA.COMMENT           , 
+	       CLA.REMAINING_CLASSES ,
 	       SEC.ID                , 
 	       SEC.NAME              , 
 	       TEA.EMAIL             , 
@@ -869,6 +873,7 @@ CREATE OR REPLACE FUNCTION READ_CLASS(IDE integer)
 	                                  PSTN_PASSWORD      varchar(20) ,
 	                                  ENCRYPTED_PASSWORD varchar(60) , 
 	                                  COMMENT            varchar(500), 
+	                                  REMAINING_CLASSES  integer     ,
                         	          FK_SECTION         integer     ,
                         	          SEC_NAME           varchar(30) ,
                         	          FK_TEACHER         varchar(100),
@@ -896,7 +901,8 @@ BEGIN
 	       CLA.H323_PASSWORD     ,
 	       CLA.PSTN_PASSWORD     , 
 	       CLA.ENCRYPTED_PASSWORD, 
-	       CLA.COMMENT           , 
+	       CLA.COMMENT           ,
+	       CLA.REMAINING_CLASSES ,
 	       SEC.ID                , 
 	       SEC.NAME              , 
 	       TEA.EMAIL             , 
@@ -910,27 +916,28 @@ END;
 $$ LANGUAGE plpgsql;
 
 /**********************MODIFICAR CLASE**********************/
-CREATE OR REPLACE FUNCTION UPDATE_CLASS(IDE              varchar(50) , 
-	                                    IDEUU            varchar(50) ,
-	                                    IDE_HOST         varchar(50) ,
-	                                    EMAIL_HOST       varchar(60) ,
-	                                    TOPICO           varchar(30) ,
-	                                    TIPO             integer     ,
-	                                    ESTADO           varchar(20) ,
-	                                    HORA_INICIO      timestamp   ,
-	                                    DURACION         integer     ,
-	                                    ZONAHORARIA      varchar(50) ,
-	                                    AGENDAZOOM       varchar(20) , 
-	                                    FEC_CREACION     timestamp   ,
-	                                    LINK_INICIO      varchar(800),
-	                                    LINK_REUNION     varchar(100),
-	                                    CLAVE            varchar(20) ,
-	                                    CLAVE_H323       varchar(20) ,
-	                                    CLAVE_PSTN       varchar(20) ,
-	                                    CLAVE_ENCRIPTADA varchar(60) ,
-	                                    COMENTARIO       varchar(500),
-	                                    FK_SECCION       integer     ,
-	                                    FK_PROFESOR      varchar(100)) 
+CREATE OR REPLACE FUNCTION UPDATE_CLASS(IDE               varchar(50) , 
+	                                    IDEUU             varchar(50) ,
+	                                    IDE_HOST          varchar(50) ,
+	                                    EMAIL_HOST        varchar(60) ,
+	                                    TOPICO            varchar(30) ,
+	                                    TIPO              integer     ,
+	                                    ESTADO            varchar(20) ,
+	                                    HORA_INICIO       timestamp   ,
+	                                    DURACION          integer     ,
+	                                    ZONAHORARIA       varchar(50) ,
+	                                    AGENDAZOOM        varchar(20) , 
+	                                    FEC_CREACION      timestamp   ,
+	                                    LINK_INICIO       varchar(800),
+	                                    LINK_REUNION      varchar(100),
+	                                    CLAVE             varchar(20) ,
+	                                    CLAVE_H323        varchar(20) ,
+	                                    CLAVE_PSTN        varchar(20) ,
+	                                    CLAVE_ENCRIPTADA  varchar(60) ,
+	                                    COMENTARIO        varchar(500),
+	                                    CLASES_RESTANTES  integer     ,
+	                                    FK_SECCION        integer     ,
+	                                    FK_PROFESOR       varchar(100)) 
 RETURNS integer AS $$
 DECLARE
  RESULT integer;
@@ -956,6 +963,7 @@ BEGIN
 		                 PSTN_PASSWORD      = CLAVE_PSTN      ,
 		                 ENCRYPTED_PASSWORD = CLAVE_ENCRIPTADA,
 		                 COMMENT            = COMENTARIO      ,
+		                 REMAINING_CLASSES  = CLASES_RESTANTES,
 		                 FK_SECTION         = FK_SECCION      ,
 		                 FK_TEACHER         = FK_PROFESOR
 		          WHERE ID = IDE;
@@ -971,8 +979,6 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-/** CREATE OR REPLACE FUNCTION UPDATE_CLASS_COMMENT
-CREATE OR REPLACE FUNCTION UPDATE_CLASS_TEACHER **/
 /************MODIFICAR COMENTARIO DE LA CLASE***************/
 CREATE OR REPLACE FUNCTION UPDATE_CLASS_COMMENT(IDE        varchar(50),
 	                                            COMENTARIO varchar(500))
@@ -1009,6 +1015,30 @@ BEGIN
 		
 		UPDATE CLASS SET   FK_TEACHER = FK_PROFESOR      
 		             WHERE         ID = IDE;
+
+		RESULT := 201;
+  	
+  	ELSE
+	
+		RESULT := 204;
+	
+	END IF;
+ 	RETURN RESULT;
+END;
+$$ LANGUAGE plpgsql;
+
+/************MODIFICAR CLASES RESTANTES DEL ALUMNO***************/
+CREATE OR REPLACE FUNCTION UPDATE_REMAINING_CLASSES(IDE               varchar(50),
+	                                                CLASES_RESTANTES integer   )
+RETURNS integer AS $$
+DECLARE
+ RESULT integer;
+
+BEGIN
+	IF ((SELECT COUNT(*) FROM CLASS WHERE ID = IDE) = 1) THEN
+		
+		UPDATE CLASS SET REMAINING_CLASSES = CLASES_RESTANTES - 1  
+		             WHERE              ID = IDE;
 
 		RESULT := 201;
   	
