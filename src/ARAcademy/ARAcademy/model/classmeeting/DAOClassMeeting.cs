@@ -113,7 +113,7 @@ namespace ARAcademy.model.classmeeting
             hostEmail.Value = classMeeting.HostEmail;
             topic.Value = classMeeting.Topic;
             type.Value = classMeeting.Type;
-            status.Value = classMeeting.Status;
+            status.Value = classMeeting.Status1;
             startTime.Value = classMeeting.StartTime;
             duration.Value = classMeeting.Duration;
             timezone.Value = classMeeting.Timezone;

@@ -42,7 +42,8 @@ namespace ARAcademy.site
                 DateTime expirationDate = today.AddYears(1); //MOMENTANEAMENTE SE COLOCO QUE VENCE EN UN AÑO
                 Double amount = item.Amount + (item.Amount * 0.21);
                 Student student = new Student( username , ""); //OBTENER EL OBJETO DEL ESTUDIANTE QUE INICIO SESION
-                AraPayment payment = new AraPayment(today, expirationDate, transactionId, amount, item, student);
+                int remainingClasses = 10;
+                AraPayment payment = new AraPayment(today, expirationDate, transactionId, amount, remainingClasses ,item, student);
                 CreateAraPaymentCommand cmd = new CreateAraPaymentCommand(payment);
                 cmd.Execute();
                 /*DESCOMENTAR CUANDO FUNCIONE TODO EL BACK Y SE PASE CORRECTAMENTE EL ESTUDIANTE Y LOS MODULOS*/

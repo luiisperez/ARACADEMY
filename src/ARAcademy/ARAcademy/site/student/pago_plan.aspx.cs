@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using ARAcademy.common.entities;
+using ARAcademy.controller.payment;
 using ARAcademy.controller.section;
 using ARAcademy.controller.student;
 
@@ -22,7 +23,8 @@ namespace ARAcademy.site.student
         public Course course;
         public List<Section> section_list = new List<Section>();
         private List<string> ScStrList = new List<string>();
-        public string ScStr; 
+        public string ScStr;
+        public List<AraPayment> payment = new List<AraPayment>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -133,6 +135,11 @@ namespace ARAcademy.site.student
         
         protected void add_cart(object source, RepeaterCommandEventArgs e)
         {
+            student = new Student();
+            student.Email = Session["Username"].ToString();
+            ReadAllPaymentByStudentCommand cmd_ = new ReadAllPaymentByStudentCommand(student);
+            cmd_.Execute();
+            payment = cmd_.Payments;
             CartList = (List<Section>)Session["ScItms"];
             ImageButton action = (ImageButton)e.CommandSource;
             string actionString = action.ID;
@@ -144,25 +151,54 @@ namespace ARAcademy.site.student
                 {
                     if (CartList == null )
                     {
-                        CartList = new List<Section>();
-                        section = new Section();
-                        section.Id = Int32.Parse(id);
-                        ReadSectionCommand cmd = new ReadSectionCommand(section);
-                        cmd.Execute();
-                        CartList.Add(cmd.Section);
-                        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
-                    }
-                    else 
-                    {
-                        foreach (Section section in CartList)
+                        foreach (AraPayment araPayment in payment)
                         {
-                            if (section.Id == Int32.Parse(id))
+                            if ( araPayment.Section.Id == Int32.Parse(id))
                             {
                                 flag = true;
                                 ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertmeErr()", true);
                             }
                             else
                             {
+                            }
+                        }
+                        if (flag == false)
+                        {
+                            CartList = new List<Section>();
+                            section = new Section();
+                            section.Id = Int32.Parse(id);
+                            ReadSectionCommand cmd = new ReadSectionCommand(section);
+                            cmd.Execute();
+                            CartList.Add(cmd.Section);
+                            ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                        }
+                        else
+                        {
+                        }
+
+                    }
+                    else 
+                    {
+                        foreach (AraPayment araPayment in payment)
+                        {
+                            if (araPayment.Section.Id == Int32.Parse(id))
+                            {
+                                flag = true;
+                                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertmeErr()", true);
+                            }
+                            else
+                            {
+                                foreach (Section section in CartList)
+                                {
+                                    if (section.Id == Int32.Parse(id))
+                                    {
+                                        flag = true;
+                                        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertmeErr()", true);
+                                    }
+                                    else
+                                    {
+                                    }
+                                }
                             }
                         }
 

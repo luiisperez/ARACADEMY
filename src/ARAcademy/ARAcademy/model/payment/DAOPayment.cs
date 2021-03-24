@@ -54,7 +54,7 @@ namespace ARAcademy.model.payment
             expirationDate.Value = payment.ExpirationDate;
             paypalTransactionId.Value = payment.PaypalTransactionId;
             amount.Value = payment.Amount;
-            remainingClasses.Value = Int32.Parse(DAOPaymentResource.AvailableClasses);
+            remainingClasses.Value = payment.RemainingClasses;
             section.Value = payment.Section.Id;
             student.Value = payment.Student.Email;
 
@@ -485,10 +485,10 @@ namespace ARAcademy.model.payment
             {
                 conn = DAO.getConnection();
                 NpgsqlTransaction tran = conn.BeginTransaction();
-                NpgsqlCommand command = new NpgsqlCommand(DAOPaymentResource.ReadPaymentsBySectionSP, conn);
+                NpgsqlCommand command = new NpgsqlCommand(DAOPaymentResource.ReadPaymentByStudentSP, conn);
                 NpgsqlParameter parameter = new NpgsqlParameter();
                 parameter.ParameterName = DAOPaymentResource.StudentID;
-                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
+                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
                 parameter.Direction = ParameterDirection.Input;
                 parameter.Value = student.Email;
                 command.Parameters.Add(parameter);
