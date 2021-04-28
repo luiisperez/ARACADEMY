@@ -22,6 +22,38 @@
     }
 </style>
 <script>
+    function alertme_succ() {
+        Swal.fire({
+            title: 'Clase creada exitosamente',
+            width: 400,
+            padding: '3em',
+            imageUrl: "/site/home/images/Check_Mark.png",
+            imageAlt: 'Custom image',
+            background: '#fff ',
+        })
+            .then(function (result) {
+                if (result.value) {
+                    window.location = "/site/student/stud_menu.aspx";
+                }
+            })
+    }
+    function alertme() {
+        Swal.fire({
+            title: 'Ha ocurrido un error al registrar la clase, verifique la información',
+            width: 400,
+            padding: '3em',
+            imageUrl: "/site/home/images/Alert_mark.png",
+            imageAlt: 'Custom image',
+            background: '#fff ',
+        })
+            .then(function (result) {
+                if (result.value) {
+                    window.location = "/site/student/stud_menu.aspx";
+                }
+            })
+    }
+</script>
+<script>
 
     $(document).ready(function () {
         var date = new Date();
@@ -224,7 +256,6 @@
 <!-- Modal -->
 <div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content">
             <div class="container">
@@ -235,32 +266,39 @@
 
                             <h3 style="font-weight:bold; text-align:center; margin-bottom:5%">Agendar Clase</h3>
 
-                            <div class="row">
-                                <div class="col-6">
-                                    <h6 align="left" style="font-weight:bold; color:black">Seleccione el Modulo</h6>
-                                    <asp:DropDownList ID="list_section" class="form-control select2" runat="server" style="background-color: #eee; padding: 0px 10px;margin: 8px 0; width:100%; border:none;" OnSelectedIndexChanged="topic__SelectedIndexChanged"  required="required" AutoPostBack="True" >
-                                    </asp:DropDownList>
-                                </div>
+                            <asp:ScriptManager ID="ScriptManager1" runat="server"> </asp:ScriptManager>
+                            <asp:UpdatePanel id="UpdatePanel" runat="server">
+                                <ContentTemplate>
+                                    <div class="row">
 
-                                <div class="col-6">
-                                    <h6 align="left" style="font-weight:bold; color:black">Seleccione el Tópico</h6>
-                                    <asp:DropDownList ID="list_topics" class="form-control select2" runat="server" style="background-color: #eee; padding: 0px 10px;margin: 8px 0; width:100%; border:none;"  required="required"  AutoPostBack="True" >
-                                    </asp:DropDownList>
-                                </div>
+                                            <div class="col-6">
+                                                <h6 align="left" style="font-weight:bold; color:black">Seleccione el Modulo</h6>
+                                                <asp:DropDownList ID="list_section" class="form-control select2" runat="server" style="background-color: #eee; padding: 0px 10px;margin: 8px 0; width:100%; border:none;" OnSelectedIndexChanged="topic__SelectedIndexChanged"  required="required" AutoPostBack="True" >
+                                                </asp:DropDownList>
+                                            </div>
 
-                            </div>
+                                            <div class="col-6">
+                                                <h6 align="left" style="font-weight:bold; color:black">Seleccione el Tópico</h6>
+                                                <asp:DropDownList ID="list_topics" class="form-control select2" runat="server" style="background-color: #eee; padding: 0px 10px;margin: 8px 0; width:100%; border:none;"  required="required"  AutoPostBack="True" >
+                                                </asp:DropDownList>
+                                            </div>
+
+                                    </div>
+                                </ContentTemplate>
+                            </asp:UpdatePanel>
 
                             <div class="row"></div>
 
                             <div class="row">
                                 <div class="col-6">
                                     <h6 align="left" style="font-weight:bold; color:black">Fecha de Inicio</h6>
-                                    <input id="fec_ini" class="datepicker" placeholder="Fecha de Inicio" runat="server" style="background-color: #eee; border: none; padding: 27px 15px;margin: 0px 0; width: 100%;" required="required" />
+                                    <input id="fec_ini" class="datepicker" placeholder="Fecha de Inicio" runat="server" style="background-color: #eee; border: none; padding: 27px 15px;margin: 0px 0; width: 100%;" required="required"/>                                    
                                     <script>
                                         $('.datepicker').datepicker({
                                             uiLibrary: 'bootstrap4'
                                         });
                                     </script>
+
                                 </div>
 
                                 <div class="col-6">
@@ -286,6 +324,7 @@
         </div>
         </div>
 </div>
+
     </div>
 </div>
 

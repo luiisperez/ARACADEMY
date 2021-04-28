@@ -61,7 +61,7 @@ namespace ARAcademy.model.zoom {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IndGNEpkXzZOU2JXVV85eEJ4bnhYQ1EiLCJleHAiOjE2MTQxOTIwOTEsImlhdCI6MTYxMzU4NzI5MX0.hE3Bw4wbi1cR9OIabmqBl9m5Gal4_P1jZLuv9S741Tk.
+        ///   Busca una cadena traducida similar a eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IndGNEpkXzZOU2JXVV85eEJ4bnhYQ1EiLCJleHAiOjE2MTczMDQ1NzQsImlhdCI6MTYxNjY5OTc3NH0.dCOnlLeYdm91pcRAXDXyZYecJ9d1RaOakFrVxx_4Awo.
         /// </summary>
         internal static string Authorization {
             get {

@@ -598,6 +598,17 @@ form {
     text-align: center;
 }
 
+formEd {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0px;
+    height: 100%;
+    text-align: center;
+}
+
 input {
     background-color: #eee;
     border: none;

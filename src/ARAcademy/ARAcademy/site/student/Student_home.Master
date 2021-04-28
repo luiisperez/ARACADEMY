@@ -38,7 +38,7 @@
                           <a href="#"><span class="fa fa-book"></span> Mis Clases </a>
                       </li>
                       <li>
-                          <a href="#"><span class="fa fa-user"></span> Mi Perfil </a>
+                          <a href="edit_estu.aspx"><span class="fa fa-user"></span> Mi Perfil </a>
                       </li>
                       <li>
                         <a href="#"><span class="fa fa-check-circle-o"></span> Programa Académico </a>

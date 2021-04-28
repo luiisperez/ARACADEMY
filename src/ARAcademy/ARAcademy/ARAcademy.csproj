@@ -405,6 +405,7 @@
     <Content Include="site\student\css\main.css" />
     <Content Include="site\student\css\style.css" />
     <Content Include="site\student\css\util.css" />
+    <Content Include="site\student\edit_estu.aspx" />
     <Content Include="site\student\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="site\student\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="site\student\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -897,6 +898,13 @@
     </Compile>
     <Compile Include="site\professor\prof_payment\prof_payment.aspx.designer.cs">
       <DependentUpon>prof_payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\edit_estu.aspx.cs">
+      <DependentUpon>edit_estu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\edit_estu.aspx.designer.cs">
+      <DependentUpon>edit_estu.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\student\ing_info.aspx.cs">
       <DependentUpon>ing_info.aspx</DependentUpon>

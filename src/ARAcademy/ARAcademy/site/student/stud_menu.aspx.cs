@@ -24,6 +24,7 @@ namespace ARAcademy.site.student
         private List<AraPayment> payment;
         private List<Section> sections;
         private List<Topic> topics;
+        private Topic topic;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -106,15 +107,20 @@ namespace ARAcademy.site.student
 
         protected void Create_Class (object sender, EventArgs e)
         {
-            MeetingInJson meetingInJson = ZoomAPI.CreateMeeting("Test Modular Zoom", "2021-11-15T20:15:00"); //LLAMADA DE EJEMPLO
+            topic = new Topic();
+            topic.Id = Int32.Parse(list_topics.SelectedValue);
+            ReadTopicCommand cmd_ = new ReadTopicCommand(topic);
+            cmd_.Execute();
+            topic = cmd_.Topic;
+            MeetingInJson meetingInJson = ZoomAPI.CreateMeeting( topic.Name , "2021-11-15T20:15:00"); //LLAMADA DE EJEMPLO
             DateTime startTime = DateTime.Parse(fec_ini.Value, CultureInfo.GetCultureInfo("en-US"));
             DateTime hourTime = DateTime.Parse(Hora.Value, System.Globalization.CultureInfo.CurrentCulture);
             startTime = Convert.ToDateTime(startTime.ToShortDateString() + " " + hourTime.TimeOfDay);
-            DateTime createdAt = new DateTime();
+            DateTime createdAt = DateTime.Now;
             section = new Section();
-            section.Id = 8;
+            section.Id = Int32.Parse(list_section.SelectedValue);
             teacher = new Teacher();
-            teacher.Email = "rgonzales@aracademy.com";
+            teacher.Email = "karemgcj02@gmail.com";
             ClassMeeting cm = new ClassMeeting(meetingInJson.id, meetingInJson.uuid, meetingInJson.host_id,
                                                meetingInJson.host_email, meetingInJson.topic, 1,
                                                meetingInJson.status, startTime, Int32.Parse(meetingInJson.duration),
@@ -123,6 +129,14 @@ namespace ARAcademy.site.student
                                                meetingInJson.encrypted_password, "Malo", section, teacher);
             CreateClassMeetingCommand cmd = new CreateClassMeetingCommand(cm);
             cmd.Execute();
+            if (cmd.ClassMeeting.Code == 200)
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
+            }
+            else
+            {
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+            }
 
 
             //PastMeetingDetails pastMeetingDetails = ZoomAPI.GetPastMeetingDetails("F8FWJVwPRZiheBjSBBbX4g=="); //LLAMADA DE EJEMPLO

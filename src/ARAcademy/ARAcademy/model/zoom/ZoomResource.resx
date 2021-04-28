@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Authorization" xml:space="preserve">
-    <value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IndGNEpkXzZOU2JXVV85eEJ4bnhYQ1EiLCJleHAiOjE2MTQxOTIwOTEsImlhdCI6MTYxMzU4NzI5MX0.hE3Bw4wbi1cR9OIabmqBl9m5Gal4_P1jZLuv9S741Tk</value>
+    <value>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdWQiOm51bGwsImlzcyI6IndGNEpkXzZOU2JXVV85eEJ4bnhYQ1EiLCJleHAiOjE2MTczMDQ1NzQsImlhdCI6MTYxNjY5OTc3NH0.dCOnlLeYdm91pcRAXDXyZYecJ9d1RaOakFrVxx_4Awo</value>
     <comment>Token Bearer de acceso a Zoom</comment>
   </data>
   <data name="ContentType" xml:space="preserve">
