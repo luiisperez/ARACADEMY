@@ -1,23 +1,22 @@
-﻿using System;
-using ARAcademy.common.entities;
+﻿using ARAcademy.common.entities;
 using ARAcademy.controller.payment;
 using ARAcademy.controller.section;
 using ARAcademy.controller.classmeeting;
-using ARAcademy.controller.teacher;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using ARAcademy.common;
 
-namespace ARAcademy.site.professor.prof_class
+namespace ARAcademy.site.student
 {
-    public partial class prof_class : System.Web.UI.Page
+    public partial class mis_clases : System.Web.UI.Page
     {
         private List<ClassMeeting> list_class = new List<ClassMeeting>();
         private List<ClassMeeting> list_class_aux = new List<ClassMeeting>();
-        private Teacher teacher;
+        private List<Classlist> clase_aux;
+        private Student student;
         private ClassMeeting clase;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,33 +26,36 @@ namespace ARAcademy.site.professor.prof_class
                 {
                     if (Session["Username"] != null && Session["Token"] != null)
                     {
-                        teacher = new Teacher();
-                        teacher.Email = Session["Username"].ToString();
+                        student = new Student();
+                        student.Email = Session["Username"].ToString();
                         ReadAllClassMeetingCommand cmd = new ReadAllClassMeetingCommand();
                         cmd.Execute();
                         list_class = cmd.ClassMeetings;
                         foreach (ClassMeeting classMeeting in list_class)
                         {
-                            if (classMeeting.Teacher.Email == Session["Username"].ToString())
+                            ReadClasslistCommand cmd_ = new ReadClasslistCommand(classMeeting);
+                            cmd_.Execute();
+                            clase_aux = cmd_.Classlist;
+                            foreach (Classlist classlist in clase_aux)
                             {
-
-                                list_class_aux.Add(classMeeting);
-                                class_data.DataSource = list_class_aux;
-                                class_data.DataBind();
+                                if ( classlist.Student.Email == Session["Username"].ToString())
+                                {
+                                    list_class_aux.Add(classMeeting);
+                                    class_data.DataSource = list_class_aux;
+                                    class_data.DataBind();
+                                }
                             }
                         }
-
                     }
                     else
                     {
-                        Response.Redirect("/site/professor/login.aspx");
+                        Response.Redirect("/site/student/login.aspx");
                     }
                 }
                 catch (Exception ex)
                 {
 
                 }
-
             }
         }
 
@@ -87,7 +89,7 @@ namespace ARAcademy.site.professor.prof_class
             {
                 try
                 {
-                    // VALIDACION QUE SACA AL PROFESOR DE LA CLASE (update de la tabla)
+                    // VALIDACION QUE SACA AL ALUMNO DE LA CLASE Y UPDATEA LAS CLASES RESTANTES
                 }
                 catch (Exception ex)
                 {
@@ -98,4 +100,3 @@ namespace ARAcademy.site.professor.prof_class
         }
     }
 }
-

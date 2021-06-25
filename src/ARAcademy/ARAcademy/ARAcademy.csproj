@@ -281,6 +281,7 @@
     <Content Include="site\home\images\blog_1.jpg" />
     <Content Include="site\home\images\blog_2.jpg" />
     <Content Include="site\home\images\blog_3.jpg" />
+    <Content Include="site\home\images\download.png" />
     <Content Include="site\home\images\flaticon\backup.txt" />
     <Content Include="site\home\images\flaticon\svg\001-travel.svg" />
     <Content Include="site\home\images\flaticon\svg\002-travel-1.svg" />
@@ -403,9 +404,11 @@
     <Content Include="site\student\css\calendar.css" />
     <Content Include="site\student\css\fade.css" />
     <Content Include="site\student\css\main.css" />
+    <Content Include="site\student\css\main2.css" />
     <Content Include="site\student\css\style.css" />
     <Content Include="site\student\css\util.css" />
     <Content Include="site\student\edit_estu.aspx" />
+    <Content Include="site\student\est_content.aspx" />
     <Content Include="site\student\fonts\font-awesome-4.7.0\css\font-awesome.css" />
     <Content Include="site\student\fonts\font-awesome-4.7.0\css\font-awesome.min.css" />
     <Content Include="site\student\fonts\font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
@@ -423,6 +426,8 @@
     <Content Include="site\student\leng_info.aspx" />
     <Content Include="site\student\login.aspx" />
     <Content Include="site\student\mat_info.aspx" />
+    <Content Include="site\student\mis_clases.aspx" />
+    <Content Include="site\student\pagos.aspx" />
     <Content Include="site\student\pago_mat.aspx" />
     <Content Include="site\student\pago_plan.aspx" />
     <Content Include="site\student\processPayment.aspx" />
@@ -520,6 +525,7 @@
     <Compile Include="controller\payment\ReadAllPaymentCommand.cs" />
     <Compile Include="controller\payment\ReadPaymentCommand.cs" />
     <Compile Include="controller\payment\UpdatePaymentCommand.cs" />
+    <Compile Include="controller\payment\UpdateRemainingClassesCommand.cs" />
     <Compile Include="controller\section\CreateSectionCommand.cs" />
     <Compile Include="controller\section\DeleteSectionCommand.cs" />
     <Compile Include="controller\section\ReadAllSectionByCourseCommand.cs" />
@@ -906,6 +912,13 @@
     <Compile Include="site\student\edit_estu.aspx.designer.cs">
       <DependentUpon>edit_estu.aspx</DependentUpon>
     </Compile>
+    <Compile Include="site\student\est_content.aspx.cs">
+      <DependentUpon>est_content.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\est_content.aspx.designer.cs">
+      <DependentUpon>est_content.aspx</DependentUpon>
+    </Compile>
     <Compile Include="site\student\ing_info.aspx.cs">
       <DependentUpon>ing_info.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -933,6 +946,20 @@
     </Compile>
     <Compile Include="site\student\mat_info.aspx.designer.cs">
       <DependentUpon>mat_info.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\mis_clases.aspx.cs">
+      <DependentUpon>mis_clases.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\mis_clases.aspx.designer.cs">
+      <DependentUpon>mis_clases.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\pagos.aspx.cs">
+      <DependentUpon>pagos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\pagos.aspx.designer.cs">
+      <DependentUpon>pagos.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\student\pago_mat.aspx.cs">
       <DependentUpon>pago_mat.aspx</DependentUpon>
@@ -1434,6 +1461,7 @@
     <EmbeddedResource Include="model\classmeeting\DAOClassMeetingResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DAOClassMeetingResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="model\course\DAOCourseResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>

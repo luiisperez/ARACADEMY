@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARAcademy.site.professor
+namespace ARAcademy.site.student
 {
 
 
-    public partial class prof_menu
+    public partial class mis_clases
     {
 
         /// <summary>

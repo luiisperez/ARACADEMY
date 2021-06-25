@@ -1,5 +1,5 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/professor/Prof_home.Master" AutoEventWireup="true" CodeBehind="prof_mat.aspx.cs" Inherits="ARAcademy.site.professor.prof_mat.prof_mat" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">    
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/student/Student_home.Master" AutoEventWireup="true" CodeBehind="est_content.aspx.cs" Inherits="ARAcademy.site.student.est_content" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">	
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="/site/admin/css/Datatable.css">
@@ -32,7 +32,7 @@
                 background: '#fff ',
             }).then(function (result) {
                 if (result.value) {
-                    window.location = "/site/admin/adm_content/list_content.aspx";
+                    window.location = "/site/student/est_content.aspx";
                 }
             })
         }
@@ -49,25 +49,21 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="row justify-content-center">
-                    <div class="col-md-12">
-                        <div class="card" style="margin:1% 5% 5% 5%">
-                            <div class="card-body">
-
-                                <h3 style="font-weight: bold; text-align: center; margin-bottom: 5%">Listado de material académico</h3>
-
-                                <div class="row">
-                                    <div class="col-6">
-                                        <asp:DropDownList ID="list_section" runat="server" Style="background-color: #eee; padding: 13px 15px; margin: 8px 0; width: 100%; border: none; height: 80%;" OnSelectedIndexChanged="document__SelectedIndexChanged" required="required" AutoPostBack="True">
-                                        </asp:DropDownList>
-                                    </div>
-                                </div>
-
-                            </div>
-
+<div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card" style="margin:1% 5% 5% 5%">
+                <div class="card-body">
+                    <h3 style="font-weight: bold; text-align: center; margin-bottom: 1%">Listado de material académico</h3>
+                    <div class="row">
+                        <div class="col-6" style="">
+                            <asp:DropDownList ID="list_section" runat="server" Enabled="true" OnSelectedIndexChanged="document__SelectedIndexChanged" Style="background-color: #eee; padding: 13px 15px; margin: 8px 0; border: none; height: 80%;" required="required" AutoPostBack="True">
+                            </asp:DropDownList>
                         </div>
                     </div>
-                <div class="col-md-11" style="padding-bottom:20px">
+                 </div>
+            </div>
+        </div>
+        <div class="col-md-11" style="padding-bottom:20px">
             <div class="table-responsive" > 
                     <table id="table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
@@ -87,6 +83,7 @@
                                         <td><%# Eval("File") %>'></td>
                                         <td><%# Eval("Type") %></td>
                                         <td style="text-align:center"> 
+                                            <%--<asp:ImageButton ID="modify" runat="server" Text="Editar" ImageUrl="~/site/home/images/assign.svg" Height="25px" Width="25px" ToolTip="Editar" />--%>
                                             <asp:ImageButton ID="download" runat="server" Text="Descargar" ImageUrl="~/site/home/images/download.png" Height="26px" Width="26px" ToolTip="Descargar" />
                                         </td>
                                     </tr>              
@@ -104,5 +101,5 @@
                 </table>
                 </div>  
             </div>
-        </div> 
+        </div>
 </asp:Content>

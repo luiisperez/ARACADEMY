@@ -1,7 +1,5 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin_home.master.cs" Inherits="ARAcademy.site.admin.Admin_home" %>
-
 <!DOCTYPE html>
-
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -20,7 +18,7 @@
     <form id="form1" runat="server">
       		<div class="wrapper d-flex align-items-stretch">
 			    <nav id="sidebar" class="active">
-                    <h1 style="padding-bottom: 15%"><a href="/site/admin/admin_home.aspx"><img src="/site/home/images/ARA_LogoLine.png" width="100" height="100" alt="ARAcademy"></a></h1>
+                    <h1 style="padding-bottom: 15%"><a href="/site/admin/adm_professor/prof_menu.aspx"><img src="/site/home/images/ARA_LogoLine.png" width="100" height="100" alt="ARAcademy"></a></h1>
                     <ul class="list-unstyled components mb-5">
                       <li>
                           <a href="/site/admin/adm_professor/prof_menu.aspx"><span class="fa fa-users"></span> Profesores </a>
@@ -32,7 +30,7 @@
                         <a href="/site/admin/mod_menu.aspx"><span class="fa fa-th"></span> Programación Academica </a>
                       </li>
                       <li>
-                        <a href="#"><span class="fa fa-line-chart"></span> Información Administrativa </a>
+                        <a href="/site/admin/admin_home.aspx"><span class="fa fa-line-chart"></span> Información Administrativa </a>
                       </li>
                       <li>
                         <a href="#"><span class="fa fa-files-o "></span> Reportes Generales </a>

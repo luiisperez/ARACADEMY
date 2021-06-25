@@ -6,11 +6,10 @@ using ARAcademy.controller.payment;
 using ARAcademy.controller.section;
 using ARAcademy.controller.topic;
 using ARAcademy.model.zoom;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
@@ -19,12 +18,22 @@ namespace ARAcademy.site.student
     public partial class stud_menu : System.Web.UI.Page
     {
         private Section section;
+        private Section section_;
         private Teacher teacher;
-        private Student student;
+        public Student student;
         private List<AraPayment> payment;
         private List<Section> sections;
-        private List<Topic> topics;
-        private Topic topic;
+        public List<Topic> topics;
+        public Topic topic;
+        private Classlist listado;
+        private ClassMeeting classmeet;
+        private AraPayment arapayment;
+        private List<ClassMeeting> list_class = new List<ClassMeeting>();
+        public List<ClassMeeting> list_class_aux = new List<ClassMeeting>();
+        private List<Classlist> clase_aux;
+        public string jsonData;
+        public string myData;
+        public List<object> list_data;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -61,6 +70,35 @@ namespace ARAcademy.site.student
                         list_section.Items[0].Selected = true;
                         list_section.Items[0].Attributes["disabled"] = "disabled";
 
+                        ReadAllClassMeetingCommand _cmd_ = new ReadAllClassMeetingCommand();
+                        _cmd_.Execute();
+                        list_class = _cmd_.ClassMeetings;
+                        foreach (Section section in sections)
+                        {
+                            foreach (ClassMeeting classMeeting in list_class)
+                            {
+                                if (section.Id == classMeeting.Section.Id)
+                                {
+                                    list_class_aux.Add(classMeeting);
+                                }
+                            }
+                        }
+                        class_data.DataSource = list_class_aux;
+                        class_data.DataBind();
+                        int i;
+                        list_data = new List<object>();
+                        for (i=0; i < list_class_aux.Count; i++)
+                        {
+                            var myData = new
+                            {
+                                title = list_class_aux[i].Agenda,
+                                start = new DateTime(list_class_aux[i].StartTime.Year, list_class_aux[i].StartTime.Month, list_class_aux[i].StartTime.Day).ToString("yyyy-MM-dd")
+                            };
+
+                            list_data.Add(myData);
+                        }
+                        //Tranform it to Json object
+                        jsonData = JsonConvert.SerializeObject(list_data);
                     }
                     else
                     {
@@ -72,6 +110,7 @@ namespace ARAcademy.site.student
 
                 }
             }
+        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "start()", true);
         }
 
         protected void topic__SelectedIndexChanged(object sender, EventArgs e)
@@ -120,18 +159,44 @@ namespace ARAcademy.site.student
             section = new Section();
             section.Id = Int32.Parse(list_section.SelectedValue);
             teacher = new Teacher();
-            teacher.Email = "karemgcj02@gmail.com";
+            teacher.Email = "luisprueba@gmail.com";
             ClassMeeting cm = new ClassMeeting(meetingInJson.id, meetingInJson.uuid, meetingInJson.host_id,
                                                meetingInJson.host_email, meetingInJson.topic, 1,
                                                meetingInJson.status, startTime, Int32.Parse(meetingInJson.duration),
                                                meetingInJson.timezone, meetingInJson.agenda, createdAt, meetingInJson.start_url,
                                                meetingInJson.join_url, meetingInJson.password, meetingInJson.h323_password, meetingInJson.pstn_password,
-                                               meetingInJson.encrypted_password, "Malo", section, teacher);
+                                               meetingInJson.encrypted_password, "Clase Creada", section, teacher);
             CreateClassMeetingCommand cmd = new CreateClassMeetingCommand(cm);
             cmd.Execute();
             if (cmd.ClassMeeting.Code == 200)
             {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
+                listado = new Classlist( meetingInJson, student);
+                student = new Student();
+                classmeet = new ClassMeeting();
+                classmeet.Id = meetingInJson.id;
+                student.Email = Session["Username"].ToString();
+                listado.Student = student;
+                listado.ClassMeeting = classmeet;
+                CreateClasslistCommand _cmd = new CreateClasslistCommand(listado);
+                _cmd.Execute();
+                // PENDIENTE PARA RESTAR CLASE RESTANTE
+                payment = new List<AraPayment>();
+                ReadAllPaymentByStudentCommand _cmd_ = new ReadAllPaymentByStudentCommand(student);
+                _cmd_.Execute();
+                payment = _cmd_.Payments;
+                foreach (AraPayment Payment in payment)
+                {
+
+                    if (Payment.Section.Id == Int32.Parse(list_section.SelectedValue))
+                    {
+                        Payment.Id = Payment.Id;
+                        Payment.RemainingClasses = Payment.RemainingClasses - 1;
+                        UpdateRemainingClassesCommand __cmd_ =  new UpdateRemainingClassesCommand(Payment);
+                        __cmd_.Execute();
+                    }
+                }
+            //Response.Redirect("stud_menu.aspx");
             }
             else
             {

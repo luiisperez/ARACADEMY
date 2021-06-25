@@ -1,5 +1,4 @@
-﻿using ARAcademy.common;
-using ARAcademy.common.entities;
+﻿using ARAcademy.common.entities;
 using ARAcademy.model.payment;
 using System;
 using System.Collections.Generic;
@@ -8,12 +7,12 @@ using System.Web;
 
 namespace ARAcademy.controller.payment
 {
-    public class UpdatePaymentCommand : Command
+    public class UpdateRemainingClassesCommand : Command
     {
         private AraPayment payment;
         // private String oldId;
 
-        public UpdatePaymentCommand(AraPayment payment)
+        public UpdateRemainingClassesCommand(AraPayment payment)
         {
             this.payment = payment;
         }
@@ -24,7 +23,7 @@ namespace ARAcademy.controller.payment
         public override void Execute()
         {
             DAOPayment daoPayment = new DAOPayment();
-            payment.Code = daoPayment.UpdatePayment(payment);
+            payment.Code = daoPayment.UpdateClasses(payment);
         }
     }
 }

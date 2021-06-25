@@ -62,10 +62,10 @@ namespace ARAcademy.site.admin.adm_professor
             fec_nac.Value = fec_nac.Value;
             DateTime fec_nac_ = DateTime.Parse(fec_nac.Value, CultureInfo.GetCultureInfo("en-US"));
             teacher.BirthDate = Convert.ToDateTime(fec_nac_);
-            UpdateTeacherCommand cmd = new UpdateTeacherCommand(teacher);
-            cmd.Execute();
             if (password.Text.Equals(conf_pwd.Text))
             {
+                UpdateTeacherCommand cmd = new UpdateTeacherCommand(teacher);
+                cmd.Execute();
                 if (teacher.Code == 201)
                 {
                     ClientScript.RegisterClientScriptBlock(this.GetType(), "random", " alertme_succ()", true);

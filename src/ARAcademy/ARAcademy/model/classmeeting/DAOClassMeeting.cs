@@ -70,7 +70,7 @@ namespace ARAcademy.model.classmeeting
             topic.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             type.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
             status.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
-            startTime.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
+            startTime.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Timestamp;
             duration.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
             timezone.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
             agenda.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;

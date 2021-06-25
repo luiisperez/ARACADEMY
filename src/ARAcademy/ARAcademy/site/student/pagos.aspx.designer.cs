@@ -7,20 +7,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARAcademy.site.professor
+namespace ARAcademy.site.student
 {
 
 
-    public partial class prof_menu
+    public partial class pagos
     {
 
         /// <summary>
-        /// class_data control.
+        /// mod_data control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater class_data;
+        protected global::System.Web.UI.WebControls.Repeater mod_data;
     }
 }

@@ -140,7 +140,7 @@ namespace ARAcademy.site.admin.adm_content
                     Byte[] bytesBD = (byte[])dr.GetValue(5);
                     String nameFiles = dr.GetString(1);
                     // RUTA DEL SERVIDOR //                    
-                    File.WriteAllBytes("C:\\Users\\Kant\\Desktop\\" + nameFiles, bytesBD);
+                    File.WriteAllBytes("C:\\Users\\Karem\\Desktop\\" + nameFiles, bytesBD);
                 }
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
                 con.Close();

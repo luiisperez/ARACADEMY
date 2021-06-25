@@ -7,20 +7,29 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ARAcademy.site.professor
+namespace ARAcademy.site.student
 {
 
 
-    public partial class prof_menu
+    public partial class est_content
     {
 
         /// <summary>
-        /// class_data control.
+        /// list_section control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater class_data;
+        protected global::System.Web.UI.WebControls.DropDownList list_section;
+
+        /// <summary>
+        /// document_list control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater document_list;
     }
 }

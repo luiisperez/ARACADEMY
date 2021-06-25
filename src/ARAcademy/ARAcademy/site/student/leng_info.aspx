@@ -28,26 +28,24 @@
                             <img src="/site/home/images/Background_Log_Adm.png" style="width:90%"/>
                         </div>
                         <div class="col-8">
-                            <h4>Módulo 1: Comunicación oral: Hablar - escuchar</h4>
+                            <h4>Módulo 1: Comunicación oral /Comunicación escrita: leer</h4>
                             <p>
-                                Vocabulario
+                                Resumir oralmente: los contenidos de entrevistas, noticias
                                 <br />
-                                Lenguaje y la entonación
+                                Entrevista
                                 <br />
-                                Expresión correcta
+                                Participación en dramatizaciones de textos ajenos y de producción propia
                                 <br />
-                                Normas de cortesía
+                                Recitar poemas y breves textos literarios
                                 <br />
-                                Descripción
+                                Lectura en silencio
                                 <br />
-                                Narración, expresiones temporales 
+                                Resumir oralmente o por escrito textos leídos  
                                 <br />
-                                Exposición
+                                Estrategias eficaces para la comprensión de texto
                                 <br />
-                                Retahílas, adivinanzas, poemas
+                                Hipótesis: formulación
                                 <br />
-                                Prosa y verso (Literatura infantil)
-                                <br />             
                             </p>
                         </div>
                     </div>

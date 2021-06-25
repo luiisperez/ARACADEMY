@@ -435,7 +435,7 @@ namespace ARAcademy.model.payment
             remainingClasses.Direction = ParameterDirection.Input;
 
             id.Value = payment.Id;
-            remainingClasses.Value = Int32.Parse(DAOPaymentResource.AvailableClasses);
+            remainingClasses.Value = payment.RemainingClasses;
 
             command.Parameters.Add(id);
             command.Parameters.Add(remainingClasses);

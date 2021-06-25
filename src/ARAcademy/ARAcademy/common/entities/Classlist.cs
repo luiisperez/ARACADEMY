@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ARAcademy.common.json.meetings;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +17,11 @@ namespace ARAcademy.common.entities
         public Classlist(int id)
         {
             this.id = id;
+        }
+
+        public Classlist(MeetingInJson meetingInJson, Student student)
+        {
+            this.student = student;
         }
 
         public Classlist(int id, ClassMeeting classMeeting, Student student)

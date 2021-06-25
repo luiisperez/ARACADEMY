@@ -15,12 +15,18 @@
 <link rel="stylesheet" href="sweetalert2.min.css">
 <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
+<script src="/site/admin/js/jquery.dataTables.min.js"></script>
+<script src="/site/admin/js/dataTables.bootstrap4.min.js"></script>
 <link href="https://unpkg.com/gijgo@1.9.13/css/gijgo.min.css" rel="stylesheet" type="text/css" />
-<style>
-    .input-group-append {
-        display: none;
-    }
-</style>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/site/admin/css/Datatable.css">
+<link rel="stylesheet" href="/site/admin/css/fade.css">
+<link rel="stylesheet" href="/site/admin/css/util.css">
+<script>
+    $(document).ready(function () {
+        $('#table').DataTable();
+    });
+</script>
 <script>
     function alertme_succ() {
         Swal.fire({
@@ -53,59 +59,52 @@
             })
     }
 </script>
+<style>
+    .input-group-append {
+        display: none;
+    }
+</style>
 <script>
 
-    $(document).ready(function () {
+    $(document).ready(function start() {
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
         var y = date.getFullYear();
-
-		/*  className colors
-		
-		className: default(transparent), important(red), chill(pink), success(green), info(blue)
-		
-		*/
-
-
-		/* initialize the external events
-		-----------------------------------------------------------------*/
-
+        /*  className colors
+    	
+        className: default(transparent), important(red), chill(pink), success(green), info(blue)
+    	
+        */
+        /* initialize the external events
+        -----------------------------------------------------------------*/
         $('#external-events div.external-event').each(function () {
-
             // create an Event Object (http://arshaw.com/fullcalendar/docs/event_data/Event_Object/)
             // it doesn't need to have a start or end
             var eventObject = {
                 title: $.trim($(this).text()) // use the element's text as the event title
             };
-
             // store the Event Object in the DOM element so we can get to it later
             $(this).data('eventObject', eventObject);
-
             // make the event draggable using jQuery UI
             $(this).draggable({
                 zIndex: 999,
                 revert: true,      // will cause the event to go back to its
                 revertDuration: 0  //  original position after the drag
             });
-
         });
-
-
-		/* initialize the calendar
-		-----------------------------------------------------------------*/
-
+        /* initialize the calendar
+        -----------------------------------------------------------------*/
         var calendar = $('#calendar').fullCalendar({
             header: {
                 left: 'title',
-                center: 'agendaDay,agendaWeek,month',
+                //center: 'agendaDay,agendaWeek,month',
                 right: 'prev,next today'
             },
             editable: true,
             firstDay: 1, //  1(Monday) this can be changed to 0(Sunday) for the USA system
             selectable: true,
             defaultView: 'month',
-
             axisFormat: 'h:mm',
             columnFormat: {
                 month: 'ddd',    // Mon
@@ -138,44 +137,37 @@
             },
             droppable: true, // this allows things to be dropped onto the calendar !!!
             drop: function (date, allDay) { // this function is called when something is dropped
-
                 // retrieve the dropped element's stored Event Object
                 var originalEventObject = $(this).data('eventObject');
-
                 // we need to copy it, so that multiple events don't have a reference to the same object
                 var copiedEventObject = $.extend({}, originalEventObject);
-
                 // assign it the date that was reported
                 copiedEventObject.start = date;
                 copiedEventObject.allDay = allDay;
-
                 // render the event on the calendar
                 // the last `true` argument determines if the event "sticks" (http://arshaw.com/fullcalendar/docs/event_rendering/renderEvent/)
                 $('#calendar').fullCalendar('renderEvent', copiedEventObject, true);
-
                 // is the "remove after drop" checkbox checked?
                 if ($('#drop-remove').is(':checked')) {
                     // if so, remove the element from the "Draggable Events" list
                     $(this).remove();
                 }
-
             },
-
-            events: [
+            events:  <%= jsonData %> ,
+            <%--[
                 {
-                    title: 'Click for Google',
-                    start: new Date(y, m, 28),
-                    end: new Date(y, m, 29),
+                    title: '<%= list_class_aux[0].Agenda %>',
+                    start: new Date('<%= list_class_aux[0].StartTime.Year %>','<%= list_class_aux[0].StartTime.Month %>','<%= list_class_aux[0].StartTime.Day %>'),
+                    end: new Date('<%= list_class_aux[0].StartTime.Year %>', '<%= list_class_aux[0].StartTime.Month %>', '<%= list_class_aux[0].StartTime.Day %>'),
                     url: 'https://ccp.cloudaccess.net/aff.php?aff=5188',
                     className: 'success'
                 }
-            ],
+            ],--%>            
         });
-
-
     });
 
 </script>
+
 <style>
 
 	body {
@@ -249,7 +241,40 @@
 
     <div id='calendar'></div>
 
-    <div style='clear:both'></div>
+    <div style='clear:both; margin:2%'></div>
+        <h3>Listado de clases</h3>
+    <div style='clear:both; margin:2%'></div>
+    <div class="row justify-content-center">
+    <div class="col-md-10">
+        <div class="table-responsive" > 
+                <table id="table" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                    <tr>
+                        <th style="display:none"></th>
+                        <th>Tópico</th>
+                        <th>Horario</th>
+                        <th>Accion</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tableRows">
+                    <asp:Repeater ID="class_data" runat="server">
+                        <ItemTemplate>
+                                <tr id="<%# Eval("Id") %>">
+                                    <td style="display:none"><asp:Label ID="Id" runat="server" text='<%# Eval("Id") %>'></asp:Label></td>
+                                    <td><%# Eval("Agenda") %></td>
+                                    <td><%# Eval("StartTime") %></td>
+                                    <td style="text-align:center">
+                                        <asp:ImageButton ID="join" runat="server" Text="Unirse" ImageUrl="~/site/home/images/checked_meeting.png" Height="25px" Width="25px" ToolTip="Unirse" />
+                                    </td>
+                                </tr>              
+                        </ItemTemplate>
+                    </asp:Repeater>
+                </tbody>
+            </table>
+            </div>  
+        </div>
+    </div>
 
 </div>
 
@@ -327,6 +352,4 @@
 
     </div>
 </div>
-
-
 </asp:Content>

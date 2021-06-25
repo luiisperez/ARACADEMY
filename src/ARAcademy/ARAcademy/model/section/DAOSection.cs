@@ -316,7 +316,6 @@ namespace ARAcademy.model.section
 
                     throw ex;
                 }
-
             }
             catch (NpgsqlException ex2)
             {

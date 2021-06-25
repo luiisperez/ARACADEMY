@@ -22,5 +22,14 @@ namespace ARAcademy.site.professor.prof_mat
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList list_section;
+
+        /// <summary>
+        /// document_list control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater document_list;
     }
 }

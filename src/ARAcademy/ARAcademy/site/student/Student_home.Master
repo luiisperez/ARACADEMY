@@ -35,16 +35,16 @@
                         <a href="stud_menu.aspx"><span class="fa fa-calendar"></span> Inicio </a>
                       </li>
                       <li>
-                          <a href="#"><span class="fa fa-book"></span> Mis Clases </a>
+                          <a href="mis_clases.aspx"><span class="fa fa-book"></span> Mis Clases </a>
                       </li>
                       <li>
                           <a href="edit_estu.aspx"><span class="fa fa-user"></span> Mi Perfil </a>
                       </li>
                       <li>
-                        <a href="#"><span class="fa fa-check-circle-o"></span> Programa Académico </a>
+                        <a href="est_content.aspx"><span class="fa fa-check-circle-o"></span> Programa Académico </a>
                       </li>
                       <li>
-                        <a href="#"><span class="fa fa-money"></span> Mis Pagos </a>
+                        <a href="pagos.aspx"><span class="fa fa-money"></span> Mis Pagos </a>
                       </li>
                     </ul>
 
