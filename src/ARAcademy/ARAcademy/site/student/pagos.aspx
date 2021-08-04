@@ -27,7 +27,9 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 <div class="row justify-content-center">
-        <h3>Listado de pagos</h3>
+    <h3>Listado de clases</h3>
+</div>
+<div class="row justify-content-center">
         <div class="col-md-10">
             <div class="table-responsive" > 
                     <table id="table" class="table table-striped table-bordered" style="width:100%">

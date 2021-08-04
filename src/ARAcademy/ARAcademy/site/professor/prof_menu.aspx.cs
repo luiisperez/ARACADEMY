@@ -19,21 +19,15 @@ namespace ARAcademy.site.professor
     public partial class prof_menu : System.Web.UI.Page
     {
         private Section section;
-        private Section section_;
         private Teacher teacher;
         private Student student;
         private Educate educate;
         private List<AraPayment> payment;
         private List<Section> sections;
         private List<Educate> list_edu;
-        private List<Topic> topics;
-        private Topic topic;
-        private Classlist listado;
         private ClassMeeting classmeet;
-        private AraPayment arapayment;
         private List<ClassMeeting> list_class = new List<ClassMeeting>();
         public List<ClassMeeting> list_class_aux = new List<ClassMeeting>();
-        private List<Classlist> clase_aux;
         public string jsonData;
         public string myData;
         public List<object> list_data;
@@ -70,7 +64,7 @@ namespace ARAcademy.site.professor
                         {
                             foreach (ClassMeeting classMeeting in list_class)
                             {
-                                if (section.Id == classMeeting.Section.Id)
+                                if (section.Id == classMeeting.Section.Id && classMeeting.Teacher.Email == "host@ara.com")
                                 {
                                     list_class_aux.Add(classMeeting);
                                 }
@@ -103,6 +97,42 @@ namespace ARAcademy.site.professor
 
                 }
             }
+        }
+
+        protected void top_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            ImageButton action = (ImageButton)e.CommandSource;
+            string actionString = action.ID;
+            if (action.ID.Equals("join"))
+            {
+                try
+                {
+                    teacher = new Teacher();
+                    classmeet = new ClassMeeting();
+                    string id = ((Label)class_data.Items[e.Item.ItemIndex].FindControl("Id")).Text;
+                    classmeet.Id = id;
+                    teacher.Email = Session["Username"].ToString();
+                    classmeet.Teacher = teacher;
+                    UpdateClassTeacherCommand _cmd_ = new UpdateClassTeacherCommand(classmeet);
+                    _cmd_.Execute();
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+            else if (action.ID.Equals("modify"))
+            {
+                try
+                {
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
         }
     }
 }

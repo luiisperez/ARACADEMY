@@ -24,7 +24,7 @@
 <script>
     function alertme_succ() {
         Swal.fire({
-            title: 'Clase creada exitosamente',
+            title: 'Clase tomada exitosamente',
             width: 400,
             padding: '3em',
             imageUrl: "/site/home/images/Check_Mark.png",
@@ -33,7 +33,7 @@
         })
             .then(function (result) {
                 if (result.value) {
-                    window.location = "/site/student/stud_menu.aspx";
+                    window.location = "/site/professor/prof_menu.aspx";
                 }
             })
     }
@@ -265,7 +265,7 @@
                 </thead>
 
                 <tbody id="tableRows">
-                    <asp:Repeater ID="class_data" runat="server">
+                    <asp:Repeater ID="class_data" runat="server" OnItemCommand="top_ItemCommand">
                         <ItemTemplate>
                                 <tr id="<%# Eval("Id") %>">
                                     <td style="display:none"><asp:Label ID="Id" runat="server" text='<%# Eval("Id") %>'></asp:Label></td>

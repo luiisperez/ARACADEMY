@@ -19,6 +19,7 @@ namespace ARAcademy.site.professor.prof_class
         private List<ClassMeeting> list_class_aux = new List<ClassMeeting>();
         private Teacher teacher;
         private ClassMeeting clase;
+        private ClassMeeting classmeet;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -87,7 +88,15 @@ namespace ARAcademy.site.professor.prof_class
             {
                 try
                 {
-                    // VALIDACION QUE SACA AL PROFESOR DE LA CLASE (update de la tabla)
+                    teacher = new Teacher();
+                    classmeet = new ClassMeeting();
+                    string id = ((Label)class_data.Items[e.Item.ItemIndex].FindControl("Id")).Text;
+                    classmeet.Id = id;
+                    teacher.Email = "host@ara.com";
+                    classmeet.Teacher = teacher;
+                    UpdateClassTeacherCommand _cmd_ = new UpdateClassTeacherCommand(classmeet);
+                    _cmd_.Execute();
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_err()", true);
                 }
                 catch (Exception ex)
                 {

@@ -87,7 +87,7 @@ namespace ARAcademy.site.student
                         class_data.DataBind();
                         int i;
                         list_data = new List<object>();
-                        for (i=0; i < list_class_aux.Count; i++)
+                        for (i = 0; i < list_class_aux.Count; i++)
                         {
                             var myData = new
                             {
@@ -110,7 +110,7 @@ namespace ARAcademy.site.student
 
                 }
             }
-        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "start()", true);
+            ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "start()", true);
         }
 
         protected void topic__SelectedIndexChanged(object sender, EventArgs e)
@@ -159,7 +159,7 @@ namespace ARAcademy.site.student
             section = new Section();
             section.Id = Int32.Parse(list_section.SelectedValue);
             teacher = new Teacher();
-            teacher.Email = "luisprueba@gmail.com";
+            teacher.Email = "host@ara.com";
             ClassMeeting cm = new ClassMeeting(meetingInJson.id, meetingInJson.uuid, meetingInJson.host_id,
                                                meetingInJson.host_email, meetingInJson.topic, 1,
                                                meetingInJson.status, startTime, Int32.Parse(meetingInJson.duration),
@@ -170,7 +170,6 @@ namespace ARAcademy.site.student
             cmd.Execute();
             if (cmd.ClassMeeting.Code == 200)
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
                 listado = new Classlist( meetingInJson, student);
                 student = new Student();
                 classmeet = new ClassMeeting();
@@ -196,7 +195,8 @@ namespace ARAcademy.site.student
                         __cmd_.Execute();
                     }
                 }
-            //Response.Redirect("stud_menu.aspx");
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
+                //Response.Redirect("mis_clases.aspx");
             }
             else
             {
@@ -206,6 +206,54 @@ namespace ARAcademy.site.student
 
             //PastMeetingDetails pastMeetingDetails = ZoomAPI.GetPastMeetingDetails("F8FWJVwPRZiheBjSBBbX4g=="); //LLAMADA DE EJEMPLO
             //Response.Redirect(meetingInJson.join_url);
+        }
+
+        protected void top_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            ImageButton action = (ImageButton)e.CommandSource;
+            string actionString = action.ID;
+            if (action.ID.Equals("join"))
+            {
+                try
+                {
+                    string id = ((Label)class_data.Items[e.Item.ItemIndex].FindControl("Id")).Text;
+                    //classmeet.Id = id;
+                    //listado.ClassMeeting = classmeet;
+                    //listado.Student = student;
+                    //CreateClasslistCommand _cmd_ = new CreateClasslistCommand(listado);
+                    //_cmd_.Execute();
+                    payment = new List<AraPayment>();
+                    ReadAllPaymentByStudentCommand _cmd__ = new ReadAllPaymentByStudentCommand(student);
+                    _cmd__.Execute();
+                    payment = _cmd__.Payments;
+                    foreach (AraPayment Payment in payment)
+                    {
+
+                        if (Payment.Section.Id == Int32.Parse(list_section.SelectedValue))
+                        {
+                            Payment.Id = Payment.Id;
+                            Payment.RemainingClasses = Payment.RemainingClasses - 1;
+                            UpdateRemainingClassesCommand __cmd_ = new UpdateRemainingClassesCommand(Payment);
+                            __cmd_.Execute();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                }
+            }
+            else if (action.ID.Equals("modify"))
+            {
+                try
+                {
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+
         }
     }
 }

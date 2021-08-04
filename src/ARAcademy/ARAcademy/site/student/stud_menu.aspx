@@ -23,48 +23,6 @@
 <link rel="stylesheet" href="/site/admin/css/fade.css">
 <link rel="stylesheet" href="/site/admin/css/util.css">
 <script>
-    $(document).ready(function () {
-        $('#table').DataTable();
-    });
-</script>
-<script>
-    function alertme_succ() {
-        Swal.fire({
-            title: 'Clase creada exitosamente',
-            width: 400,
-            padding: '3em',
-            imageUrl: "/site/home/images/Check_Mark.png",
-            imageAlt: 'Custom image',
-            background: '#fff ',
-        })
-            .then(function (result) {
-                if (result.value) {
-                    window.location = "/site/student/stud_menu.aspx";
-                }
-            })
-    }
-    function alertme() {
-        Swal.fire({
-            title: 'Ha ocurrido un error al registrar la clase, verifique la información',
-            width: 400,
-            padding: '3em',
-            imageUrl: "/site/home/images/Alert_mark.png",
-            imageAlt: 'Custom image',
-            background: '#fff ',
-        })
-            .then(function (result) {
-                if (result.value) {
-                    window.location = "/site/student/stud_menu.aspx";
-                }
-            })
-    }
-</script>
-<style>
-    .input-group-append {
-        display: none;
-    }
-</style>
-<script>
 
     $(document).ready(function start() {
         var date = new Date();
@@ -165,9 +123,47 @@
             ],--%>            
         });
     });
-
 </script>
-
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+        function alertme_succ() {
+            Swal.fire({
+                title: 'Clase creada exitosamente',
+                width: 400,
+                padding: '3em',
+                imageUrl: "/site/home/images/Check_Mark.png",
+                imageAlt: 'Custom image',
+                background: '#fff ',
+            })
+                .then(function (result) {
+                    if (result.value) {
+                        window.location = "/site/student/mis_clases.aspx";
+                    }
+                })
+        }
+        function alertme() {
+            Swal.fire({
+                title: 'Ha ocurrido un error al registrar la clase, verifique la información',
+                width: 400,
+                padding: '3em',
+                imageUrl: "/site/home/images/Alert_mark.png",
+                imageAlt: 'Custom image',
+                background: '#fff ',
+            })
+                .then(function (result) {
+                    if (result.value) {
+                        window.location = "/site/student/stud_menu.aspx";
+                    }
+                })
+        }
+    </script>
+<style>
+    .input-group-append {
+        display: none;
+    }
+</style>
 <style>
 
 	body {
@@ -258,7 +254,7 @@
                 </thead>
 
                 <tbody id="tableRows">
-                    <asp:Repeater ID="class_data" runat="server">
+                    <asp:Repeater ID="class_data" runat="server" OnItemCommand="top_ItemCommand">
                         <ItemTemplate>
                                 <tr id="<%# Eval("Id") %>">
                                     <td style="display:none"><asp:Label ID="Id" runat="server" text='<%# Eval("Id") %>'></asp:Label></td>
@@ -351,5 +347,5 @@
 </div>
 
     </div>
-</div>
+</div>ipt>
 </asp:Content>

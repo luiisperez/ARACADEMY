@@ -16,8 +16,10 @@ namespace ARAcademy.site.student
         private List<ClassMeeting> list_class = new List<ClassMeeting>();
         private List<ClassMeeting> list_class_aux = new List<ClassMeeting>();
         private List<Classlist> clase_aux;
+        private Classlist classlist;
         private Student student;
         private ClassMeeting clase;
+        private List<AraPayment> payment;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -89,7 +91,40 @@ namespace ARAcademy.site.student
             {
                 try
                 {
-                    // VALIDACION QUE SACA AL ALUMNO DE LA CLASE Y UPDATEA LAS CLASES RESTANTES
+                    clase = new ClassMeeting();
+                    clase_aux = new List<Classlist>();
+                    string id = ((Label)class_data.Items[e.Item.ItemIndex].FindControl("Id")).Text;
+                    clase.Id = id;
+                    ReadClasslistCommand cmd__ = new ReadClasslistCommand(clase);
+                    cmd__.Execute();
+                    clase_aux = cmd__.Classlist;
+                    foreach (Classlist classlist in clase_aux) 
+                    {
+                        if (classlist.Student.Email == Session["Username"].ToString())
+                        {
+                            DeleteClasslistCommand __cmd__ = new DeleteClasslistCommand(classlist);
+                            __cmd__.Execute();
+                        }
+                    }
+                    student = new Student();
+                    student.Email = Session["Username"].ToString();
+                    string sectionid = ((Label)class_data.Items[e.Item.ItemIndex].FindControl("sectionId")).Text;
+                    payment = new List<AraPayment>();
+                    ReadAllPaymentByStudentCommand _cmd_ = new ReadAllPaymentByStudentCommand(student);
+                    _cmd_.Execute();
+                    payment = _cmd_.Payments;
+                    foreach (AraPayment Payment in payment)
+                    {
+
+                        if (Payment.Section.Id == Int32.Parse(sectionid))
+                        {
+                            Payment.Id = Payment.Id;
+                            Payment.RemainingClasses = Payment.RemainingClasses + 1;
+                            UpdateRemainingClassesCommand __cmd_ = new UpdateRemainingClassesCommand(Payment);
+                            __cmd_.Execute();
+                        }
+                    }
+                    ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_del()", true);
                 }
                 catch (Exception ex)
                 {

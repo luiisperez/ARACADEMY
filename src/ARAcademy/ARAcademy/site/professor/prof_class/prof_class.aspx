@@ -32,16 +32,34 @@
                 background: '#fff ',
             })
         } 
+        function alertme_err() {
+            Swal.fire({
+                title: 'Clase eliminada exitosamente',
+                width: 400,
+                padding: '3em',
+                imageUrl: "/site/home/images/Alert_mark.png",
+                imageAlt: 'Custom image',
+                background: '#fff ',
+            })
+            .then(function (result) {
+                if (result.value) {
+                    window.location = "/site/professor/prof_menu.aspx";
+                }
+            })
+        }
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="row justify-content-center">
-        <h3>Listado de pagos</h3>
+        <h3>Listado de clases</h3>
+    </div>
+    <div class="row justify-content-center">
         <div class="col-md-10">
             <div class="table-responsive" > 
                     <table id="table" class="table table-striped table-bordered" style="width:100%">
                     <thead>
                         <tr>
+                            <th style="display:none;">Id</th>
                             <th>Módulo de Clase</th>
                             <th>Tópico</th>
                             <th>Horario</th>
@@ -54,6 +72,7 @@
                         <asp:Repeater ID="class_data" runat="server" OnItemCommand="mat_ItemCommand">
                             <ItemTemplate>
                                     <tr id="<%# Eval("Id") %>">
+                                        <td style="display:none"><asp:Label ID="Id" runat="server" text='<%# Eval("Id") %>'></asp:Label></td>
                                         <td><%# Eval("Section.Name") %></td>
                                         <td><%# Eval("Agenda") %></td>
                                         <td> <asp:Label ID="starttime" runat="server" text='<%# Eval("StartTime") %>'></asp:Label></td>
