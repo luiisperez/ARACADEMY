@@ -401,6 +401,7 @@
     <Content Include="site\professor\vendor\select2\select2.js" />
     <Content Include="site\professor\vendor\select2\select2.min.css" />
     <Content Include="site\professor\vendor\select2\select2.min.js" />
+    <Content Include="site\student\create_class.aspx" />
     <Content Include="site\student\css\calendar.css" />
     <Content Include="site\student\css\fade.css" />
     <Content Include="site\student\css\main.css" />
@@ -904,6 +905,13 @@
     </Compile>
     <Compile Include="site\professor\prof_payment\prof_payment.aspx.designer.cs">
       <DependentUpon>prof_payment.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\student\create_class.aspx.cs">
+      <DependentUpon>create_class.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\student\create_class.aspx.designer.cs">
+      <DependentUpon>create_class.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\student\edit_estu.aspx.cs">
       <DependentUpon>edit_estu.aspx</DependentUpon>

@@ -9,10 +9,7 @@
 <link rel="stylesheet" href="css/style.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
-<script src="sweetalert2.all.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-<script src="sweetalert2.min.js"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
 <link href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.css" rel="stylesheet"/>
 <script src="https://unpkg.com/gijgo@1.9.13/js/gijgo.min.js" type="text/javascript"></script>
 <script src="/site/admin/js/jquery.dataTables.min.js"></script>
@@ -22,9 +19,45 @@
 <link rel="stylesheet" href="/site/admin/css/Datatable.css">
 <link rel="stylesheet" href="/site/admin/css/fade.css">
 <link rel="stylesheet" href="/site/admin/css/util.css">
+
+<script>
+    $(document).ready(function () {
+        $('#table').DataTable();
+    });
+    function alertme_succ() {
+        Swal.fire({
+            title: 'Clase creada exitosamente',
+            width: 400,
+            padding: '3em',
+            imageUrl: "/site/home/images/Check_Mark.png",
+            imageAlt: 'Custom image',
+            background: '#fff ',
+        })
+            .then(function (result) {
+                if (result.value) {
+                    window.location = "/site/student/mis_clases.aspx";
+                }
+            })
+    }
+    function alertme() {
+        Swal.fire({
+            title: 'Ha ocurrido un error al registrar la clase, verifique la información',
+            width: 400,
+            padding: '3em',
+            imageUrl: "/site/home/images/Alert_mark.png",
+            imageAlt: 'Custom image',
+            background: '#fff ',
+        })
+            .then(function (result) {
+                if (result.value) {
+                    window.location = "/site/student/stud_menu.aspx";
+                }
+            })
+    }
+</script>
 <script>
 
-    $(document).ready(function start() {
+    $(document).ready(function () {
         var date = new Date();
         var d = date.getDate();
         var m = date.getMonth();
@@ -124,41 +157,6 @@
         });
     });
 </script>
-    <script>
-        $(document).ready(function () {
-            $('#table').DataTable();
-        });
-        function alertme_succ() {
-            Swal.fire({
-                title: 'Clase creada exitosamente',
-                width: 400,
-                padding: '3em',
-                imageUrl: "/site/home/images/Check_Mark.png",
-                imageAlt: 'Custom image',
-                background: '#fff ',
-            })
-                .then(function (result) {
-                    if (result.value) {
-                        window.location = "/site/student/mis_clases.aspx";
-                    }
-                })
-        }
-        function alertme() {
-            Swal.fire({
-                title: 'Ha ocurrido un error al registrar la clase, verifique la información',
-                width: 400,
-                padding: '3em',
-                imageUrl: "/site/home/images/Alert_mark.png",
-                imageAlt: 'Custom image',
-                background: '#fff ',
-            })
-                .then(function (result) {
-                    if (result.value) {
-                        window.location = "/site/student/stud_menu.aspx";
-                    }
-                })
-        }
-    </script>
 <style>
     .input-group-append {
         display: none;
@@ -233,7 +231,7 @@
 
 <div id='wrap' style="margin-bottom:40px">
        
-    <asp:Button runat="server" Style="background-color:#00194f;color:white;width:15%;border-radius: 20px; float:right; margin-right:10%; margin-bottom:5px;margin-top:15px" data-toggle="modal" data-target="#myModal" Text="Agendar Clase" OnClientClick="return false;" />
+    <asp:Button runat="server" Style="background-color:#00194f;color:white;width:15%;border-radius: 20px; float:right; margin-right:10%; margin-bottom:5px;margin-top:15px" Text="Agendar Clase" OnClick="create_class" />
 
     <div id='calendar'></div>
 
@@ -247,6 +245,7 @@
                 <thead>
                     <tr>
                         <th style="display:none"></th>
+                        <th style="display:none"></th>
                         <th>Tópico</th>
                         <th>Horario</th>
                         <th>Accion</th>
@@ -258,6 +257,7 @@
                         <ItemTemplate>
                                 <tr id="<%# Eval("Id") %>">
                                     <td style="display:none"><asp:Label ID="Id" runat="server" text='<%# Eval("Id") %>'></asp:Label></td>
+                                    <td style="display:none"><asp:Label ID="section" runat="server" text='<%# Eval("Section.Id") %>'></asp:Label></td>
                                     <td><%# Eval("Agenda") %></td>
                                     <td><%# Eval("StartTime") %></td>
                                     <td style="text-align:center">
@@ -271,11 +271,8 @@
             </div>  
         </div>
     </div>
-
-</div>
-
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<%--<div id="myModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
@@ -347,5 +344,9 @@
 </div>
 
     </div>
-</div>ipt>
+</div>--%>
+
+</div>
+
+
 </asp:Content>
