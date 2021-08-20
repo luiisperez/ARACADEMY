@@ -53,7 +53,7 @@
                                         <td><%# Eval("Amount") %></td>
                                         <td><%# Eval("PaymentDate") %></td>
                                         <td><%# Eval("PaypalTransactionId") %></td>
-                                        <td><%# Eval("RemainingClasses") %></td>
+                                        <td><%# Eval("RemainingClasses" ) + "/10" %></td>
                                     </tr>              
                             </ItemTemplate>
                         </asp:Repeater>

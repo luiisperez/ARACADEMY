@@ -28,8 +28,10 @@ namespace ARAcademy.site.student
         private Classlist listado;
         private ClassMeeting classmeet;
         private AraPayment arapayment;
+        private List<Classlist> class_list;
         private List<ClassMeeting> list_class = new List<ClassMeeting>();
         public List<ClassMeeting> list_class_aux = new List<ClassMeeting>();
+        public List<ClassMeeting> class_aux = new List<ClassMeeting>();
         private List<Classlist> clase_aux;
         public string jsonData;
         public string myData;
@@ -71,11 +73,22 @@ namespace ARAcademy.site.student
                                 }
                             }
                         }
-                        class_data.DataSource = list_class_aux;
+
+                        foreach (ClassMeeting classMeeting1 in list_class_aux)
+                        {
+                            ReadClasslistCommand cmd2 = new ReadClasslistCommand(classMeeting1);
+                            cmd2.Execute();
+                            class_list = cmd2.Classlist;
+                            if (class_list.Count == 0 )
+                            {
+                                class_aux.Add(classMeeting1);
+                            }
+                        }
+                        class_data.DataSource = class_aux;
                         class_data.DataBind();
                         int i;
                         list_data = new List<object>();
-                        for (i = 0; i < list_class_aux.Count; i++)
+                        for (i = 0; i < class_aux.Count; i++)
                         {
                             var myData = new
                             {
@@ -111,28 +124,38 @@ namespace ARAcademy.site.student
                     student = new Student();
                     classmeet = new ClassMeeting();
                     listado = new Classlist();
+                    Section section = new Section();
                     string id = ((Label)class_data.Items[e.Item.ItemIndex].FindControl("Id")).Text;
-                    Section section = ((Label)class_data.Items[e.Item.ItemIndex].FindControl("Section.Id")).Text;
+                    section.Id = Int32.Parse(((Label)class_data.Items[e.Item.ItemIndex].FindControl("section")).Text);
                     classmeet.Id = id;
                     student.Email = Session["Username"].ToString();
                     listado.ClassMeeting = classmeet;
                     listado.Student = student;
-                    CreateClasslistCommand _cmd_ = new CreateClasslistCommand(listado);
-                    _cmd_.Execute();
                     payment = new List<AraPayment>();
                     ReadAllPaymentByStudentCommand _cmd__ = new ReadAllPaymentByStudentCommand(student);
                     _cmd__.Execute();
                     payment = _cmd__.Payments;
+                    bool flag = false;
                     foreach (AraPayment Payment in payment)
                     {
-
-                        if (Payment.Section.Id == Int32.Parse(section))
+                        if (Payment.Section.Id == section.Id && Payment.RemainingClasses > 0)
                         {
                             Payment.Id = Payment.Id;
                             Payment.RemainingClasses = Payment.RemainingClasses - 1;
                             UpdateRemainingClassesCommand __cmd_ = new UpdateRemainingClassesCommand(Payment);
                             __cmd_.Execute();
+                            CreateClasslistCommand _cmd_ = new CreateClasslistCommand(listado);
+                            _cmd_.Execute();
+                            flag = true;
                         }
+                    }
+                    if (flag == true)
+                    {
+                        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
+                    }
+                    else
+                    {
+                        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_err_class()", true);
                     }
                 }
                 catch (Exception ex)

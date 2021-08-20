@@ -29,11 +29,11 @@
                       <li>
                         <a href="/site/admin/mod_menu.aspx"><span class="fa fa-th"></span> Programación Academica </a>
                       </li>
-                      <li>
+<%--                      <li>
                         <a href="/site/admin/admin_home.aspx"><span class="fa fa-line-chart"></span> Información Administrativa </a>
-                      </li>
+                      </li>--%>
                       <li>
-                        <a href="#"><span class="fa fa-files-o "></span> Reportes Generales </a>
+                        <a href="/site/admin/admin_home.aspx"><span class="fa fa-files-o "></span> Reportes Generales </a>
                       </li>
                     </ul>
 

@@ -117,61 +117,69 @@ namespace ARAcademy.site.student
 
         protected void Create_Class(object sender, EventArgs e)
         {
-            topic = new Topic();
-            topic.Id = Int32.Parse(list_topics.SelectedValue);
-            ReadTopicCommand cmd_ = new ReadTopicCommand(topic);
-            cmd_.Execute();
-            topic = cmd_.Topic;
-            MeetingInJson meetingInJson = ZoomAPI.CreateMeeting(topic.Name, "2021-11-15T20:15:00"); //LLAMADA DE EJEMPLO
-            DateTime startTime = DateTime.Parse(fec_ini.Value, CultureInfo.GetCultureInfo("en-US"));
-            DateTime hourTime = DateTime.Parse(Hora.Value, System.Globalization.CultureInfo.CurrentCulture);
-            startTime = Convert.ToDateTime(startTime.ToShortDateString() + " " + hourTime.TimeOfDay);
-            DateTime createdAt = DateTime.Now;
-            section = new Section();
-            section.Id = Int32.Parse(list_section.SelectedValue);
-            teacher = new Teacher();
-            teacher.Email = "host@ara.com";
-            ClassMeeting cm = new ClassMeeting(meetingInJson.id, meetingInJson.uuid, meetingInJson.host_id,
-                                               meetingInJson.host_email, meetingInJson.topic, 1,
-                                               meetingInJson.status, startTime, Int32.Parse(meetingInJson.duration),
-                                               meetingInJson.timezone, meetingInJson.agenda, createdAt, meetingInJson.start_url,
-                                               meetingInJson.join_url, meetingInJson.password, meetingInJson.h323_password, meetingInJson.pstn_password,
-                                               meetingInJson.encrypted_password, "Clase Creada", section, teacher);
-            CreateClassMeetingCommand cmd = new CreateClassMeetingCommand(cm);
-            cmd.Execute();
-            if (cmd.ClassMeeting.Code == 200)
+            student = new Student();
+            student.Email = Session["Username"].ToString();
+            payment = new List<AraPayment>();
+            ReadAllPaymentByStudentCommand _cmd_ = new ReadAllPaymentByStudentCommand(student);
+            _cmd_.Execute();
+            payment = _cmd_.Payments;
+            bool flag = false;
+            foreach (AraPayment Payment in payment)
             {
-                listado = new Classlist(meetingInJson, student);
-                student = new Student();
-                classmeet = new ClassMeeting();
-                classmeet.Id = meetingInJson.id;
-                student.Email = Session["Username"].ToString();
-                listado.Student = student;
-                listado.ClassMeeting = classmeet;
-                CreateClasslistCommand _cmd = new CreateClasslistCommand(listado);
-                _cmd.Execute();
-                // PENDIENTE PARA RESTAR CLASE RESTANTE
-                payment = new List<AraPayment>();
-                ReadAllPaymentByStudentCommand _cmd_ = new ReadAllPaymentByStudentCommand(student);
-                _cmd_.Execute();
-                payment = _cmd_.Payments;
-                foreach (AraPayment Payment in payment)
+                if (Payment.Section.Id == Int32.Parse(list_section.SelectedValue) && Payment.RemainingClasses > 0)
                 {
-
-                    if (Payment.Section.Id == Int32.Parse(list_section.SelectedValue))
+                    Payment.Id = Payment.Id;
+                    Payment.RemainingClasses = Payment.RemainingClasses - 1;
+                    UpdateRemainingClassesCommand __cmd_ = new UpdateRemainingClassesCommand(Payment);
+                    __cmd_.Execute();
+                    topic = new Topic();
+                    topic.Id = Int32.Parse(list_topics.SelectedValue);
+                    ReadTopicCommand cmd_ = new ReadTopicCommand(topic);
+                    cmd_.Execute();
+                    topic = cmd_.Topic;
+                    MeetingInJson meetingInJson = ZoomAPI.CreateMeeting(topic.Name, "2021-11-15T20:15:00"); //LLAMADA DE EJEMPLO
+                    DateTime startTime = DateTime.Parse(fec_ini.Value, CultureInfo.GetCultureInfo("en-US"));
+                    DateTime hourTime = DateTime.Parse(Hora.Value, System.Globalization.CultureInfo.CurrentCulture);
+                    startTime = Convert.ToDateTime(startTime.ToShortDateString() + " " + hourTime.TimeOfDay);
+                    DateTime createdAt = DateTime.Now;
+                    section = new Section();
+                    section.Id = Int32.Parse(list_section.SelectedValue);
+                    teacher = new Teacher();
+                    teacher.Email = "host@aracademy.com";
+                    ClassMeeting cm = new ClassMeeting(meetingInJson.id, meetingInJson.uuid, meetingInJson.host_id,
+                                                       meetingInJson.host_email, meetingInJson.topic, 1,
+                                                       meetingInJson.status, startTime, Int32.Parse(meetingInJson.duration),
+                                                       meetingInJson.timezone, meetingInJson.agenda, createdAt, meetingInJson.start_url,
+                                                       meetingInJson.join_url, meetingInJson.password, meetingInJson.h323_password, meetingInJson.pstn_password,
+                                                       meetingInJson.encrypted_password, "Clase Creada", section, teacher);
+                    CreateClassMeetingCommand cmd = new CreateClassMeetingCommand(cm);
+                    cmd.Execute();
+                    if (cmd.ClassMeeting.Code == 200)
                     {
-                        Payment.Id = Payment.Id;
-                        Payment.RemainingClasses = Payment.RemainingClasses - 1;
-                        UpdateRemainingClassesCommand __cmd_ = new UpdateRemainingClassesCommand(Payment);
-                        __cmd_.Execute();
+                        listado = new Classlist(meetingInJson, student);
+                        student = new Student();
+                        classmeet = new ClassMeeting();
+                        classmeet.Id = meetingInJson.id;
+                        student.Email = Session["Username"].ToString();
+                        listado.Student = student;
+                        listado.ClassMeeting = classmeet;
+                        CreateClasslistCommand _cmd = new CreateClasslistCommand(listado);
+                        _cmd.Execute();
+                        flag = true;
+                    }
+                    else
+                    {
+                        ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
                     }
                 }
+            }
+            if (flag == true)
+            {
                 ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_succ()", true);
-                //Response.Redirect("mis_clases.aspx");
             }
             else
             {
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme()", true);
+                ClientScript.RegisterClientScriptBlock(this.GetType(), "random", "alertme_err_class()", true);
             }
 
         }

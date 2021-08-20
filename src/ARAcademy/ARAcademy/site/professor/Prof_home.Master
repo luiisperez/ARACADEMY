@@ -34,9 +34,9 @@
                       <li>
                         <a href="/site/professor/prof_mat/prof_mat.aspx"><span class="fa fa-check-circle-o"></span> Programación Academica </a>
                       </li>
-                        <li>
+<%--                      <li>
                         <a href="/site/professor/prof_comments/prof_comments.aspx"><span class="fa fa-comments"></span> Mis Comentarios </a>
-                      </li>
+                      </li>--%>
                     </ul>
 
                     <div class="footer">

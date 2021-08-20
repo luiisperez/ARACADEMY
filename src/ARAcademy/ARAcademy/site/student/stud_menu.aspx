@@ -26,7 +26,7 @@
     });
     function alertme_succ() {
         Swal.fire({
-            title: 'Clase creada exitosamente',
+            title: 'Clase agendada exitosamente',
             width: 400,
             padding: '3em',
             imageUrl: "/site/home/images/Check_Mark.png",
@@ -42,6 +42,21 @@
     function alertme() {
         Swal.fire({
             title: 'Ha ocurrido un error al registrar la clase, verifique la información',
+            width: 400,
+            padding: '3em',
+            imageUrl: "/site/home/images/Alert_mark.png",
+            imageAlt: 'Custom image',
+            background: '#fff ',
+        })
+            .then(function (result) {
+                if (result.value) {
+                    window.location = "/site/student/stud_menu.aspx";
+                }
+            })
+    }
+    function alertme_err_class() {
+        Swal.fire({
+            title: 'No posee clases disponibles para este modulo',
             width: 400,
             padding: '3em',
             imageUrl: "/site/home/images/Alert_mark.png",
@@ -111,21 +126,21 @@
             allDaySlot: false,
             selectHelper: true,
             // Funcion que se activa al seleccionar un dia 
-            select: function (start, end, allDay) {
-                var title = prompt('Event Title:');
-                if (title) {
-                    calendar.fullCalendar('renderEvent',
-                        {
-                            title: title,
-                            start: start,
-                            end: end,
-                            allDay: allDay
-                        },
-                        false // make the event "stick"
-                    );
-                }
-                calendar.fullCalendar('unselect');
-            },
+            //select: function (start, end, allDay) {
+            //    var title = prompt('Event Title:');
+            //    if (title) {
+            //        calendar.fullCalendar('renderEvent',
+            //            {
+            //                title: title,
+            //                start: start,
+            //                end: end,
+            //                allDay: allDay
+            //            },
+            //            false // make the event "stick"
+            //        );
+            //    }
+            //    calendar.fullCalendar('unselect');
+            //},
             droppable: true, // this allows things to be dropped onto the calendar !!!
             drop: function (date, allDay) { // this function is called when something is dropped
                 // retrieve the dropped element's stored Event Object

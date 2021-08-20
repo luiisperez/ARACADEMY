@@ -64,7 +64,7 @@ namespace ARAcademy.site.professor
                         {
                             foreach (ClassMeeting classMeeting in list_class)
                             {
-                                if (section.Id == classMeeting.Section.Id && classMeeting.Teacher.Email == "host@ara.com")
+                                if (section.Id == classMeeting.Section.Id && classMeeting.Teacher.Email == "host@aracademy.com")
                                 {
                                     list_class_aux.Add(classMeeting);
                                 }

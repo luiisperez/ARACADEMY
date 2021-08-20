@@ -49,6 +49,21 @@
                 }
             })
     }
+    function alertme_err_class() {
+        Swal.fire({
+            title: 'No posee clases disponibles para este modulo',
+            width: 400,
+            padding: '3em',
+            imageUrl: "/site/home/images/Alert_mark.png",
+            imageAlt: 'Custom image',
+            background: '#fff ',
+        })
+            .then(function (result) {
+                if (result.value) {
+                    window.location = "/site/student/stud_menu.aspx";
+                }
+            })
+    }
 </script>
 <style>
     .input-group-append {

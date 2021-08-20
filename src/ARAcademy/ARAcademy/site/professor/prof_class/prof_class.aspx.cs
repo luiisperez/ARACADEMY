@@ -92,7 +92,7 @@ namespace ARAcademy.site.professor.prof_class
                     classmeet = new ClassMeeting();
                     string id = ((Label)class_data.Items[e.Item.ItemIndex].FindControl("Id")).Text;
                     classmeet.Id = id;
-                    teacher.Email = "host@ara.com";
+                    teacher.Email = "host@aracademy.com";
                     classmeet.Teacher = teacher;
                     UpdateClassTeacherCommand _cmd_ = new UpdateClassTeacherCommand(classmeet);
                     _cmd_.Execute();

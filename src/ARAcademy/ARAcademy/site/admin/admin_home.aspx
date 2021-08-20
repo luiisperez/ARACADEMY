@@ -14,8 +14,18 @@
 }
 
 #chartdiv3 {
-  width: 200%;
-  height: 350px;
+  width: 100%;
+  height: 260px;
+}
+
+#chartdiv4 {
+  width: 100%;
+  height: 500px;
+}
+
+#chartdiv5 {
+  width: 100%;
+  height: 500px;
 }
 
 </style>
@@ -44,12 +54,57 @@
         chart.data = [{
             "country": "Cantidad de Materias",
             "visits": suma_mat
-            }, {
+            }];
+
+        // Create axes
+
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "country";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.minGridDistance = 30;
+
+        categoryAxis.renderer.labels.template.adapter.add("dy", function (dy, target) {
+            if (target.dataItem && target.dataItem.index & 2 == 2) {
+                return dy + 25;
+            }
+            return dy;
+        });
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+        // Create series
+        var series = chart.series.push(new am4charts.ColumnSeries());
+        series.dataFields.valueY = "visits";
+        series.dataFields.categoryX = "country";
+        series.name = "Visits";
+        series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+        series.columns.template.fillOpacity = .8;
+
+        var columnTemplate = series.columns.template;
+        columnTemplate.strokeWidth = 2;
+        columnTemplate.strokeOpacity = 1;
+
+    }); // end am4core.ready()
+</script>
+
+<!-- Chart code -->
+<script>
+    am4core.ready(function () {
+
+        // Themes begin
+        am4core.useTheme(am4themes_animated);
+        // Themes end
+
+        // Create chart instance
+        var chart = am4core.create("chartdiv2", am4charts.XYChart);
+        var suma_mat = '<%=suma_mat%>';
+        var suma_mod = '<%=suma_mod%>';
+        var suma_top = '<%=suma_top%>';
+
+        // Add data
+        chart.data = [{
             "country": "Cantidad de Modulos",
             "visits": suma_mod
-            }, {
-            "country": "Cantidad de Topicos",
-            "visits": suma_top
         }];
 
         // Create axes
@@ -92,149 +147,67 @@
         // Themes end
 
         // Create chart instance
-        var chart = am4core.create("chartdiv2", am4charts.PieChart);
-
-        // Set data
-        var selected;
-        var suma_prig = '<%=suma_prig%>';
-        var suma_segg = '<%=suma_segg%>';
-        var suma_terg = '<%=suma_terg%>';
-        var suma_cuag = '<%=suma_cuag%>';
-        var suma_quig = '<%=suma_quig%>';
-        var suma_sexg = '<%=suma_sexg%>';
-        var total = '<%=total%>';
-        var types = [{
-            type: "Alumnos por curso",
-            percent: total,
-            color: "#71FF33",
-            subs: [{
-                type: "Primer Curso",
-                percent: suma_prig
-            }, {
-                type: "Segundo Curso",
-                percent: suma_segg
-            }, {
-                type: "Tercer Curso",
-                percent: suma_terg
-            }, {
-                type: "Cuarto Curso",
-                percent: suma_cuag
-            }, {
-                type: "Quinto Curso",
-                percent: suma_quig
-            },{
-                type: "Sexto Curso",
-                percent: suma_sexg
-            }]
-        }];
+        var chart = am4core.create("chartdiv3", am4charts.XYChart);
+        var suma_mat = '<%=suma_mat%>';
+        var suma_mod = '<%=suma_mod%>';
+        var suma_top = '<%=suma_top%>';
 
         // Add data
-        chart.data = generateChartData();
+        chart.data = [{
+            "country": "Cantidad de Topicos",
+            "visits": suma_top
+        }];
 
-        // Add and configure Series
-        var pieSeries = chart.series.push(new am4charts.PieSeries());
-        pieSeries.dataFields.value = "percent";
-        pieSeries.dataFields.category = "type";
-        pieSeries.slices.template.propertyFields.fill = "color";
-        pieSeries.slices.template.propertyFields.isActive = "pulled";
-        pieSeries.slices.template.strokeWidth = 0;
+        // Create axes
 
-        function generateChartData() {
-            var chartData = [];
-            for (var i = 0; i < types.length; i++) {
-                if (i == selected) {
-                    for (var x = 0; x < types[i].subs.length; x++) {
-                        chartData.push({
-                            type: types[i].subs[x].type,
-                            percent: types[i].subs[x].percent,
-                            color: types[i].color,
-                            pulled: true
-                        });
-                    }
-                } else {
-                    chartData.push({
-                        type: types[i].type,
-                        percent: types[i].percent,
-                        color: types[i].color,
-                        id: i
-                    });
-                }
+        var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
+        categoryAxis.dataFields.category = "country";
+        categoryAxis.renderer.grid.template.location = 0;
+        categoryAxis.renderer.minGridDistance = 30;
+
+        categoryAxis.renderer.labels.template.adapter.add("dy", function (dy, target) {
+            if (target.dataItem && target.dataItem.index & 2 == 2) {
+                return dy + 25;
             }
-            return chartData;
-        }
-
-        pieSeries.slices.template.events.on("hit", function (event) {
-            if (event.target.dataItem.dataContext.id != undefined) {
-                selected = event.target.dataItem.dataContext.id;
-            } else {
-                selected = undefined;
-            }
-            chart.data = generateChartData();
+            return dy;
         });
+
+        var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
+
+        // Create series
+        var series = chart.series.push(new am4charts.ColumnSeries());
+        series.dataFields.valueY = "visits";
+        series.dataFields.categoryX = "country";
+        series.name = "Visits";
+        series.columns.template.tooltipText = "{categoryX}: [bold]{valueY}[/]";
+        series.columns.template.fillOpacity = .8;
+
+        var columnTemplate = series.columns.template;
+        columnTemplate.strokeWidth = 2;
+        columnTemplate.strokeOpacity = 1;
 
     }); // end am4core.ready()
 </script>
 
-    <!-- Chart code -->
+
+<!-- Chart code -->
 <script>
     am4core.ready(function () {
 
         // Themes begin
-        am4core.useTheme(am4themes_frozen);
+        am4core.useTheme(am4themes_animated);
         // Themes end
 
         // Create chart instance
-        var chart = am4core.create("chartdiv3", am4charts.PieChart);
-
-        // Add and configure Series
-        var pieSeries = chart.series.push(new am4charts.PieSeries());
-        pieSeries.dataFields.value = "litres";
-        pieSeries.dataFields.category = "country";
-
-        // Let's cut a hole in our Pie chart the size of 30% the radius
-        chart.innerRadius = am4core.percent(30);
-
-        // Put a thick white border around each Slice
-        pieSeries.slices.template.stroke = am4core.color("#fff");
-        pieSeries.slices.template.strokeWidth = 2;
-        pieSeries.slices.template.strokeOpacity = 1;
-        pieSeries.slices.template
-            // change the cursor on hover to make it apparent the object can be interacted with
-            .cursorOverStyle = [
-                {
-                    "property": "cursor",
-                    "value": "pointer"
-                }
-            ];
-
-        pieSeries.alignLabels = false;
-        pieSeries.labels.template.bent = true;
-        pieSeries.labels.template.radius = 3;
-        pieSeries.labels.template.padding(0, 0, 0, 0);
-
-        pieSeries.ticks.template.disabled = true;
-
-        // Create a base filter effect (as if it's not there) for the hover to return to
-        var shadow = pieSeries.slices.template.filters.push(new am4core.DropShadowFilter);
-        shadow.opacity = 0;
-
-        // Create hover state
-        var hoverState = pieSeries.slices.template.states.getKey("hover"); // normally we have to create the hover state, in this case it already exists
-
-        // Slightly shift the shadow and make it more prominent on hover
-        var hoverShadow = hoverState.filters.push(new am4core.DropShadowFilter);
+        var chart = am4core.create("chartdiv5", am4charts.PieChart);
         var suma_prig = '<%=suma_prig%>';
         var suma_segg = '<%=suma_segg%>';
         var suma_terg = '<%=suma_terg%>';
         var suma_cuag = '<%=suma_cuag%>';
         var suma_quig = '<%=suma_quig%>';
         var suma_sexg = '<%=suma_sexg%>';
-        var total = '<%=total%>';
-        hoverShadow.opacity = 0.7;
-        hoverShadow.blur = 5;
 
-        // Add a legend
-        chart.legend = new am4charts.Legend();
+        // Add data
 
         chart.data = [{
             "country": "Primer Curso",
@@ -249,16 +222,31 @@
             "country": "Cuarto Curso",
             "litres": suma_cuag
         }, {
-            "country": "Quinto Curso",
+            "country": "Cuarto Curso",
             "litres": suma_quig
         }, {
-            "country": "Sexto Curso",
+            "country": "Cuarto Curso",
             "litres": suma_sexg
         }];
 
+        // Set inner radius
+        chart.innerRadius = am4core.percent(50);
+
+        // Add and configure Series
+        var pieSeries = chart.series.push(new am4charts.PieSeries());
+        pieSeries.dataFields.value = "litres";
+        pieSeries.dataFields.category = "country";
+        pieSeries.slices.template.stroke = am4core.color("#fff");
+        pieSeries.slices.template.strokeWidth = 2;
+        pieSeries.slices.template.strokeOpacity = 1;
+
+        // This creates initial animation
+        pieSeries.hiddenState.properties.opacity = 1;
+        pieSeries.hiddenState.properties.endAngle = -90;
+        pieSeries.hiddenState.properties.startAngle = -90;
+
     }); // end am4core.ready()
 </script>
-
 </asp:Content>
 
 
@@ -267,15 +255,28 @@
     <div class="row justify-content-center" style="width:100%">
         <h3>Listado de reportes</h3>
     </div>
+
     <div class="row" style="width:100%">
-        <div class="col-6">
+        <div class="col">
             <div class="card" style="margin:2%">
                 <div id="chartdiv"></div>
             </div>
         </div>
-        <div class="col-6">
+        <div class="col">
             <div class="card" style="margin:2%">
                 <div id="chartdiv2"></div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="margin:2%">
+                <div id="chartdiv3"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="width:100%">
+        <div class="col">
+            <div class="card" style="margin:1%">
+                <div id="chartdiv5"></div>
             </div>
         </div>
     </div>
