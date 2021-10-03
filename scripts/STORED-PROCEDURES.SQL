@@ -711,7 +711,7 @@ END;
 $$ LANGUAGE plpgsql;
 
 /************MODIFICAR CLASES RESTANTES DEL ALUMNO***************/
-CREATE OR REPLACE FUNCTION UPDATE_REMAINING_CLASSES(IDE               integer,
+CREATE OR REPLACE FUNCTION UPDATE_REMAINING_CLASSES(IDE             integer,
 	                                                CLASESRESTANTES integer   )
 RETURNS integer AS $$
 DECLARE
@@ -1223,5 +1223,141 @@ BEGIN
 	RETURN QUERY
 	SELECT GRA.ID, GRA.NAME
 	FROM GRADE GRA;
+END;
+$$ LANGUAGE plpgsql;
+/***********************INICIO PLS DE REPORTES*********************/
+/************************LISTADO DE PAYMENTS***********************/
+CREATE OR REPLACE FUNCTION PAYMENTS_LIST(FECHAINI date, FECHAFIN date) RETURNS TABLE(ID integer, PAYDATE date, EXPIRATIONDATE date, PPTRANSACTIONID varchar(100), AMOUNT numeric, REMAINING_CLASSES integer, FK_SECTION integer, FK_STUDENT varchar(100)) AS $$
+DECLARE
+
+BEGIN
+	RETURN QUERY
+	SELECT PAY.ID, PAY.PAYDATE, PAY.EXPIRATIONDATE, PAY.PPTRANSACTIONID, PAY.AMOUNT, PAY.REMAINING_CLASSES, SEC.ID, STU.EMAIL
+	FROM PAYMENT PAY
+	WHERE PAY.PAYDATE BETWEEN FECHAINI AND FECHAFIN;
+END;
+$$ LANGUAGE plpgsql;
+/************************CANTIDAD DE PAYMENTS***********************/
+CREATE OR REPLACE FUNCTION PAYMENTS_COUNT(FECHAINI date, FECHAFIN date) RETURNS integer AS $$
+DECLARE
+ RESULT integer;
+
+BEGIN
+	SELECT COUNT(*)
+	FROM PAYMENT PAY
+	WHERE PAY.PAYDATE BETWEEN FECHAINI AND FECHAFIN;
+END;
+$$ LANGUAGE plpgsql;
+/*******************LISTADO DE PAYMENTS POR MODULO******************/
+CREATE OR REPLACE FUNCTION PAYMENTS_LIST_BY_SECTION(IDE integer) RETURNS TABLE(ID integer, PAYDATE date, EXPIRATIONDATE date, PPTRANSACTIONID varchar(100), AMOUNT numeric, REMAINING_CLASSES integer, FK_SECTION integer, FK_STUDENT varchar(100)) AS $$
+DECLARE
+
+BEGIN
+	RETURN QUERY
+	SELECT PAY.ID, PAY.PAYDATE, PAY.EXPIRATIONDATE, PAY.PPTRANSACTIONID, PAY.AMOUNT, PAY.REMAINING_CLASSES, SEC.ID, STU.EMAIL
+	FROM PAYMENT PAY, SECTION SEC, STUDENT STU
+	WHERE PAY.FK_SECTION = SEC.ID;
+END;
+$$ LANGUAGE plpgsql;
+/**************LISTADO DE CLASSES POR PROFESOR Y FECHA**************/
+CREATE OR REPLACE FUNCTION READ_CLASS_BY_TEACHER_PERIOD(FECHAINI timestamp, FECHAFIN timestamp, FK_PROFESOR varchar(100)) 
+                        RETURNS TABLE(ID                 varchar(50) , 
+                            	      UUID               varchar(50) ,
+                                      HOST_ID            varchar(50) ,
+                          	          HOST_EMAIL         varchar(60) ,
+                           	          TOPIC              varchar(30) ,
+                           	          TYPE               integer     ,
+                           	          STATUS             varchar(20) ,
+                           	          START_TIME         timestamp   ,
+                           	          DURATION           integer     ,
+                           	          TIMEZONE           varchar(50) ,
+                           	          AGENDA             varchar(20) , 
+	                                  CREATED_AT         timestamp   ,
+	                                  START_URL          varchar(800),
+	                                  JOIN_URL           varchar(100),
+	                                  PASSWORD           varchar(20) ,
+	                                  H323_PASSWORD      varchar(20) , 
+	                                  PSTN_PASSWORD      varchar(20) ,
+	                                  ENCRYPTED_PASSWORD varchar(60) , 
+	                                  COMMENT            varchar(500),
+                        	          FK_SECTION         integer     ,
+                        	          SEC_NAME           varchar(30) ,
+                        	          FK_TEACHER         varchar(100),
+                        	          TEA_NAME           varchar(30) ,
+                        	          TEA_LASTNAME       varchar(40)) AS $$
+DECLARE
+
+BEGIN
+	RETURN QUERY
+	SELECT CLA.ID                ,
+	       CLA.UUID              , 
+	       CLA.HOST_ID           , 
+	       CLA.HOST_EMAIL        , 
+	       CLA.TOPIC             , 
+	       CLA.TYPE              , 
+	       CLA.STATUS            , 
+	       CLA.START_TIME        , 
+	       CLA.DURATION          , 
+	       CLA.TIMEZONE          , 
+	       CLA.AGENDA            , 
+	       CLA.CREATED_AT        , 
+	       CLA.START_URL         , 
+	       CLA.JOIN_URL          , 
+	       CLA.PASSWORD          , 
+	       CLA.H323_PASSWORD     ,
+	       CLA.PSTN_PASSWORD     , 
+	       CLA.ENCRYPTED_PASSWORD, 
+	       CLA.COMMENT           ,
+	       SEC.ID                , 
+	       SEC.NAME              , 
+	       TEA.EMAIL             , 
+	       TEA.NAME              , 
+	       TEA.LASTNAME
+	FROM CLASS CLA, SECTION SEC, TEACHER TEA
+	WHERE CLA.START_TIME BETWEEN FECHAINI and FECHAFIN
+	  AND CLA.FK_TEACHER = FK_PROFESOR;
+END;
+$$ LANGUAGE plpgsql;
+/**************TOTAL DE HORAS POR PROFESOR Y FECHA**************/
+CREATE OR REPLACE FUNCTION TOTAL_HOURS_PROFESOR(FECHAINI date, FECHAFIN date, FK_PROFESOR varchar(100)) RETURNS TABLE(SALARIO integer, EMAIL varchar(100)) AS $$
+DECLARE
+
+BEGIN
+    RETURN QUERY
+	SELECT SUM(CLA.DURATION)*4 AS SALARY, TEA.EMAIL
+	FROM TEACHER TEA, CLASS CLA
+	WHERE CLA.START_TIME BETWEEN FECHAINI and FECHAFIN
+	  AND CLA.FK_TEACHER = FK_PROFESOR
+	GROUP BY TEA.EMAIL;
+END;
+$$ LANGUAGE plpgsql;
+
+/*******CANTIDAD DE ESTUDIANTES POR MODULO EN UNA FECHA*******/
+CREATE OR REPLACE FUNCTION COUNT_STUDENTS_BY_SECTION_PERIOD(FECHAINI date, FECHAFIN date, IDE integer) RETURNS integer AS $$
+DECLARE
+ RETURN integer;
+
+BEGIN
+	SELECT COUNT(*)
+	FROM STUDENT STU, SECTION SEC, PAYMENT PAY
+	WHERE PAY.FK_STUDENT = STU.EMAIL
+	  AND PAY.FK_SECTION = SEC.ID
+	  AND SEC.ID         = IDE
+	  AND PAY.PAYDATE BETWEEN FECHAINI AND FECHAFIN;
+END;
+$$ LANGUAGE plpgsql;
+
+/**************STUDENTS BY SECTION IN A PERIOD**************/
+CREATE OR REPLACE FUNCTION READ_STUDENTS_BY_SECTION_PERIOD(FECHAINI date, FECHAFIN date, IDE integer) RETURNS TABLE(EMAIL varchar(100), PASSWORD varchar(30), NAME varchar(30), LASTNAME varchar(40), BIRTHDATE date, PHONE varchar(20), COUNTRY varchar(30), STATUS varchar(1)) AS $$
+DECLARE
+
+BEGIN
+	RETURN QUERY
+	SELECT STU.EMAIL, STU.PASSWORD, STU.NAME, STU.LASTNAME, STU.BIRTHDATE, STU.PHONE, STU.COUNTRY, STU.STATUS
+	FROM STUDENT STU, SECTION SEC, PAYMENT PAY
+	WHERE PAY.FK_STUDENT = STU.EMAIL
+	  AND PAY.FK_SECTION = SEC.ID
+	  AND SEC.ID         = IDE
+	  AND PAY.PAYDATE BETWEEN FECHAINI AND FECHAFIN;
 END;
 $$ LANGUAGE plpgsql;
