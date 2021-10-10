@@ -1055,6 +1055,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="packages.config" />
     <Content Include="site\home\.DS_Store" />
     <Content Include="site\home\css\.DS_Store" />
@@ -1523,6 +1526,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="model\report\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
