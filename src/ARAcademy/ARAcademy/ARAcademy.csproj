@@ -527,6 +527,11 @@
     <Compile Include="controller\payment\ReadPaymentCommand.cs" />
     <Compile Include="controller\payment\UpdatePaymentCommand.cs" />
     <Compile Include="controller\payment\UpdateRemainingClassesCommand.cs" />
+    <Compile Include="controller\report\CalculateTeacherSalaryBetweenDatesCommand.cs" />
+    <Compile Include="controller\report\ReadAllPaymentBySectionCommand.cs" />
+    <Compile Include="controller\report\ReadAllPaymentsBetweenDatesCommand.cs" />
+    <Compile Include="controller\report\ReadAllStudentBySectionBetweenDatesCommand.cs" />
+    <Compile Include="controller\report\ReadClassByTeacherBetweenDatesCommnad.cs" />
     <Compile Include="controller\section\CreateSectionCommand.cs" />
     <Compile Include="controller\section\DeleteSectionCommand.cs" />
     <Compile Include="controller\section\ReadAllSectionByCourseCommand.cs" />
@@ -608,6 +613,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Registry.resx</DependentUpon>
+    </Compile>
+    <Compile Include="model\report\DAOReport.cs" />
+    <Compile Include="model\report\DAOReportResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DAOReportResource.resx</DependentUpon>
     </Compile>
     <Compile Include="model\section\DAOSection.cs" />
     <Compile Include="model\section\DAOSectionResource.Designer.cs">
@@ -1055,6 +1066,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </Content>
     <None Include="packages.config" />
     <Content Include="site\home\.DS_Store" />
     <Content Include="site\home\css\.DS_Store" />
@@ -1497,6 +1511,10 @@
       <LastGenOutput>Registry.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="model\report\DAOReportResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOReportResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="model\section\DAOSectionResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DAOSectionResource.Designer.cs</LastGenOutput>
@@ -1524,6 +1542,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
