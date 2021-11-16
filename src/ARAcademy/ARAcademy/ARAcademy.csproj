@@ -176,11 +176,18 @@
     <Content Include="site\admin\adm_professor\edit_prof.aspx" />
     <Content Include="site\admin\adm_professor\list_mod_prof.aspx" />
     <Content Include="site\admin\adm_professor\mod_prof.aspx" />
+    <Content Include="site\admin\adm_reports\cant_est.aspx" />
+    <Content Include="site\admin\adm_reports\cant_estu.aspx" />
+    <Content Include="site\admin\adm_reports\horas_prof.aspx" />
+    <Content Include="site\admin\adm_reports\ingresos.aspx" />
+    <Content Include="site\admin\adm_reports\pago_est.aspx" />
+    <Content Include="site\admin\adm_reports\pago_prof.aspx" />
     <Content Include="site\admin\adm_student\edit_est.aspx" />
     <Content Include="site\admin\adm_topic\add_top.aspx" />
     <Content Include="site\admin\admin_home.aspx" />
     <Content Include="site\admin\adm_topic\edit_top.aspx" />
     <Content Include="site\admin\css\bootstrap.min.css" />
+    <Content Include="site\admin\css\bootstrap\mixins\bootstrap-datepicker.css" />
     <Content Include="site\admin\css\bootstrap\mixins\_border-radius.css" />
     <Content Include="site\admin\css\bootstrap\mixins\_screen-reader.css" />
     <Content Include="site\admin\css\bootstrap\mixins\_visibility.css" />
@@ -720,6 +727,48 @@
     </Compile>
     <Compile Include="site\admin\adm_professor\mod_prof.aspx.designer.cs">
       <DependentUpon>mod_prof.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\cant_est.aspx.cs">
+      <DependentUpon>cant_est.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\cant_est.aspx.designer.cs">
+      <DependentUpon>cant_est.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\cant_estu.aspx.cs">
+      <DependentUpon>cant_estu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\cant_estu.aspx.designer.cs">
+      <DependentUpon>cant_estu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\horas_prof.aspx.cs">
+      <DependentUpon>horas_prof.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\horas_prof.aspx.designer.cs">
+      <DependentUpon>horas_prof.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\ingresos.aspx.cs">
+      <DependentUpon>ingresos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\ingresos.aspx.designer.cs">
+      <DependentUpon>ingresos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\pago_est.aspx.cs">
+      <DependentUpon>pago_est.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\pago_est.aspx.designer.cs">
+      <DependentUpon>pago_est.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\pago_prof.aspx.cs">
+      <DependentUpon>pago_prof.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_reports\pago_prof.aspx.designer.cs">
+      <DependentUpon>pago_prof.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\admin\adm_student\edit_est.aspx.cs">
       <DependentUpon>edit_est.aspx</DependentUpon>
@@ -1514,6 +1563,7 @@
     <EmbeddedResource Include="model\report\DAOReportResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DAOReportResource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="model\section\DAOSectionResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>

@@ -9,24 +9,22 @@ namespace ARAcademy.controller.report
 {
     public class CalculateTeacherSalaryBetweenDatesCommand : Command
     {
-        private Teacher teacher;
+        private List<Teacher> teachers = new List<Teacher>();
         DateTime initDate;
         DateTime endDate;
-        int salary;
 
-        public CalculateTeacherSalaryBetweenDatesCommand(DateTime initDate, DateTime endDate, Teacher teacher)
+        public CalculateTeacherSalaryBetweenDatesCommand(DateTime initDate, DateTime endDate)
         {
             this.initDate = initDate;
             this.endDate = endDate;
-            this.teacher = teacher;
         }
 
-        public int Salary { get => salary; set => salary = value; }
+        public List<Teacher> Teachers { get => teachers; set => teachers = value; }
 
         public override void Execute()
         {
             DAOReport daoReport = new DAOReport();
-            salary = daoReport.CalculateTeacherSalaryBetweenDates(initDate, endDate, teacher);
+            teachers = daoReport.CalculateTeacherSalaryBetweenDates(initDate, endDate);
         }
     }
 }

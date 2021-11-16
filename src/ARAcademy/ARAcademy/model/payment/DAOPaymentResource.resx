@@ -158,7 +158,7 @@
     <comment>Procedimiento almacenado para leer los pagos de un alumno</comment>
   </data>
   <data name="ReadPaymentsBySectionSP" xml:space="preserve">
-    <value>READ_PAYMENT_BY_SECION</value>
+    <value>PAYMENTS_LIST_BY_SECTION</value>
     <comment>Procedimiento almacenado para leer los pagos de una sección</comment>
   </data>
   <data name="ReadPaymentSP" xml:space="preserve">

@@ -12,6 +12,9 @@ namespace ARAcademy.model.report
     public class DAOReport : DAO
     {
         private NpgsqlConnection conn;
+
+        public List<AraPayment> ReadAllPaymentBySectionCommand { get; internal set; }
+
         public List<ClassMeeting> ReadClassByTeacherBetweenDates(DateTime initDate, DateTime endDate, Teacher teacher)
         {
             conn = DAO.getConnection();
@@ -45,7 +48,8 @@ namespace ARAcademy.model.report
                 NpgsqlTransaction tran = conn.BeginTransaction();
                 NpgsqlCommand command = new NpgsqlCommand(DAOReportResource.ReadClassByTeacherPeriodSP, conn);
                 NpgsqlParameter parameter = new NpgsqlParameter();
-
+                NpgsqlParameter parameter_2 = new NpgsqlParameter();
+                NpgsqlParameter parameter_3 = new NpgsqlParameter();
 
                 parameter.ParameterName = DAOReportResource.IniDate;
                 parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
@@ -54,18 +58,18 @@ namespace ARAcademy.model.report
                 command.Parameters.Add(parameter);
 
 
-                parameter.ParameterName = DAOReportResource.EndDate;
-                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
-                parameter.Direction = ParameterDirection.Input;
-                parameter.Value = endDate;
-                command.Parameters.Add(parameter);
+                parameter_2.ParameterName = DAOReportResource.EndDate;
+                parameter_2.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
+                parameter_2.Direction = ParameterDirection.Input;
+                parameter_2.Value = endDate;
+                command.Parameters.Add(parameter_2);
 
 
-                parameter.ParameterName = DAOReportResource.Id;
-                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
-                parameter.Direction = ParameterDirection.Input;
-                parameter.Value = teacher.Email;
-                command.Parameters.Add(parameter);
+                parameter_3.ParameterName = DAOReportResource.Id;
+                parameter_3.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
+                parameter_3.Direction = ParameterDirection.Input;
+                parameter_3.Value = teacher.Email;
+                command.Parameters.Add(parameter_3);
 
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -237,6 +241,7 @@ namespace ARAcademy.model.report
                 NpgsqlTransaction tran = conn.BeginTransaction();
                 NpgsqlCommand command = new NpgsqlCommand(DAOReportResource.PaymentListSP, conn);
                 NpgsqlParameter parameter = new NpgsqlParameter();
+                NpgsqlParameter parameter_2 = new NpgsqlParameter();
 
                 parameter.ParameterName = DAOReportResource.IniDate;
                 parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
@@ -245,11 +250,11 @@ namespace ARAcademy.model.report
                 command.Parameters.Add(parameter);
 
 
-                parameter.ParameterName = DAOReportResource.EndDate;
-                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
-                parameter.Direction = ParameterDirection.Input;
-                parameter.Value = endDate;
-                command.Parameters.Add(parameter);
+                parameter_2.ParameterName = DAOReportResource.EndDate;
+                parameter_2.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
+                parameter_2.Direction = ParameterDirection.Input;
+                parameter_2.Value = endDate;
+                command.Parameters.Add(parameter_2);
 
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -294,11 +299,13 @@ namespace ARAcademy.model.report
             }
         }
 
-        public int CalculateTeacherSalaryBetweenDates(DateTime initDate, DateTime endDate, Teacher teacher)
+        public List<Teacher> CalculateTeacherSalaryBetweenDates(DateTime initDate, DateTime endDate)
         {
             conn = DAO.getConnection();
             ClassMeeting meeting = new ClassMeeting();
             int salary = -1;
+            Teacher teacher = new Teacher();
+            List<Teacher> teachers = new List<Teacher>();
 
             String id;
             String uuId;
@@ -325,9 +332,10 @@ namespace ARAcademy.model.report
             {
                 conn = DAO.getConnection();
                 NpgsqlTransaction tran = conn.BeginTransaction();
-                NpgsqlCommand command = new NpgsqlCommand(DAOReportResource.ReadClassByTeacherPeriodSP, conn);
+                NpgsqlCommand command = new NpgsqlCommand(DAOReportResource.TotalHoursTeacher, conn);
                 NpgsqlParameter parameter = new NpgsqlParameter();
-
+                NpgsqlParameter parameter_2 = new NpgsqlParameter();
+                NpgsqlParameter parameter_3 = new NpgsqlParameter();
 
                 parameter.ParameterName = DAOReportResource.IniDate;
                 parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
@@ -336,18 +344,11 @@ namespace ARAcademy.model.report
                 command.Parameters.Add(parameter);
 
 
-                parameter.ParameterName = DAOReportResource.EndDate;
-                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
-                parameter.Direction = ParameterDirection.Input;
-                parameter.Value = endDate;
-                command.Parameters.Add(parameter);
-
-
-                parameter.ParameterName = DAOReportResource.Id;
-                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Varchar;
-                parameter.Direction = ParameterDirection.Input;
-                parameter.Value = teacher.Email;
-                command.Parameters.Add(parameter);
+                parameter_2.ParameterName = DAOReportResource.EndDate;
+                parameter_2.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
+                parameter_2.Direction = ParameterDirection.Input;
+                parameter_2.Value = endDate;
+                command.Parameters.Add(parameter_2);
 
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -356,11 +357,16 @@ namespace ARAcademy.model.report
                 {
                     while (dr.Read())
                     {
-                        salary = dr.GetInt32(0);
-                    }
+                        teacher = new Teacher();
+                        teacher.Salary = dr.GetInt32(0);
+                        teacher.Email = dr.GetString(1);
+                        teacher.Name = dr.GetString(2);
+                        teacher.LastName = dr.GetString(3);
+                        teachers.Add(teacher);    
+                    }                   
                     dr.Close();
                     tran.Commit();
-                    return salary;
+                    return teachers;
                 }
                 catch (Exception ex)
                 {

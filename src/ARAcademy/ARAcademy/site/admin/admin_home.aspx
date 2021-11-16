@@ -1,7 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/site/admin/Admin_home.Master" AutoEventWireup="true" CodeBehind="admin_home.aspx.cs" Inherits="ARAcademy.site.admin.admin_home" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-<!-- Styles -->
+<%--<!-- Styles -->
 <style>
 #chartdiv {
   width: 100%;
@@ -222,10 +222,10 @@
             "country": "Cuarto Curso",
             "litres": suma_cuag
         }, {
-            "country": "Cuarto Curso",
+            "country": "Quinto Curso",
             "litres": suma_quig
         }, {
-            "country": "Cuarto Curso",
+            "country": "Sexto Curso",
             "litres": suma_sexg
         }];
 
@@ -246,13 +246,13 @@
         pieSeries.hiddenState.properties.startAngle = -90;
 
     }); // end am4core.ready()
-</script>
+</script>--%>
 </asp:Content>
 
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <div class="row justify-content-center" style="width:100%">
+<%--    <div class="row justify-content-center" style="width:100%">
         <h3>Listado de reportes</h3>
     </div>
 
@@ -279,5 +279,128 @@
                 <div id="chartdiv5"></div>
             </div>
         </div>
-    </div>
+    </div>--%>
+
+        <div class="row" style="margin:5%">
+
+        <%--MATERIA--%>
+
+              <!--Grid column-->
+              <div class="col-md-12 mb-4">
+                <!-- Card -->
+                <div class="card gradient-card">
+                    <!-- Data -->
+                     <a href="adm_reports/ingresos.aspx">
+                        <div class="third-content ml-auto mr-4 mb-2" style="margin-left: 5% !important; margin-right: 5% !important; margin-top: 2% !important">
+                          <div class="row">
+                            <h4 class="font-weight-bold float-left"> Ingresos y gastos </h4>
+                          </div>
+                          <div class="row">
+                            <p class="text-muted"> Reporte mensual de ingresos y gastos </p>
+                          </div>
+                        </div>
+                     </a>
+                </div>
+                <!-- Card -->
+              </div>
+              <!--Grid column-->
+
+              <!--Grid column-->
+              <div class="col-md-12 mb-4">
+                <!-- Card -->
+                <div class="card gradient-card">
+                    <!-- Data -->
+                     <a href="adm_reports/pago_est.aspx">
+                        <div class="third-content ml-auto mr-4 mb-2" style="margin-left: 5% !important; margin-right: 5% !important; margin-top: 2% !important">
+                          <div class="row">
+                            <h4 class="font-weight-bold float-left"> Pago estudiantes por modulo </h4>
+                          </div>
+                          <div class="row">
+                            <p class="text-muted"> Reporte de Pago estudiantes x modulo </p>
+                          </div>
+                        </div>
+                     </a>
+                </div>
+                <!-- Card -->
+              </div>
+              <!--Grid column-->
+
+              <!--Grid column-->
+              <div class="col-md-12 mb-4">
+                <!-- Card -->
+                <div class="card gradient-card">
+                    <!-- Data -->
+                     <a href="adm_reports/horas_prof.aspx">
+                        <div class="third-content ml-auto mr-4 mb-2" style="margin-left: 5% !important; margin-right: 5% !important; margin-top: 2% !important">
+                          <div class="row">
+                            <h4 class="font-weight-bold float-left"> Horas trabajadas por profesor </h4>
+                          </div>
+                          <div class="row">
+                            <p class="text-muted"> Reporte de horas trabajadas por profesor al mes </p>
+                          </div>
+                        </div>
+                     </a>
+                </div>
+                <!-- Card -->
+              </div>
+              <!--Grid column-->
+
+              <!--Grid column-->
+              <div class="col-md-12 mb-4">
+                <!-- Card -->
+                <div class="card gradient-card">
+                    <!-- Data -->
+                     <a href="adm_reports/pago_prof.aspx">
+                        <div class="third-content ml-auto mr-4 mb-2" style="margin-left: 5% !important; margin-right: 5% !important; margin-top: 2% !important">
+                          <div class="row">
+                            <h4 class="font-weight-bold float-left"> Pago Profesores </h4>
+                          </div>
+                          <div class="row">
+                            <p class="text-muted"> Reporte de Pago Profesores por mes </p>
+                          </div>
+                        </div>
+                     </a>
+                </div>
+                <!-- Card -->
+              </div>
+              <!--Grid column-->
+
+              <!--Grid column-->
+              <div class="col-md-12 mb-4">
+                <!-- Card -->
+                <div class="card gradient-card">
+                    <!-- Data -->
+                     <a href="adm_reports/cant_estu.aspx">
+                        <div class="third-content ml-auto mr-4 mb-2" style="margin-left: 5% !important; margin-right: 5% !important; margin-top: 2% !important">
+                          <div class="row">
+                            <h4 class="font-weight-bold float-left"> Cantidad de estudiantes inscritos por modulo </h4>
+                          </div>
+                          <div class="row">
+                            <p class="text-muted"> Reporte Cantidad de estudiantes inscritos por modulo por periodo </p>
+                          </div>
+                        </div>
+                     </a>
+                </div>
+                <!-- Card -->
+              </div>
+              <!--Grid column-->
+
+</div>
+
+    <script>
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
 </asp:Content>

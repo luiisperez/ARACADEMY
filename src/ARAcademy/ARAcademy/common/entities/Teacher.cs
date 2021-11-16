@@ -14,6 +14,7 @@ namespace ARAcademy.common
         private DateTime birthDate;
         private String phone;
         private String country;
+        private int salary;
 
         public Teacher()
         {
@@ -48,5 +49,6 @@ namespace ARAcademy.common
         public DateTime BirthDate { get => birthDate; set => birthDate = value; }
         public string Phone { get => phone; set => phone = value; }
         public string Country { get => country; set => country = value; }
+        public int Salary { get => salary; set => salary = value; }
     }
 }

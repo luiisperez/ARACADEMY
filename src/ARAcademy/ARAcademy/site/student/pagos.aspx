@@ -50,7 +50,7 @@
                                     <tr id="<%# Eval("Id") %>">
                                         <td><%# Eval("Id") %></td>
                                         <td><%# Eval("Section.Name") %></td>
-                                        <td><%# Eval("Amount") %></td>
+                                        <td><%# Eval("Amount") + "€" %></td>
                                         <td><%# Eval("PaymentDate") %></td>
                                         <td><%# Eval("PaypalTransactionId") %></td>
                                         <td><%# Eval("RemainingClasses" ) + "/10" %></td>
