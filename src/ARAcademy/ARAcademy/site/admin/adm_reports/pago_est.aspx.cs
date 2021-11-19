@@ -3,6 +3,7 @@ using ARAcademy.controller.course;
 using ARAcademy.controller.grade;
 using ARAcademy.controller.report;
 using ARAcademy.controller.section;
+using ARAcademy.controller.student;
 using PayPal.Api;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,7 @@ namespace ARAcademy.site.admin.adm_reports
         public Course course;
         public Section section;
         public Topic topic;
+        private Student student;
         private List<Grade> grade_list = new List<Grade>();
         private List<Course> course_list = new List<Course>();
         private List<Section> section_list = new List<Section>();
@@ -34,6 +36,7 @@ namespace ARAcademy.site.admin.adm_reports
                     if (Session["Username"] != null && Session["Token"] != null)
                     {
                         div_table.Visible = false;
+                        //export.Visible = false;
                         ReadAllGradeCommand cmd = new ReadAllGradeCommand();
                         cmd.Execute();
                         grade_list = cmd.Grades;
@@ -133,9 +136,18 @@ namespace ARAcademy.site.admin.adm_reports
             cmd.Execute();
 
             list_pagos = cmd.Payments;
+            foreach (AraPayment araPayments in list_pagos)
+            {
+                student = new Student();
+                student.Email = araPayments.Student.Email;
+                ReadStudentCommand cmd_ = new ReadStudentCommand(student);
+                cmd_.Execute();
+                araPayments.Student = cmd_.Student;
+            }
             prof_pagos.DataSource = list_pagos;
             prof_pagos.DataBind();
             div_table.Visible = true;
+            //export.Visible = true;
         }
     }
 }

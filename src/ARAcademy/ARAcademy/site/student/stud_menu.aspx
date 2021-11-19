@@ -243,6 +243,11 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+            <div class="row" style="width: 100%;margin-bottom:20px">
+                <div class="col-4" style="text-align:center; background: #00194f; border-radius: 5px">
+                    <label style="color:white;">Calendario</label>
+                </div>
+            </div>
 
 <div id='wrap' style="margin-bottom:40px">
        
@@ -251,7 +256,7 @@
     <div id='calendar'></div>
 
     <div style='clear:both; margin:2%'></div>
-        <h3>Listado de clases</h3>
+        <h3>Listado de clases disponibles</h3>
     <div style='clear:both; margin:2%'></div>
     <div class="row justify-content-center">
     <div class="col-md-10">
@@ -286,80 +291,6 @@
             </div>  
         </div>
     </div>
-<!-- Modal -->
-<%--<div id="myModal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="container">
-
-        <div class="row justify-content-center">
-            <div class="col-12">
-                    <div class="card-body" >
-
-                            <h3 style="font-weight:bold; text-align:center; margin-bottom:5%">Agendar Clase</h3>
-
-                            <asp:ScriptManager ID="ScriptManager1" runat="server"> </asp:ScriptManager>
-                            <asp:UpdatePanel id="UpdatePanel" runat="server">
-                                <ContentTemplate>
-                                    <div class="row">
-
-                                            <div class="col-6">
-                                                <h6 align="left" style="font-weight:bold; color:black">Seleccione el Modulo</h6>
-                                                <asp:DropDownList ID="list_section" class="form-control select2" runat="server" style="background-color: #eee; padding: 0px 10px;margin: 8px 0; width:100%; border:none;" OnSelectedIndexChanged="topic__SelectedIndexChanged"  required="required" AutoPostBack="True" >
-                                                </asp:DropDownList>
-                                            </div>
-
-                                            <div class="col-6">
-                                                <h6 align="left" style="font-weight:bold; color:black">Seleccione el Tópico</h6>
-                                                <asp:DropDownList ID="list_topics" class="form-control select2" runat="server" style="background-color: #eee; padding: 0px 10px;margin: 8px 0; width:100%; border:none;"  required="required"  AutoPostBack="True" >
-                                                </asp:DropDownList>
-                                            </div>
-
-                                    </div>
-                                </ContentTemplate>
-                            </asp:UpdatePanel>
-
-                            <div class="row"></div>
-
-                            <div class="row">
-                                <div class="col-6">
-                                    <h6 align="left" style="font-weight:bold; color:black">Fecha de Inicio</h6>
-                                    <input id="fec_ini" class="datepicker" placeholder="Fecha de Inicio" runat="server" style="background-color: #eee; border: none; padding: 27px 15px;margin: 0px 0; width: 100%;" required="required"/>                                    
-                                    <script>
-                                        $('.datepicker').datepicker({
-                                            uiLibrary: 'bootstrap4'
-                                        });
-                                    </script>
-
-                                </div>
-
-                                <div class="col-6">
-                                    <h6 align="left" style="font-weight:bold; color:black">Hora de Inicio</h6>	                                    
-                                    <select id="Hora" runat="server" class="form-control select2" style="background-color: #eee; padding: 0px 15px;margin: 8px 0; width:100%; border:none; height:65%" required="required">
-	                                   <option value="10:00:00" >10:00am</option> 
-	                                   <option value="11:00:00" >11:00am</option> 
-	                                   <option value="12:00:00" >12:00pm</option> 
-	                                   <option value="13:00:00" >01:00pm</option> 
-	                                   <option value="14:00:00" >02:00pm</option> 
-                                       <option value="15:00:00" >03:00pm</option>
-                                       <option value="16:00:00" >04:00pm</option>
-	                                </select>
-                                </div>
-                            </div>
-
-                            <div class="form-group" style="margin-top:2%">
-							<asp:Button runat="server" Style="background-color:#00194f;color:white;width:35%;border-radius: 20px;" OnClick="Create_Class" Text="Agendar"/>
-                            </div>
-                    </div>
-
-            </div>
-        </div>
-        </div>
-</div>
-
-    </div>
-</div>--%>
 
 </div>
 

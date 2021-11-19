@@ -26,6 +26,7 @@ namespace ARAcademy.site.admin.adm_reports
                     if (Session["Username"] != null && Session["Token"] != null)
                     {
                         div_table.Visible = false;
+                        //export.Visible = false;
                     }
                     else
                     {
@@ -47,9 +48,11 @@ namespace ARAcademy.site.admin.adm_reports
             cmd.Execute();
 
             teacher_list = cmd.Teachers;
-            prof_pagos.DataSource = meetings;
+            teacher_list.RemoveAt(0);
+            prof_pagos.DataSource = teacher_list;
             prof_pagos.DataBind();
             div_table.Visible = true;
+            //export.Visible = true;
         }
     }
 }

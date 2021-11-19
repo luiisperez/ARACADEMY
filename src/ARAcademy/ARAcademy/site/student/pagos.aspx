@@ -26,6 +26,13 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+            <div class="row" style="width: 100%;">
+                <div class="col-4" style="text-align:center; background: #00194f; border-radius: 5px">
+                    <label style="color:white;font-weight: lighter;">Mis Pagos</label>
+                </div>
+            </div>
+
 <div class="row justify-content-center">
     <h3>Listado de clases</h3>
 </div>

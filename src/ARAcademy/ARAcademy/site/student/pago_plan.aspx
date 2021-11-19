@@ -52,6 +52,13 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+            <div class="row" style="width: 100%;">
+                <div class="col-4" style="text-align:center; background: #00194f; border-radius: 5px">
+                    <label style="color:white;font-weight: lighter;">Oferta Académica</label>
+                </div>
+            </div>
+
     <div class="box" style="margin:3%;">
     <div class="container">
 		<h3 style="text-align:center; font-weight:bold">Selecciona la materia</h3>

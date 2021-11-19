@@ -32,7 +32,7 @@
                         <a href="pago_plan.aspx"><span class="fa fa-usd"></span> Oferta Académica </a>
                       </li>
                       <li>
-                        <a href="stud_menu.aspx"><span class="fa fa-calendar"></span> Inicio </a>
+                        <a href="stud_menu.aspx"><span class="fa fa-calendar"></span>Calendario</a>
                       </li>
                       <li>
                           <a href="mis_clases.aspx"><span class="fa fa-book"></span> Mis Clases </a>

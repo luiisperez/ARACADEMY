@@ -156,6 +156,8 @@ namespace ARAcademy.model.report
                 NpgsqlTransaction tran = conn.BeginTransaction();
                 NpgsqlCommand command = new NpgsqlCommand(DAOReportResource.ReadStudentsBySectionPeriodSP, conn);
                 NpgsqlParameter parameter = new NpgsqlParameter();
+                NpgsqlParameter parameter_2 = new NpgsqlParameter();
+                NpgsqlParameter parameter_3 = new NpgsqlParameter();
 
                 parameter.ParameterName = DAOReportResource.IniDate;
                 parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
@@ -164,18 +166,18 @@ namespace ARAcademy.model.report
                 command.Parameters.Add(parameter);
 
 
-                parameter.ParameterName = DAOReportResource.EndDate;
-                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
-                parameter.Direction = ParameterDirection.Input;
-                parameter.Value = endDate;
-                command.Parameters.Add(parameter);
+                parameter_2.ParameterName = DAOReportResource.EndDate;
+                parameter_2.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
+                parameter_2.Direction = ParameterDirection.Input;
+                parameter_2.Value = endDate;
+                command.Parameters.Add(parameter_2);
 
 
-                parameter.ParameterName = DAOReportResource.Id;
-                parameter.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
-                parameter.Direction = ParameterDirection.Input;
-                parameter.Value = section.Id;
-                command.Parameters.Add(parameter);
+                parameter_3.ParameterName = DAOReportResource.Id;
+                parameter_3.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Integer;
+                parameter_3.Direction = ParameterDirection.Input;
+                parameter_3.Value = section.Id;
+                command.Parameters.Add(parameter_3);
 
                 command.CommandType = CommandType.StoredProcedure;
 
@@ -184,8 +186,6 @@ namespace ARAcademy.model.report
                 {
                     while (dr.Read())
                     {
-
-
                         email = dr.GetString(0);
                         password = dr.GetString(1);
                         name = dr.GetString(2);
@@ -194,9 +194,9 @@ namespace ARAcademy.model.report
                         phone = dr.GetString(5);
                         country = dr.GetString(6);
                         status = dr.GetChar(7);
-                        gradeId = dr.GetInt32(8);
-                        gradeName = dr.GetString(9);
-                        Grade grade = new Grade(gradeId, gradeName);
+                        //gradeId = dr.GetInt32(8);
+                        //gradeName = dr.GetString(9);
+                        Grade grade = new Grade();
                         readStudent = new Student(email, password, name, lastName, birthDate, phone, country, grade);
                         readStudent.Status = status;
                         students.Add(readStudent);

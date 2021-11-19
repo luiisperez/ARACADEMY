@@ -1,5 +1,6 @@
 ﻿using ARAcademy.common.entities;
 using ARAcademy.controller.report;
+using ARAcademy.controller.student;
 using PayPal.Api;
 using System;
 using System.Collections.Generic;
@@ -13,6 +14,7 @@ namespace ARAcademy.site.admin.adm_reports
 {
     public partial class ingresos : System.Web.UI.Page
     {
+        private Student student;
         private List<AraPayment> list_pagos = new List<AraPayment>();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,6 +25,7 @@ namespace ARAcademy.site.admin.adm_reports
                     if (Session["Username"] != null && Session["Token"] != null)
                     {
                         div_table.Visible = false;
+                        //export.Visible = false;
                     }
                     else
                     {
@@ -45,9 +48,19 @@ namespace ARAcademy.site.admin.adm_reports
             cmd.Execute();
 
             list_pagos = cmd.Payments;
+            foreach (AraPayment araPayments in list_pagos)
+            {
+                student = new Student();
+                student.Email = araPayments.Student.Email;
+                ReadStudentCommand cmd_ = new ReadStudentCommand(student);
+                cmd_.Execute();
+                araPayments.Student = cmd_.Student;
+            }
+
             prof_pagos.DataSource = list_pagos;
             prof_pagos.DataBind();
             div_table.Visible = true;
+            //export.Visible = true;
         }
     }
 }

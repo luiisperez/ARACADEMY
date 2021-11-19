@@ -45,6 +45,12 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+        <div class="row" style="width: 100%;">
+            <div class="col-4" style="text-align:center; background: #00194f; border-radius: 5px">
+                <label style="color:white"> Programación Académica </label>
+            </div>
+        </div>
+
     <body>
 
         <form id="form1">

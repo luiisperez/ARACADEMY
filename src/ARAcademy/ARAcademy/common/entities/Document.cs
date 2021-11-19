@@ -34,5 +34,15 @@ namespace ARAcademy.common.entities
         public Topic Topic { get => topic; set => topic = value; }
         public byte[] Bytea { get => bytea; set => bytea = value; }
         public int Id { get => id; set => id = value; }
+
+        internal void Open()
+        {
+            throw new NotImplementedException();
+        }
+
+        internal void Close()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

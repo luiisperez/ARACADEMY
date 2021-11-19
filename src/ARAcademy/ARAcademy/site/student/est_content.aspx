@@ -49,6 +49,13 @@
     </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+            
+            <div class="row" style="width: 100%;">
+                <div class="col-4" style="text-align:center; background: #00194f; border-radius: 5px">
+                    <label style="color:white;font-weight: lighter;">Programa Académico</label>
+                </div>
+            </div>
+
 <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card" style="margin:1% 5% 5% 5%">

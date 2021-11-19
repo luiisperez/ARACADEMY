@@ -9,6 +9,19 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
     <link rel="stylesheet" href="/site/admin/css/util.css">
+
+    <%--_______--%>
+    <link rel="stylesheet" href="/site/admin/css/Datatable.css">
+    <script src="/site/admin/js/jquery.dataTables.min.js"></script>
+    <script src="/site/admin/js/dataTables.bootstrap4.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#table').DataTable();
+        });
+    </script>
+
+
     <script type="text/javascript">
         // When the document is ready
         $(document).ready(function () {
@@ -33,6 +46,25 @@
         .gj-datepicker-md [role=right-icon] {
             display: none;
         }
+
+        .custom-select-sm {
+            height: calc(2rem + 2px);
+            padding-top: 0.375rem;
+            padding-bottom: 0.375rem;
+             font-size: 75%; 
+        }
+
+        div.dataTables_wrapper div.dataTables_filter input {
+            margin-left: 0.5em;
+            display: inline-block;
+            width: auto;
+            font-size: medium;
+        }
+
+        .navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+            color: rgba(0, 0, 0, 0.9);
+            font-size: 15px;
+        }
     </style>
 
     <link href="../css/bootstrap/mixins/bootstrap-datepicker.css" rel="stylesheet"/>
@@ -40,7 +72,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center" style="font-size:15px">
             <div class="col-md-12">
                 <div class="card" style="margin:5%">
                     <div class="card-body" >
@@ -87,10 +119,13 @@
                 </div>
             </div>
 
-<div class="row justify-content-center">
+<div class="row justify-content-center" style="font-size:15px">
     <div class="col-md-12">
     <div  style="margin:1% 5% 5% 5%">
     <div id="div_table" class="table-responsive" runat="server" > 
+
+        <div id="table_wrapper" class="dataTables_wrapper dt-bootstrap4">
+
             <table id="table" class="table table-striped table-bordered" style="width:100%;" >
             <thead>
                 <tr>
@@ -117,5 +152,6 @@
         </div>  
          </div>
         </div>
+      </div>
 </div>
 </asp:Content>

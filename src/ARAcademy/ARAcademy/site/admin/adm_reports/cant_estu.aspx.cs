@@ -8,6 +8,7 @@ using System.Web.UI.WebControls;
 using ARAcademy.controller.section;
 using ARAcademy.controller.grade;
 using ARAcademy.controller.course;
+using ARAcademy.controller.report;
 
 namespace ARAcademy.site.admin.adm_reports
 {
@@ -21,6 +22,7 @@ namespace ARAcademy.site.admin.adm_reports
         private List<Course> course_list = new List<Course>();
         private List<Section> section_list = new List<Section>();
         private List<AraPayment> list_pagos = new List<AraPayment>();
+        private List<Student> student_list = new List<Student>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -30,6 +32,7 @@ namespace ARAcademy.site.admin.adm_reports
                     if (Session["Username"] != null && Session["Token"] != null)
                     {
                         div_table.Visible = false;
+                        //export.Visible = false;
                         ReadAllGradeCommand cmd = new ReadAllGradeCommand();
                         cmd.Execute();
                         grade_list = cmd.Grades;
@@ -118,6 +121,23 @@ namespace ARAcademy.site.admin.adm_reports
                 list_section.Enabled = false;
             }
 
+        }
+
+        protected void Cant_Estu(object sender, EventArgs e)
+        {
+            DateTime fec_ini = DateTime.Parse(fec_in.Text);
+            DateTime fec_fi = DateTime.Parse(fec_fin.Text);
+            section = new Section();
+            section.Id = Int32.Parse(list_section.SelectedValue);
+
+            ReadAllStudentBySectionBetweenDatesCommand cmd = new ReadAllStudentBySectionBetweenDatesCommand(fec_ini, fec_fi, section);
+            cmd.Execute();
+
+            student_list = cmd.Students;
+            prof_pagos.DataSource = student_list;
+            prof_pagos.DataBind();
+            div_table.Visible = true;
+            //export.Visible = true;
         }
     }
 }

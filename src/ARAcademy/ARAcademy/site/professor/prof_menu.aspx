@@ -239,6 +239,13 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
+            <div class="row" style="width: 100%; margin-bottom:20px">
+                <div class="col-4" style="text-align:center; background: #00194f; border-radius: 5px">
+                    <label style="color:white;">Calendario</label>
+                </div>
+            </div>
+
     <div id='wrap' style="margin-bottom:40px">
        
 
@@ -246,7 +253,7 @@
 
     <div style='clear:both'></div>
     <div style='clear:both; margin:2%'></div>
-    <h3>Listado de clases</h3>
+    <h3>Listado de clases disponibles</h3>
     <div style='clear:both; margin:2%'></div>
     <div class="row justify-content-center">
     <div class="col-md-10">

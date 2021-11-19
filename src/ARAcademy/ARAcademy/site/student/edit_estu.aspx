@@ -65,6 +65,13 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server" >
+
+            <div class="row" style="width: 100%;">
+                <div class="col-4" style="text-align:center; background: #00194f; border-radius: 5px">
+                    <label style="color:white;font-weight: lighter;">Mi Perfil</label>
+                </div>
+            </div>
+
         <div class="container">
 
         <div class="row justify-content-center">

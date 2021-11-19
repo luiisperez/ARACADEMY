@@ -6,6 +6,12 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
+        <div class="row" style="width: 100%;">
+            <div class="col-4" style="text-align:center; background: #00194f; border-radius: 5px">
+                <label style="color:white"> Programación Académica </label>
+            </div>
+        </div>
+
     <div class="row" style="margin:5%">
 
         <%--MATERIA--%>
@@ -190,7 +196,7 @@
                     <!-- Data -->
                     <div class="third-content  ml-auto mr-4 mb-2" style="margin: 5% !important">
                       <div class="row">
-                        <h4 class="font-weight-bold float-left"> Topicos </h4>
+                        <h4 class="font-weight-bold float-left"> Crear Tópico</h4>
                       </div>
                       <div class="row">
                         <p class="text-muted">Creación de tópicos en el sistema.</p>
