@@ -16,7 +16,7 @@ namespace ARAcademy.controller.grade
 
         public override void Execute()
         {
-            DAOGrade daoGrade = new DAOGrade();
+            DAOOffer daoGrade = new DAOOffer();
             grades = daoGrade.ReadAllGrades();
         }
     }

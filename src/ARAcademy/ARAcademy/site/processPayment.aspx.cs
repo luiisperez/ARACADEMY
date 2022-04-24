@@ -44,7 +44,7 @@ namespace ARAcademy.site
                 Student student = new Student( username , ""); //OBTENER EL OBJETO DEL ESTUDIANTE QUE INICIO SESION
                 int remainingClasses = 10;
                 AraPayment payment = new AraPayment(today, expirationDate, transactionId, amount, remainingClasses ,item, student);
-                CreateAraPaymentCommand cmd = new CreateAraPaymentCommand(payment);
+                CreateOfferCommand cmd = new CreateAraPaymentCommand(payment);
                 cmd.Execute();
                 /*DESCOMENTAR CUANDO FUNCIONE TODO EL BACK Y SE PASE CORRECTAMENTE EL ESTUDIANTE Y LOS MODULOS*/
             }

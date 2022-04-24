@@ -488,6 +488,7 @@
     <Compile Include="common\entities\Educate.cs" />
     <Compile Include="common\entities\Grade.cs" />
     <Compile Include="common\entities\AraPayment.cs" />
+    <Compile Include="common\entities\Offer.cs" />
     <Compile Include="common\entities\Section.cs" />
     <Compile Include="common\entities\Student.cs" />
     <Compile Include="common\entities\Topic.cs" />
@@ -526,6 +527,12 @@
     <Compile Include="controller\educate\GetTeachersBySectionCommand.cs" />
     <Compile Include="controller\educate\RemoveSectionTeacherCommand.cs" />
     <Compile Include="controller\grade\ReadAllGradeCommand.cs" />
+    <Compile Include="controller\offer\CreateOfferCommand.cs" />
+    <Compile Include="controller\offer\DeleteOfferCommand.cs" />
+    <Compile Include="controller\offer\ReadAllActiveOffersCommand.cs" />
+    <Compile Include="controller\offer\ReadAllOfferCommand.cs" />
+    <Compile Include="controller\offer\ReadOfferCommand.cs" />
+    <Compile Include="controller\offer\UpdateOfferCommand.cs" />
     <Compile Include="controller\payment\CreateAraPaymentCommand.cs" />
     <Compile Include="controller\payment\DeletePaymentCommand.cs" />
     <Compile Include="controller\payment\ReadAllPaymentBySectionCommand.cs" />
@@ -606,6 +613,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DAOGradeResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="model\offer\DAOOffer.cs" />
+    <Compile Include="model\offer\DAOOfferResource.Designer.cs">
+      <DependentUpon>DAOOfferResource.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="model\payment\DAOPayment.cs" />
     <Compile Include="model\payment\DAOPaymentResource1.Designer.cs">
@@ -1549,6 +1562,10 @@
     <EmbeddedResource Include="model\grade\DAOGradeResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>DAOGradeResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="model\offer\DAOOfferResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>DAOOfferResource.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="model\payment\DAOPaymentResource.resx">
       <Generator>ResXFileCodeGenerator</Generator>
