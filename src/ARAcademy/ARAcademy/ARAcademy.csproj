@@ -173,6 +173,10 @@
     <Content Include="site\admin\adm_course\edit_mat.aspx" />
     <Content Include="site\admin\adm_module\add_mod.aspx" />
     <Content Include="site\admin\adm_module\edit_mod.aspx" />
+    <Content Include="site\admin\adm_offert\adm_offerts.aspx" />
+    <Content Include="site\admin\adm_offert\Create_offert.aspx" />
+    <Content Include="site\admin\adm_offert\Edit_offert.aspx" />
+    <Content Include="site\admin\adm_offert\List_offert.aspx" />
     <Content Include="site\admin\adm_professor\edit_prof.aspx" />
     <Content Include="site\admin\adm_professor\list_mod_prof.aspx" />
     <Content Include="site\admin\adm_professor\mod_prof.aspx" />
@@ -719,6 +723,34 @@
     </Compile>
     <Compile Include="site\admin\adm_module\edit_mod.aspx.designer.cs">
       <DependentUpon>edit_mod.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_offert\adm_offerts.aspx.cs">
+      <DependentUpon>adm_offerts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_offert\adm_offerts.aspx.designer.cs">
+      <DependentUpon>adm_offerts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_offert\Create_offert.aspx.cs">
+      <DependentUpon>Create_offert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_offert\Create_offert.aspx.designer.cs">
+      <DependentUpon>Create_offert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_offert\Edit_offert.aspx.cs">
+      <DependentUpon>Edit_offert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_offert\Edit_offert.aspx.designer.cs">
+      <DependentUpon>Edit_offert.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="site\admin\adm_offert\List_offert.aspx.cs">
+      <DependentUpon>List_offert.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="site\admin\adm_offert\List_offert.aspx.designer.cs">
+      <DependentUpon>List_offert.aspx</DependentUpon>
     </Compile>
     <Compile Include="site\admin\adm_professor\edit_prof.aspx.cs">
       <DependentUpon>edit_prof.aspx</DependentUpon>

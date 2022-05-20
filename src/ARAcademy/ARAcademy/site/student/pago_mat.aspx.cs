@@ -1,4 +1,5 @@
 ﻿using ARAcademy.common.entities;
+using ARAcademy.controller.offer;
 using ARAcademy.controller.section;
 using ARAcademy.model.payment;
 using PayPal.Api;
@@ -15,12 +16,16 @@ namespace ARAcademy.site.student
     {
         public string sec;
         public int j;
+        public int cantidad;
+        public double descuento;
+        public double percentage;
         public string sec_2;
         public double monto;
         public double iva;
         public double total;
-        public Section section;
+        public Offer offer;
         public List<Section> CartList = new List<Section>();
+        public List<Offer> List_offer = new List<Offer>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -36,6 +41,7 @@ namespace ARAcademy.site.student
                             } 
                             else 
                             {
+                                cantidad = CartList.Count();
                                 foreach (Section section in CartList)
                                 {
                                     monto = monto + section.Amount;
@@ -43,7 +49,28 @@ namespace ARAcademy.site.student
                                     mod_data.DataBind();
                                 }
                             }
+                        ReadAllActiveOffersCommand cmd = new ReadAllActiveOffersCommand();
+                        cmd.Execute();
+                        List_offer = cmd.Offers;
+                        List_offer = List_offer.OrderBy(o => o.MinArticles).ToList();
+                        foreach (Offer offer in List_offer) 
+                        {
+                            if (cantidad >= offer.MinArticles) 
+                            {
+                                percentage = offer.Percentage;
+                                percentage = (percentage / 100);
+                            } else {}
                         }
+                        if (percentage == 0)
+                        {
+                            Session["Discount"] = 0;
+                            porcentaje.Visible = false;
+                            total_pago.Visible = false;
+                        }
+                        Session["Discount"] = percentage;
+                        total = monto - (monto * percentage);
+                        descuento = (monto * percentage);                            
+                    }
                     else
                     {
                         Response.Redirect("/site/student/login.aspx");
@@ -61,6 +88,7 @@ namespace ARAcademy.site.student
         {
 
             CartList = (List<Section>)Session["ScItms"];
+            var discount = Convert.ToDouble(Session["Discount"].ToString());
 
             APIContext apiContext = PaypalConfiguration.GetAPIContext();
 
@@ -68,7 +96,7 @@ namespace ARAcademy.site.student
             {
                 String baseURI = Request.Url.Scheme + "://" + Request.Url.Authority + "/site/student/processPayment.aspx?";
                 var guid = Convert.ToString(new Random().Next(100000));
-                var createdPayment = PaypalPayment.CreatePayment(apiContext, baseURI + "guid=" + guid, CartList);
+                var createdPayment = PaypalPayment.CreatePayment(apiContext, baseURI + "guid=" + guid, CartList, discount);
 
                 var links = createdPayment.links.GetEnumerator();
                 String paypalRedirectUrl = String.Empty;

@@ -7,21 +7,39 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace ARAcademy.site.student
+namespace ARAcademy.site.admin.adm_offert
 {
 
 
-    public partial class pago_mat
+    public partial class Create_offert
     {
 
         /// <summary>
-        /// Control mod_data.
+        /// Control fec_in.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater mod_data;
+        protected global::System.Web.UI.WebControls.TextBox fec_in;
+
+        /// <summary>
+        /// Control fec_fin.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox fec_fin;
+
+        /// <summary>
+        /// Control minArticles.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList minArticles;
 
         /// <summary>
         /// Control porcentaje.
@@ -30,33 +48,24 @@ namespace ARAcademy.site.student
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl porcentaje;
+        protected global::System.Web.UI.WebControls.DropDownList porcentaje;
 
         /// <summary>
-        /// Control total_pago.
+        /// Control name.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl total_pago;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText name;
 
         /// <summary>
-        /// Control Button1.
+        /// Control description.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
-
-        /// <summary>
-        /// Control btn_pay1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_pay1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText description;
     }
 }

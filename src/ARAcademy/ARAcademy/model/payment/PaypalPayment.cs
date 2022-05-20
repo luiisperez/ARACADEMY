@@ -9,13 +9,14 @@ namespace ARAcademy.model.payment
 {
     public class PaypalPayment
     {
-        public static Payment CreatePayment(APIContext apiContext, String redirectUrl, List<Section> cartList)
+        public static Payment CreatePayment(APIContext apiContext, String redirectUrl, List<Section> cartList, Double discount)
         {
             var listItems = new ItemList() { items = new List<Item>() };
 
             Double subtotal = 0;
             foreach (Section item in cartList)
             {
+                item.Amount = Math.Round(item.Amount - (item.Amount * discount), 2);
                 listItems.items.Add(new Item() 
                 {
                     name = item.Name,
@@ -23,9 +24,12 @@ namespace ARAcademy.model.payment
                     price = item.Amount.ToString(),
                     quantity = "1",
                     sku = item.Id.ToString()
-                });
+                });   
                 subtotal += item.Amount;
             }
+
+            //subtotal = subtotal - (subtotal * discount);
+            subtotal = Math.Round(subtotal, 2);
 
             var payer = new Payer() { payment_method = "paypal" };
 

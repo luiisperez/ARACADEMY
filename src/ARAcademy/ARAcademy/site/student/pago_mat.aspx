@@ -72,6 +72,10 @@
                 </table>
                 </div>
                         <span id="final_pri" style="float:right"> Monto Final: <%=monto%>$</span>
+                        <br />
+                        <span id="porcentaje" runat="server" style="float:right"> Descuento: <%=descuento%> $</span>
+                        <br />
+                        <span id="total_pago" runat="server" style="float:right"> Monto total a pagar: <%=total%> $</span>
                         <%--<br />
                         <span id="final_iva" style="float:right"> Monto Final: <%=iva%>$</span>
                         <br />

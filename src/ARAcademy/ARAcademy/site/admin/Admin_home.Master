@@ -41,6 +41,10 @@
                       <li>
                         <a href="/site/admin/admin_home.aspx"><span class="fa fa-files-o "></span> Reportes Generales </a>
                       </li>
+
+                      <li>
+                        <a href="/site/admin/adm_offert/adm_offerts.aspx"><span class="fa fa-percent "></span> Ofertas </a>
+                      </li>
                     
                     </ul>
 
