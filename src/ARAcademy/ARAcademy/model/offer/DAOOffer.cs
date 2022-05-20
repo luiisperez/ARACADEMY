@@ -95,7 +95,7 @@ namespace ARAcademy.model.offer
             return response;
         }
 
-        public List<Offer> ReadAllActiveOffers(Offer offer)
+        public List<Offer> ReadAllActiveOffers()
         {
             conn = DAO.getConnection();
             Offer readOffer = new Offer();
@@ -114,23 +114,6 @@ namespace ARAcademy.model.offer
                 NpgsqlTransaction tran = conn.BeginTransaction();
                 NpgsqlCommand command = new NpgsqlCommand(DAOOfferResource.ReadActiveOfferSP, conn);
 
-                NpgsqlParameter initialDate = new NpgsqlParameter();
-                NpgsqlParameter endingDate = new NpgsqlParameter();
-
-                initialDate.ParameterName = DAOOfferResource.InitDate;
-                endingDate.ParameterName = DAOOfferResource.EndDate;
-
-                initialDate.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
-                endingDate.NpgsqlDbType = NpgsqlTypes.NpgsqlDbType.Date;
-
-                initialDate.Direction = ParameterDirection.Input;
-                endingDate.Direction = ParameterDirection.Input;
-
-                initialDate.Value = offer.InitDate;
-                endingDate.Value = offer.EndDate;
-
-                command.Parameters.Add(initialDate);
-                command.Parameters.Add(endingDate);
                 command.CommandType = CommandType.StoredProcedure;
 
                 NpgsqlDataReader dr = command.ExecuteReader();
