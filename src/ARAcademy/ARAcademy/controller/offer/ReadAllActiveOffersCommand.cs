@@ -13,9 +13,8 @@ namespace ARAcademy.controller.offer
         private List<Offer> offers;
         private Offer offer;
 
-        public ReadAllActiveOffersCommand(Offer offer)
+        public ReadAllActiveOffersCommand()
         {
-            this.offer = offer;
         }
 
         public List<Offer> Offers { get => offers; set => offers = value; }
@@ -24,7 +23,7 @@ namespace ARAcademy.controller.offer
         public override void Execute()
         {
             DAOOffer daoOffer = new DAOOffer();
-            offers = daoOffer.ReadAllActiveOffers(offer);
+            offers = daoOffer.ReadAllActiveOffers();
         }
     }
 }
