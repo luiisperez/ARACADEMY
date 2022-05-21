@@ -33,6 +33,15 @@ namespace ARAcademy.site.admin.adm_offert
         protected global::System.Web.UI.WebControls.TextBox fec_fin;
 
         /// <summary>
+        /// Control porcentaje.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText porcentaje;
+
+        /// <summary>
         /// Control minArticles.
         /// </summary>
         /// <remarks>
@@ -40,15 +49,6 @@ namespace ARAcademy.site.admin.adm_offert
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList minArticles;
-
-        /// <summary>
-        /// Control porcentaje.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList porcentaje;
 
         /// <summary>
         /// Control name.

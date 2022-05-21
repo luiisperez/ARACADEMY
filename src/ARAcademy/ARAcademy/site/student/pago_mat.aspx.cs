@@ -18,6 +18,7 @@ namespace ARAcademy.site.student
         public int j;
         public int cantidad;
         public double descuento;
+        public double descuento_porc;
         public double percentage;
         public string sec_2;
         public double monto;
@@ -48,6 +49,8 @@ namespace ARAcademy.site.student
                                     mod_data.DataSource = CartList;
                                     mod_data.DataBind();
                                 }
+                                monto = (monto + (monto * 0.21));
+                                monto = Math.Round(monto, 2);
                             }
                         ReadAllActiveOffersCommand cmd = new ReadAllActiveOffersCommand();
                         cmd.Execute();
@@ -69,7 +72,10 @@ namespace ARAcademy.site.student
                         }
                         Session["Discount"] = percentage;
                         total = monto - (monto * percentage);
-                        descuento = (monto * percentage);                            
+                        total = Math.Round(total, 2);
+                        descuento = (monto * percentage);
+                        descuento_porc = (percentage * 100);
+                        descuento = Math.Round(descuento, 2);
                     }
                     else
                     {

@@ -41,6 +41,7 @@ namespace ARAcademy.model.payment
             };
 
             Double tax = subtotal * 0.21;
+            tax = Math.Round(tax, 2);
             //Crear detalles de la transaccion
             var details = new Details()
             {

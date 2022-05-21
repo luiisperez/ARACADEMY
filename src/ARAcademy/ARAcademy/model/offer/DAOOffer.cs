@@ -113,6 +113,7 @@ namespace ARAcademy.model.offer
                 conn = DAO.getConnection();
                 NpgsqlTransaction tran = conn.BeginTransaction();
                 NpgsqlCommand command = new NpgsqlCommand(DAOOfferResource.ReadActiveOfferSP, conn);
+
                 command.CommandType = CommandType.StoredProcedure;
 
                 NpgsqlDataReader dr = command.ExecuteReader();

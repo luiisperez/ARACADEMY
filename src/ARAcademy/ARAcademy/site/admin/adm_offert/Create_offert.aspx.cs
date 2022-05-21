@@ -18,14 +18,6 @@ namespace ARAcademy.site.admin.adm_offert
             {
                 if (Session["Username"] != null && Session["Token"] != null)
                 {
-                    for (var i = 1; i < 100; i++)
-                    {
-                        ListItem item = new ListItem();
-                        item.Text = i.ToString();
-                        item.Value = i.ToString();
-                        porcentaje.Items.Add(item);
-                    }
-
                     for (var i = 1; i < 10; i++)
                     {
                         ListItem item = new ListItem();
@@ -55,7 +47,7 @@ namespace ARAcademy.site.admin.adm_offert
             offer.InitDate = fec_ini;
             offer.EndDate = fec_fi;
             offer.MinArticles = Int32.Parse(minArticles.SelectedValue);
-            offer.Percentage = Int32.Parse(porcentaje.SelectedValue);
+            offer.Percentage = Int32.Parse(porcentaje.Value);
             CreateOfferCommand cmd = new CreateOfferCommand(offer);
             cmd.Execute();
             if (offer.Code == 200)

@@ -25,7 +25,7 @@
             })
                 .then(function (result) {
                     if (result.value) {
-                        window.location = "site/admin/adm_offert/adm_offerts.aspx";
+                        window.location = "/site/admin/adm_offert/adm_offerts.aspx";
                     }
                 })
         }
@@ -122,8 +122,14 @@
                                 <asp:TextBox ID="fec_in" runat="server" Width="100%" BorderStyle="Double" BorderWidth="1" required="required"  AutoCompleteType="Disabled"></asp:TextBox>
                             </div>
                             <div class="col-3" style="text-align:center; align-items:center">
-                                    <label>Fecha Fin</label>
+                                <label>Fecha Fin</label>
                                 <asp:TextBox ID="fec_fin" runat="server" Width="100%" BorderStyle="Double" BorderWidth="1" required="required" AutoCompleteType="Disabled"></asp:TextBox>
+                            </div>
+                            <div class="col-2" style="text-align:center; align-items:center">
+                                <label>Porcentaje de descuento</label>
+	                            <div class="input">
+                                    <input runat="server" pattern="^[1-9][0-9]?$|^100$" title="Solo numeros entre 1-99" maxlength="2" type="text" name="name" Width="100%" id="porcentaje" required="required" />
+                                </div>
                             </div>
                             <div class="col-2" style="text-align:center">
                                 <label>Cantidad de articulos</label>
@@ -131,12 +137,12 @@
                                     <asp:dropdownlist runat="server" id="minArticles" style="width:100%" required="required"> </asp:dropdownlist>
                                 </div>
                             </div>
-                            <div class="col-2" style="text-align:center">
+<%--                            <div class="col-2" style="text-align:center">
                                 <label>Porcentaje de la oferta</label>
                                 <div class="input-group" style="height:50%">
-                                    <asp:dropdownlist runat="server" id="porcentaje" style="width:100%" required="required"> </asp:dropdownlist>
+                                    <asp:dropdownlist runat="server" id="" style="width:100%" required="required"> </asp:dropdownlist>
                                 </div>
-                            </div>
+                            </div>--%>
                             <div class="col-1"></div>
                         </div>
 
