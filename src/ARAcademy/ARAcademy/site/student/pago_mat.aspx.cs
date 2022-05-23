@@ -20,7 +20,7 @@ namespace ARAcademy.site.student
         public double descuento;
         public double descuento_porc;
         public double percentage;
-        public string sec_2;
+        public string name_discount;
         public double monto;
         public double iva;
         public double total;
@@ -61,6 +61,7 @@ namespace ARAcademy.site.student
                             if (cantidad >= offer.MinArticles) 
                             {
                                 percentage = offer.Percentage;
+                                name_discount = offer.Name;
                                 percentage = (percentage / 100);
                             } else {}
                         }

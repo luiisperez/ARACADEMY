@@ -73,7 +73,7 @@
                 </div>
                         <span id="final_pri" style="float:right"> Monto Final con Impuestos: <%=monto%>€</span>
                         <br />
-                        <span id="porcentaje" runat="server" style="float:right"> Descuento (<%=descuento_porc%>%): <%=descuento%>€</span>
+                        <span id="porcentaje" runat="server" style="float:right"> Descuento (<%=descuento_porc%>% - <%=name_discount%>): <%=descuento%>€</span>
                         <br />
                         <span id="total_pago" runat="server" style="float:right"> Monto total a pagar: <%=total%>€</span>
                         <%--<br />
